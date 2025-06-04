@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* --color-*: initial; */
+  /* --color-white: #fff; */
+  --color-brown: oklch(0.3526 0.047 51.31);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --container-8xl: 94rem;
+
+  --breakpoint-2xs: 360px;
+  --breakpoint-xs: 489px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 786px;
+  --breakpoint-xm: 992px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1680px;
+  --breakpoint-4xl: 1920px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--border)
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground)
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee var(--duration, 20s) linear infinite;
+  }
+}
+
+.mega-menu:hover:has(.mega-menu-backdrop:hover) {
+  display: none;
+}
+
+.mega-hover {
+  position: relative;
+}
+
+.mega-hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(to right, #4f3424, #4f3424);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.mega-hover:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+
+.useful-link {
+  position: relative;
+  text-transform: uppercase;
+}
+
+.useful-link:after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background: var(--color-gray-50);
+  left: 0;
+  top: -4px;
+}
+
+.listHoverAnimation {
+  @apply transition-transform duration-200 ease-in-out hover:pl-1;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  /* Thin scrollbar width */
+  height: 8px;
+  /* For horizontal scrollbars */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5);
+  /* Semi-transparent thumb */
+  border-radius: 4px;
+  /* Rounded corners */
+}
+
+/* Optional: Customize scrollbars on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 100, 100, 0.6);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  /* Transparent track */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  /* Makes the scrollbar thinner */
+  scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
+  /* Thumb and track colors */
+  scrollbar-gutter: stable;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
