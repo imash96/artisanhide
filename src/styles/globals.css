@@ -4,6 +4,8 @@
   /* --color-*: initial; */
   /* --color-white: #fff; */
   --color-brown: oklch(0.3526 0.047 51.31);
+
+  --color-curtain: var(--curtain)
 }
 
 @theme {

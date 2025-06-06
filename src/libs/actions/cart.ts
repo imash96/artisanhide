@@ -1,7 +1,7 @@
 "use server"
 
 import { revalidateTag } from "next/cache"
-import { getAuthHeaders, getCacheTag, getCartId } from "./cookies"
+import { getAuthHeaders, getCacheOptions, getCacheTag, getCartId, setCartId } from "./cookies"
 import { getRegion } from "./region"
 import { redirect } from "next/navigation"
 import { StoreUpdateCart } from "@medusajs/types"
@@ -51,4 +51,102 @@ export async function updateCart(data: StoreUpdateCart) {
             return cart
         })
         .catch(medusaError)
+}
+
+export async function retrieveCart() {
+    const cartId = await getCartId()
+
+    if (!cartId) return null
+
+    const headers = { ...(await getAuthHeaders()) }
+
+    const cache = await getCacheOptions("carts")
+
+    return sdk.store.cart.retrieve(cartId, {
+        fields: "*items, *region, *items.product, *items.variant, *items.thumbnail, *items.metadata, +items.total, *promotions, *shipping_methods"
+    }, {
+        tags: cache ? { tags: cache.tags } : null
+    }).then(({ cart }) => cart).catch(() => null)
+}
+
+export async function fetchCartItemCount() {
+    const cart = await retrieveCart()
+    return cart?.items?.reduce((total, item) => total + item.quantity, 0) || 0;
+}
+
+export async function getOrSetCart(countryCode: string) {
+    const region = await getRegion(countryCode)
+
+    if (!region) throw new Error(`Region not found for country code: ${countryCode}`)
+
+    let cart = await retrieveCart()
+
+    const headers = {
+        ...(await getAuthHeaders()),
+    }
+
+    if (!cart) {
+        const cartResp = await sdk.store.cart.create({ region_id: region.id }, {}, headers)
+        cart = cartResp.cart
+
+        await setCartId(cart.id)
+
+        const cartCacheTag = await getCacheTag("carts")
+        revalidateTag(cartCacheTag)
+    }
+
+    if (cart && cart?.region_id !== region.id) {
+        await sdk.store.cart.update(cart.id, { region_id: region.id }, {}, headers)
+        const cartCacheTag = await getCacheTag("carts")
+        revalidateTag(cartCacheTag)
+    }
+
+    return cart
+}
+
+export async function addToCart({ variantId, quantity, countryCode }: AddToCartProps) {
+    if (!variantId) throw new Error("Missing variant ID when adding to cart")
+
+    const cart = await getOrSetCart(countryCode)
+
+    if (!cart) {
+        throw new Error("Error retrieving or creating cart")
+    }
+
+    const headers = {
+        ...(await getAuthHeaders()),
+    }
+
+    await sdk.store.cart.createLineItem(cart.id, {
+        variant_id: variantId,
+        quantity,
+    }, {},
+        headers
+    ).then(async () => {
+        const cartCacheTag = await getCacheTag("carts")
+        revalidateTag(cartCacheTag)
+    }).catch(medusaError)
+}
+
+export async function deleteLineItem(lineId: string) {
+    if (!lineId) throw new Error("Missing lineItem ID when deleting line item")
+
+    const cartId = await getCartId()
+
+    if (!cartId) throw new Error("Missing cart ID when deleting line item")
+
+    const headers = {
+        ...(await getAuthHeaders()),
+    }
+
+    await sdk.store.cart.deleteLineItem(cartId, lineId, headers).then(async () => {
+        const cartCacheTag = await getCacheTag("carts")
+        revalidateTag(cartCacheTag)
+    }).catch(medusaError)
+}
+
+type AddToCartProps = {
+    variantId: string
+    quantity: number
+    countryCode: string
 }

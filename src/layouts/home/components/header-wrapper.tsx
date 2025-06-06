@@ -5,16 +5,18 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Container from "@modules/common/create-section";
 import Logo from "@/icons/logo";
 import LocalizedClientLink from "@modules/common/localized-client-link";
-import { ChevronDown, Search, ShoppingBag, User } from "lucide-react";
+import { ChevronDown, Search, User } from "lucide-react";
 import { categories } from "../header";
 import MegaMenu from "./mega-menu";
 import { StoreProductCategory } from "@medusajs/types";
 import { motion, AnimatePresence } from "motion/react";
 import ThemeButton from "./button-theme";
+import MenuDrawerButton from "./button-menu-drawer";
+import CartButton from "./button-cart-drawer";
 
 const HOME_REGEX = /^\/[a-z]{2}$/
 
-export default function HeaderWrapper({ enhancedCategories, initialTheme }: HeaderClientProps) {
+export default function HeaderWrapper({ enhancedCategories, initialTheme, totalItems }: HeaderClientProps) {
     const [isScrolled, setIsScrolled] = useState(false)
     const [activeMenu, setActiveMenu] = useState<EnhancedCategoriesType | null>(null);
     const pathname = usePathname()
@@ -30,9 +32,10 @@ export default function HeaderWrapper({ enhancedCategories, initialTheme }: Head
     const handleClick = () => setActiveMenu(null);
 
     return (
-        <div className={`group/nav sticky top-0 z-40 transition-all ease-in-out duration-300 hover:bg-gray-100 hover:text-brown ${isScrolled ? "bg-gray-100 shadow-md text-brown" : "bg-transparent text-gray-50 group-hover/nav:text-brown"} ${!isHome && "shadow-md"}`}>
+        <div className={`group/nav sticky top-0 z-10 transition-all ease-in-out duration-300 hover:bg-gray-100 hover:text-brown ${isScrolled ? "bg-gray-100 shadow-md text-brown" : "bg-transparent text-gray-50 group-hover/nav:text-brown"} ${!isHome && "shadow-md"}`}>
             <Container as="nav" aria-label="nav" className="flex justify-between items-center h-[4.5rem]">
                 <div className="flex justify-center items-center gap-x-2 h-full">
+                    <MenuDrawerButton className="xm:hidden p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400" />
                     <LocalizedClientLink href={"/"}>
                         <Logo className={`w-26`} />
                     </LocalizedClientLink>
@@ -56,35 +59,32 @@ export default function HeaderWrapper({ enhancedCategories, initialTheme }: Head
                     </ul>
                 </div>
                 <div className="flex justify-center items-center h-full gap-2">
-                    <span className="flex items-center header-btn p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
+                    <ThemeButton initialTheme={initialTheme} className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400" />
+                    <span className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
                         <Search size={18} strokeWidth={1.5} />
                     </span>
-                    <span className="flex items-center header-btn p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
-                        <ShoppingBag size={18} strokeWidth={1.5} />
-                    </span>
-                    <LocalizedClientLink href={"/account"} className="flex items-center header-btn p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
+                    <LocalizedClientLink href={"/account"} className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
                         <User size={18} strokeWidth={1.5} />
                     </LocalizedClientLink>
 
-                    <ThemeButton initialTheme={initialTheme} className="flex items-center header-btn p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400" />
+                    <CartButton totalItems={totalItems} className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400" />
                 </div>
             </Container>
-
-            {activeMenu && (
-                <div className="bg-black/75 absolute top-full left-0 w-full h-screen"></div>
-            )}
-
             <AnimatePresence>
-                {activeMenu && <motion.div
-                    initial={{ height: 0 }}
-                    animate={{ height: "auto" }}
-                    exit={{ height: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    onMouseLeave={handleClick}
-                    className="overflow-hidden no-scrollbar hidden xm:block border absolute bg-gray-50 z-50 group-hover/mega:block border-t top-full left-0 w-full"
-                >
-                    <MegaMenu categoryData={activeMenu} />
-                </motion.div>
+                {activeMenu &&
+                    <>
+                        <div className="bg-black/75 absolute top-full left-0 w-full h-screen"></div>
+                        <motion.div
+                            initial={{ height: 0 }}
+                            animate={{ height: "auto" }}
+                            exit={{ height: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            onMouseLeave={handleClick}
+                            className="overflow-hidden no-scrollbar hidden xm:block border absolute bg-gray-50 z-10 group-hover/mega:block border-t top-full left-0 w-full"
+                        >
+                            <MegaMenu categoryData={activeMenu} />
+                        </motion.div>
+                    </>
                 }
             </AnimatePresence>
         </div>
@@ -99,4 +99,5 @@ type EnhancedCategoriesType = {
 type HeaderClientProps = {
     enhancedCategories: EnhancedCategoriesType[]
     initialTheme: "light" | "dark"
+    totalItems: number
 }

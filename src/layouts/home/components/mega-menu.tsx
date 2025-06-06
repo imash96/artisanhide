@@ -12,7 +12,7 @@ type MegaMenuProps = {
 
 export default function MegaMenu({ categoryData }: MegaMenuProps) {
     return (
-        <div className="mega-menu-content relative z-10 bg-gray-100">
+        <div className="mega-menu-content relative z-20 bg-gray-100">
             <div className="grid grid-cols-4 gap-8 px-10 py-12 mx-auto max-w-8xl md:px-10 lg:px-14">
                 <div className="col-span-1">
                     <h3 className="flex items-center text-lg font-semibold mb-2 pb-2 border-b border-gray-200">

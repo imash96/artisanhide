@@ -5,7 +5,7 @@ import LocalizedClientLink from "@modules/common/localized-client-link";
 import { Clock, Mail, MessageCircleQuestion } from "lucide-react";
 import { footer } from "../footer";
 import { StoreRegion } from "@medusajs/types";
-import HeaderCountrySelect from "../components/header-country-select";
+import HeaderCountrySelect from "../components/footer-country-select";
 
 export default async function Footer({ regions }: { regions: StoreRegion[] }) {
 

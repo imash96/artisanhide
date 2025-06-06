@@ -5,6 +5,7 @@
     --foreground: hsl(0 0% 98%);
     --border: hsl(0 0% 14.9%);
 
+    --curtain: rgba(0 0 0);
 
     /* Gray */
     --color-gray-50: rgba(3 7 18);

@@ -50,7 +50,7 @@ export default function HeaderCountrySelect({ regions, className = "" }: HeaderC
 
             {state &&
                 <>
-                    <ul className="absolute left-0 bottom-full z-50 w-52 bg-gray-200 shadow-lg max-h-72 rounded-md py-1 text-base overflow-auto focus:outline-none sm:text-sm" role="listbox" aria-activedescendant={current?.code}>
+                    <ul className="absolute left-0 bottom-full z-20 w-52 bg-gray-200 shadow-lg max-h-72 rounded-md py-1 text-base overflow-auto focus:outline-none sm:text-sm" role="listbox" aria-activedescendant={current?.code}>
                         {options.map((option) => (
                             <li key={option.code} className={`${countryCode === option.code ? 'pointer-events-none text-white bg-indigo-600' : 'text-gray-900 active:bg-indigo-200 hover:bg-indigo-50'} select-none relative py-2 px-3`} onClick={() => handleChange(option)} role="option" aria-selected={countryCode === option.code}>
                                 <div className="flex items-center">
