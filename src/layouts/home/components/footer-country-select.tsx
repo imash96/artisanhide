@@ -45,6 +45,7 @@ export default function HeaderCountrySelect({ regions, className = "" }: HeaderC
         <div className={`group relative select-none w-fit ${className}`} onMouseEnter={open} onMouseLeave={close}>
             <button className="flex items-center header-btn py-1 lg:py-2 cursor-pointer" onClick={toggle} aria-haspopup="listbox" aria-expanded={state} aria-label="Select country">
                 <CountryFlag countryCode={current.code} alt={current.label} aria-hidden="true" className="w-6 h-4" />
+                <span className="ml-2">{current.label}</span>
                 <ChevronDown className={`ml-1 h-5 w-5 transition-transform duration-300 group-hover:rotate-180`} />
             </button>
 

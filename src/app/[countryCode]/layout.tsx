@@ -1,11 +1,11 @@
+import type { Metadata } from "next";
 import Announcement from "@/layouts/home/templates/announcement";
-import CartDrawer from "@/layouts/home/templates/cart-drawer";
-import Footer from "@/layouts/home/templates/footer";
 import Header from "@/layouts/home/templates/header";
 import MobileDrawer from "@/layouts/home/templates/mobile-drawer";
+import CartDrawer from "@/layouts/home/templates/cart-drawer";
+import Footer from "@/layouts/home/templates/footer";
 import { retrieveCart } from "libs/actions/cart";
 import { listRegions } from "libs/actions/region";
-import type { Metadata } from "next";
 
 export default async function HomeLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     const regions = await listRegions()

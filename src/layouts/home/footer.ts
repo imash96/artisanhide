@@ -17,7 +17,7 @@ export const footer = {
         { name: "Terms of service", href: "/policies#terms" },
     ],
     "SHOP": [
-        { name: "Create Account", href: "/auth/register" },
+        { name: "Sign up", href: "/auth/register" },
         { name: "Login", href: "/auth/login" },
         { name: 'Wish List', href: '/account/wishlist' },
         { name: 'FAQs', href: '/faqs' },
