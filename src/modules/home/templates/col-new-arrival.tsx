@@ -5,7 +5,6 @@ import { Button } from "@modules/common/button";
 
 export default async function NewArrival({ region_id }: { region_id: string }) {
     const products = await fetchProductByCollection({ collection_id: SALE_ID, limit: 12, region_id, fields: "*variants.calculated_price" }, "new_arrival_collection")
-    console.log(products)
     return (
         <SectionHeader title="New Arrival" desc="Discover Your Style: Navigate by Category for Effortless Shopping!" sectionName="on-sale">
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6 lg:gap-6">

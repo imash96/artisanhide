@@ -36,7 +36,7 @@ export default function HeaderWrapper({ enhancedCategories, initialTheme, totalI
             <Container as="nav" aria-label="nav" className="flex justify-between items-center h-[4.5rem]">
                 <div className="flex justify-center items-center gap-x-2 h-full">
                     <MenuDrawerButton className="xm:hidden p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400" />
-                    <LocalizedClientLink href={"/"}>
+                    <LocalizedClientLink href={"/"} aria-label="logo">
                         <Logo className={`w-26`} />
                     </LocalizedClientLink>
 
@@ -51,7 +51,7 @@ export default function HeaderWrapper({ enhancedCategories, initialTheme, totalI
                         ))}
                         {categories.map((item, index) => (
                             <li key={index} className={`flex mega-hover items-center gap-0.5 cursor-default`} onMouseEnter={() => setActiveMenu(null)}>
-                                <LocalizedClientLink href={item.href} className="">
+                                <LocalizedClientLink href={item.href}>
                                     {item.name}
                                 </LocalizedClientLink>
                             </li>
@@ -63,7 +63,7 @@ export default function HeaderWrapper({ enhancedCategories, initialTheme, totalI
                     <span className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
                         <Search size={18} strokeWidth={1.5} />
                     </span>
-                    <LocalizedClientLink href={"/account"} className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
+                    <LocalizedClientLink href={"/account"} aria-label="account" className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
                         <User size={18} strokeWidth={1.5} />
                     </LocalizedClientLink>
 

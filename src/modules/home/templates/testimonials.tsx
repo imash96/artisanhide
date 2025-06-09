@@ -60,11 +60,11 @@ export default function Testimonials() {
                     </div>
                 </div>
 
-                <button onClick={scrollPrev} className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center">
+                <button onClick={scrollPrev} aria-label="Previous testimonial" className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center">
                     <MoveLeft size={18} strokeWidth={1.5} />
                 </button>
 
-                <button onClick={scrollNext} className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center">
+                <button onClick={scrollNext} aria-label="Next testimonial" className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center">
                     <MoveRight size={18} strokeWidth={1.5} />
                 </button>
             </div>

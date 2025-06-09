@@ -1,12 +1,6 @@
 import { StarIcon } from "lucide-react";
 
-interface RatingProps {
-    rating: number;
-    text?: string;
-    className?: string
-}
-
-const RatingSystem = ({ rating, text, className }: RatingProps) => {
+export default function RatingSystem({ rating, text, className }: RatingProps) {
 
     return (
         <div className={`rating flex gap-x-0.5 items-center text-center text-gray-600 ${className && className}`}>
@@ -20,4 +14,8 @@ const RatingSystem = ({ rating, text, className }: RatingProps) => {
     );
 }
 
-export default RatingSystem;
+interface RatingProps {
+    rating: number;
+    text?: string;
+    className?: string
+}

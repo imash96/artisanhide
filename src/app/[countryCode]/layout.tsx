@@ -6,6 +6,7 @@ import CartDrawer from "@/layouts/home/templates/cart-drawer";
 import Footer from "@/layouts/home/templates/footer";
 import { retrieveCart } from "libs/actions/cart";
 import { listRegions } from "libs/actions/region";
+import BottomTabs from "@/layouts/home/templates/bottom-tabs";
 
 export default async function HomeLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     const regions = await listRegions()
@@ -17,6 +18,7 @@ export default async function HomeLayout({ children }: Readonly<{ children: Reac
             <MobileDrawer />
             <CartDrawer cart={cart} />
             {children}
+            <BottomTabs />
             <Footer regions={regions} />
         </>
     );
