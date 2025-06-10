@@ -1,10 +1,10 @@
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { listParentCategories } from "libs/actions/categories"
-import LocalizedClientLink from "@modules/common/localized-client-link"
 import SectionHeader from "../components/section-header";
 
 import "@/styles/home-cat-section.css"
+import Link from "next/link";
 
 export default async function Category() {
     const product_categories = await listParentCategories({ limit: 6 })
@@ -19,7 +19,7 @@ export default async function Category() {
                             alt={category.name}
                             className="object-cover object-center w-full h-full transition-transform duration-300 group-hover:scale-105"
                         />
-                        <LocalizedClientLink href={`/category/${category.handle}`} className="absolute inset-0 bg-gradient-to-t from-gray-600/60 to-transparent">
+                        <Link href={`/category/${category.handle}`} className="absolute inset-0 bg-gradient-to-t from-gray-600/60 to-transparent">
                             <div className="absolute bottom-0 left-0 p-6">
                                 <h3 className="font-bold text-gray-50 text-xl mb-2 font-title">
                                     <span className="absolute inset-0" />
@@ -30,7 +30,7 @@ export default async function Category() {
                                     <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:-rotate-45" />
                                 </p>
                             </div>
-                        </LocalizedClientLink>
+                        </Link>
                     </div>
                 ))}
             </div>

@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Calendar, Clock, ArrowRight } from "lucide-react"
-import LocalizedClientLink from "@modules/common/localized-client-link"
+import Link from "next/link"
 
 interface BlogPost {
     id: string
@@ -77,9 +77,9 @@ export default function BlogCard({ post }: BlogCardProps) {
 
                 {/* Title */}
                 <h3 className="text-xl font-semibold text-gray-900 mb-3 line-clamp-2 no-scrollbar group-hover:text-blue-600 transition-colors duration-300">
-                    <LocalizedClientLink href={`/blog/${post.slug}`} className="hover:underline" aria-label="Read this blog">
+                    <Link href={`/blog/${post.slug}`} className="hover:underline" aria-label="Read this blog">
                         {post.title}
-                    </LocalizedClientLink>
+                    </Link>
                 </h3>
 
                 {/* Excerpt */}

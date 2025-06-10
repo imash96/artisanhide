@@ -1,15 +1,14 @@
 "use server"
 
 import { revalidateTag } from "next/cache"
-import { getAuthHeaders, getCacheOptions, getCacheTag, getCartId, setCartId } from "./cookies"
+import { getAuthHeaders, getCacheOptions, getCacheTag, getCartId, setCartId, setCountryCode } from "./cookies"
 import { getRegion } from "./region"
-import { redirect } from "next/navigation"
 import { StoreUpdateCart } from "@medusajs/types"
 import { sdk } from "libs/sdk"
 import medusaError from "libs/util/medusa-error"
 
 
-export async function updateRegion(countryCode: string, currentPath: string) {
+export async function updateRegion(countryCode: string) {
     const cartId = await getCartId()
     const region = await getRegion(countryCode)
 
@@ -21,6 +20,7 @@ export async function updateRegion(countryCode: string, currentPath: string) {
         await updateCart({ region_id: region.id })
         const cartCacheTag = await getCacheTag("carts")
         revalidateTag(cartCacheTag)
+        setCountryCode(countryCode)
     }
 
     const regionCacheTag = await getCacheTag("regions")
@@ -28,8 +28,6 @@ export async function updateRegion(countryCode: string, currentPath: string) {
 
     const productsCacheTag = await getCacheTag("products")
     revalidateTag(productsCacheTag)
-
-    redirect(`/${countryCode}${currentPath}`)
 }
 
 export async function updateCart(data: StoreUpdateCart) {

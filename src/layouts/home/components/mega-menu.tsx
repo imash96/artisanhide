@@ -1,8 +1,8 @@
 import { PopoverPanel } from "@headlessui/react"
 import { StoreProductCategory } from "@medusajs/types"
 import { ArrowRight } from "lucide-react"
-import LocalizedClientLink from "@modules/common/localized-client-link"
 import MenuPromotion from "./menu-promotion"
+import Link from "next/link"
 
 export default function MegaMenu({ categoryData }: MegaMenuProps) {
     return (
@@ -18,15 +18,15 @@ export default function MegaMenu({ categoryData }: MegaMenuProps) {
                         <ul className="">
                             {categoryData.shop.map((item) => (
                                 <li key={item.id} className="w-full px-2 py-3 hover:bg-gray-200 rounded">
-                                    <LocalizedClientLink href={`/category/${item.handle}`} className="text-gray-600 hover:text-blue-600 transition-colors duration-200">
+                                    <Link href={`/category/${item.handle}`} className="text-gray-600 hover:text-blue-600 transition-colors duration-200">
                                         {item.name}
-                                    </LocalizedClientLink>
+                                    </Link>
                                 </li>
                             ))}
                             <li className="w-full px-2 py-3 hover:bg-gray-200 rounded">
-                                <LocalizedClientLink href={`/category/${categoryData?.handle}`} className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
+                                <Link href={`/category/${categoryData?.handle}`} className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
                                     View all
-                                </LocalizedClientLink>
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -38,15 +38,15 @@ export default function MegaMenu({ categoryData }: MegaMenuProps) {
                         <ul className="">
                             {categoryData.style.map((item) => (
                                 <li key={item.id} className="w-full px-2 py-3 hover:bg-gray-200 rounded">
-                                    <LocalizedClientLink href={`/category/${item.handle}`} className="text-gray-600 hover:text-blue-600 transition-colors duration-200">
+                                    <Link href={`/category/${item.handle}`} className="text-gray-600 hover:text-blue-600 transition-colors duration-200">
                                         {item.name}
-                                    </LocalizedClientLink>
+                                    </Link>
                                 </li>
                             ))}
                             <li className="w-full px-2 py-3 hover:bg-gray-200 rounded">
-                                <LocalizedClientLink href={`/category/${categoryData?.handle}`} className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
+                                <Link href={`/category/${categoryData?.handle}`} className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
                                     View all
-                                </LocalizedClientLink>
+                                </Link>
                             </li>
                         </ul>
                     </div>

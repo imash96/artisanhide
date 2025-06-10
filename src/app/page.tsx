@@ -12,10 +12,12 @@ import Testimonals from "@modules/home/templates/testimonials";
 import Blog from "@modules/home/templates/blog";
 import IconWithText from "@modules/home/components/icon-with-text";
 import { podData, uspData } from "@modules/home/icon-with-text";
+import { cookies } from "next/headers";
 
 // remove countrycode and async if not needed
-export default async function Home({ params }: { params: Promise<{ countryCode: string }> }) {
-  const countryCode = (await params).countryCode
+export default async function Page() {
+  const cookieStore = await cookies()
+  const countryCode = (cookieStore.get('__country_code')?.value || process.env.NEXT_PUBLIC_DEFAULT_REGION) as string
 
   const region = await getRegion(countryCode)
 

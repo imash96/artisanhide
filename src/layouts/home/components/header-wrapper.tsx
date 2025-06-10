@@ -5,7 +5,7 @@ import Container from "@modules/common/create-section";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import MenuDrawerButton from "./button-menu-drawer";
-import LocalizedClientLink from "@modules/common/localized-client-link";
+import Link from "next/link"
 import Logo from "@/icons/logo";
 import { Popover, PopoverButton, PopoverGroup } from "@headlessui/react";
 import { categories } from "../header";
@@ -33,9 +33,9 @@ export default function HeaderWrapper({ enhancedCategories, initialTheme, totalI
             <Container as="nav" aria-label="nav" className="flex justify-between items-center h-[4.5rem]">
                 <div className="flex justify-center items-center gap-x-2 h-full">
                     <MenuDrawerButton className="xm:hidden p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400" />
-                    <LocalizedClientLink href={"/"} aria-label="logo">
+                    <Link href={"/"} aria-label="logo">
                         <Logo className={`w-26`} />
-                    </LocalizedClientLink>
+                    </Link>
                     <PopoverGroup as="ul" className="hidden gap-2.5 text-sm h-full font-extralight tracking-[0.05em] ml-6 lg:flex lg:gap-x-6">
                         {enhancedCategories.map((category) => (
                             <Popover key={category.id} className="group/mega flex items-center gap-0.5 cursor-default">
@@ -49,9 +49,9 @@ export default function HeaderWrapper({ enhancedCategories, initialTheme, totalI
 
                         {categories.map((page, index) => (
                             <li key={index} className={`flex mega-hover items-center gap-0.5 cursor-default`}>
-                                <LocalizedClientLink href={page.href}>
+                                <Link href={page.href}>
                                     {page.name}
-                                </LocalizedClientLink>
+                                </Link>
                             </li>
                         ))}
                     </PopoverGroup>
@@ -61,9 +61,9 @@ export default function HeaderWrapper({ enhancedCategories, initialTheme, totalI
                     <span className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
                         <Search size={18} strokeWidth={1.5} />
                     </span>
-                    <LocalizedClientLink href={"/account"} aria-label="account" className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
+                    <Link href={"/account"} aria-label="account" className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
                         <User size={18} strokeWidth={1.5} />
-                    </LocalizedClientLink>
+                    </Link>
 
                     <CartDrawerButton totalItems={totalItems} className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400" />
                 </div>

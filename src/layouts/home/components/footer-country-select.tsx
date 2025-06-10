@@ -4,30 +4,30 @@ import { StoreRegion } from "@medusajs/types";
 import { updateRegion } from "libs/actions/cart";
 import { useToggleState } from "libs/hooks/use-toggle-state";
 import { ChevronDown, Loader } from "lucide-react";
-import { useParams, usePathname } from "next/navigation";
 import { createElement, useMemo, useTransition } from "react";
 
 type Country = {
     code: string;
     label: string;
+    id: string
 };
 
 type HeaderCountrySelectProps = {
     regions: StoreRegion[]
     className?: string
+    countryCode: string | undefined
 }
 
-export default function HeaderCountrySelect({ regions, className = "" }: HeaderCountrySelectProps) {
+export default function HeaderCountrySelect({ regions, countryCode, className = "" }: HeaderCountrySelectProps) {
     const { state, open, close, toggle } = useToggleState()
     const [isPending, startTransition] = useTransition();
-    const { countryCode } = useParams()
-    const currentPath = usePathname().split(`/${countryCode}`)[1]
 
     const options = useMemo(() => {
         return regions.flatMap((region) =>
             region.countries!.map((country) => ({
                 code: country.iso_2!,
                 label: country.display_name!,
+                id: country.id
             })),
         ).sort((a, b) => a.label.localeCompare(b.label)).filter(Boolean) as Country[];
     }, [regions])
@@ -37,7 +37,7 @@ export default function HeaderCountrySelect({ regions, className = "" }: HeaderC
     if (!current) return null
 
     const handleChange = (option: Country) => {
-        startTransition(() => updateRegion(option.code, currentPath))
+        startTransition(() => updateRegion(option.code))
         close()
     }
 

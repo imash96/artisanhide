@@ -1,14 +1,16 @@
 import Logo from "@/icons/logo";
 import { IconProp } from "@/types/common";
 import Container from "@modules/common/create-section";
-import LocalizedClientLink from "@modules/common/localized-client-link";
+import Link from "next/link"
 import { Clock, Mail, MessageCircleQuestion } from "lucide-react";
 import { footer } from "../footer";
 import { StoreRegion } from "@medusajs/types";
 import HeaderCountrySelect from "../components/footer-country-select";
+import { cookies } from "next/headers";
 
 export default async function Footer({ regions }: { regions: StoreRegion[] }) {
-
+    const cookieStore = await cookies()
+    const countryCode = cookieStore.get('__country_code')?.value
     return (
         <footer aria-labelledby="footer-heading" className="footer bg-brown text-gray-50 pb-4 lg:pb-0">
             <h2 id="footer-heading" className="sr-only">
@@ -27,7 +29,7 @@ export default async function Footer({ regions }: { regions: StoreRegion[] }) {
                                 <p className="text-sm tracking-wider px-4">{info.content}</p>
                             </div>
                         ))}
-                        {regions && <HeaderCountrySelect regions={regions} />}
+                        {regions && <HeaderCountrySelect regions={regions} countryCode={countryCode} />}
                     </div>
                     {Object.entries(footer).map(([title, data]) => <FooterTop key={title} title={title} data={data} />)}
                 </div>
@@ -48,10 +50,10 @@ const FooterTop = ({ title, data }: FooterTopProps) => {
             </li>
             {data.map((item) => (
                 <li key={item.name} className="listHoverAnimation list-none text-base">
-                    <LocalizedClientLink key={item.name} href={item.href} className="flex items-center gap-x-2">
+                    <Link key={item.name} href={item.href} className="flex items-center gap-x-2">
                         {item.icon && <item.icon className="w-5 h-5" />}
                         {item.name}
-                    </LocalizedClientLink>
+                    </Link>
                 </li>
             ))}
         </ul>

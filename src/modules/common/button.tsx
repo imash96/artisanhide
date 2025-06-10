@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import LocalizedClientLink from './localized-client-link'
 import { LoaderCircle } from 'lucide-react'
 
 const variantStyles = {
@@ -60,8 +59,8 @@ export function Button({ variant = "solid", color = "primary", className = "", c
   }
 
   return (
-    <LocalizedClientLink className={buttonStyles} {...props}>
+    <Link className={buttonStyles} {...props}>
       {content}
-    </LocalizedClientLink>
+    </Link>
   )
 }
