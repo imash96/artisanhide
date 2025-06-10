@@ -1,6 +1,6 @@
 "use client"
 
-import { StoreRegion } from "@medusajs/types";
+import type { StoreRegion } from "@medusajs/types";
 import { updateRegion } from "libs/actions/cart";
 import { useToggleState } from "libs/hooks/use-toggle-state";
 import { ChevronDown, Loader } from "lucide-react";

@@ -14,16 +14,29 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         // No-cache for HTML and dynamic routes
         source: "/(.*)",
         headers: [
           {
-            key: "Cache-Control",
-            value: "private, max-age=0, must-revalidate",
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate', // ✅ avoid 'no-store'
           },
         ],
       },
     ];
+  },
+  experimental: {
+    optimizeCss: true,
+    inlineCss: true
   },
   reactStrictMode: true,
   logging: {

@@ -1,4 +1,4 @@
-import { StoreCart } from "@medusajs/types";
+import type { StoreCart } from "@medusajs/types";
 import { Minus, Plus, Trash } from "lucide-react";
 import { useToggleStore } from "libs/store/use-toggle-drawer";
 import Image from "next/image";

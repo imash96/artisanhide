@@ -1,5 +1,5 @@
 import { sdk } from "../sdk"
-import { FindParams, SelectParams, StoreProductCategoryListParams } from "@medusajs/types"
+import type { FindParams, SelectParams, StoreProductCategoryListParams } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
 
 export const listCollection = async (query?: FindParams & StoreProductCategoryListParams) => {

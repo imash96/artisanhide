@@ -1,18 +1,20 @@
 "use client"
 
-import { StoreProductCategory } from "@medusajs/types";
+import type { StoreProductCategory } from "@medusajs/types";
 import Container from "@modules/common/create-section";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import MenuDrawerButton from "./button-menu-drawer";
-import Link from "next/link"
-import Logo from "@/icons/logo";
-import { Popover, PopoverButton, PopoverGroup } from "@headlessui/react";
+import { Popover, PopoverBackdrop, PopoverButton, PopoverGroup } from "@headlessui/react";
 import { categories } from "../header";
 import { ChevronDown, Search, User } from "lucide-react";
+import Link from "next/link"
+import Logo from "@/icons/logo";
 import MegaMenu from "./mega-menu";
-import ThemeButton from "./button-theme";
-import CartDrawerButton from "./button-cart-drawer";
+import dynamic from "next/dynamic";
+
+const MenuDrawerButton = dynamic(() => import('./button-menu-drawer'), { ssr: false });
+const CartDrawerButton = dynamic(() => import('./button-cart-drawer'), { ssr: false });
+const ThemeButton = dynamic(() => import('./button-theme'), { ssr: false });
 
 const HOME_REGEX = /^\/[a-z]{2}$/
 

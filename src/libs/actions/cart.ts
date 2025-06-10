@@ -3,7 +3,7 @@
 import { revalidateTag } from "next/cache"
 import { getAuthHeaders, getCacheOptions, getCacheTag, getCartId, setCartId, setCountryCode } from "./cookies"
 import { getRegion } from "./region"
-import { StoreUpdateCart } from "@medusajs/types"
+import type { StoreUpdateCart } from "@medusajs/types"
 import { sdk } from "libs/sdk"
 import medusaError from "libs/util/medusa-error"
 

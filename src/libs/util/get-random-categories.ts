@@ -1,4 +1,4 @@
-import { StoreProductCategory } from "@medusajs/types";
+import type { StoreProductCategory } from "@medusajs/types";
 
 export function getRandomItems<T>(items: T[], count: number): T[] {
     // Shuffle the array

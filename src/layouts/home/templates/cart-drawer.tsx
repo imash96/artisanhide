@@ -2,7 +2,7 @@
 
 import { useToggleStore } from "libs/store/use-toggle-drawer"
 import { ShoppingCart, X } from "lucide-react"
-import { StoreCart } from "@medusajs/types"
+import type { StoreCart } from "@medusajs/types"
 import Drawer from "../components/drawer"
 import CartContent from "../components/cart-content"
 

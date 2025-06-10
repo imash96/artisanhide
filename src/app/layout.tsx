@@ -16,7 +16,7 @@ import "@/styles/globals.css";
 import "@/styles/mode_light.css";
 import "@/styles/mode_dark.css";
 
-const BricolageGrotesque = Bricolage_Grotesque({ subsets: ["latin"] });
+const BricolageGrotesque = Bricolage_Grotesque({ subsets: ["latin"], display: 'swap' });
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const cookieStore = use(cookies())
@@ -67,5 +67,6 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_BASE_URL}`,
     },
+    icons: '/favicon.ico',
   }
 };

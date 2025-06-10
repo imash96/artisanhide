@@ -1,4 +1,4 @@
-import { StoreRegion } from "@medusajs/types";
+import type { StoreRegion } from "@medusajs/types";
 import Container from "@modules/common/create-section";
 
 export default async function Footer({ regions }: { regions: StoreRegion[] }) {

@@ -1,5 +1,5 @@
 import { PopoverPanel } from "@headlessui/react"
-import { StoreProductCategory } from "@medusajs/types"
+import type { StoreProductCategory } from "@medusajs/types"
 import { ArrowRight } from "lucide-react"
 import MenuPromotion from "./menu-promotion"
 import Link from "next/link"

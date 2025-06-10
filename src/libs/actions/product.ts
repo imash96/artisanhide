@@ -1,4 +1,4 @@
-import { StoreProductListParams, StoreProductListResponse } from "@medusajs/types"
+import type { StoreProductListParams } from "@medusajs/types"
 import { sdk } from "libs/sdk"
 import { getCacheOptions } from "./cookies"
 

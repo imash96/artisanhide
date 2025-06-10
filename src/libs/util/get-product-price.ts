@@ -1,4 +1,4 @@
-import { StoreProduct } from "@medusajs/types"
+import type { StoreProduct } from "@medusajs/types"
 import { getPercentageDiff } from "./get-precentage-diff";
 import { convertToLocale } from "./money";
 

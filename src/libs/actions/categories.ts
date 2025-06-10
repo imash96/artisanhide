@@ -1,5 +1,5 @@
 import { sdk } from "../sdk"
-import { FindParams, StoreProductCategoryListParams } from "@medusajs/types"
+import type { FindParams, StoreProductCategoryListParams } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
 
 export const listParentCategories = async (query?: FindParams & StoreProductCategoryListParams) => {

@@ -4,7 +4,7 @@ import Container from "@modules/common/create-section";
 import Link from "next/link"
 import { Clock, Mail, MessageCircleQuestion } from "lucide-react";
 import { footer } from "../footer";
-import { StoreRegion } from "@medusajs/types";
+import type { StoreRegion } from "@medusajs/types";
 import HeaderCountrySelect from "../components/footer-country-select";
 import { cookies } from "next/headers";
 

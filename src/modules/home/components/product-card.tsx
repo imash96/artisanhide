@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Heart, ArrowRight } from "lucide-react"
-import { StoreProduct } from "@medusajs/types"
+import type { StoreProduct } from "@medusajs/types"
 
 import "@/styles/temp.css"
 import { getProductPrice } from "libs/util/get-product-price"
