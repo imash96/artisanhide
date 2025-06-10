@@ -2,7 +2,6 @@
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import { Minus, MoveLeft, MoveRight } from "lucide-react";
 import { testimonials } from "../testimonials";
 
@@ -69,27 +68,20 @@ export default function Testimonials() {
                 </button>
             </div>
 
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={selectedIndex}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    transition={{ duration: 0.2 }}
-                    className="grid gap-4 max-w-md mx-auto text-center"
-                >
-
+            <div className="relative max-w-md mx-auto text-center min-h-[200px] flex flex-col justify-center">
+                <div className="space-y-4 animate-fade-in-up">
                     <RatingSystem rating={testimonials[selectedIndex].star} className="justify-center" />
 
-                    <p className="text-templateBrown text-sm font-light leading-snug tracking-wide">
+                    <p className="text-gray-800 text-sm font-light leading-snug tracking-wide">
                         {testimonials[selectedIndex].review}
                     </p>
-                    <span className="flex items-center justify-center gap-1 text-lg text-templateBrown tracking-wide">
+
+                    <div className="flex items-center justify-center gap-1 text-lg text-gray-800 tracking-wide">
                         <Minus strokeWidth={1} size={18} />
                         {testimonials[selectedIndex].name}
-                    </span>
-                </motion.div>
-            </AnimatePresence>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

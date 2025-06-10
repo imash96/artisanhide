@@ -4,13 +4,10 @@ export default function Marquee({ images, direction = "forward", duration = 20, 
 
     return (
         <div className={`overflow-hidden whitespace-nowrap ${className}`}>
-            <div
-                className="inline-flex animate-marquee"
-                style={{
-                    animationDuration: `${duration}s`,
-                    animationDirection: direction === "forward" ? "normal" : "reverse",
-                }}
-            >
+            <div className="inline-flex animate-marquee" style={{
+                animationDuration: `${duration}s`,
+                animationDirection: direction === "forward" ? "normal" : "reverse",
+            }}>
                 {images.map((img, index) => (
                     <div key={index} className="flex-shrink-0 mx-2 relative" style={{ width: "240px", height: "260px" }}>
                         <Image

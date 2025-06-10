@@ -34,7 +34,12 @@
   }
 }
 
-@layer utilities {
+@theme {
+
+  --animate-marquee: marquee var(--duration, 20s) linear infinite;
+
+  --animate-fade-in-up: fade-in-up 0.6s ease-out;
+
   @keyframes marquee {
     0% {
       transform: translateX(0%);
@@ -55,14 +60,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  .animate-marquee {
-    animation: marquee var(--duration, 20s) linear infinite;
-  }
-
-  .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out;
   }
 }
 
