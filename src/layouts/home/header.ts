@@ -1,3 +1,5 @@
+export const MEGA_MENU = ["Men", "Women"]
+
 export const categories = [
     {
         name: "Kids",

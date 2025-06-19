@@ -1,30 +1,34 @@
-"use client"
-
-import { useToggleStore } from "libs/store/use-toggle-drawer"
-import { ShoppingCart, X } from "lucide-react"
 import type { StoreCart } from "@medusajs/types"
-import Drawer from "../components/drawer"
+import CartDrawerClient from "../components/cart-drawer-client"
 import CartContent from "../components/cart-content"
+import { Button } from "@modules/common/button"
+import Image from "next/image"
+
 
 export default function CartDrawer({ cart }: { cart: StoreCart | null }) {
-    const { isCartDrawerOpen, toggleCartDrawer } = useToggleStore()
-
     return (
-        <Drawer state={isCartDrawerOpen} onClose={toggleCartDrawer} direction="right" type="cart" >
-            <div className="flex flex-col p-6 justify-between gap-y-4 h-full w-full">
-                <div className="flex items-center justify-between w-full">
-                    <span className="flex justify-center items-center">
-                        <ShoppingCart />
-                        <h2 className="ml-2">My Cart</h2>
-                    </span>
-                    <button className="rounded-md button-sec" onClick={toggleCartDrawer}>
-                        <X className="h-5 w-5" />
-                        <span className="sr-only">Close menu</span>
-                    </button>
-                </div>
-                <hr />
-                {cart && cart.items?.length ? (<CartContent cart={cart} />) : (<></>)}
+        <CartDrawerClient>
+            <div className="flex-1">
+                {cart && cart.items?.length ? (<CartContent cart={cart} />) : (<EmptyCart />)}
             </div>
-        </Drawer>
+        </CartDrawerClient>
+    )
+}
+
+function EmptyCart() {
+    return (
+        <div className="flex flex-col items-center justify-center h-full gap-y-4 text-center">
+            <Image
+                src={"/temp_img/emptycart.jpg"}
+                alt="empty cart"
+                height={150}
+                width={150}
+            />
+            <h3 className="text-lg font-semibold mb-2">No products in the cart.</h3>
+            <p className="text-gray-500 mb-4">Your cart is currently empty. Let us help you find the perfect item!</p>
+            <Button pill className="px-6 py-4">
+                Continue Shopping
+            </Button>
+        </div>
     )
 }

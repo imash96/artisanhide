@@ -13,8 +13,3 @@ export const listParentCategories = async (query?: FindParams & StoreProductCate
         limit,
     }, { next }).then(({ product_categories }) => product_categories)
 }
-
-export async function getParentCategories(mega_menu: string[]) {
-    const product_categories = await listParentCategories({ include_descendants_tree: true, });
-    return product_categories?.filter(category => mega_menu.includes(category.name)) ?? [];
-}

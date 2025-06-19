@@ -1,16 +1,16 @@
 import HeaderWrapper from "../components/header-wrapper";
-import { getParentCategories } from "libs/actions/categories";
 import { getRandomCategory, getRandomStyle } from "libs/util/get-random-categories";
 import { getInitialTheme } from "libs/util/get-initial-theme";
 import { fetchCartItemCount } from "libs/actions/cart";
+import HeaderClient from "../components/header-client";
+import { StoreProductCategory } from "@medusajs/types";
+import { MEGA_MENU } from "../header";
 
-const MEGA_MENU = ["Men", "Women"]
-
-export default async function Header() {
+export default async function Header({ parent_categories }: { parent_categories: StoreProductCategory[] }) {
 
     const initialTheme = await getInitialTheme()
     const totalItems = await fetchCartItemCount()
-    const mainCategories = await getParentCategories(MEGA_MENU)
+    const mainCategories = parent_categories?.filter(category => MEGA_MENU.includes(category.name)) ?? [];
     if (mainCategories.length < 2) return null;
 
     const enhancedCategories = mainCategories.map(category => {
@@ -20,6 +20,8 @@ export default async function Header() {
     });
 
     return (
-        <HeaderWrapper enhancedCategories={enhancedCategories} initialTheme={initialTheme} totalItems={totalItems} />
+        <HeaderClient>
+            <HeaderWrapper enhancedCategories={enhancedCategories} initialTheme={initialTheme} totalItems={totalItems} />
+        </HeaderClient>
     )
 }

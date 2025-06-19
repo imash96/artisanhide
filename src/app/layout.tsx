@@ -15,6 +15,7 @@ import BottomTabs from "@/layouts/home/templates/bottom-tabs";
 import "@/styles/globals.css";
 import "@/styles/mode_light.css";
 import "@/styles/mode_dark.css";
+import { listParentCategories } from "libs/actions/categories";
 
 const BricolageGrotesque = Bricolage_Grotesque({ subsets: ["latin"], display: 'swap' });
 
@@ -23,13 +24,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const theme = cookieStore.get('__theme')?.value
   const regions = use(listRegions())
   const cart = use(retrieveCart())
+  const parent_categories = use(listParentCategories({ include_descendants_tree: true, limit: 6 }))
   return (
     <html lang="en" data-theme={theme ? theme : "light"}>
       <body className={`${BricolageGrotesque.className} antialiased`}>
         <HolyLoader />
         <Announcement />
-        <Header />
-        <MobileDrawer />
+        <Header parent_categories={parent_categories} />
+        <MobileDrawer parent_categories={parent_categories} />
         <CartDrawer cart={cart} />
         {children}
         <BottomTabs />

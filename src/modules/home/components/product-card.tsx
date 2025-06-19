@@ -40,7 +40,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                     </button>
 
                     {/* Product Images */}
-                    <div className="relative w-full h-full">
+                    <div className="relative w-full h-full bg-white">
                         <Image
                             src={product?.images ? product?.images[0]?.url : "/placeholder.svg"}
                             alt={product.title}

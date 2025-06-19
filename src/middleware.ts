@@ -75,6 +75,7 @@ async function fetchRegionData(cacheId: string): Promise<Set<string>> {
 
     if (isCacheValid) return regionCache.regionMap;
 
+    console.log("Region not cache performing request in middleware")
     try {
         const controller = new AbortController()
         const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT)

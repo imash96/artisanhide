@@ -4,9 +4,10 @@ import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { Minus, MoveLeft, MoveRight } from "lucide-react";
 import { testimonials } from "../testimonials";
+import { AnimatePresence, motion } from "motion/react";
+import RatingSystem from "@modules/common/rating-system";
 
 import "@/styles/testimonials.css"
-import RatingSystem from "@modules/common/rating-system";
 
 export default function Testimonials() {
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -68,20 +69,28 @@ export default function Testimonials() {
                 </button>
             </div>
 
-            <div className="relative max-w-md mx-auto text-center min-h-[200px] flex flex-col justify-center">
-                <div className="space-y-4 animate-fade-in-up">
-                    <RatingSystem rating={testimonials[selectedIndex].star} className="justify-center" />
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={selectedIndex}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ duration: 0.2 }}
+                    className="relative max-w-md mx-auto text-center flex flex-col justify-center">
+                    <div className="space-y-4 animate-fade-in-up">
+                        <RatingSystem rating={testimonials[selectedIndex].star} className="justify-center" />
 
-                    <p className="text-gray-800 text-sm font-light leading-snug tracking-wide">
-                        {testimonials[selectedIndex].review}
-                    </p>
+                        <p className="text-gray-800 text-sm font-light leading-snug tracking-wide">
+                            {testimonials[selectedIndex].review}
+                        </p>
 
-                    <div className="flex items-center justify-center gap-1 text-lg text-gray-800 tracking-wide">
-                        <Minus strokeWidth={1} size={18} />
-                        {testimonials[selectedIndex].name}
+                        <div className="flex items-center justify-center gap-1 text-lg text-gray-800 tracking-wide">
+                            <Minus strokeWidth={1} size={18} />
+                            {testimonials[selectedIndex].name}
+                        </div>
                     </div>
-                </div>
-            </div>
+                </motion.div>
+            </AnimatePresence>
         </div>
     );
 }

@@ -63,6 +63,12 @@
   }
 }
 
+.bg-modile-drawer {
+  background-image: url(/images/bg_navi.webp);
+  background-position: center bottom;
+  background-size: cover;
+}
+
 .mega-menu:hover:has(.mega-menu-backdrop:hover) {
   display: none;
 }

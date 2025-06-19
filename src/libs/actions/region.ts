@@ -7,14 +7,9 @@ import type { StoreRegion } from "@medusajs/types";
 
 export const listRegions = async () => {
     const cache = await getCacheOptions("regions");
-
-    return sdk.store.region.list({
-        fields: "id,*countries"
-    }, {
+    return sdk.store.region.list({ fields: "id,*countries" }, {
         tags: cache ? { tags: cache.tags } : null
-    })
-        .then(({ regions }) => regions)
-        .catch(medusaError)
+    }).then(({ regions }) => regions).catch(medusaError)
 }
 
 const regionMap = new Map<string, StoreRegion>()

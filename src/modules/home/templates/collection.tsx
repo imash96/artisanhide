@@ -4,7 +4,7 @@ import { listCollection } from "libs/actions/collection"
 import SectionHeader from "../components/section-header";
 
 export default async function Collection() {
-    const product_collections = await listCollection({ limit: 6, fields: "+metadata" })
+    const product_collections = await listCollection({ limit: 6, fields: "+metadata,*products" })
     return (
         <SectionHeader title="Shop by Collection" desc="Explore our curated collections that cater to every style and occasion." sectionName="collecion">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 gap-y-5 lg:gap-y-6">

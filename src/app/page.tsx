@@ -3,7 +3,6 @@ import BannerSlider from "@modules/home/templates/banner";
 import Category from "@modules/home/templates/category";
 import Collection from "@modules/home/templates/collection";
 import GalleryWall from "@modules/home/templates/gallery-wall";
-import VideoBanner from "@modules/home/templates/video";
 import OnSale from "@modules/home/templates/col-on-sale";
 import NewArrival from "@modules/home/templates/col-new-arrival";
 import TrendingNow from "@modules/home/templates/col-trending-now";
@@ -28,9 +27,8 @@ export default async function Page() {
       <BannerSlider />
       <IconWithText data={uspData} />
       <Category />
-      <Collection />
       <TrendingNow region_id={region.id} />
-      <VideoBanner />
+      <Collection />
       <NewArrival region_id={region.id} />
       <GalleryWall />
       <Testimonals />

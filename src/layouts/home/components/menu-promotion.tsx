@@ -3,7 +3,8 @@ import { features } from "../header";
 import Image from "next/image";
 import { FeaturesType } from "@/types/common";
 
-export default function MenuPromotion({ name, isMegaMenu }: { name: string; isMegaMenu?: boolean }) {
+export default function MenuPromotion({ name, isMegaMenu }: { name?: string; isMegaMenu?: boolean }) {
+    if (!name) return null
     return (
         <div className="grid grid-cols-2 gap-x-4 col-span-2 py-4">
             {(features as FeaturesType)[name].map((item) => (

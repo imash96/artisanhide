@@ -38,7 +38,7 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
     inlineCss: true
   },
-  reactStrictMode: true,
+  reactStrictMode: false,
   logging: {
     fetches: {
       fullUrl: true,
