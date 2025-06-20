@@ -4,12 +4,13 @@ import Container from "@modules/common/create-section";
 import Link from "next/link"
 import { Clock, Mail, MessageCircleQuestion } from "lucide-react";
 import { footer } from "../footer";
-import type { StoreRegion } from "@medusajs/types";
 import HeaderCountrySelect from "../components/footer-country-select";
+import { listRegions } from "libs/actions/region";
 import { cookies } from "next/headers";
 
-export default async function Footer({ regions }: { regions: StoreRegion[] }) {
+export default async function Footer() {
     const countryCode = (await cookies()).get('__country_code')?.value
+    const regions = await listRegions()
     return (
         <footer aria-labelledby="footer-heading" className="footer bg-brown text-gray-50 pb-4 lg:pb-0">
             <h2 id="footer-heading" className="sr-only">

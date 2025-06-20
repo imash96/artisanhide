@@ -52,11 +52,11 @@ export const removeAuthToken = async () => {
 }
 
 export const getCartId = async () => {
-    return (await nextCookies()).get("__cache_id")?.value
+    return (await nextCookies()).get("__cart_id")?.value
 }
 
 export const setCartId = async (cartId: string) => {
-    (await nextCookies()).set("__cache_id", cartId, {
+    (await nextCookies()).set("__cart_id", cartId, {
         maxAge: 60 * 60 * 24 * 7,
         httpOnly: true,
         sameSite: "strict",
@@ -65,7 +65,7 @@ export const setCartId = async (cartId: string) => {
 }
 
 export const removeCartId = async () => {
-    (await nextCookies()).set("__cache_id", "", {
+    (await nextCookies()).set("__cart_id", "", {
         maxAge: -1,
     })
 }

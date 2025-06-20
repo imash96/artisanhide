@@ -4,14 +4,13 @@ import MobileDrawer from "@/layouts/home/templates/mobile-drawer";
 import CartDrawer from "@/layouts/home/templates/cart-drawer";
 import Footer from "@/layouts/home/templates/footer";
 import { retrieveCart } from "libs/actions/cart";
-import { listRegions } from "libs/actions/region";
 import BottomTabs from "@/layouts/home/templates/bottom-tabs";
 import { listParentCategories } from "libs/actions/categories";
 import type { Metadata } from "next";
 
 
 export default function StoreLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-    const regions = use(listRegions())
+
     const cart = use(retrieveCart())
     const parent_categories = use(listParentCategories({ include_descendants_tree: true, limit: 6 }))
     return (
@@ -21,7 +20,7 @@ export default function StoreLayout({ children }: Readonly<{ children: React.Rea
             <CartDrawer cart={cart} />
             {children}
             <BottomTabs />
-            <Footer regions={regions} />
+            <Footer />
         </>
     );
 }
