@@ -3,7 +3,7 @@ import type { FindParams, StoreProductCategoryListParams } from "@medusajs/types
 import { getCacheOptions } from "./cookies"
 
 export const listParentCategories = async (query?: FindParams & StoreProductCategoryListParams) => {
-    const next = await getCacheOptions("category")
+    const nextOptions = await getCacheOptions("category")
 
     const limit = query?.limit || 100
 
@@ -11,5 +11,22 @@ export const listParentCategories = async (query?: FindParams & StoreProductCate
         ...query,
         parent_category_id: "null",
         limit,
-    }, { next }).then(({ product_categories }) => product_categories)
+    }, {
+        next: nextOptions ? nextOptions : null,
+        cache: "force-cache",
+    }).then(({ product_categories }) => product_categories)
+}
+
+export const getCategoryByHandle = async (categoryHandle: string[]) => {
+    const handle = `${categoryHandle.join("/")}`
+
+    const nextOptions = await getCacheOptions("category");
+
+    return sdk.store.category.list({
+        fields: "*category_children, *products",
+        handle
+    }, {
+        next: nextOptions ? nextOptions : null,
+        cache: "force-cache",
+    }).then(({ product_categories }) => product_categories[0])
 }

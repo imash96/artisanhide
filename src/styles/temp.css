@@ -25,12 +25,10 @@
 
 .card-container:hover .primary-image {
     opacity: 0;
-    transform: scale(1.05);
 }
 
 .card-container:hover .secondary-image {
     opacity: 1;
-    transform: scale(1.05);
 }
 
 /* Badge */

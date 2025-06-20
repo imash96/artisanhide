@@ -8,7 +8,7 @@ import Image from "next/image"
 export default function CartDrawer({ cart }: { cart: StoreCart | null }) {
     return (
         <CartDrawerClient>
-            <div className="flex-1">
+            <div className="flex-1 p-4">
                 {cart && cart.items?.length ? (<CartContent cart={cart} />) : (<EmptyCart />)}
             </div>
         </CartDrawerClient>
@@ -17,7 +17,7 @@ export default function CartDrawer({ cart }: { cart: StoreCart | null }) {
 
 function EmptyCart() {
     return (
-        <div className="flex flex-col items-center justify-center h-full gap-y-4 text-center">
+        <div className="flex flex-col items-center mt-12 h-full gap-y-4 text-center">
             <Image
                 src={"/temp_img/emptycart.jpg"}
                 alt="empty cart"

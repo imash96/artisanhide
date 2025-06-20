@@ -9,8 +9,7 @@ import HeaderCountrySelect from "../components/footer-country-select";
 import { cookies } from "next/headers";
 
 export default async function Footer({ regions }: { regions: StoreRegion[] }) {
-    const cookieStore = await cookies()
-    const countryCode = cookieStore.get('__country_code')?.value
+    const countryCode = (await cookies()).get('__country_code')?.value
     return (
         <footer aria-labelledby="footer-heading" className="footer bg-brown text-gray-50 pb-4 lg:pb-0">
             <h2 id="footer-heading" className="sr-only">

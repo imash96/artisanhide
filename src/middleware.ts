@@ -91,6 +91,7 @@ async function fetchRegionData(cacheId: string): Promise<Set<string>> {
                 revalidate: 3600,
                 tags: [`regions-${cacheId}`],
             },
+            cache: 'force-cache'
         })
 
         clearTimeout(timeoutId)

@@ -27,7 +27,6 @@ export default function HeaderCountrySelect({ regions, countryCode, className = 
             region.countries!.map((country) => ({
                 code: country.iso_2!,
                 label: country.display_name!,
-                id: country.id
             })),
         ).sort((a, b) => a.label.localeCompare(b.label)).filter(Boolean) as Country[];
     }, [regions])

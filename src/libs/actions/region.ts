@@ -22,7 +22,7 @@ export const getRegion = async (countryCode: string) => {
 
         const regions = await listRegions()
 
-        if (!regions) return null
+        if (!regions) return undefined
 
         regions.forEach((region) => region.countries?.forEach((c) => regionMap.set(c?.iso_2 ?? "", region)))
 
@@ -30,6 +30,6 @@ export const getRegion = async (countryCode: string) => {
 
         return region
     } catch (e: any) {
-        return null
+        return undefined
     }
 }

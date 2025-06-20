@@ -2,26 +2,26 @@ import "server-only"
 
 import { cookies as nextCookies } from "next/headers"
 
-export const getAuthHeaders = async (): Promise<{ authorization: string } | object> => {
-    const cookies = await nextCookies()
-    const token = cookies.get("__jwt")?.value
+export const getAuthHeaders = async () => {
+    try {
+        const token = (await nextCookies()).get("__jwt")?.value
 
-    if (!token) return {}
+        if (!token) return {}
 
-    return { authorization: `Bearer ${token}` }
+        return { authorization: `Bearer ${token}` }
+    } catch {
+        return {}
+    }
 }
 
-export const getCacheTag = async (tag: string): Promise<string> => {
+export const getCacheTag = async (tag: string) => {
     try {
-        const cookies = await nextCookies()
-        const cacheId = cookies.get("__cache_id")?.value
+        const cacheId = (await nextCookies()).get("__cache_id")?.value
 
-        if (!cacheId) {
-            return ""
-        }
+        if (!cacheId) return ""
 
         return `${tag}-${cacheId}`
-    } catch {
+    } catch (error) {
         return ""
     }
 }
@@ -33,12 +33,11 @@ export const getCacheOptions = async (tag: string) => {
 
     if (!cacheTag) return null
 
-    return { tags: [`${cacheTag}`] }
+    return { tags: [cacheTag] }
 }
 
 export const setAuthToken = async (token: string) => {
-    const cookies = await nextCookies()
-    cookies.set("__jwt", token, {
+    (await nextCookies()).set("__jwt", token, {
         maxAge: 60 * 60 * 24 * 7,
         httpOnly: true,
         sameSite: "strict",
@@ -47,20 +46,17 @@ export const setAuthToken = async (token: string) => {
 }
 
 export const removeAuthToken = async () => {
-    const cookies = await nextCookies()
-    cookies.set("__jwt", "", {
+    (await nextCookies()).set("__jwt", "", {
         maxAge: -1,
     })
 }
 
 export const getCartId = async () => {
-    const cookies = await nextCookies()
-    return cookies.get("__cart_id")?.value
+    return (await nextCookies()).get("__cache_id")?.value
 }
 
 export const setCartId = async (cartId: string) => {
-    const cookies = await nextCookies()
-    cookies.set("__cart_id", cartId, {
+    (await nextCookies()).set("__cache_id", cartId, {
         maxAge: 60 * 60 * 24 * 7,
         httpOnly: true,
         sameSite: "strict",
@@ -68,16 +64,14 @@ export const setCartId = async (cartId: string) => {
     })
 }
 
-export const setCountryCode = async (countryCode: string) => {
-    const cookies = await nextCookies()
-    cookies.set("__country_code", countryCode, {
-        maxAge: 60 * 60 * 24 * 365,
+export const removeCartId = async () => {
+    (await nextCookies()).set("__cache_id", "", {
+        maxAge: -1,
     })
 }
 
-export const removeCartId = async () => {
-    const cookies = await nextCookies()
-    cookies.set("__cart_id", "", {
-        maxAge: -1,
+export const setCountryCode = async (countryCode: string) => {
+    (await nextCookies()).set("__country_code", countryCode, {
+        maxAge: 60 * 60 * 24 * 365,
     })
 }

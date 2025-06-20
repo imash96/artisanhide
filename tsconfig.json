@@ -18,7 +18,7 @@
     "paths": {
       "@/icons/*": [ "icons/*" ],
       "@/layouts/*": [ "layouts/*" ],
-      "@lib/*": [ "lib/*" ],
+      "@libs/*": [ "libs/*" ],
       "@modules/*": [ "modules/*" ],
       "@/styles/*": [ "styles/*" ],
       "@/types/*": [ "types/*" ]

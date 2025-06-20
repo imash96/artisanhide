@@ -1,7 +1,6 @@
 
-
 export default function Page() {
     return (
-        <div className="">Category Page</div>
+        <div className="">Blog Page</div>
     )
 }
