@@ -36,42 +36,30 @@ export const getCacheOptions = async (tag: string) => {
     return { tags: [cacheTag] }
 }
 
-export const setAuthToken = async (token: string) => {
-    (await nextCookies()).set("__jwt", token, {
-        maxAge: 60 * 60 * 24 * 7,
-        httpOnly: true,
-        sameSite: "strict",
-        secure: process.env.NODE_ENV === "production",
-    })
-}
+export const setAuthToken = async (token: string) => (await nextCookies()).set("__jwt", token, {
+    maxAge: 60 * 60 * 24 * 7,
+    httpOnly: true,
+    sameSite: "strict",
+    secure: process.env.NODE_ENV === "production",
+})
 
-export const removeAuthToken = async () => {
-    (await nextCookies()).set("__jwt", "", {
-        maxAge: -1,
-    })
-}
+export const removeAuthToken = async () => (await nextCookies()).set("__jwt", "", { maxAge: -1, })
 
-export const getCartId = async () => {
-    return (await nextCookies()).get("__cart_id")?.value
-}
+export const getCartId = async () => (await nextCookies()).get("__cart_id")?.value
 
-export const setCartId = async (cartId: string) => {
-    (await nextCookies()).set("__cart_id", cartId, {
-        maxAge: 60 * 60 * 24 * 7,
-        httpOnly: true,
-        sameSite: "strict",
-        secure: process.env.NODE_ENV === "production",
-    })
-}
+export const setCartId = async (cartId: string) => (await nextCookies()).set("__cart_id", cartId, {
+    maxAge: 60 * 60 * 24 * 7,
+    httpOnly: true,
+    sameSite: "strict",
+    secure: process.env.NODE_ENV === "production",
+})
 
-export const removeCartId = async () => {
-    (await nextCookies()).set("__cart_id", "", {
-        maxAge: -1,
-    })
-}
+export const removeCartId = async () => (await nextCookies()).set("__cart_id", "", {
+    maxAge: -1,
+})
 
-export const setCountryCode = async (countryCode: string) => {
-    (await nextCookies()).set("__country_code", countryCode, {
-        maxAge: 60 * 60 * 24 * 365,
-    })
-}
+export const setCountryCode = async (countryCode: string) => (await nextCookies()).set("__country_code", countryCode, {
+    maxAge: 60 * 60 * 24 * 7,
+    httpOnly: true,
+    sameSite: "strict",
+})

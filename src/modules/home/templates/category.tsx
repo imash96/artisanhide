@@ -1,13 +1,16 @@
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import { listParentCategories } from "libs/actions/categories"
+import { listCategories } from "libs/actions/categories"
 import SectionHeader from "../components/section-header";
 
 import "@/styles/home-cat-section.css"
 import Link from "next/link";
 
 export default async function Category() {
-    const product_categories = await listParentCategories({ limit: 6 })
+    const product_categories = await listCategories({
+        limit: 6,
+        parent_category_id: "null",
+    })
     return (
         <SectionHeader title="Shop by Category" desc="Discover Your Style: Navigate by Category for Effortless Shopping!" sectionName="category">
             <div className="grid md:grid-cols-6 lg:grid-cols-4  gap-4">

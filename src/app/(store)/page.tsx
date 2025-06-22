@@ -12,6 +12,7 @@ import Blog from "@modules/home/templates/blog";
 import IconWithText from "@modules/home/components/icon-with-text";
 import { podData, uspData } from "@modules/home/icon-with-text";
 import { cookies } from "next/headers";
+import TempCart from "app/temp-cart-button";
 
 // remove countrycode and async if not needed
 export default async function Page() {
@@ -25,6 +26,7 @@ export default async function Page() {
     <>
       <BannerSlider />
       <IconWithText data={uspData} />
+      <TempCart countryCode={countryCode} />
       <Category />
       <TrendingNow region_id={region.id} />
       <Collection />

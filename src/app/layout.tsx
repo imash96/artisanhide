@@ -14,8 +14,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const theme = use(cookies()).get('__theme')?.value
   return (
     <html lang="en" data-theme={theme ? theme : "light"}>
-      <body className={`${BricolageGrotesque.className} antialiased`}>
-        <HolyLoader />
+      <body className={`${BricolageGrotesque.className} antialiased pb-12 lg:pb-0`}>
+        <HolyLoader color="gray" easing="ease-out" />
         <Announcement />
         {children}
       </body>

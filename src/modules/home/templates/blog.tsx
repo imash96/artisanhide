@@ -1,9 +1,7 @@
 import { ArrowRight } from "lucide-react"
 import BlogCard from "../components/blog-card"
 import { Button } from "@modules/common/button"
-import Container from "@modules/common/create-section"
 import SectionHeader from "../components/section-header"
-
 
 export default function Blog() {
     return (

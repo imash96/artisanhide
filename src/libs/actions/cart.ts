@@ -102,7 +102,12 @@ export async function addToCart({ variantId, quantity, countryCode }: AddToCartP
     }).catch(medusaError)
 }
 
-export async function updateLineItem({ lineId, quantity }: { lineId: string, quantity: number }) {
+export async function updateLineItem(lineId: string, quantity: number) {
+    // console.log(quantity)
+    // if (quantity <= 0) {
+    //     deleteLineItem(lineId)
+    //     return
+    // }
     if (!lineId) throw new Error("Missing lineItem ID when updating line item")
 
     const cartId = await getCartId()
