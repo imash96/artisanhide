@@ -1,80 +1,87 @@
 "use client"
 
-import clx from "libs/util/clx";
+import clx from "@libs/util/clx";
 import { Eye, EyeOff } from "lucide-react";
-import { useId, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 type InputProp = {
     label: string;
-    status?: "success" | "error" | "default";
+    state?: "default" | "success" | "error";
     helperText?: string;
     pill?: boolean;
-} & Omit<React.ComponentPropsWithoutRef<'input'>, 'size'>
+} & React.ComponentPropsWithoutRef<'input'>
 
-export default function Input({ label, name, type = "text", status = "default", helperText, required, className, pill, ...props }: InputProp) {
+export default function Input({ label, type = "text", state = "default", helperText, className, pill, ...props }: InputProp) {
     const [showPassword, setShowPassword] = useState(false);
-    const id = useId();
     const inputRef = useRef<HTMLInputElement>(null)
 
-    const inputType = type === "password" && showPassword ? "text" : type;
+    const isPassword = type === "password"
+    const inputType = isPassword && showPassword ? "text" : type
+    const id = `input-${props.name}`;
+    const helpId = `${id}-helper-text`;
 
+    const borderClass = {
+        default: 'border-gray-300 focus:border-blue-600',
+        success: 'border-green-600 focus:border-green-600',
+        error: 'border-red-600 focus:border-red-600',
+    }[state];
+
+    const labelColor = {
+        default: 'text-gray-500 peer-focus:text-blue-600',
+        success: 'text-green-600',
+        error: 'text-red-600',
+    }[state];
+
+    const helperColor = {
+        default: 'text-gray-500',
+        success: 'text-green-600',
+        error: 'text-red-600',
+    }[state];
+
+    const rounded = pill ? "rounded-full" : "rounded-md"
     return (
-        <div className={`flex flex-col w-full ${className ?? ""}`}>
-            <div className="flex relative z-0 w-full text-sm text-gray-800 font-normal">
+        <div className={className}>
+            <div className="relative">
                 <input
                     id={id}
-                    type={inputType}
-                    name={name}
-                    {...props}
-                    className={clx("block w-full h-11 pt-4 pb-0.5 px-4 mt-0 bg-slate-100 border appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active hover:bg-slate-200",
-                        {
-                            "border-gray-300 focus:border-blue-600": status === "default",
-                            "border-green-600 focus:border-green-600": status === "success",
-                            "border-red-600 focus:border-red-600": status === "error",
-                            "rounded-full": pill,
-                            "rounded-md": !pill
-                        }
-                    )}
-                    placeholder=" "
-                    required={required}
                     ref={inputRef}
-                    aria-describedby={helperText ? `${id}-helper-text` : undefined}
+                    type={inputType}
+                    placeholder=" "
+                    aria-describedby={helperText ? helpId : undefined}
+                    aria-invalid={state === 'error'}
+                    aria-required={props.required}
+                    className={clx(
+                        'peer block w-full appearance-none bg-white px-2 transition-transform duration-150 ease-in-out translate-y-1',
+                        'border focus:outline-none focus:ring-0 hover:bg-slate-50 pt-4 pb-1 text-sm',
+                        borderClass,
+                        rounded,
+                        props.disabled ? 'text-gray-400 cursor-not-allowed bg-gray-100 opacity-60' : 'text-gray-900',
+                    )}
+                    {...props}
                 />
                 <label
                     htmlFor={id}
                     onClick={() => inputRef.current?.focus()}
-                    className={clx("flex pb-1 items-center text-sm justify-center mx-3 px-1 transition-all absolute duration-300 top-3 origin-center text-gray-800",
-                        {
-                            "text-gray-600": status === "default",
-                            "text-green-600": status === "success",
-                            "text-red-600": status === "error"
-                        }
+                    className={clx(
+                        'absolute origin-[0] scale-75 transform px-2 text-sm transition-all duration-300 ease-in-out pointer-events-none start-1 peer-placeholder-shown:scale-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/4 peer-focus:scale-75 top-2 -translate-y-1 peer-focus:top-2 peer-focus:-translate-y-1',
+                        labelColor,
+                        props.disabled && 'text-gray-400'
                     )}>
                     {label}
-                    {required && <span className="text-rose-500">*</span>}
+                    {props.required && <span className="text-rose-500 ml-0.5">*</span>}
                 </label>
-                {type === "password" && (
+                {isPassword && (
                     <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="text-gray-600 px-4 focus:outline-none transition-all duration-150 outline-none focus:text-gray-900 absolute right-0 top-3"
+                        disabled={props.disabled}
+                        className="absolute right-2.5 top-2.5 p-1 rounded-md text-gray-500 hover:text-gray-700 focus:outline-none focus-visible:ring-1"
                     >
-                        {showPassword ? <Eye /> : <EyeOff />}
+                        {showPassword ? <Eye className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
                     </button>
                 )}
             </div>
-            {helperText && (
-                <p id={`${id}-helper-text`} className={clx(
-                    "mt-2 text-xs",
-                    {
-                        "text-gray-600": status === "default",
-                        "text-green-600": status === "success",
-                        "text-red-600": status === "error"
-                    }
-                )}>
-                    {helperText}
-                </p>
-            )}
+            {helperText && <p id={helpId} className={`mt-1 text-xs ${helperColor}`}>{helperText}</p>}
         </div>
     )
 }

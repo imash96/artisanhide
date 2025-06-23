@@ -64,17 +64,15 @@ export async function updateCart(data: StoreUpdateCart) {
 
     const headers = { ...(await getAuthHeaders()) as ClientHeaders };
 
-    return sdk.store.cart.update(cartId, data, {}, headers)
-        .then(async ({ cart }) => {
-            const cartCacheTag = await getCacheTag("carts")
-            revalidateTag(cartCacheTag)
+    return sdk.store.cart.update(cartId, data, {}, headers).then(async ({ cart }) => {
+        const cartCacheTag = await getCacheTag("carts")
+        revalidateTag(cartCacheTag)
 
-            const fulfillmentCacheTag = await getCacheTag("fulfillment")
-            revalidateTag(fulfillmentCacheTag)
+        const fulfillmentCacheTag = await getCacheTag("fulfillment")
+        revalidateTag(fulfillmentCacheTag)
 
-            return cart
-        })
-        .catch(medusaError)
+        return cart
+    }).catch(medusaError)
 }
 
 export async function addToCart({ variantId, quantity, countryCode }: AddToCartProps) {

@@ -1,6 +1,9 @@
 "use client"
 
+import { Button } from "@modules/common/button";
 import Container from "@modules/common/create-section";
+import Input from "@modules/common/input";
+import Select from "@modules/common/select";
 import { addToCart } from "libs/actions/cart";
 import { LoaderCircle } from "lucide-react";
 import { startTransition, useActionState } from "react";
@@ -21,11 +24,13 @@ export default function TempCart({ countryCode }: { countryCode: string }) {
     return (
         <Container>
             <div className="flex mx-auto py-10">
-                <form action={formAction} className="flex">
-                    <input type="number" id="#cart_qty" className="w-fit border" />
-                    <div className="flex justify-center items-center">
-                        {isPending && <LoaderCircle className="animate-spin" />}
-                        <button type="submit" className="px-4 py-3 border hover:bg-gray-200">Add to Cart</button>
+                <form action={formAction} className="w-full">
+                    <div className="relative max-w-md mx-auto">
+                        <Input label="Quantity" type="number" id="#cart_qty" className="w-full" />
+
+                        <Button type="submit" className="absolute top-0 right-0">
+                            {isPending && <LoaderCircle className="animate-spin" />} Add to Cart
+                        </Button>
                     </div>
                 </form>
             </div>
@@ -45,4 +50,15 @@ const variantArray = [
     "variant_01JXQ9RHVTHKYKCECEFC7SB3VJ",
     "variant_01JXQ9RHVVV4YTFWKFGQ79TN62",
     "variant_01JXQ9RHVWAM52K60CYW4XAMJM",
+]
+
+const options = [
+    { value: "red", label: "Red" },
+    { value: "blue", label: "Blue" },
+    { value: "green", label: "Green" },
+    { value: "yellow", label: "Yellow" },
+    { value: "voiled", label: "Voilet" },
+    { value: "black", label: "Black" },
+    { value: "white", label: "White" },
+    { value: "brown", label: "Brown" },
 ]
