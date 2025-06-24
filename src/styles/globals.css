@@ -62,6 +62,23 @@
       transform: translateY(0);
     }
   }
+
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple 600ms ease-out;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .bg-modile-drawer {

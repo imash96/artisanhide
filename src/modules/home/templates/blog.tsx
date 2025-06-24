@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react"
 import BlogCard from "../components/blog-card"
-import { Button } from "@modules/common/button"
+import Button from "@modules/common/custom-button"
 import SectionHeader from "../components/section-header"
 
 export default function Blog() {

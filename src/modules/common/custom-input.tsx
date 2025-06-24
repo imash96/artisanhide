@@ -17,7 +17,7 @@ export default function Input({ label, type = "text", state = "default", helperT
 
     const isPassword = type === "password"
     const inputType = isPassword && showPassword ? "text" : type
-    const id = `input-${props.name}`;
+    const id = props.id ? props.id : `input-${props.name}`;
     const helpId = `${id}-helper-text`;
 
     const borderClass = {

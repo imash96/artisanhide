@@ -1,7 +1,7 @@
 import { StoreProduct } from "@medusajs/types";
 import ProductCard from "./product-card";
 import SectionHeader from "./section-header";
-import { Button } from "@modules/common/button";
+import Button from "@modules/common/custom-button";
 
 
 export default function ProductSection({ products, title, desc, sectionName, ...props }: ProductSectionProps) {

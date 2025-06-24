@@ -6,6 +6,7 @@ import type { StoreProduct } from "@medusajs/types"
 
 import "@/styles/temp.css"
 import { getProductPrice } from "libs/util/get-product-price"
+import Link from "next/link"
 
 export default function ProductCard({ product }: ProductCardProps) {
 
@@ -29,7 +30,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     })
 
     return (
-        <article className="relative">
+        <Link href={`/products/${product.handle}`} className="relative">
             <div className="card-container relative bg-white transition-all duration-300">
                 {/* Image Container */}
                 <div className="image-container relative w-full aspect-[3/4] bg-gray-50">
@@ -80,7 +81,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                     )}
                 </div>
             </div>
-        </article>
+        </Link>
     )
 }
 

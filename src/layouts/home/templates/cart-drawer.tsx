@@ -1,7 +1,7 @@
 import type { StoreCart } from "@medusajs/types"
 import CartDrawerClient from "../components/cart-drawer-client"
 import CartContent from "../components/cart-content"
-import { Button } from "@modules/common/button"
+import Button from "@modules/common/custom-button"
 import Image from "next/image"
 
 

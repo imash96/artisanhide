@@ -1,15 +1,16 @@
 "use client"
 
-import { Button } from "@modules/common/button";
+import Button from "@modules/common/custom-button";
+import CustomButton from "@modules/common/custom-button";
 import Container from "@modules/common/create-section";
-import Input from "@modules/common/input";
-import Select from "@modules/common/select";
+import Input from "@modules/common/custom-input";
 import { addToCart } from "libs/actions/cart";
-import { LoaderCircle } from "lucide-react";
+import { LoaderCircle, ShoppingBag } from "lucide-react";
 import { startTransition, useActionState } from "react";
 
 export default function TempCart({ countryCode }: { countryCode: string }) {
     const selectedVariant = variantArray[Math.floor(Math.random() * variantArray.length)];
+    console.log(selectedVariant)
     const handleAddToCart = () => {
         const quantity = document.getElementById("#cart_qty") as HTMLInputElement
         startTransition(() => addToCart({
@@ -23,14 +24,14 @@ export default function TempCart({ countryCode }: { countryCode: string }) {
 
     return (
         <Container>
-            <div className="flex mx-auto py-10">
+            <div className="flex flex-col gap-y-2 mx-auto py-10 max-w-md">
                 <form action={formAction} className="w-full">
-                    <div className="relative max-w-md mx-auto">
+                    <div className="relative flex mx-auto">
                         <Input label="Quantity" type="number" id="#cart_qty" className="w-full" />
 
-                        <Button type="submit" className="absolute top-0 right-0">
-                            {isPending && <LoaderCircle className="animate-spin" />} Add to Cart
-                        </Button>
+                        <CustomButton type="submit" isLoading={isPending} ripple>
+                            Add to Cart
+                        </CustomButton>
                     </div>
                 </form>
             </div>
@@ -48,8 +49,11 @@ const variantArray = [
     "variant_01JWJGFXHGG2HN7PCEKQVYAGZZ",
     "variant_01JXQ9RHVSWMWV4PPZXG6F6P9P",
     "variant_01JXQ9RHVTHKYKCECEFC7SB3VJ",
-    "variant_01JXQ9RHVVV4YTFWKFGQ79TN62",
+    "variant_01JXQ9RHWXTGFTKR1SGRG01K88",
     "variant_01JXQ9RHVWAM52K60CYW4XAMJM",
+    "variant_01JXQ9RHWXTZ5EEKJMDAAMVKBA",
+    "variant_01JXQ9RHVZP4AR3TNM3YSBN3F1",
+    "variant_01JXQ9RHVZB8WHSG0PD2EA2GDR"
 ]
 
 const options = [

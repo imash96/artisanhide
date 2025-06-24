@@ -1,7 +1,7 @@
 "use client"
 
 import type { StoreCart } from "@medusajs/types"
-import { Button } from "@modules/common/button"
+import Button from "@modules/common/custom-button"
 import { useToggleStore } from "libs/store/use-toggle-drawer"
 import { convertToLocale } from "libs/util/money"
 

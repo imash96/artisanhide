@@ -23,7 +23,7 @@ export const getCategoryByHandle = async (categoryHandle: string[]) => {
     const nextOptions = await getCacheOptions("category");
 
     return sdk.store.category.list({
-        fields: "*category_children, *products",
+        fields: "*products,*products.images",
         handle
     }, {
         next: nextOptions ? nextOptions : null,

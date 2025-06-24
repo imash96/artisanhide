@@ -34,3 +34,16 @@ export const getRegion = async (countryCode: string) => {
         return null
     }
 }
+
+export const retrieveRegion = async (id: string) => {
+    const next = {
+        ...(await getCacheOptions(["regions", id].join("-"))),
+    }
+
+    const nextOptions = await getCacheOptions(["regions", id].join("-"));
+
+    return sdk.store.region.retrieve(id, {}, {
+        next: nextOptions ? nextOptions : null,
+        cache: "force-cache",
+    }).then(({ region }) => region).catch(medusaError)
+}
