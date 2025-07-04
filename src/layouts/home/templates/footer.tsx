@@ -33,10 +33,6 @@ export default async function Footer() {
                     </div>
                     {Object.entries(footer).map(([title, data]) => <FooterTop key={title} title={title} data={data} />)}
                 </div>
-                <div className="flex flex-col gap-y-4 md:flex-row-reverse py-4 text-center items-center justify-between">
-                    <img className="inline-block align-middle h-12 w-auto" loading="lazy" aria-hidden="true" src="/images/contents/StripeBadge.png" />
-                    <p>&copy; {new Date().getFullYear()} Artisan Hide</p>
-                </div>
             </Container>
         </footer>
     )
@@ -57,6 +53,15 @@ const FooterTop = ({ title, data }: FooterTopProps) => {
                 </li>
             ))}
         </ul>
+    )
+}
+
+export function FooterBottom() {
+    return (
+        <div className="flex flex-col gap-y-4 md:flex-row-reverse py-4 text-center items-center justify-between">
+            <img className="inline-block align-middle h-12 w-auto" loading="lazy" aria-hidden="true" src="/images/contents/StripeBadge.png" />
+            <p>&copy; {new Date().getFullYear()} Artisan Hide</p>
+        </div>
     )
 }
 

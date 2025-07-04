@@ -1,11 +1,9 @@
 "use client"
 
-import Button from "@modules/common/custom-button";
 import CustomButton from "@modules/common/custom-button";
 import Container from "@modules/common/create-section";
 import Input from "@modules/common/custom-input";
 import { addToCart } from "libs/actions/cart";
-import { LoaderCircle, ShoppingBag } from "lucide-react";
 import { startTransition, useActionState } from "react";
 
 export default function TempCart({ countryCode }: { countryCode: string }) {

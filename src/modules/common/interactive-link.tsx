@@ -1,0 +1,15 @@
+import { ArrowRight } from "lucide-react"
+import Link, { LinkProps } from "next/link"
+
+type InteractiveLinkProps = LinkProps & {
+    onClick?: () => void
+} & React.PropsWithChildren
+
+export default function InteractiveLink({ href, children, onClick, ...props }: InteractiveLinkProps) {
+    return (
+        <Link className="flex gap-x-1 items-center group text-gray-900" href={href} onClick={onClick} {...props} >
+            <span>{children}</span>
+            <ArrowRight className="group-hover:-rotate-45 ease-in-out duration-150" />
+        </Link>
+    )
+}
