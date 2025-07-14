@@ -115,7 +115,7 @@ export async function signout() {
     const cartCacheTag = await getCacheTag("carts")
     revalidateTag(cartCacheTag)
 
-    redirect(`/account-new`)
+    redirect(`/account`)
 }
 
 export async function transferCart() {

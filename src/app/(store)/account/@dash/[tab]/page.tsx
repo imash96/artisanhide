@@ -6,8 +6,8 @@ import Wishlist from "@modules/account/templates/wishlist"
 import { notFound } from "next/navigation"
 
 export default function Page({ params }: DashPageProps) {
-    const renderContent = () => {
-        switch (params.tab) {
+    const renderContent = async () => {
+        switch ((await params).tab) {
             case "profile":
                 return <Profile />
             case "addresses":
@@ -26,7 +26,5 @@ export default function Page({ params }: DashPageProps) {
 }
 
 type DashPageProps = {
-    params: {
-        tab: string
-    }
+    params: Promise<{ tab: string }>
 }

@@ -1,5 +1,5 @@
-import AuthLayout from "@/layouts/account/templates/auth-layout";
-import DashLayout from "@/layouts/account/templates/dash-layout";
+import AuthLayout from "@/layouts/account/auth-layout";
+import DashLayout from "@/layouts/account/dash-layout";
 import { retrieveCustomer } from "@libs/actions/customer";
 import Container from "@modules/common/create-section";
 import InteractiveLink from "@modules/common/interactive-link";
@@ -7,10 +7,10 @@ import InteractiveLink from "@modules/common/interactive-link";
 export default async function Layout({ dash, auth }: AcccountLayoutProp) {
     const customer = await retrieveCustomer().catch(() => null)
     return (
-        <Container width={7}>
+        <Container width={7} className="py-6 space-y-8 md:py-10 lg:py-12">
             {customer ? <DashLayout customer={customer}>{dash}</DashLayout> : <AuthLayout>{auth}</AuthLayout>}
             <hr />
-            <div className="py-12">
+            <div className="">
                 <div>
                     <h3 className="text-xl font-semibold mb-4">Got questions?</h3>
                     <span className="text-base">

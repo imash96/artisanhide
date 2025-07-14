@@ -1,7 +1,7 @@
 import { login, signup } from "@libs/actions/customer"
 import Button from "@modules/common/custom-button"
 import Input from "@modules/common/custom-input"
-import { AuthProps } from "app/(store)/accounts/@dash/[tab]/page"
+import { AuthProps } from "app/(store)/account/@auth/page"
 import Link from "next/link"
 import { useActionState } from "react"
 
