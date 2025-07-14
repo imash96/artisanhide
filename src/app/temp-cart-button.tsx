@@ -7,10 +7,11 @@ import { addToCart } from "libs/actions/cart";
 import { startTransition, useActionState } from "react";
 
 export default function TempCart({ countryCode }: { countryCode: string }) {
-    const selectedVariant = variantArray[Math.floor(Math.random() * variantArray.length)];
-    console.log(selectedVariant)
+
     const handleAddToCart = () => {
         const quantity = document.getElementById("#cart_qty") as HTMLInputElement
+        const selectedVariant = variantArray[Math.floor(Math.random() * variantArray.length)];
+        console.log(selectedVariant)
         startTransition(() => addToCart({
             variantId: selectedVariant,
             quantity: quantity.value ? Number(quantity.value) : 1,

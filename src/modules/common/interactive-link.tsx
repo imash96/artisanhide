@@ -9,7 +9,7 @@ export default function InteractiveLink({ href, children, onClick, ...props }: I
     return (
         <Link className="flex gap-x-1 items-center group text-gray-900" href={href} onClick={onClick} {...props} >
             <span>{children}</span>
-            <ArrowRight className="group-hover:-rotate-45 ease-in-out duration-150" />
+            <ArrowRight className="w-4 h-4 group-hover:-rotate-45 ease-in-out duration-150" />
         </Link>
     )
 }
