@@ -7,7 +7,7 @@ export default function CartSummary({ cart }: { cart: StoreCart }) {
     const { currency_code, total, subtotal, tax_total, discount_total, gift_card_total, shipping_subtotal, } = cart
     return (
         <div className="space-y-8 p-8 rounded-lg shadow-lg border">
-            <h2 className="text-xl font-medium text-templateBrown">Cart Summary</h2>
+            <h2 className="text-xl font-medium text-brown">Cart Summary</h2>
             <div className="space-y-4 text-gray-600">
                 <div className="flex items-center justify-between text-sm">
                     <span>Subtotal</span>

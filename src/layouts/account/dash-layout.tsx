@@ -1,87 +1,75 @@
 "use client"
 
-import {
-    User,
-    MapPin,
-    Package,
-    Heart,
-    Ruler,
-    LogOut,
-    UserRound,
-} from "lucide-react"
-import { StoreCustomer } from "@medusajs/types"
-import { usePathname } from "next/navigation"
+import { UserRound, BookUser, Package, Heart, PencilRuler, LogOut } from "lucide-react"
 import Link from "next/link"
-import clx from "@libs/util/clx"
+import { usePathname } from "next/navigation"
 import { signout } from "@libs/actions/customer"
+import { StoreCustomer } from "@medusajs/types"
 
 export default function DashLayout({ customer, children }: DashLayoutProp) {
     const pathname = usePathname()
 
-    const handleLogout = async () => {
-        await signout()
-    }
+    const handleLogout = async () => await signout()
+
+    const fullName = `${customer.first_name || ''} ${customer.last_name || ''}`.trim() || 'Customer';
 
     return (
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
-            <aside className="lg:col-span-4 lg:border-r sticky top-24 bg-white">
-                <div className="flex items-center gap-2 pb-6">
-                    <div className="min-w-[60px] min-h-[60px] flex items-center justify-center rounded-full border border-[#c17345]">
-                        <UserRound size={25} className="text-[#c17345]" strokeWidth={1} />
+        <div className="flex flex-col lg:flex-row min-h-screen">
+            {/* Sidebar */}
+            <aside className="lg:mx-4 lg:sticky top-16 h-fit space-y-4 divide-y border-b lg:border-b-0 lg:pr-0">
+                {/* Customer Info */}
+                <div className="flex items-center gap-4 py-4 px-4">
+                    <div className="min-w-[60px] h-[60px] flex items-center justify-center rounded-full border border-[#c17345]">
+                        <UserRound size={26} className="text-[#c17345]" strokeWidth={1.2} />
                     </div>
-                    <div>
-                        <h3 className="text-lg">{customer.first_name} {customer.last_name}</h3>
-                        <p className="text-[13px] text-gray-600 tracking-wide font-light">{customer.email}</p>
-                        <button type="button" onClick={handleLogout} className="flex items-center gap-2 text-[13px] font-light underline underline-offset-2">
-                            Logout
-                            <LogOut size={14} strokeWidth={1.5} />
+                    <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-semibold truncate">{fullName}</h3>
+                        <p className="text-sm text-gray-600 truncate">{customer.email}</p>
+                        <button
+                            onClick={handleLogout}
+                            className="mt-1 inline-flex items-center gap-1 text-xs font-light underline underline-offset-2 text-red-600 hover:text-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-red-500"
+                            aria-label="Logout"
+                        >
+                            Logout <LogOut size={14} strokeWidth={1.5} />
                         </button>
                     </div>
                 </div>
 
-                <nav className="flex overflow-x-auto no-scrollbar border-y border-gray-200 space-x-3 lg:flex-col lg:space-x-0 lg:space-y-2 lg:border-b-0">
+                {/* Navigation */}
+                <nav aria-label="Account navigation" className="px-2 py-2 flex lg:flex-col gap-2 overflow-x-auto no-scrollbar">
                     {navigationItems.map((item) => {
-                        const isActive = pathname === item.href
-
+                        const isActive = pathname === item.href;
                         return (
                             <Link
                                 key={item.id}
                                 href={item.href}
-                                aria-current={isActive ? "page" : undefined}
-                                className={clx(
-                                    isActive ? "border-brown text-brown" : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700",
-                                    "inline-flex items-center border-b-2 px-1 py-4 text-sm font-medium",
-
-                                    // Desktop styles
-                                    "lg:w-full lg:flex lg:items-center lg:justify-between lg:p-3 lg:bg-transparent lg:border-none lg:hover:bg-neutral-700/50",
-                                    isActive &&
-                                    "lg:bg-brown lg:border lg:border-brown lg:text-brown"
-                                )}
+                                aria-current={isActive ? 'page' : undefined}
+                                className={`flex items-center m-1 gap-3 border-b-4 lg:border-b-0 lg:border-l-4 px-4 py-2 lg:px-3 lg:py-2.5 rounded-md transition-colors duration-150 ${isActive ? 'bg-[#f7f3ef] border-[#c17345] text-[#c17345]' : 'hover:bg-gray-100 lg:border-transparent hover:border-gray-300'} focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1`}
                             >
-                                <div className="lg:flex lg:items-center lg:space-x-3 lg:flex-1">
-                                    <item.icon className={clx(
-                                        "w-6 h-6 mx-auto lg:mx-0",
-                                        isActive ? "text-brown" : "text-neutral-400"
-                                    )} />
-                                    <div className="lg:flex-1">
-                                        <div className={clx(
-                                            "text-sm font-medium",
-                                            isActive ? "text-brown" : "text-brown"
-                                        )}>
+                                <div className="flex w-full flex-col lg:flex-row items-center justify-center lg:justify-start gap-1 lg:gap-3">
+                                    <item.icon
+                                        size={20}
+                                        strokeWidth={1.2}
+                                        className={isActive ? 'text-[#c17345]' : 'text-gray-400'}
+                                        aria-hidden="true"
+                                    />
+                                    <div className="flex flex-col min-w-0">
+                                        <div className={`text-sm ${isActive ? 'font-semibold' : 'font-medium text-gray-700'} truncate`}>
                                             {item.label}
                                         </div>
-                                        <div className="hidden text-xs text-neutral-500 lg:block">
+                                        <div className="hidden lg:block text-xs text-gray-500 truncate">
                                             {item.description}
                                         </div>
                                     </div>
                                 </div>
                             </Link>
-                        )
+                        );
                     })}
                 </nav>
             </aside>
 
-            <main className="lg:col-span-8 min-h-[200vh]">{children}</main>
+            {/* Main Content */}
+            <main className="flex-1 lg:pl-6 py-6 lg:border-l">{children}</main>
         </div>
     )
 }
@@ -90,14 +78,14 @@ const navigationItems = [
     {
         id: "profile",
         label: "Profile",
-        icon: User,
+        icon: UserRound,
         href: "/account/profile",
         description: "Personal information",
     },
     {
         id: "addresses",
         label: "Addresses",
-        icon: MapPin,
+        icon: BookUser,
         href: "/account/addresses",
         description: "Shipping addresses",
     },
@@ -118,7 +106,7 @@ const navigationItems = [
     {
         id: "measurements",
         label: "Measure",
-        icon: Ruler,
+        icon: PencilRuler,
         href: "/account/measurements",
         description: "Custom sizing",
     },

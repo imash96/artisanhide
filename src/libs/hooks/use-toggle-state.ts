@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
-export type StateType = [boolean, () => void, () => void, () => void] & {
+export type StateType = {
     state: boolean
     open: () => void
     close: () => void
@@ -8,18 +8,18 @@ export type StateType = [boolean, () => void, () => void, () => void] & {
 }
 
 export const useToggleState = (initialState = false): StateType => {
-    const [state, setState] = useState<boolean>(initialState)
+    const [state, setState] = useState(initialState)
 
-    const close = () => setState(false)
+    useEffect(() => {
+        const handle = (e: KeyboardEvent) => (e.key === "Escape") && setState(false)
+        if (state) window.addEventListener("keydown", handle)
 
-    const open = () => setState(true)
+        return () => window.removeEventListener("keydown", handle)
+    }, [state])
 
-    const toggle = () => setState((state) => !state)
+    const open = useCallback(() => setState(true), [])
+    const close = useCallback(() => setState(false), [])
+    const toggle = useCallback(() => setState((o) => !o), [])
 
-    const hookData = [state, open, close, toggle] as StateType
-    hookData.state = state
-    hookData.open = open
-    hookData.close = close
-    hookData.toggle = toggle
-    return hookData
+    return { state, open, close, toggle }
 }

@@ -32,7 +32,7 @@ export default function Testimonials() {
 
     return (
         <div className="max-w-6xl mx-auto flex flex-col px-4 md:px-16 lg:px-32 py-12 md:py-8 gap-y-8 lg:gap-y-10 lg:py-14">
-            <h2 className="text-center text-[24px] lg:text-[30px] tracking-tight font-normal text-templateBrown">
+            <h2 className="text-center text-[24px] lg:text-[30px] tracking-tight font-normal text-brown">
                 Our Customer Feedbacks
             </h2>
 

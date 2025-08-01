@@ -7,6 +7,7 @@ import { retrieveCart } from "libs/actions/cart";
 import BottomTabs from "@/layouts/home/templates/bottom-tabs";
 import { listCategories } from "libs/actions/categories";
 import type { Metadata } from "next";
+import { DrawerProvider } from "@libs/context/drawer-context";
 
 
 export default function StoreLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -14,14 +15,14 @@ export default function StoreLayout({ children }: Readonly<{ children: React.Rea
     const cart = use(retrieveCart())
     const parent_categories = use(listCategories({ include_descendants_tree: true, limit: 6, parent_category_id: "null", }))
     return (
-        <>
+        <DrawerProvider>
             <Header parent_categories={parent_categories} />
             <MobileDrawer parent_categories={parent_categories} />
             <CartDrawer cart={cart} />
             {children}
             <BottomTabs />
             <Footer />
-        </>
+        </DrawerProvider>
     );
 }
 

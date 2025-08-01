@@ -6,14 +6,15 @@ import { ChevronLeft, ChevronRight, Search, User, X } from "lucide-react";
 import Link from "next/link";
 
 import type { StoreProductCategory } from "@medusajs/types";
-import { useToggleStore } from "libs/store/use-toggle-drawer";
+import { DrawerContext } from "@libs/context/drawer-context";
+import { use } from "react";
 import Drawer from "../components/drawer";
 import MenuPromotion from "../components/menu-promotion";
 import MobileDrawerContact from "../components/mobile-drawer-contact";
 import { MEGA_MENU } from "../header";
 
 export default function MobileDrawer({ parent_categories }: { parent_categories: StoreProductCategory[] }) {
-    const { isMenuDrawerOpen, toggleMenuDrawer } = useToggleStore()
+    const { isMenuDrawerOpen, toggleMenuDrawer } = use(DrawerContext);
 
     const [navigationStack, setNavigationStack] = useState<NavigationState[]>([
         { level: 0, category: null, breadcrumb: [] },

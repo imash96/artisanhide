@@ -7,10 +7,10 @@ import InteractiveLink from "@modules/common/interactive-link";
 export default async function Layout({ dash, auth }: AcccountLayoutProp) {
     const customer = await retrieveCustomer().catch(() => null)
     return (
-        <Container width={7} className="py-6 space-y-8 md:py-10 lg:py-12">
+        <Container width={7} className="py-6 md:py-10 lg:py-12">
             {customer ? <DashLayout customer={customer}>{dash}</DashLayout> : <AuthLayout>{auth}</AuthLayout>}
             <hr />
-            <div className="">
+            <div className="py-8">
                 <div>
                     <h3 className="text-xl font-semibold mb-4">Got questions?</h3>
                     <span className="text-base">
@@ -18,7 +18,7 @@ export default async function Layout({ dash, auth }: AcccountLayoutProp) {
                         customer service page.
                     </span>
                 </div>
-                <div className="float-right">
+                <div className="float-right mt-4">
                     <InteractiveLink href="/customer-service">
                         Customer Service
                     </InteractiveLink>

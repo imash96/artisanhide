@@ -1,11 +1,13 @@
 "use client"
 
 import { ShoppingBag } from "lucide-react"
-import { useToggleStore } from "libs/store/use-toggle-drawer"
+import { DrawerContext } from "@libs/context/drawer-context";
+import { use } from "react";
 
 // TODO: mix cartbutton with cart drawer
 export default function CartDrawerButton({ className, totalItems }: CartDrawerButtonProps) {
-    const { toggleCartDrawer } = useToggleStore()
+    const { toggleCartDrawer } = use(DrawerContext);
+
     return (
         <button onClick={toggleCartDrawer} className={className}>
             <ShoppingBag size={18} strokeWidth={1.5} />

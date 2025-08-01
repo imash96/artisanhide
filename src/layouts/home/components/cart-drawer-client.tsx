@@ -1,11 +1,12 @@
 "use client"
 
-import { useToggleStore } from "libs/store/use-toggle-drawer"
 import { ShoppingBag, X } from "lucide-react"
+import { DrawerContext } from "@libs/context/drawer-context";
+import { use } from "react";
 import Drawer from "../components/drawer"
 
 export default function CartDrawerClient({ children }: React.PropsWithChildren) {
-    const { isCartDrawerOpen, toggleCartDrawer } = useToggleStore()
+    const { isCartDrawerOpen, toggleCartDrawer } = use(DrawerContext);
     return (
         <Drawer state={isCartDrawerOpen} onClose={toggleCartDrawer} direction="right" type="cart" >
             <div className="flex flex-col h-full w-full bg-white">

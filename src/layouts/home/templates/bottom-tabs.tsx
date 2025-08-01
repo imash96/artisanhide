@@ -1,12 +1,13 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { Home, LayoutDashboard, Menu, ShoppingBag, User } from "lucide-react";
-import { useToggleStore } from "libs/store/use-toggle-drawer";
+import { DrawerContext } from "@libs/context/drawer-context";
+import { use } from "react";
 import Link from "next/link"
 
 export default function BottomTabs() {
   const pathname = usePathname();
-  const { toggleCartDrawer, toggleMenuDrawer } = useToggleStore();
+  const { toggleCartDrawer, toggleMenuDrawer } = use(DrawerContext);
 
   if (pathname.includes("/product")) return null;
 
@@ -26,7 +27,7 @@ export default function BottomTabs() {
       </Link>
       <div onClick={toggleCartDrawer} className="active:bg-gray-100 relative grid gap-1 place-content-center place-items-center">
         {/* {totalItems > 0 && (
-          <span className="bg-templateBrown h-5 w-5 text-[11px] text-white rounded-full  absolute top-2 right-4 md:top-2 md:right-12 flex items-center justify-center">
+          <span className="bg-brown h-5 w-5 text-[11px] text-white rounded-full  absolute top-2 right-4 md:top-2 md:right-12 flex items-center justify-center">
             {totalItems}
           </span>
         )} */}
