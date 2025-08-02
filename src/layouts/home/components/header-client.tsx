@@ -1,7 +1,7 @@
 "use client"
 
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const HOME_REGEX = /^\/?$/
 

@@ -3,9 +3,15 @@ import DashLayout from "@/layouts/account/dash-layout";
 import { retrieveCustomer } from "@libs/actions/customer";
 import Container from "@modules/common/create-section";
 import InteractiveLink from "@modules/common/interactive-link";
+import { redirect } from "next/navigation";
 
 export default async function Layout({ dash, auth }: AcccountLayoutProp) {
     const customer = await retrieveCustomer().catch(() => null)
+
+    // If no customer and trying to access a dash route, force login.
+    if (!customer && dash) redirect("/account");
+
+
     return (
         <Container width={7} className="py-6 md:py-10 lg:py-12">
             {customer ? <DashLayout customer={customer}>{dash}</DashLayout> : <AuthLayout>{auth}</AuthLayout>}

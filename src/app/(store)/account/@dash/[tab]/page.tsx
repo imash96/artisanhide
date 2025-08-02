@@ -1,29 +1,23 @@
 import { retrieveCustomer } from "@libs/actions/customer"
-import { getRegion, listRegions } from "@libs/actions/region"
+import { listRegions } from "@libs/actions/region"
 import Addresses from "@modules/account/templates/addresses"
 import Measurements from "@modules/account/templates/measurements"
 import Orders from "@modules/account/templates/orders"
 import Profile from "@modules/account/templates/profile"
 import Wishlist from "@modules/account/templates/wishlist"
-import { cookies } from "next/headers"
 import { notFound } from "next/navigation"
 
-export default async function Page({ params }: DashPageProps) {
-    const customer = await retrieveCustomer()
-    const regions = await listRegions()
-    const countryCode = (await cookies()).get("__country_code")?.value || process.env.NEXT_PUBLIC_DEFAULT_REGION || "us"
-    const region = await getRegion(countryCode)
+export default async function Page({ params }: { params: Promise<{ tab: string }> }) {
+    const [customer, regions] = await Promise.all([retrieveCustomer(), listRegions()]);
 
-    if (!customer || !regions || !region) {
-        notFound()
-    }
+    if (!customer || !regions) notFound()
 
     const renderContent = async () => {
         switch ((await params).tab) {
             case "profile":
                 return <Profile customer={customer} regions={regions} />
             case "addresses":
-                return <Addresses customer={customer} region={region} />
+                return <Addresses customer={customer} regions={regions} />
             case "orders":
                 return <Orders />
             case "wishlist":
@@ -35,8 +29,4 @@ export default async function Page({ params }: DashPageProps) {
         }
     }
     return renderContent()
-}
-
-type DashPageProps = {
-    params: Promise<{ tab: string }>
 }

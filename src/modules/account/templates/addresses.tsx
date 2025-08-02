@@ -1,28 +1,67 @@
 import { StoreCustomer, StoreRegion } from "@medusajs/types"
 import { BookUser } from "lucide-react"
 import AddressesAdd from "../components/addresses-add"
+import { useMemo } from "react"
+import AddressCard from "../components/address-card"
 
-export default function Addresses({ customer, region }: AddressBookProps) {
-    const { addresses } = customer
-    console.log(addresses)
+export default function Addresses({ customer, regions }: AddressBookProps) {
+    const { addresses = [] } = customer
+
+    const countryOptions = useMemo(() => regions.flatMap((region) => (region.countries ?? []).map((country) => {
+        if (!country?.iso_2) return null;
+        return {
+            value: country.iso_2,
+            label: country.display_name ?? country.iso_2,
+        };
+    }).filter((opt): opt is { value: string; label: string } => opt !== null)), [regions]);
+
+    const formatAddress = (address: NonNullable<typeof customer.addresses>[number]) => {
+        const lines = [];
+        const line1 = [address.address_1, address.address_2].filter(Boolean).join(", ");
+        if (line1) lines.push(line1);
+
+        const cityLine = [address.city, address.province, address.postal_code].filter(Boolean).join(", ");
+        if (cityLine) lines.push(cityLine);
+
+        if (address.country_code) lines.push(address.country_code.toUpperCase());
+
+        return lines;
+    };
+
     return (
         <>
-            <div className="space-y-2 mb-4">
-                <h2 className="text-lg text-brown lg:text-xl uppercase tracking-wide font-medium flex items-center gap-2">
-                    <BookUser size={20} /> Addresses
-                </h2>
-                <p className="text-xs font-light">
-                    View and update your shipping addresses, you can add as many as you
-                    like. Saving your addresses will make them available during checkout.
+            <div className="space-y-2 mb-6">
+                <div className="flex items-center gap-2">
+                    <BookUser size={20} className="text-brown" />
+                    <h2 className="text-lg lg:text-xl uppercase tracking-wide font-medium text-brown">
+                        Addresses
+                    </h2>
+                </div>
+                <p className="text-sm text-gray-600 max-w-prose">
+                    View and update your shipping addresses. You can add as many as you like.
+                    Saving your addresses makes them available during checkout.
                 </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-6">
-                <AddressesAdd region={region} addresses={addresses} />
-                {/* {addresses.map((address) => {
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {/* Add new address card */}
+                <AddressesAdd countryOptions={countryOptions} addresses={addresses} />
+
+                {addresses.length === 0 && (
+                    <div className="col-span-full border rounded-lg p-6 flex flex-col items-center justify-center text-center">
+                        <p className="text-base font-medium mb-2">No saved addresses</p>
+                        <p className="text-sm text-gray-500">
+                            Add a shipping address to speed up future checkouts.
+                        </p>
+                    </div>
+                )}
+
+                {addresses.map((address) => {
+                    const addrLines = formatAddress(address);
                     return (
-                        <EditAddress region={region} address={address} key={address.id} />
-                    )
-                })} */}
+                        <AddressCard key={address.id} address={address} addressLines={addrLines} countryOptions={countryOptions} />
+                    );
+                })}
             </div>
         </>
     )
@@ -30,5 +69,5 @@ export default function Addresses({ customer, region }: AddressBookProps) {
 
 type AddressBookProps = {
     customer: StoreCustomer
-    region: StoreRegion
+    regions: StoreRegion[]
 }

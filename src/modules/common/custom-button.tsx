@@ -56,8 +56,14 @@ export default function Button({ variant = 'solid', color = 'primary', isLoading
     const content = children ? <>{isLoading && <LoaderCircle className="w-5 h-5 animate-spin mr-1" />} {children}</> : <>{isLoading && <LoaderCircle className="w-5 h-5 animate-spin mr-1" />} Submit</>
 
     if (typeof props.href === 'undefined') {
-        return (
+
+        if (ripple) return (
             <button className={btnClass} disabled={isLoading || props.disabled} {...props} onClick={onClickHandler}>
+                {content}
+            </button>
+        )
+        return (
+            <button className={btnClass} disabled={isLoading || props.disabled} {...props}>
                 {content}
             </button>
         );

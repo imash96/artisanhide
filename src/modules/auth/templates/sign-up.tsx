@@ -1,4 +1,4 @@
-import { login, signup } from "@libs/actions/customer"
+import { signup } from "@libs/actions/customer"
 import Button from "@modules/common/custom-button"
 import Input from "@modules/common/custom-input"
 import { AuthProps } from "app/(store)/account/@auth/page"

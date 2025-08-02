@@ -5,7 +5,7 @@ import SIGNIN from "@modules/auth/templates/sign-in";
 import { useState } from "react";
 import { notFound } from "next/navigation";
 
-export default function Page() {
+export default function Page({ params }: { params: Promise<{ tab: string }> }) {
     const [currentView, setCurrentView] = useState<LOGIN_VIEW>("SIGN_IN");
 
     const renderView = () => {
