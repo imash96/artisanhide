@@ -3,7 +3,7 @@
 import SIGNUP from "@modules/auth/templates/sign-up";
 import SIGNIN from "@modules/auth/templates/sign-in";
 import { useState } from "react";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 export default function Page({ params }: { params: Promise<{ tab: string }> }) {
     const [currentView, setCurrentView] = useState<LOGIN_VIEW>("SIGN_IN");
@@ -15,7 +15,7 @@ export default function Page({ params }: { params: Promise<{ tab: string }> }) {
             case "SIGN_UP":
                 return <SIGNUP setCurrentView={setCurrentView} />;
             default:
-                return notFound;
+                return redirect("/account";
         }
     };
     return renderView()
