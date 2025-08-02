@@ -15,7 +15,7 @@ export default function Page({ params }: { params: Promise<{ tab: string }> }) {
             case "SIGN_UP":
                 return <SIGNUP setCurrentView={setCurrentView} />;
             default:
-                return redirect("/account";
+                return redirect("/account");
         }
     };
     return renderView()
