@@ -1,7 +1,7 @@
 import { retrieveCustomer } from "@libs/actions/customer"
 import { listRegions } from "@libs/actions/region"
 import Addresses from "@modules/account/templates/addresses"
-import Measurements from "@modules/account/templates/measurements"
+import Measurement from "@modules/account/templates/measurement"
 import Orders from "@modules/account/templates/orders"
 import Profile from "@modules/account/templates/profile"
 import Wishlist from "@modules/account/templates/wishlist"
@@ -9,7 +9,7 @@ import { notFound } from "next/navigation"
 
 export default async function Page({ params }: { params: Promise<{ tab: string }> }) {
     const [customer, regions] = await Promise.all([retrieveCustomer(), listRegions()]);
-
+    console.log(customer)
     if (!customer || !regions) notFound()
 
     const renderContent = async () => {
@@ -22,8 +22,8 @@ export default async function Page({ params }: { params: Promise<{ tab: string }
                 return <Orders />
             case "wishlist":
                 return <Wishlist />
-            case "measurements":
-                return <Measurements />
+            case "measurement":
+                return <Measurement customer={customer} />
             default:
                 return notFound()
         }

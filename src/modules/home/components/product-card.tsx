@@ -30,7 +30,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     })
 
     return (
-        <Link href={`/products/${product.handle}`} className="relative">
+        <Link href={`/product/${product.handle}`} className="relative">
             <div className="card-container relative bg-white transition-all duration-300">
                 {/* Image Container */}
                 <div className="image-container relative w-full aspect-[3/4] bg-gray-50">

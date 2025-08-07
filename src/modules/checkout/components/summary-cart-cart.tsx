@@ -22,7 +22,7 @@ export default function SummaryCartCard({ item, currency_code }: SummaryCartCard
 
             {/* Product Details */}
             <div className="flex-1 min-w-0 flex flex-col justify-between">
-                <Link href={`/products/${item.product_handle}`}>
+                <Link href={`/product/${item.product_handle}`}>
                     <h3 className="text-sm leading-tight line-clamp-2">{item.title}</h3>
                 </Link>
                 <div className="text-xs text-gray-500 mt-1">

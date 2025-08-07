@@ -1,4 +1,4 @@
-import { sdk } from "../sdk"
+import { sdk } from "@libs/sdk"
 import type { FindParams, SelectParams, StoreProductCategoryListParams } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
 

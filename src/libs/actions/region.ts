@@ -1,5 +1,3 @@
-"use server"
-
 import { sdk } from "libs/sdk"
 import { getCacheOptions } from "./cookies"
 import medusaError from "libs/util/medusa-error";
@@ -36,9 +34,6 @@ export const getRegion = async (countryCode: string) => {
 }
 
 export const retrieveRegion = async (id: string) => {
-    const next = {
-        ...(await getCacheOptions(["regions", id].join("-"))),
-    }
 
     const nextOptions = await getCacheOptions(["regions", id].join("-"));
 

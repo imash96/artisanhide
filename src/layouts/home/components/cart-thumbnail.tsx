@@ -1,4 +1,4 @@
-import Thumbnail from "@modules/products/components/thumbnail";
+import Thumbnail from "@modules/product/components/thumbnail";
 import CartRemoveButton from "./cart-remove-button";
 
 type CartThumbnailProps = {

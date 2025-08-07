@@ -1,19 +1,18 @@
 'use client';
 
-import { StoreCustomerAddress, StoreRegion } from '@medusajs/types';
 import * as Dialog from '@radix-ui/react-dialog';
 import { PlusIcon, X } from "lucide-react";
 import Button from '@modules/common/custom-button';
 import Input from '@modules/common/custom-input';
 import Select from '@modules/common/custom-select';
-import { useActionState, useEffect, useMemo, useState } from 'react';
+import { useActionState, useEffect, useState } from 'react';
 import { addCustomerAddress } from '@libs/actions/customer';
 
-export default function AddressesAdd({ addresses, countryOptions }: AddAddressProps) {
+export default function AddressesAdd({ isDefaultShipping, countryOptions }: AddAddressProps) {
     const [state, setState] = useState(false)
 
     const [formState, formAction, isPending] = useActionState(addCustomerAddress, {
-        isDefaultShipping: addresses?.length === 0,
+        isDefaultShipping,
         success: false,
         error: null,
     });
@@ -206,5 +205,5 @@ export type AddAddressProps = {
         label: string,
         value: string
     }[];
-    addresses: StoreCustomerAddress[];
+    isDefaultShipping: boolean;
 };

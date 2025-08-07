@@ -3,9 +3,9 @@
 import SIGNUP from "@modules/auth/templates/sign-up";
 import SIGNIN from "@modules/auth/templates/sign-in";
 import { useState } from "react";
-import { notFound, redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 
-export default function Page({ params }: { params: Promise<{ tab: string }> }) {
+export default function Page() {
     const [currentView, setCurrentView] = useState<LOGIN_VIEW>("SIGN_IN");
 
     const renderView = () => {

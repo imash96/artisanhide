@@ -17,7 +17,7 @@ export const retrieveCustomer = async (): Promise<StoreCustomer | null> => {
     const nextOptions = await getCacheOptions("customers");
 
     return sdk.store.customer.retrieve({
-        fields: "*orders",
+        fields: "+measurements.*"
     }, {
         ...headers,
         next: nextOptions,
@@ -55,13 +55,9 @@ export async function signup(_currentState: unknown, formData: FormData) {
 
         const headers = { ...(await getAuthHeaders()) as ClientHeaders };
 
-        const { customer: createdCustomer } = await sdk.store.customer.create(
-            customerForm,
-            {},
-            {
-                ...headers
-            }
-        )
+        await sdk.store.customer.create(customerForm, {}, {
+            ...headers
+        })
 
         const loginToken = await sdk.auth.login("customer", "emailpass", {
             email: customerForm.email,
@@ -69,13 +65,9 @@ export async function signup(_currentState: unknown, formData: FormData) {
         })
 
         await setAuthToken(loginToken as string)
-
         const customerCacheTag = await getCacheTag("customers")
         revalidateTag(customerCacheTag)
-
         await transferCart()
-
-        return createdCustomer
     } catch (error: any) {
         return error.toString()
     }
@@ -196,7 +188,7 @@ export const updateCustomerAddress = async (currentState: Record<string, unknown
 
     const phone = formData.get("phone") as string
 
-    if (phone)  address.phone = phone
+    if (phone) address.phone = phone
 
     const headers = { ...(await getAuthHeaders()) as ClientHeaders };
 

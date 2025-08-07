@@ -1,13 +1,15 @@
 "use client"
 
-import { UserRound, BookUser, Package, Heart, PencilRuler, LogOut } from "lucide-react"
+import { UserRound, BookUser, Package, Heart, PencilRuler, LogOut, LoaderCircle } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { signout } from "@libs/actions/customer"
 import { StoreCustomer } from "@medusajs/types"
+import { useTransition } from "react"
 
 export default function DashLayout({ customer, children }: DashLayoutProp) {
     const pathname = usePathname()
+    const [isRemoving, startTransition] = useTransition();
 
     const handleLogout = async () => await signout()
 
@@ -25,12 +27,11 @@ export default function DashLayout({ customer, children }: DashLayoutProp) {
                     <div className="flex-1 min-w-0">
                         <h3 className="text-base font-semibold truncate">{fullName}</h3>
                         <p className="text-sm text-gray-600 truncate">{customer.email}</p>
-                        <button
-                            onClick={handleLogout}
+                        <button onClick={() => startTransition(() => signout())}
                             className="mt-1 inline-flex items-center gap-1 text-xs font-light underline underline-offset-2 text-red-600 hover:text-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-red-500"
                             aria-label="Logout"
                         >
-                            Logout <LogOut size={14} strokeWidth={1.5} />
+                            Logout {isRemoving ? <LoaderCircle size={14} className="animate-spin" /> : <LogOut size={14} strokeWidth={1.5} />}
                         </button>
                     </div>
                 </div>
@@ -104,10 +105,10 @@ const navigationItems = [
         description: "Saved items",
     },
     {
-        id: "measurements",
+        id: "measurement",
         label: "Measure",
         icon: PencilRuler,
-        href: "/account/measurements",
+        href: "/account/measurement",
         description: "Custom sizing",
     },
 ]

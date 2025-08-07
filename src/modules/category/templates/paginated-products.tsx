@@ -1,5 +1,5 @@
 import { SortOptions } from "@/types/common"
-import { listProductsWithSort } from "@libs/actions/products"
+import { listProductsWithSort } from "@libs/actions/product"
 import { getRegion } from "@libs/actions/region"
 import ProductCard from "@modules/home/components/product-card"
 import { Pagination } from "../components/pagination"

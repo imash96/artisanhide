@@ -1,4 +1,4 @@
-import { StoreCustomer, StoreRegion } from "@medusajs/types"
+import { StoreCustomer, StoreCustomerAddress, StoreRegion } from "@medusajs/types"
 import { BookUser } from "lucide-react"
 import AddressesAdd from "../components/addresses-add"
 import { useMemo } from "react"
@@ -6,6 +6,7 @@ import AddressCard from "../components/address-card"
 
 export default function Addresses({ customer, regions }: AddressBookProps) {
     const { addresses = [] } = customer
+    const isNoAddress = addresses.length === 0
 
     const countryOptions = useMemo(() => regions.flatMap((region) => (region.countries ?? []).map((country) => {
         if (!country?.iso_2) return null;
@@ -15,7 +16,7 @@ export default function Addresses({ customer, regions }: AddressBookProps) {
         };
     }).filter((opt): opt is { value: string; label: string } => opt !== null)), [regions]);
 
-    const formatAddress = (address: NonNullable<typeof customer.addresses>[number]) => {
+    const formatAddress = (address: StoreCustomerAddress) => {
         const lines = [];
         const line1 = [address.address_1, address.address_2].filter(Boolean).join(", ");
         if (line1) lines.push(line1);
@@ -45,10 +46,10 @@ export default function Addresses({ customer, regions }: AddressBookProps) {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {/* Add new address card */}
-                <AddressesAdd countryOptions={countryOptions} addresses={addresses} />
+                <AddressesAdd countryOptions={countryOptions} isDefaultShipping={isNoAddress} />
 
-                {addresses.length === 0 && (
-                    <div className="col-span-full border rounded-lg p-6 flex flex-col items-center justify-center text-center">
+                {isNoAddress && (
+                    <div className="border rounded-lg p-6 flex flex-col items-center justify-center text-center">
                         <p className="text-base font-medium mb-2">No saved addresses</p>
                         <p className="text-sm text-gray-500">
                             Add a shipping address to speed up future checkouts.
@@ -58,9 +59,7 @@ export default function Addresses({ customer, regions }: AddressBookProps) {
 
                 {addresses.map((address) => {
                     const addrLines = formatAddress(address);
-                    return (
-                        <AddressCard key={address.id} address={address} addressLines={addrLines} countryOptions={countryOptions} />
-                    );
+                    return <AddressCard key={address.id} address={address} addressLines={addrLines} countryOptions={countryOptions} />
                 })}
             </div>
         </>
