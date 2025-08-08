@@ -19,7 +19,7 @@ export default function TempCart({ countryCode }: { countryCode: string }) {
         }));
     }
 
-    const [formState, formAction, isPending] = useActionState(handleAddToCart, null)
+    const [state, formAction, isPending] = useActionState(handleAddToCart, null)
 
     return (
         <Container>

@@ -1,5 +1,6 @@
 "use client";
 
+import { FormState } from "@/types/common";
 import Button from "@modules/common/custom-button";
 import Input from "@modules/common/custom-input";
 import { useActionState } from "react";
@@ -61,11 +62,6 @@ const updatePassword = async () => {
     } catch (error) {
         return { success: false, error: error instanceof Error ? error.message : "Password update is not implemented" }
     }
-}
-
-type FormState = {
-    success: boolean
-    error: string | null
 }
 
 const initialState: FormState = {

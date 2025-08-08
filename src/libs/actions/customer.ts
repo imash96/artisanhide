@@ -17,7 +17,7 @@ export const retrieveCustomer = async (): Promise<StoreCustomer | null> => {
     const nextOptions = await getCacheOptions("customers");
 
     return sdk.store.customer.retrieve({
-        fields: "+measurements.*"
+        fields: "+*orders,*measurements"
     }, {
         ...headers,
         next: nextOptions,

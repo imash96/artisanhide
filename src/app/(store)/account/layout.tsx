@@ -1,5 +1,5 @@
-import AuthLayout from "@/layouts/account/auth-layout";
-import DashLayout from "@/layouts/account/dash-layout";
+import AuthLayout from "@/layouts/account/templates/auth-layout";
+import DashLayout from "@/layouts/account/templates/dash-layout";
 import { retrieveCustomer } from "@libs/actions/customer";
 import Container from "@modules/common/create-section";
 import InteractiveLink from "@modules/common/interactive-link";

@@ -3,6 +3,15 @@ export type Gender = "Male" | "Female" | "Other"
 export type Role = "Body" | "Garment";
 export type MeasurementKey = "Chest" | "Sleeve" | "Shoulder" | "Front Length" | "Waist" | "Bottom" | "Bicep" | "Thighs" | "Knees" | "Leg Bottom" | "Length" | "Front Rise" | "Back Rise" | "Shorts Length" | "Vest Length" | "Half Sleeve" | "Skirt Length" | "Skirt Flare";
 
+export type MeasurementInfo = {
+    label: string;
+    name: MeasurementKey;
+    min: string;
+    max: string;
+    imgsrc: Record<Gender, string>
+    info: string;
+};
+
 export type Measurement = {
     id: string;
     customer_id: string;

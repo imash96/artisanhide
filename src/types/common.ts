@@ -18,6 +18,12 @@ export type IconWithTextType = {
     Icon: ({ ...props }: IconProp) => React.JSX.Element;
 }
 
+export type FormState = {
+    success: boolean
+    error: string | null
+    message?: string
+}
+
 // remove if not used
 export type ListingSectionProps = {
     heading?: string;

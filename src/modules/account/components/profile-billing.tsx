@@ -6,6 +6,7 @@ import Select from "@modules/common/custom-select";
 import Button from "@modules/common/custom-button";
 import { CustomerProps } from "../templates/profile";
 import { addCustomerAddress, updateCustomerAddress } from "@libs/actions/customer";
+import { FormState } from "@/types/common";
 
 export default function ProfileBilling({ customer, regions }: CustomerProps) {
     const billingAddress = customer.addresses?.find((addr) => addr.is_default_billing)
@@ -117,17 +118,13 @@ export default function ProfileBilling({ customer, regions }: CustomerProps) {
     );
 };
 
-type FormState = {
+type BillingFormState = {
     addressId?: string;
     isDefaultBilling: boolean;
-    isDefaultShipping: boolean;
-    error: string | null;
-    success: boolean;
-};
+} & FormState
 
-const initialState: FormState = {
+const initialState: BillingFormState = {
     isDefaultBilling: true,
-    isDefaultShipping: false,
     error: null,
     success: false,
 };

@@ -46,21 +46,6 @@ export const createMeasurement = async (currentState: Record<string, unknown>, f
     }).catch((err) => {
         return { success: false, error: err.toString() }
     })
-
-    // return await sdk.client
-    //     .fetch<{ measurement: StoreMeasurement }>(`/store/customers/measurements`, {
-    //         method: "PUT",
-    //         body: measurement,
-    //         headers,
-    //     })
-    //     .then(async () => {
-    //         const customerCacheTag = await getCacheTag("customers")
-    //         revalidateTag(customerCacheTag)
-    //         return { success: true, error: null }
-    //     })
-    //     .catch((err) => {
-    //         return { success: false, error: err.toString() }
-    //     })
 }
 
 export const updateMeasurement = async (id: string, data: StoreUpdateMeasurementDTO): Promise<any> => {
@@ -76,20 +61,6 @@ export const updateMeasurement = async (id: string, data: StoreUpdateMeasurement
     }).catch((err) => {
         return { success: false, error: err.toString(), id }
     })
-
-    // return sdk.client.fetch<{ measurement: StoreMeasurement }>(`/store/customers/measurements/${id}`, {
-    //     method: "POST",
-    //     body: id,
-    //     headers,
-    // })
-    //     .then(async () => {
-    //         const customerCacheTag = await getCacheTag("customers")
-    //         revalidateTag(customerCacheTag)
-    //         return { success: true, error: null, id }
-    //     })
-    //     .catch((err) => {
-    //         return { success: false, error: err.toString(), id }
-    //     })
 }
 
 export const deleteCustomerMeasurement = async (id: string) => {
@@ -100,21 +71,7 @@ export const deleteCustomerMeasurement = async (id: string) => {
     }).then(async () => {
         const customerCacheTag = await getCacheTag("customers")
         revalidateTag(customerCacheTag)
-        return { success: true, error: null }
     }).catch((err) => {
-        return { success: false, error: err.toString() }
+        console.log(err)
     })
-
-    // await sdk.client.fetch(`/store/customers/measurements/${id}`, {
-    //     method: "DELETE",
-    //     headers,
-    // })
-    //     .then(async () => {
-    //         const customerCacheTag = await getCacheTag("customers")
-    //         revalidateTag(customerCacheTag)
-    //         return { success: true, error: null }
-    //     })
-    //     .catch((err) => {
-    //         return { success: false, error: err.toString() }
-    //     })
 }

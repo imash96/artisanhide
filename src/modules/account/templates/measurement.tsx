@@ -6,7 +6,6 @@ import MeasurementCard from "../components/measurement-card";
 
 export default function Measurement({ customer }: { customer: StoreCustomer }) {
     const { measurements } = customer
-    console.log(measurements)
     return (
         <>
             <div className="space-y-2 mb-6">
@@ -17,8 +16,7 @@ export default function Measurement({ customer }: { customer: StoreCustomer }) {
                     </h2>
                 </div>
                 <p className="text-sm text-gray-600 max-w-prose">
-                    View and update your measurement. You can add as many as you like.
-                    Saving your measurements makes them available during checkout.
+                    View and update your measurement. You can add as many as you like. Saving your measurements makes them available during checkout.
                 </p>
             </div>
             {/* Add new address card */}
@@ -26,19 +24,17 @@ export default function Measurement({ customer }: { customer: StoreCustomer }) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
 
                 {measurements?.length === 0 && (
-                    <div className="border rounded-lg p-6 flex flex-col items-center justify-center text-center">
-                        <p className="text-base font-medium mb-2">No saved addresses</p>
+                    <div className="col-span-full border rounded-lg p-6 min-h-48 flex flex-col items-center justify-center text-center">
+                        <p className="text-base font-medium mb-2">No saved measurements</p>
                         <p className="text-sm text-gray-500">
-                            Add a shipping address to speed up future checkouts.
+                            Add a measurement to speed up future checkouts for custom jackets.
                         </p>
                     </div>
                 )}
 
                 {measurements?.map((measurement) => {
                     // const addrLines = formatAddress(address);
-                    return (
-                        <MeasurementCard key={measurement.id} measurement={measurement} />
-                    );
+                    return <MeasurementCard key={measurement.id} measurement={measurement} />
                 })}
             </div>
         </>

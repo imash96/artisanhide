@@ -1,5 +1,6 @@
 "use client"
 
+import { FormState } from "@/types/common";
 import { updateCustomer } from "@libs/actions/customer";
 import { StoreCustomer } from "@medusajs/types";
 import Button from "@modules/common/custom-button";
@@ -65,17 +66,12 @@ export default function ProfilePersonal({ customer }: { customer: StoreCustomer 
     );
 };
 
-type FormState = {
-    success: boolean
-    error: string | null
-}
-
 const initialState: FormState = {
     success: false,
     error: null,
 }
 
-async function updateCustomerAction(_: FormState, formData: FormData): Promise<FormState> {
+async function updateCustomerAction(_: FormState, formData: FormData) {
     const customerUpdate = {
         first_name: formData.get("first_name") as string,
         last_name: formData.get("last_name") as string,

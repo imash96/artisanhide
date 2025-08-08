@@ -1,10 +1,11 @@
 "use client"
 
+import { FormState } from "@/types/common"
 import { createMeasurement } from "@libs/actions/measurement"
 import CustomInput from "@modules/common/custom-input"
 import CustomSelect from "@modules/common/custom-select"
-import { LoaderCircle, PlusIcon, AlertCircle, CheckCircle } from 'lucide-react'
-import { useActionState, useId, useEffect } from "react"
+import { LoaderCircle, PlusIcon } from 'lucide-react'
+import { useActionState, useId } from "react"
 
 // Move constants to separate object for better organization
 const FORM_OPTIONS = {
@@ -27,35 +28,19 @@ const FORM_OPTIONS = {
     ]
 }
 
-type MeasurementFormState = {
-    success: boolean
-    error: string | null
-    message?: string
-}
-
 export default function MeasurementAdd() {
     const [state, formAction, isPending] = useActionState(createMeasurement, {
         success: false,
         error: null,
-    } as MeasurementFormState)
+    } as FormState)
 
     const formId = useId()
-
-    // Auto-hide success message after 3 seconds
-    useEffect(() => {
-        if (state.success) {
-            const timer = setTimeout(() => {
-                // You might want to reset the state here if your action supports it
-            }, 3000)
-            return () => clearTimeout(timer)
-        }
-    }, [state.success])
 
     return (
         <form
             id={formId}
             aria-labelledby={`${formId}-title`}
-            className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm mb-4"
+            className="bg-white border border-gray-300 rounded-xl p-4 mb-4"
             action={formAction}
         >
             {/* Form Fields */}

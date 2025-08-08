@@ -1,11 +1,11 @@
 "use client"
 
 import { Eye, EyeOff } from 'lucide-react'
-import { useState, useId } from "react"
+import { useState, useId, useRef } from "react"
 
 type InputProps = {
     label: string
-    state?: "default" | "success" | "error"
+    state?: "default" | "success" | "error" | "disabled"
     helperText?: string
 } & Omit<React.InputHTMLAttributes<HTMLInputElement>, "size">
 
@@ -21,6 +21,7 @@ export default function CustomInput({
 }: InputProps) {
     const [showPassword, setShowPassword] = useState(false)
     const id = useId()
+    const inputRef = useRef<HTMLInputElement>(null)
     const helpId = helperText ? `${id}-helper` : undefined
 
     const isPassword = type === "password"
@@ -41,6 +42,11 @@ export default function CustomInput({
             border: "border-red-600 focus:border-red-600",
             label: "text-red-600",
             helper: "text-red-600"
+        },
+        disabled: {
+            border: "border-gray-300",
+            label: "text-gray-500",
+            helper: "text-gray-500"
         }
     }[state]
 
@@ -50,17 +56,19 @@ export default function CustomInput({
                 <input
                     id={id}
                     type={inputType}
+                    ref={inputRef}
                     placeholder=" "
                     disabled={disabled}
                     required={required}
                     aria-describedby={helpId}
                     aria-invalid={state === "error"}
-                    className={`peer block w-full px-2.5 pb-1 pt-5 text-sm bg-gray-50 border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 rounded-md ${stateClasses.border} ${disabled ? "text-gray-400 cursor-not-allowed bg-gray-100" : "text-gray-900"}`}
+                    className={`peer block w-full px-2.5 pb-1 pt-5 text-sm bg-gray-50 border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 rounded-md ${stateClasses.border} ${(disabled || props.readOnly) ? "text-gray-400 cursor-not-allowed bg-gray-100" : "text-gray-900"}`}
                     {...props}
                 />
 
                 <label
                     htmlFor={id}
+                    onClick={() => inputRef.current?.focus()}
                     className={`absolute text-sm duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 transition-all peer-focus:scale-75 peer-focus:-translate-y-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 ${stateClasses.label} ${disabled && "text-gray-400"}`}
                 >
                     {label}

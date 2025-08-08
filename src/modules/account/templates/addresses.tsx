@@ -1,8 +1,8 @@
 import { StoreCustomer, StoreCustomerAddress, StoreRegion } from "@medusajs/types"
-import { BookUser } from "lucide-react"
-import AddressesAdd from "../components/addresses-add"
+import { BookUser, PlusIcon } from "lucide-react"
 import { useMemo } from "react"
 import AddressCard from "../components/address-card"
+import AddressModal from "../components/address-modal"
 
 export default function Addresses({ customer, regions }: AddressBookProps) {
     const { addresses = [] } = customer
@@ -39,14 +39,20 @@ export default function Addresses({ customer, regions }: AddressBookProps) {
                     </h2>
                 </div>
                 <p className="text-sm text-gray-600 max-w-prose">
-                    View and update your shipping addresses. You can add as many as you like.
-                    Saving your addresses makes them available during checkout.
+                    View and update your shipping addresses. You can add as many as you like. Saving your addresses makes them available during checkout.
                 </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                {/* Add new address card */}
-                <AddressesAdd countryOptions={countryOptions} isDefaultShipping={isNoAddress} />
+                <AddressModal mode="create" countryOptions={countryOptions} isDefaultShipping={isNoAddress}>
+                    <button
+                        className="border border-gray-300 rounded-lg bg-gray-100 p-5 min-h-60 w-full flex flex-col justify-center items-center gap-2 hover:bg-gray-200 transition"
+                        aria-label="Add new address"
+                    >
+                        <PlusIcon className="w-8 h-8" />
+                        <span className="text-base font-semibold">New Address</span>
+                    </button>
+                </AddressModal>
 
                 {isNoAddress && (
                     <div className="border rounded-lg p-6 flex flex-col items-center justify-center text-center">
@@ -57,9 +63,10 @@ export default function Addresses({ customer, regions }: AddressBookProps) {
                     </div>
                 )}
 
-                {addresses.map((address) => {
+                {addresses.map(address => {
                     const addrLines = formatAddress(address);
                     return <AddressCard key={address.id} address={address} addressLines={addrLines} countryOptions={countryOptions} />
+
                 })}
             </div>
         </>

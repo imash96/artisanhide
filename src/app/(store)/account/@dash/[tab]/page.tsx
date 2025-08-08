@@ -9,7 +9,7 @@ import { notFound } from "next/navigation"
 
 export default async function Page({ params }: { params: Promise<{ tab: string }> }) {
     const [customer, regions] = await Promise.all([retrieveCustomer(), listRegions()]);
-    console.log(customer)
+
     if (!customer || !regions) notFound()
 
     const renderContent = async () => {
