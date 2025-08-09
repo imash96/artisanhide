@@ -3,12 +3,11 @@ import { PencilRuler } from "lucide-react";
 import MeasurementAdd from "../components/measurement-add";
 import MeasurementCard from "../components/measurement-card";
 
-
 export default function Measurement({ customer }: { customer: StoreCustomer }) {
     const { measurements } = customer
     return (
-        <>
-            <div className="space-y-2 mb-6">
+        <section className="space-y-4">
+            <header className="space-y-2">
                 <div className="flex items-center gap-2">
                     <PencilRuler size={20} className="text-brown" />
                     <h2 className="text-lg lg:text-xl uppercase tracking-wide font-medium text-brown">
@@ -18,25 +17,22 @@ export default function Measurement({ customer }: { customer: StoreCustomer }) {
                 <p className="text-sm text-gray-600 max-w-prose">
                     View and update your measurement. You can add as many as you like. Saving your measurements makes them available during checkout.
                 </p>
-            </div>
+            </header>
             {/* Add new address card */}
             <MeasurementAdd />
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-
-                {measurements?.length === 0 && (
-                    <div className="col-span-full border rounded-lg p-6 min-h-48 flex flex-col items-center justify-center text-center">
-                        <p className="text-base font-medium mb-2">No saved measurements</p>
-                        <p className="text-sm text-gray-500">
-                            Add a measurement to speed up future checkouts for custom jackets.
-                        </p>
-                    </div>
-                )}
-
-                {measurements?.map((measurement) => {
-                    // const addrLines = formatAddress(address);
-                    return <MeasurementCard key={measurement.id} measurement={measurement} />
-                })}
+                {measurements && measurements.length > 0 ?
+                    measurements?.map((measurement) => {
+                        // const addrLines = formatAddress(address);
+                        return <MeasurementCard key={measurement.id} measurement={measurement} />
+                    }) : (
+                        <div className="col-span-full flex flex-col items-center justify-center py-10 text-center border border-dashed border-gray-300 rounded-lg">
+                            <PencilRuler size={36} className="mb-2 text-gray-400" />
+                            <p className="text-lg">No saved measurements</p>
+                            <p className="text-gray-500 text-sm">Add a measurement to speed up future checkouts for custom jackets.</p>
+                        </div>
+                    )}
             </div>
-        </>
+        </section>
     )
 }

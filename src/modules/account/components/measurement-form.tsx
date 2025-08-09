@@ -10,8 +10,9 @@ import { FormState } from "@/types/common";
 import CustomSelect from "@modules/common/custom-select";
 
 export default function MeasurementForm({ measurement, onClose }: MeasurementFormProps) {
-    const [selectedImage, setSelectedImage] = useState<MeasurementInfo | null>(null);
-    const dynamicFields = measurement.type ? measurementData[measurement.type as Type] : [];
+    const TYPE = measurement.type as Type
+    const [selectedImage, setSelectedImage] = useState<MeasurementInfo>(measurementInfo[measurementData[TYPE][0]]);
+    const dynamicFields = TYPE ? measurementData[TYPE] : [];
 
     const handleSubmit = async (currentState: Record<string, any>, formData: FormData) => {
         const measurementId = measurement.id
@@ -90,7 +91,7 @@ export default function MeasurementForm({ measurement, onClose }: MeasurementFor
                     <CustomInput
                         name="type"
                         type="text"
-                        defaultValue={measurement.type}
+                        defaultValue={TYPE}
                         readOnly
                         state="disabled"
                         label="Garment type"
@@ -136,9 +137,9 @@ export default function MeasurementForm({ measurement, onClose }: MeasurementFor
 
                         {/* Right: Help Box */}
                         {selectedImage && (
-                            <div className="sticky top-4 self-start p-4 border rounded-lg bg-gray-50 space-y-2 text-sm">
-                                <p className="">{selectedImage.label}</p>
-                                <p className="font-light text-[13px] leading-tight tracking-wide">
+                            <div className="self-start h-full p-4 border rounded-lg bg-gray-50 space-y-2 text-sm">
+                                <p className="tracking-wide font-medium">{selectedImage.label}</p>
+                                <p className="font-light text-sm leading-tight tracking-wide">
                                     {selectedImage.info}
                                 </p>
                                 <Image

@@ -8,8 +8,7 @@ import Wishlist from "@modules/account/templates/wishlist"
 import { notFound } from "next/navigation"
 
 export default async function Page({ params }: { params: Promise<{ tab: string }> }) {
-    const [customer, regions] = await Promise.all([retrieveCustomer(), listRegions()]);
-
+    const [customer, regions] = await Promise.all([retrieveCustomer("+*orders,*measurements,wishlists.product.*"), listRegions()]);
     if (!customer || !regions) notFound()
 
     const renderContent = async () => {
@@ -17,11 +16,11 @@ export default async function Page({ params }: { params: Promise<{ tab: string }
             case "profile":
                 return <Profile customer={customer} regions={regions} />
             case "addresses":
-                return <Addresses customer={customer} regions={regions} />
+                return <Addresses addresses={customer.addresses} regions={regions} />
             case "orders":
-                return <Orders />
+                return <Orders orders={customer.orders} />
             case "wishlist":
-                return <Wishlist />
+                return <Wishlist wishlists={customer.wishlists} />
             case "measurement":
                 return <Measurement customer={customer} />
             default:

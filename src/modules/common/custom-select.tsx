@@ -55,7 +55,7 @@ export default function CustomSelect({
                     required={required}
                     aria-describedby={helpId}
                     aria-invalid={state === "error"}
-                    className={`peer block w-full px-2.5 pb-1 pt-5 text-sm bg-gray-50 border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 rounded-md ${stateClasses.border} ${disabled ? "text-gray-400 cursor-not-allowed bg-gray-100" : "text-gray-900"}`}
+                    className={`peer block w-full px-2.5 pb-1 pt-5 text-sm bg-gray-50 border appearance-none focus:outline-none focus:ring-0 rounded-md ${stateClasses.border} ${disabled ? "text-gray-400 cursor-not-allowed bg-gray-100" : "text-gray-900"}`}
                     {...props}
                 >
                     <option value="" disabled hidden></option>

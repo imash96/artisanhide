@@ -3,12 +3,12 @@
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { getAuthHeaders, getCacheOptions, getCacheTag, getCartId, removeAuthToken, removeCartId, setAuthToken, } from "./cookies"
-import { StoreCustomer, StoreUpdateCustomer, StoreUpdateCustomerAddress } from "@medusajs/types"
+import { SelectParams, StoreCustomer, StoreUpdateCustomer, StoreUpdateCustomerAddress } from "@medusajs/types"
 import { sdk } from "@libs/sdk"
 import { ClientHeaders } from "@medusajs/js-sdk"
 import medusaError from "@libs/util/medusa-error"
 
-export const retrieveCustomer = async (): Promise<StoreCustomer | null> => {
+export const retrieveCustomer = async (fields?: string): Promise<StoreCustomer | null> => {
     const authHeaders = await getAuthHeaders()
 
     if (!authHeaders) return null
@@ -17,7 +17,7 @@ export const retrieveCustomer = async (): Promise<StoreCustomer | null> => {
     const nextOptions = await getCacheOptions("customers");
 
     return sdk.store.customer.retrieve({
-        fields: "+*orders,*measurements"
+        fields
     }, {
         ...headers,
         next: nextOptions,
@@ -123,10 +123,7 @@ export async function transferCart() {
     revalidateTag(cartCacheTag)
 }
 
-export const addCustomerAddress = async (
-    currentState: Record<string, unknown>,
-    formData: FormData
-): Promise<any> => {
+export const addCustomerAddress = async (currentState: Record<string, unknown>, formData: FormData): Promise<any> => {
     const isDefaultBilling = (currentState.isDefaultBilling as boolean) || false
     const isDefaultShipping = (currentState.isDefaultShipping as boolean) || false
 
@@ -184,6 +181,8 @@ export const updateCustomerAddress = async (currentState: Record<string, unknown
         postal_code: formData.get("postal_code") as string,
         province: formData.get("province") as string,
         country_code: formData.get("country_code") as string,
+        phone: formData.get("phone") as string,
+        address_name: formData.get("address_name") as string,
     } as StoreUpdateCustomerAddress
 
     const phone = formData.get("phone") as string

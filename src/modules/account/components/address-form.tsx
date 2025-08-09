@@ -10,6 +10,7 @@ import { useActionState, useEffect } from "react";
 export default function AddressForm({ mode, address, countryOptions, isDefaultShipping, onClose }: AddressFormProps) {
     const action = mode === "create" ? addCustomerAddress : updateCustomerAddress
     const [state, formAction, isPending] = useActionState(action, {
+        addressId: address?.id,
         isDefaultShipping,
         success: false,
         error: null
@@ -36,7 +37,7 @@ export default function AddressForm({ mode, address, countryOptions, isDefaultSh
                     <CustomInput
                         label="Last name"
                         name="last_name"
-                        defaultValue={address?.first_name || ""}
+                        defaultValue={address?.last_name || ""}
                         required
                         autoComplete="family-name"
                     />

@@ -28,6 +28,7 @@ export default function AddressCard({ address, addressLines, countryOptions }: A
                 <div className="flex flex-wrap gap-2 text-xs font-medium">
                     {address.address_name && <Tag icon={LocateFixed} text={address.address_name} color={"bg-orange-100 text-amber-700 border-amber-300"} />}
                     {address.is_default_shipping && <Tag icon={MapPinCheckInside} text={"Default"} color={"bg-green-50 text-green-700 border-green-200"} />}
+                    {address.is_default_billing && <Tag icon={MapPinCheckInside} text={"Billing"} color={"bg-blue-50 text-blue-700 border-blue-200"} />}
                 </div>
                 <div className="flex gap-2">
                     <AddressModal mode="edit" address={address} countryOptions={countryOptions}>

@@ -55,8 +55,7 @@ export default function MeasurementCard({ measurement }: MeasurementCardProps) {
         >
             {/* Header */}
             <header className="mb-3">
-                <h3
-                    id={`measurement-${measurement.id}-title`}
+                <h3 id={`measurement-${measurement.id}-title`}
                     className="text-lg sm:text-xl font-semibold text-gray-900 flex items-center gap-2"
                 >
                     <User className="w-5 h-5 text-gray-600 flex-shrink-0" />
@@ -99,7 +98,7 @@ export default function MeasurementCard({ measurement }: MeasurementCardProps) {
                 ) : (
                     <div className="flex items-center gap-2 text-gray-500">
                         <Ruler className="w-4 h-4 flex-shrink-0" />
-                        <span>No specific measurements</span>
+                        <span>No specific measurements available</span>
                     </div>
                 )}
             </dl>

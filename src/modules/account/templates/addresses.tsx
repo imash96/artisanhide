@@ -4,8 +4,7 @@ import { useMemo } from "react"
 import AddressCard from "../components/address-card"
 import AddressModal from "../components/address-modal"
 
-export default function Addresses({ customer, regions }: AddressBookProps) {
-    const { addresses = [] } = customer
+export default function Addresses({ addresses, regions }: AddressBookProps) {
     const isNoAddress = addresses.length === 0
 
     const countryOptions = useMemo(() => regions.flatMap((region) => (region.countries ?? []).map((country) => {
@@ -30,8 +29,8 @@ export default function Addresses({ customer, regions }: AddressBookProps) {
     };
 
     return (
-        <>
-            <div className="space-y-2 mb-6">
+        <section className="space-y-4">
+            <header className="space-y-2">
                 <div className="flex items-center gap-2">
                     <BookUser size={20} className="text-brown" />
                     <h2 className="text-lg lg:text-xl uppercase tracking-wide font-medium text-brown">
@@ -41,7 +40,7 @@ export default function Addresses({ customer, regions }: AddressBookProps) {
                 <p className="text-sm text-gray-600 max-w-prose">
                     View and update your shipping addresses. You can add as many as you like. Saving your addresses makes them available during checkout.
                 </p>
-            </div>
+            </header>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <AddressModal mode="create" countryOptions={countryOptions} isDefaultShipping={isNoAddress}>
@@ -69,11 +68,11 @@ export default function Addresses({ customer, regions }: AddressBookProps) {
 
                 })}
             </div>
-        </>
+        </section>
     )
 }
 
 type AddressBookProps = {
-    customer: StoreCustomer
+    addresses: StoreCustomerAddress[]
     regions: StoreRegion[]
 }

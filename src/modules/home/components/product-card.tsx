@@ -42,21 +42,34 @@ export default function ProductCard({ product }: ProductCardProps) {
 
                     {/* Product Images */}
                     <div className="relative w-full h-full bg-white">
-                        <Image
-                            src={product?.images ? product?.images[0]?.url : "/placeholder.svg"}
-                            alt={product.title}
-                            fill
-                            className="product-image primary-image"
-                            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                            priority
-                        />
-                        <Image
-                            src={product?.images ? product?.images[1]?.url : "/placeholder.svg"}
-                            alt={`${product.title} alternate view`}
-                            fill
-                            className="product-image secondary-image"
-                            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                        />
+                        {product.images?.length ?
+                            <>
+                                <Image
+                                    src={product.images[0]?.url}
+                                    alt={product.title}
+                                    fill
+                                    className="product-image primary-image"
+                                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                                    priority
+                                />
+                                <Image
+                                    src={product.images[1]?.url}
+                                    alt={`${product.title} alternate view`}
+                                    fill
+                                    className="product-image secondary-image"
+                                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                                />
+                            </> :
+                            <Image
+                                src={product.thumbnail ? product.thumbnail : "/placeholder.svg"}
+                                alt={product.title}
+                                fill
+                                className="product-image"
+                                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                                priority
+                            />
+
+                        }
                     </div>
 
                     {/* Select Options Button */}
