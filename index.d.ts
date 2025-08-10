@@ -11,7 +11,7 @@ export declare module "@medusajs/types/dist/http/customer/store" {
 export declare module "@medusajs/types/dist/http/customer/store" {
     declare interface StoreCustomer {
         measurements?: Measurement[]
-        wishlists?: ProductWishlist[]
+        wishlist: ProductWishlist
         orders?: StoreOrder[]
     }
 }

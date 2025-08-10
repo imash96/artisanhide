@@ -2,7 +2,8 @@ import { ProductWishlist } from "@/types/wishlist";
 import ProductCard from "@modules/home/components/product-card";
 import { Heart } from "lucide-react";
 
-export default function Wishlist({ wishlists }: { wishlists?: ProductWishlist[] }) {
+export default function Wishlist({ wishlist }: { wishlist: ProductWishlist }) {
+    console.log(wishlist)
     return (
         <section className="space-y-4">
             {/* Header */}
@@ -19,10 +20,10 @@ export default function Wishlist({ wishlists }: { wishlists?: ProductWishlist[] 
             </header>
 
             {/* Wishlist Items */}
-            {wishlists && wishlists.length > 0 ? (
+            {wishlist?.items && wishlist.items.length > 0 ? (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {wishlists.map(({ id, product }) => (
-                        <ProductCard key={id} product={product} />
+                    {wishlist.items.map(({ product_id, product }) => (
+                        <ProductCard key={product_id} product={product} />
                     ))}
                 </div>
             ) : (
