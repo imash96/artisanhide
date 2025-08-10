@@ -6,6 +6,7 @@ import Container from "@modules/common/create-section";
 import { addToCart } from "libs/actions/cart";
 import { addToWishlist, deleteItemWishlist } from "@libs/actions/wishlist";
 import CustomInput from "@modules/common/custom-input";
+import { LoaderCircle } from "lucide-react";
 
 export default function TempCart({ countryCode }: { countryCode: string }) {
 
@@ -33,11 +34,12 @@ export default function TempCart({ countryCode }: { countryCode: string }) {
     }
 
     const [state, formAction, isPending] = useActionState(deleteWishlistItem, null);
+    const [stateCart, formActionCart, isPendingCart] = useActionState(handleAddToCart, null);
 
     return (
         <Container>
             <div className="flex flex-col gap-y-4 mx-auto py-10 max-w-md">
-                <form action={handleAddToCart} className="flex flex-col gap-4 w-full">
+                <form action={formActionCart} className="flex flex-col gap-4 w-full">
                     <div className="flex gap-2">
                         <CustomButton
                             type="submit"
@@ -45,7 +47,7 @@ export default function TempCart({ countryCode }: { countryCode: string }) {
                             ripple
                             className="shrink-0"
                         >
-                            Add to Cart
+                            {isPendingCart && <LoaderCircle className="w-4 h-4 text-gray-600" />} Add to Cart
                         </CustomButton>
                     </div>
                 </form>
