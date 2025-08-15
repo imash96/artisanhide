@@ -12,7 +12,7 @@ export default function TempCart({ countryCode }: { countryCode: string }) {
 
     const handleAddToCart = () => {
         const selectedVariant =
-            variantArray[Math.floor(Math.random() * variantArray.length)];
+            localVarArray[Math.floor(Math.random() * localVarArray.length)];
         startTransition(() =>
             addToCart({
                 variantId: selectedVariant,
@@ -112,3 +112,22 @@ const variantArray = [
     "variant_01K29Z84VR0RR26CRQ47MEVFEF",
     "variant_01K29Z84WWVZ3VM4M7Q9HV8S95"
 ];
+
+const localVarArray = [
+    "variant_01K29HMV504KESQ4ARAM0QGA99",
+    "variant_01K29HMV50FFW6J4XMWGHZ5YCB",
+    "variant_01K29HMV51RXXC92S9T1GE4S81",
+    "variant_01K29HMV52TCGD2ZQR9CKX4JYH",
+    "variant_01K29HMV5404BW5BC30AAWAPAQ",
+    "variant_01K29HMV55CD370ZDJ7P3BMNM6",
+    "variant_01K29HMV5646TYBE5JMER2S58E",
+    "variant_01K29HMV59B69PSQKKFXPK8Q0X",
+    "variant_01K29HMV5BKZK15GT5MC145E35",
+    "variant_01K29HMV5D2TG32EBS2H44YV9B",
+    "variant_01K29HMV5ECME66BDS8RQB7NJR",
+    "variant_01K29HMV5H53Z2SK8R6W9SPSJG",
+    "variant_01K29HMV5MJTDJF4PZKTDCANJA",
+    "variant_01K29HMV5VCAYSVXQRBJMBKXR9",
+    "variant_01K29HMV5X9JMFNQMXE1FD6Q3S",
+    "variant_01K29HMV5YTBXPMY8YF880PCVD"
+]

@@ -240,7 +240,7 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
                 first_name: formData.get("shipping_address.first_name"),
                 last_name: formData.get("shipping_address.last_name"),
                 address_1: formData.get("shipping_address.address_1"),
-                address_2: "",
+                address_2: formData.get("shipping_address.address_2"),
                 company: formData.get("shipping_address.company"),
                 postal_code: formData.get("shipping_address.postal_code"),
                 city: formData.get("shipping_address.city"),
@@ -267,14 +267,29 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
                 province: formData.get("billing_address.province"),
                 phone: formData.get("billing_address.phone"),
             }
+
+
+        console.log(data, sameAsBilling)
         await updateCart(data)
     } catch (e: any) {
         return e.message
     }
 
-    redirect(
-        `/${formData.get("shipping_address.country_code")}/checkout?step=delivery`
-    )
+    redirect("/checkout?step=shipping")
+}
+
+export async function handleSetShippingMethod(_: Record<string, any>, formData: FormData) {
+    const selectedOption = String(formData.get("shippingMethod"))
+    try {
+        await setShippingMethod({ cartId: _.cartId, shippingMethodId: selectedOption })
+    } catch (e: any) {
+        return {
+            cartId: _.cartId,
+            error: e.message,
+            success: false,
+        }
+    }
+    redirect("/checkout?step=payment")
 }
 
 /**

@@ -24,7 +24,7 @@ export default function AddressForm({ mode, address, countryOptions, isDefaultSh
 
     return (
         <form action={formAction} className="flex flex-col flex-1 min-h-0">
-            <div className="flex-1 overflow-y-auto space-y-3 p-4 border-t">
+            <div className="flex-1 overflow-y-auto space-y-3 p-4">
                 <div className="grid grid-cols-2 gap-3">
                     <CustomInput
                         label="First name"

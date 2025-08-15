@@ -1,35 +1,45 @@
+import { StepId } from "@/types/common";
 import { retrieveCart } from "@libs/actions/cart";
 import { retrieveCustomer } from "@libs/actions/customer";
 import { listCartShippingMethods } from "@libs/actions/fulfillment";
 import { listCartPaymentMethods } from "@libs/actions/payment";
-import PaymentWrapper from "@modules/checkout/components/payment-wrapper";
-import CheckoutForm from "@modules/checkout/templates/checkout-form";
+import PaymentWrapper from "@modules/checkout/components/payment-wrapper"
+import AddressStep from "@modules/checkout/templates/step-address";
+import CheckoutProgress from "@modules/checkout/templates/checkout-progress"
 import CheckoutSummary from "@modules/checkout/templates/checkout-summary";
-import Container from "@modules/common/create-section";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import ShippingStep from "@modules/checkout/templates/step-shipping";
 
-export default async function Page() {
+const validSteps: StepId[] = ["address", "shipping", "payment"];
+
+export default async function Page({ searchParams }: { searchParams: SearchParams }) {
+    const isValidStep = validSteps.includes((await searchParams).step as StepId);
+    if (!isValidStep) redirect("/checkout?step=address");
+
     const cart = await retrieveCart();
-
     if (!cart) return notFound();
 
-    const customer = await retrieveCustomer()
-
-    const shippingMethods = await listCartShippingMethods(cart.id)
-    const paymentMethods = await listCartPaymentMethods(cart.region?.id ?? "")
+    const [customer, shippingMethods, paymentMethods] = await Promise.all([
+        retrieveCustomer(),
+        listCartShippingMethods(cart.id),
+        listCartPaymentMethods(cart.region?.id ?? "")
+    ]);
 
     if (!shippingMethods || !paymentMethods) return null
 
     return (
-        <Container width={7} className="grid grid-cols-1 gap-x-14 lg:grid-cols-10 py-8 md:py-10 lg:py-14 w-full">
-            <div className="lg:col-span-6 h-[200vh]">
-                <PaymentWrapper cart={cart}>
-                    <CheckoutForm />
-                </PaymentWrapper>
+        <PaymentWrapper cart={cart}>
+            <div className="lg:col-span-6 space-y-8 min-h-screen">
+                <CheckoutProgress />
+                <AddressStep cart={cart} customer={customer} />
+                <ShippingStep cart={cart} availableShippingMethods={shippingMethods} />
+                {/* <PaymentStep /> */}
             </div>
             <div className="lg:col-span-4 sticky top-24 self-start w-full">
                 <CheckoutSummary cart={cart} />
             </div>
-        </Container>
+        </PaymentWrapper>
     )
 }
+
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>

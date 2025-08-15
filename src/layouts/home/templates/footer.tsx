@@ -59,7 +59,7 @@ const FooterTop = ({ title, data }: FooterTopProps) => {
 export function FooterBottom() {
     return (
         <div className="flex flex-col gap-y-4 md:flex-row-reverse py-4 text-center items-center justify-between">
-            <img className="inline-block align-middle h-12 w-auto" loading="lazy" aria-hidden="true" src="/images/contents/StripeBadge.png" />
+            <img className="h-12 w-auto" loading="lazy" aria-hidden="true" src="/images/contents/StripeBadge.png" alt="Stripe Payment Secure" />
             <p>&copy; {new Date().getFullYear()} Artisan Hide</p>
         </div>
     )

@@ -10,7 +10,7 @@ type SelectOption = {
 
 type SelectProps = {
     label: string
-    options: SelectOption[]
+    options: SelectOption[] | undefined
     state?: "default" | "success" | "error"
     helperText?: string
 } & Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "size">
@@ -59,7 +59,7 @@ export default function CustomSelect({
                     {...props}
                 >
                     <option value="" disabled hidden></option>
-                    {options.map((option) => (
+                    {options?.map((option) => (
                         <option
                             key={option.value}
                             value={option.value}

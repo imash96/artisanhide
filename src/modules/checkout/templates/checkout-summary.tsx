@@ -1,7 +1,6 @@
 import { convertToLocale } from "@libs/util/money"
-import SummaryCartCard from "../components/summary-cart-cart"
+import SummaryCard from "../components/summary-card"
 import { StoreCart } from "@medusajs/types"
-
 
 export default function CheckoutSummary({ cart }: { cart: StoreCart }) {
     const { currency_code, total, subtotal, tax_total, discount_total, gift_card_total, shipping_subtotal, } = cart
@@ -9,7 +8,7 @@ export default function CheckoutSummary({ cart }: { cart: StoreCart }) {
         <div className="border rounded-lg space-y-6 p-5">
             <div className="py-2">
                 {cart.items?.map((item, index) => (
-                    <SummaryCartCard key={index} item={item as any} currency_code={currency_code} />
+                    <SummaryCard key={index} item={item as any} currency_code={currency_code} />
                 ))}
             </div>
             <hr />

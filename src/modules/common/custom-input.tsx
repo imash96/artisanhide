@@ -69,7 +69,7 @@ export default function CustomInput({
                 <label
                     htmlFor={id}
                     onClick={() => inputRef.current?.focus()}
-                    className={`absolute text-sm duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 transition-all peer-focus:scale-75 peer-focus:-translate-y-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 ${stateClasses.label} ${disabled && "text-gray-400"}`}
+                    className={`absolute text-sm duration-300 transform -translate-y-2.5 scale-75 top-3.5 z-10 origin-[0] start-2.5 transition-all peer-focus:scale-75 peer-focus:-translate-y-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 ${stateClasses.label} ${disabled ? "text-gray-400" : undefined}`}
                 >
                     {label}
                     {required && <span className="text-red-500 ml-1">*</span>}
