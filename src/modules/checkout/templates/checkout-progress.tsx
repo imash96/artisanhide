@@ -4,12 +4,12 @@ import { Check, MapPin, Truck, CreditCard } from "lucide-react"
 
 const steps = [
     { id: "address" as const, name: "Address", subtitle: "Shipping & billing", icon: MapPin },
-    { id: "shipping" as const, name: "Shipping", subtitle: "Delivery method", icon: Truck },
+    { id: "delivery" as const, name: "Shipping", subtitle: "Delivery method", icon: Truck },
     { id: "payment" as const, name: "Payment", subtitle: "Payment details", icon: CreditCard },
 ]
 
 export default function CheckoutProgress() {
-    const { currentStep } = useCheckout()
+    const { currentStep, setCurrentStep } = useCheckout()
     const currentIndex = steps.findIndex((s) => s.id === currentStep)
 
     return (
@@ -20,7 +20,7 @@ export default function CheckoutProgress() {
                     const isCurrent = index === currentIndex
                     return (
                         <li key={step.id} className={index === steps.length - 1 ? undefined : "flex items-center flex-1"}>
-                            <div className="flex flex-col sm:flex-row items-center">
+                            <div className="flex flex-col sm:flex-row items-center cursor-pointer" onClick={() => setCurrentStep(step.id)}>
                                 <div className={`flex h-10 w-10 items-center justify-center rounded-full border-2 text-sm font-medium transition-colors duration-200 ${isCompleted && 'border-blue-600 bg-blue-600 text-white'} ${isCurrent && !isCompleted && 'border-blue-600 bg-white text-blue-600'} ${!isCompleted && !isCurrent && 'border-gray-400 bg-white text-gray-400'}`}>
                                     {isCompleted ? <Check className="w-6 h-6" /> : <step.icon className="w-6 h-6" />}
                                 </div>

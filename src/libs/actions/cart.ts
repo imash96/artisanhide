@@ -267,21 +267,21 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
                 province: formData.get("billing_address.province"),
                 phone: formData.get("billing_address.phone"),
             }
-
-
-        console.log(data, sameAsBilling)
         await updateCart(data)
+
+        return { success: true, error: null }
     } catch (e: any) {
-        return e.message
+        return { success: false, error: e.toString() }
     }
 
-    redirect("/checkout?step=shipping")
+    // redirect("/checkout?step=shipping")
 }
 
 export async function handleSetShippingMethod(_: Record<string, any>, formData: FormData) {
     const selectedOption = String(formData.get("shippingMethod"))
     try {
         await setShippingMethod({ cartId: _.cartId, shippingMethodId: selectedOption })
+        return { success: true, error: null }
     } catch (e: any) {
         return {
             cartId: _.cartId,
@@ -289,7 +289,7 @@ export async function handleSetShippingMethod(_: Record<string, any>, formData: 
             success: false,
         }
     }
-    redirect("/checkout?step=payment")
+    // redirect("/checkout?step=payment")
 }
 
 /**
@@ -311,13 +311,12 @@ export async function placeOrder(cartId?: string) {
     }).catch(medusaError)
 
     if (cartRes?.type === "order") {
-        const countryCode = cartRes.order.shipping_address?.country_code?.toLowerCase()
 
         const orderCacheTag = await getCacheTag("orders")
         revalidateTag(orderCacheTag)
 
         removeCartId()
-        redirect(`/${countryCode}/order/${cartRes?.order.id}/confirmed`)
+        redirect(`/order/${cartRes?.order.id}/confirmed`)
     }
 
     return cartRes.cart

@@ -3,7 +3,6 @@
 import { loadStripe } from "@stripe/stripe-js"
 import { StoreCart } from "@medusajs/types"
 import { isStripe } from "@libs/constant"
-import { CheckoutProvider } from "@libs/context/checkout-context"
 import StripeProvider from "@libs/context/stripe-context"
 
 const stripeKey = process.env.NEXT_PUBLIC_STRIPE_KEY
@@ -15,14 +14,12 @@ export default function PaymentWrapper({ cart, children }: PaymentWrapperProps) 
     if (isStripe(paymentSession?.provider_id) && paymentSession && stripePromise) {
         return (
             <StripeProvider paymentSession={paymentSession} stripeKey={stripeKey} stripePromise={stripePromise}>
-                <CheckoutProvider cart={cart}>
-                    {children}
-                </CheckoutProvider>
+                {children}
             </StripeProvider>
         )
     }
 
-    return <CheckoutProvider cart={cart}>{children}</CheckoutProvider>
+    return <>{children}</>
 }
 
 type PaymentWrapperProps = {

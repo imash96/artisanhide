@@ -10,9 +10,7 @@ import { sortProducts } from "@libs/util/sort-products"
 import type { StoreProductListParams } from "@medusajs/types"
 
 export const listProducts = async ({ pageParam = 1, queryParams, countryCode, regionId }: ListProductsProps): Promise<ListProductsResp> => {
-    if (!countryCode && !regionId) {
-        throw new Error("Country code or region ID is required")
-    }
+    if (!countryCode && !regionId) throw new Error("Country code or region ID is required")
 
     const limit = queryParams?.limit || 12
     const _pageParam = Math.max(pageParam, 1)
@@ -41,7 +39,7 @@ export const listProducts = async ({ pageParam = 1, queryParams, countryCode, re
         limit,
         offset,
         region_id: region?.id,
-        fields: "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags",
+        fields: "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags,+categories.*",
         ...queryParams,
     }, {
         ...headers,
@@ -102,7 +100,7 @@ export const fetchProductByCollection = async (query?: StoreProductListParams, c
 
 type ListProductsProps = {
     pageParam?: number
-    queryParams?: FindParams & StoreProductParams
+    queryParams?: FindParams & StoreProductListParams
     countryCode?: string
     regionId?: string
 }

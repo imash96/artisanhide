@@ -3,21 +3,33 @@
 import { FormState } from "@/types/common";
 import { setAddresses } from "@libs/actions/cart";
 import { useCheckout } from "@libs/context/checkout-context";
+import { useToggleState } from "@libs/hooks/use-toggle-state";
+import compareAddresses from "@libs/util/compare-addresses";
 import { StoreCart } from "@medusajs/types";
 import Button from "@modules/common/custom-button";
 import CustomInput from "@modules/common/custom-input";
 import CustomSelect from "@modules/common/custom-select";
 import { AnimatePresence, motion } from "motion/react";
-import { useActionState, useMemo } from "react";
+import { useActionState, useEffect, useMemo } from "react";
 
 export default function AddressForm({ cart }: AddressFormProps) {
-    const { state, dispatch } = useCheckout()
+    const { setCurrentStep } = useCheckout()
     const [addressState, addressAction, isPending] = useActionState(setAddresses, {
         success: false,
         error: null
     } as FormState)
 
-    const toggleSameAsBilling = () => dispatch({ type: "TOGGLE_SAME_AS_SHIPPING" })
+    const { state: sameAsBilling, toggle: toggleSameAsBilling } = useToggleState(cart?.shipping_address && cart?.billing_address ? compareAddresses(cart?.shipping_address, cart?.billing_address) : true)
+
+    const handleNext = () => setCurrentStep("delivery")
+
+    useEffect(() => {
+        if (addressState.success) {
+            handleNext()
+            addressState.success = false;
+            addressState.error = null;
+        }
+    }, [addressState.success]);
 
     const countryOptions = useMemo(() => {
         return (
@@ -42,13 +54,13 @@ export default function AddressForm({ cart }: AddressFormProps) {
                 <input
                     type="checkbox"
                     name="same_as_billing"
-                    checked={state.sameAsShipping}
+                    checked={sameAsBilling}
                     onChange={toggleSameAsBilling}
                 />
                 <label>Same as shipping address</label>
             </div>
             <AnimatePresence mode="wait">
-                {!state.sameAsShipping && (
+                {!sameAsBilling && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
