@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { use } from "react";
 import { Bricolage_Grotesque } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import HolyLoader from "holy-loader";
 import Announcement from "@/layouts/home/templates/announcement";
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Announcement />
         {children}
       </body>
+      {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />}
     </html>
   );
 }
