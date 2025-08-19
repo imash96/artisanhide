@@ -9,34 +9,37 @@ import { StoreProductImage } from "@medusajs/types"
 type ProductGalleryProps = {
     images: StoreProductImage[] | null
     title: string
-    className?: string
 }
 
-export default function ProductGallery({ images, title, className }: ProductGalleryProps) {
+export default function ProductGallery({ images, title }: ProductGalleryProps) {
     const [selectedIndex, setSelectedIndex] = useState(0)
     const [emblaMainRef, emblaMainApi] = useEmblaCarousel({ loop: true })
     const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
         containScroll: "keepSnaps",
         dragFree: true,
-        axis: "y",
-    })
+        axis: "x",
+        breakpoints: {
+            '(min-width: 768px)': { axis: 'y' },
+        }
+    }, [])
 
     const onThumbClick = useCallback((index: number) => {
-        if (!emblaMainApi) return
+        if (!emblaMainApi || !emblaThumbsApi) return
         emblaMainApi.scrollTo(index)
-    }, [emblaMainApi])
+    }, [emblaMainApi, emblaThumbsApi])
 
     const onSelect = useCallback(() => {
-        if (!emblaMainApi) return
+        if (!emblaMainApi || !emblaThumbsApi) return
         const snap = emblaMainApi.selectedScrollSnap()
         setSelectedIndex(snap)
-        emblaThumbsApi?.scrollTo(snap)
+        emblaThumbsApi.scrollTo(snap)
     }, [emblaMainApi, emblaThumbsApi])
 
     useEffect(() => {
         if (!emblaMainApi) return
         onSelect()
-        emblaMainApi.on("select", onSelect).on('reInit', onSelect)
+        emblaMainApi.on('select', onSelect).on('reInit', onSelect)
+
         return () => emblaMainApi.destroy()
     }, [emblaMainApi, onSelect])
 
@@ -44,9 +47,9 @@ export default function ProductGallery({ images, title, className }: ProductGall
     const scrollNext = useCallback(() => emblaMainApi?.scrollNext(), [emblaMainApi])
 
     return (
-        <div className={`relative flex flex-col-reverse md:flex-row lg:sticky top-0 gap-2 ${className}`}>
+        <>
             {/* Thumbnails (Mobile = Horizontal | Desktop = Vertical) */}
-            <div className="overflow-x-scroll no-scrollbar p-1" ref={emblaThumbsRef}>
+            <div className="relative md:max-h-[calc(100vh-12rem)] overflow-auto no-scrollbar px-1" ref={emblaThumbsRef}>
                 <div className="flex md:flex-col w-max gap-2">
                     {images?.map((image, index) => (
                         <button
@@ -69,13 +72,13 @@ export default function ProductGallery({ images, title, className }: ProductGall
             <div className="w-full m-auto relative overflow-hidden flex-1 no-scrollbar border" ref={emblaMainRef}>
                 <div className="flex touch-pan-y touch-pinch-zoom gap-x-2">
                     {images?.map((image, index) => (
-                        <div key={index} className="min-w-0 grow-0 shrink-0 basis-full select-none aspect-[.75]">
+                        <div key={index} className="flex-[0_0_100%] min-w-0 select-none aspect-[3/4]">
                             <Image
                                 src={image.url || "/placeholder.svg"}
                                 alt={`${title} - Image ${index + 1}`}
                                 sizes="100vw"
-                                height={4}
-                                width={4}
+                                width={1200}
+                                height={1600}
                                 className="object-contain h-full w-full object-center text-transparent p-0.5"
                                 priority={index === 0}
                                 fetchPriority={index == 0 ? "high" : "auto"}
@@ -100,6 +103,6 @@ export default function ProductGallery({ images, title, className }: ProductGall
                     <ChevronRight className="h-5 w-5 text-gray-800" />
                 </button>
             </div>
-        </div >
+        </ >
     )
 }

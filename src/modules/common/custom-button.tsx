@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { LoaderCircle } from 'lucide-react';
 import clx from '@libs/util/clx';
 import { useRipple } from '@libs/hooks/use-ripple';
 
@@ -17,9 +16,9 @@ const variantStyles = {
         danger: 'border border-red-600 text-red-600 hover:bg-red-50 focus:ring-red-500',
     },
     icon: {
-        primary: 'bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:outline-indigo-600',
-        secondary: 'bg-gray-600 text-white hover:bg-gray-500 focus-visible:outline-gray-600',
-        danger: 'bg-red-600 text-white hover:bg-red-500 focus-visible:outline-red-600',
+        primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
+        secondary: 'bg-gray-600 text-white hover:bg-gray-500 focus:ring-gray-500',
+        danger: 'bg-red-600 text-white hover:bg-red-500 focus:ring-red-500',
     },
 };
 
@@ -36,12 +35,13 @@ export type ButtonProps = {
     pill?: boolean;
     ripple?: boolean,
     children?: React.ReactNode;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>
 } & (React.ComponentPropsWithoutRef<typeof Link> | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined }));
 
-export default function Button({ variant = 'solid', color = 'primary', isLoading = false, pill = false, ripple = false, className, children, ...props }: ButtonProps) {
+export default function Button({ variant = 'solid', color = 'primary', isLoading = false, pill = false, ripple = false, className, children, onClick, ...props }: ButtonProps) {
     props.href && (ripple = false)
     const btnClass = clx(
-        'flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm shadow-sm transition-colors',
+        'flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed text-sm shadow-sm transition-colors',
         variantStyles[variant][color],
         baseStyles[variant],
         pill && 'rounded-full',
@@ -51,19 +51,13 @@ export default function Button({ variant = 'solid', color = 'primary', isLoading
 
     const handleRipple = useRipple();
 
-    const onClickHandler = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => ripple && handleRipple(e)
+    const onClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => ripple && handleRipple(e)
 
-    const content = children ? <>{isLoading && <LoaderCircle className="w-5 h-5 animate-spin mr-1" />} {children}</> : <>{isLoading && <LoaderCircle className="w-5 h-5 animate-spin mr-1" />} Submit</>
+    const content = children ? children : "Submit"
 
     if (typeof props.href === 'undefined') {
-
-        if (ripple) return (
-            <button className={btnClass} disabled={isLoading || props.disabled} {...props} onClick={onClickHandler}>
-                {content}
-            </button>
-        )
         return (
-            <button className={btnClass} disabled={isLoading || props.disabled} {...props}>
+            <button className={btnClass} disabled={isLoading || props.disabled} {...props} onClick={(e) => { onClickHandler(e); onClick?.(e) }}>
                 {content}
             </button>
         );

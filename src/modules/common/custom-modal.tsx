@@ -17,7 +17,7 @@ function DialogContent({ className = "", children, ...props }: React.ComponentPr
             <DialogOverlay />
             <DialogContentPri
                 aria-modal="true"
-                className={`fixed flex flex-col m-auto left-1/2 top-1/2 z-50 w-full sm:w-11/12 max-w-lg max-h-[85vh] bg-white border border-gray-200 shadow-xl rounded-lg sm:rounded-xl outline-none focus:outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95 -translate-x-1/2 -translate-y-1/2 ${className}`}
+                className={`fixed flex flex-col m-auto left-1/2 top-1/2 z-50 w-full sm:w-11/12 max-w-lg max-h-[85vh] bg-white border border-gray-200 shadow-xl rounded-lg sm:rounded-xl outline-none focus:outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95 -translate-x-1/2 -translate-y-1/2 ${className ?? ""}`}
                 {...props}
             >
                 {children}
@@ -27,15 +27,15 @@ function DialogContent({ className = "", children, ...props }: React.ComponentPr
 }
 
 function DialogHeader({ className = "", ...props }: React.HTMLAttributes<HTMLDivElement>) {
-    return <div className={`flex items-start justify-between p-4 ${className}`} {...props} />
+    return <div className={`flex items-start justify-between p-4 ${className ?? ""}`} {...props} />
 }
 
 function DialogTitle({ className = "", ...props }: React.ComponentProps<typeof DialogTitlePri>) {
-    return <DialogTitlePri className={`text-lg sm:text-xl font-semibold leading-none tracking-tight", ${className}`} {...props} />
+    return <DialogTitlePri className={`text-lg sm:text-xl font-semibold leading-none tracking-tight", ${className ?? ""}`} {...props} />
 }
 
 function DialogDescription({ className = "", ...props }: React.ComponentProps<typeof DialogDescriptionPri>) {
-    return <DialogDescriptionPri className={`text-sm text-gray-500", ${className}`} {...props} />
+    return <DialogDescriptionPri className={`text-sm text-gray-500", ${className ?? ""}`} {...props} />
 }
 
 export {

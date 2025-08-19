@@ -1,28 +1,55 @@
+import { useProduct } from "@libs/context/product-context"
 import { StoreProductOption } from "@medusajs/types"
+import { Info } from "lucide-react"
 
 type OptionSelectProps = {
     option: StoreProductOption
-    current: string | undefined
-    updateOption: (title: string, value: string) => void
     title: string
     disabled: boolean
 }
 
-export default function OptionSelect({ option, current, updateOption, title, disabled }: OptionSelectProps) {
-    const filteredOptions = option.values?.map((v) => v.value) ?? [];
+export default function OptionSelect({ option, title, disabled }: OptionSelectProps) {
+    const { options, setOption } = useProduct()
+    const current = options?.[option.id]
+    const values = option.values?.map((v) => v.value)
+    const isSize = title === "Size"
 
     return (
-        <div className="flex flex-col gap-y-3">
-            <span className="text-sm font-semibold text-gray-800">{title}: {current}</span>
-            <div className="flex flex-wrap gap-2">
-                {filteredOptions.map((value) => {
+        <div className="space-y-2">
+            <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">
+                    {title}: <span className="font-normal">{current}</span>
+                </span>
+                {isSize &&
+                    <span
+                        // onClick={() => setShowSizeGuide(true)}
+                        className="text-xs cursor-pointer underline flex items-center gap-1 underline-offset-4"
+                    >
+                        Size guide <Info size={12} strokeWidth={1.5} />
+                    </span>
+                }
+            </div>
+
+            <div className="flex flex-wrap gap-2 text-sm uppercase text-brown">
+                {values?.map((value) => {
+                    const isSelected = value === current
+                    if (!isSize) return (
+                        <span
+                            key={value}
+                            onClick={() => setOption(option.id, value)}
+                            style={{
+                                backgroundColor: value, outline: current === value ? "2px solid black" : "none",
+                            }}
+                            className="inline-block h-8 w-8 border-2 border-white rounded-full cursor-pointer"
+                        ></span>
+                    )
                     return (
                         <button
                             key={value}
-                            onClick={() => updateOption(option.id, value)}
-                            className={`flex items-center justify-center rounded-md px-4 py-3 text-sm font-normal uppercase transition-colors duration-150 flex-grow basis-1/5 ${value === current ? "bg-indigo-600 text-white focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" : " hover:bg-indigo-700 hover:text-gray-50 bg-gray-50 text-gray-900 border border-gray-300"}`}
+                            onClick={() => setOption(option.id, value)}
+                            className={`flex-1 basis-1/6 rounded-md px-3 py-3 transition-colors duration-150 border cursor-pointer ${isSelected ? "bg-brown text-white  font-medium border-brown ring-2 ring-brown ring-offset-1" : "bg-gray-50 border-gray-300 hover:bg-brown hover:text-white hover:border-brown"}`}
                             disabled={disabled}
-                            aria-pressed={value === current}
+                            aria-pressed={isSelected}
                             aria-label={`${title}: ${value}`}
                         >
                             {value}
@@ -30,9 +57,12 @@ export default function OptionSelect({ option, current, updateOption, title, dis
                     )
                 })}
             </div>
-            <span className="text-xs text-amber-800 font-medium">
-                {current === "One Size" ? "Measurements can be added during checkout." : "Refer to our size chart for the best fit."}
-            </span>
+
+            {isSize ? <p className="text-xs text-amber-700 font-medium">
+                {(current === "One Size") ? "Measurements can be added during checkout." : "Refer to our size chart for the best fit."}
+            </p> : <span className="text-xs text-amber-700 font-medium">
+                Check product images or color chart for actual color
+            </span>}
         </div>
     )
 }

@@ -41,7 +41,7 @@ export default function HeaderCountrySelect({ regions, countryCode, className = 
     }
 
     return (
-        <div className={`group relative select-none w-fit ${className}`} onMouseEnter={open} onMouseLeave={close}>
+        <div className={`group relative select-none w-fit ${className ?? ""}`} onMouseEnter={open} onMouseLeave={close}>
             <button className="flex items-center header-btn py-1 lg:py-2 cursor-pointer" onClick={toggle} aria-haspopup="listbox" aria-expanded={state} aria-label="Select country">
                 <CountryFlag countryCode={current.code} alt={current.label} aria-hidden="true" className="w-6 h-4" />
                 <span className="ml-2">{current.label}</span>
@@ -78,5 +78,5 @@ type CountryFlagProps = React.ComponentPropsWithoutRef<'img'> & { countryCode: s
 
 const CountryFlag = ({ countryCode, alt, className = "w-5", ...props }: CountryFlagProps) => {
     const flagUrl = `https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/${countryCode.toLowerCase()}.svg`
-    return createElement("img", { src: flagUrl, className: `inline-block align-middle h-auto ${className}`, ...props });
+    return createElement("img", { src: flagUrl, className: `inline-block align-middle h-auto ${className ?? ""}`, ...props });
 }

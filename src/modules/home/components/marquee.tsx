@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function Marquee({ images, direction = "forward", duration = 20, className="" }: MarqueeProps) {
 
     return (
-        <div className={`overflow-hidden no-scrollbar whitespace-nowrap ${className}`}>
+        <div className={`overflow-hidden no-scrollbar whitespace-nowrap ${className ?? ""}`}>
             <div className="inline-flex animate-marquee" style={{
                 animationDuration: `${duration}s`,
                 animationDirection: direction === "forward" ? "normal" : "reverse",

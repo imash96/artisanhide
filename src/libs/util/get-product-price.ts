@@ -28,8 +28,7 @@ export function getProductPrice({ product, variantId }: { product: StoreProduct;
         const variants = product.variants?.filter(v => v.calculated_price) || [];
         if (variants.length === 0) return null
 
-        const cheapestVariant = variants
-            .sort((a: any, b: any) => a.calculated_price.calculated_amount - b.calculated_price.calculated_amount)[0]
+        const cheapestVariant = variants.sort((a: any, b: any) => a.calculated_price.calculated_amount - b.calculated_price.calculated_amount)[0]
 
         return getPricesForVariant(cheapestVariant)
     }
@@ -43,7 +42,7 @@ export function getProductPrice({ product, variantId }: { product: StoreProduct;
     }
 
     return {
-        product,
+        // product,
         cheapestPrice: getCheapestPrice(),
         variantPrice: getVariantPrice(),
     }

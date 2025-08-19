@@ -10,7 +10,7 @@ interface RatingProps {
 export default function RatingSystem({ rating }: RatingProps) {
 
     return (
-        <div className='flex items-center gap-2 mb-4'>
+        <div className='flex items-center gap-2 mb-2'>
             <h2 className="sr-only">Rating</h2>
             <p className="sr-only">{rating?.rating} out of 5 stars</p>
             <div className="flex items-center">

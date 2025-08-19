@@ -1,4 +1,4 @@
-import { StoreProduct } from "@medusajs/types";
+import { Zap } from "lucide-react";
 import Breadcrumb from "../components/product-breadcrumb";
 import RatingSystem from "../components/rating-system";
 
@@ -12,6 +12,12 @@ export default function ProductInfo({ title, hs_code, pages }: ProductInfoProps)
             </h1>
             {hs_code && <h2>{hs_code}</h2>}
             <RatingSystem rating={rating} />
+            <div className="flex gap-x-2 text-sm font-semibold">
+                <span className="flex items-center gap-x-1 bg-green-700 rounded-full px-3 text-gray-100">
+                    <Zap className="w-3 h-3 shrink-0" />
+                    Express Delivery
+                </span> Get it in 4 – 6 days
+            </div>
         </>
     )
 }

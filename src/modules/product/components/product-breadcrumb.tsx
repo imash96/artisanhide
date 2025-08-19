@@ -14,7 +14,7 @@ type BreadcrumbProps = {
 export default function Breadcrumb({ items, href }: BreadcrumbProps) {
 
     return (
-        <nav aria-label="Breadcrumb" className="flex my-2">
+        <nav aria-label="Breadcrumb" className="flex mb-2">
             <ol role="list" className="flex items-center gap-x-1">
                 <li>
                     <Link href={href} className="hover:text-gray-700">

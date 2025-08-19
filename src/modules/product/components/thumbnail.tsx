@@ -18,7 +18,7 @@ export default function Thumbnail({ thumbnail, alt = "Product thumbnail", classN
 
 export const ImageHolder = ({ className = "", children, isShadow }: Pick<ThumbnailProps, "className" | "isShadow"> & React.PropsWithChildren) => {
     return (
-        <div className={`relative w-full overflow-hidden bg-white rounded-lg aspect-[.75] no-scrollbar border border-gray-300 ${isShadow ? "shadow-md shadow-gray-300 hover:shadow-lg transition-shadow ease-in-out duration-300" : ""} ${className}`}>
+        <div className={`relative w-full overflow-hidden bg-white rounded-lg aspect-[.75] no-scrollbar border border-gray-300 ${isShadow ? "shadow-md shadow-gray-300 hover:shadow-lg transition-shadow ease-in-out duration-300" : ""} ${className ?? ""}`}>
             {children}
         </div>
     )

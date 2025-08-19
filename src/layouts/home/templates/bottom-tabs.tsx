@@ -9,7 +9,7 @@ export default function BottomTabs() {
   const pathname = usePathname();
   const { toggleCartDrawer, toggleMenuDrawer } = use(DrawerContext);
 
-  if (pathname.includes("/product")) return null;
+  if (usePathname().includes("/product")) return null;
 
   return (
     <div className="lg:hidden select-none h-[65px] bg-white border-t rounded-t-2xl grid grid-cols-5 fixed w-full bottom-0 z-10 left-0 my-auto text-brown">

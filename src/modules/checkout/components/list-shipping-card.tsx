@@ -1,6 +1,6 @@
 import { convertToLocale } from "@libs/util/money"
 import { StoreCartShippingOption } from "@medusajs/types"
-import { CheckCircle, Clock, Truck, Zap } from "lucide-react"
+import { CheckCircle, Clock, Truck, TruckElectric } from "lucide-react"
 
 export default function ShippingCardList({ method, currencyCode, idx }: ShippingCardProps) {
     const isExpress = method.name.toLowerCase().includes("expedite")
@@ -23,7 +23,7 @@ export default function ShippingCardList({ method, currencyCode, idx }: Shipping
             <span className="flex flex-1">
                 <span className="flex flex-col">
                     <h3 className="flex items-center font-semibold text-gray-900">
-                        {isExpress ? <Zap className="w-4 h-4 mr-1" /> : <Truck className="w-4 h-4 mr-1" />}
+                        {isExpress ? <TruckElectric className="w-4 h-4 mr-1" /> : <Truck className="w-4 h-4 mr-1" />}
                         {method.name}
                     </h3>
                     <p className="text-sm text-gray-600 flex items-center mt-1">
