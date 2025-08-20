@@ -6,7 +6,7 @@ export default function ProductInfo({ title, hs_code, pages }: ProductInfoProps)
 
     return (
         <>
-            <Breadcrumb items={pages} href="" />
+            <Breadcrumb items={pages} href="/category" />
             <h1 className=" tracking-tight text-[20px] md:text-[26px] lg:text-[30px] leading-snug text-[#242424]">
                 {title}
             </h1>

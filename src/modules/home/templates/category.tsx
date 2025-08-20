@@ -2,8 +2,6 @@ import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { listCategories } from "libs/actions/categories"
 import SectionHeader from "../components/section-header";
-
-import "@/styles/home-cat-section.css"
 import Link from "next/link";
 
 export default async function Category() {

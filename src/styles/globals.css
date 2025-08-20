@@ -7,9 +7,7 @@
 
   --color-curtain: var(--curtain);
   --shadow-borders-interactive: var(--borders-interactive);
-}
 
-@theme {
   --container-8xl: 94rem;
 
   --breakpoint-2xs: 360px;
@@ -24,6 +22,21 @@
   --breakpoint-4xl: 1920px;
 }
 
+@theme {
+  --animate-accordion-down: accordion-down 0.3s ease-in-out;
+  --animate-accordion-up: accordion-up 0.3s ease-in-out;
+
+  --animate-marquee: marquee var(--duration, 20s) linear infinite;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out;
+
+  --animate-fade-in-0: fadeIn 0.3s ease-out;
+  --animate-fade-out-0: fadeOut 0.2s ease-in;
+  --animate-zoom-in-95: zoomIn 0.3s ease-out;
+  --animate-zoom-out-95: zoomOut 0.2s ease-in;
+  --animate-slide-in-from-bottom: slideInFromBottom 0.3s ease-out;
+  --animate-slide-out-to-bottom: slideOutToBottom 0.2s ease-in;
+}
+
 @layer base {
   * {
     border-color: var(--border)
@@ -32,42 +45,6 @@
   body {
     background-color: var(--background);
     color: var(--foreground)
-  }
-}
-
-@theme {
-
-  --animate-marquee: marquee var(--duration, 20s) linear infinite;
-
-  --animate-fade-in-up: fade-in-up 0.6s ease-out;
-
-  @keyframes marquee {
-    0% {
-      transform: translateX(0%);
-    }
-
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes ripple {
-    to {
-      transform: scale(4);
-      opacity: 0;
-    }
   }
 }
 

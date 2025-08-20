@@ -1,6 +1,7 @@
 import { StoreProduct } from "@medusajs/types";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@modules/common/custom-accordion";
 import { RefreshCw, Ruler, TruckElectric, Undo } from "lucide-react";
+import Link from "next/link";
 
 export default function ProductAccordion({ product }: ProductTabsProps) {
     const accordionDetails = [
@@ -28,7 +29,7 @@ export default function ProductAccordion({ product }: ProductTabsProps) {
                     <AccordionTrigger className="text-gray-800 font-medium hover:text-blue-600 transition">
                         <h4 className="font-light text-base text-[#242424]">{item.label}</h4>
                     </AccordionTrigger>
-                    <AccordionContent asChild className="p-2 text-sm font-light text-gray-900 leading-relaxed">
+                    <AccordionContent asChild className="text-sm font-light bg-white text-gray-900 leading-relaxed">
                         {item.content}
                     </AccordionContent>
                 </AccordionItem>
@@ -43,7 +44,7 @@ function ShippingInfoTab() {
         {
             icon: <TruckElectric className="h-5 w-5 text-blue-500" />,
             title: "Fast delivery",
-            description: "Your package will arrive in 3-5 business days at your pick up location or in the comfort of your home."
+            description: "Your package will arrive in 4-6 business days at your address - Free on orders over $100"
         },
         {
             icon: <RefreshCw className="h-5 w-5 text-blue-500" />,
@@ -53,7 +54,7 @@ function ShippingInfoTab() {
         {
             icon: <Undo className="h-5 w-5 text-blue-500" />,
             title: "Easy returns",
-            description: "Just return your product and we'll refund your money. No questions asked – we'll do our best to make sure your return is hassle-free."
+            description: "Free returns within 30 days. Items must be in original condition with tags attached."
         }
     ]
 
@@ -95,26 +96,24 @@ function ProductInfo({ product }: ProductTabsProps) {
 
 function ProductCare() {
     const careInstructions = [
-        "Clean with a soft, dry cloth",
-        "Store in a cool, dry place",
-        "Do not use harsh chemicals",
+        "Professional leather cleaning recommended",
+        "Store in a cool, dry place away from direct sunlight",
+        "Avoid exposure to water and harsh chemicals",
         "Handle with care to maintain quality",
-        "Treat handle and tabs with leather conditioner"
+        "Use leather conditioner every 6 months",
+        "Hang on padded hangers to maintain shape"
     ]
     return (
         <ul className="text-sm text-gray-600 font-normal space-y-2 list-disc list-outside ml-5">
-            {careInstructions.map((instruction, index) => (
-                <li key={index}>{instruction}</li>
-            ))}
+            {careInstructions.map((instruction, index) => <li key={index}>{instruction}</li>)}
         </ul>
     )
 }
 
 function SizeAndFit() {
     const fitDetails = [
-        { label: "Fit", value: "Regular – true to size" },
-        { label: "Model", value: "Wears size M / Height 185cm" },
-        { label: "Recommendation", value: "If between sizes, size up for a relaxed fit" }
+        { label: "Fit: ", value: "Regular – true to size" },
+        { label: "Fit Guide: ", value: "This jacket has a regular fit. For a more relaxed fit, consider sizing up" }
     ]
 
     return (
@@ -125,10 +124,10 @@ function SizeAndFit() {
                     <dd className="text-gray-600">{fit.value}</dd>
                 </dl>
             ))}
-            <div className="flex items-center gap-2 text-blue-500 text-sm mt-2">
+            <Link href="/" className="flex items-center gap-2 text-blue-500 text-sm mt-2">
                 <Ruler className="h-4 w-4" />
                 <span>Check our detailed size guide for more info</span>
-            </div>
+            </Link>
         </div>
     )
 }

@@ -13,6 +13,8 @@ import IconWithText from "@modules/home/components/icon-with-text";
 import { podData, uspData } from "@modules/home/icon-with-text";
 import { cookies } from "next/headers";
 
+import "@/styles/home.css"
+
 // remove countrycode and async if not needed
 export default async function Page() {
   const countryCode = (await cookies()).get("__country_code")?.value || process.env.NEXT_PUBLIC_DEFAULT_REGION || "us"

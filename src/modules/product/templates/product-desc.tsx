@@ -4,12 +4,11 @@ import Image from "next/image"
 
 export default function ProductDesc() {
     return (
-        <section className="templateContainer mt-10 lg:mt-20 space-y-12 lg:space-y-20">
+        <section className="mt-6 lg:mt-16 space-y-12 lg:space-y-16">
             {data.map((item, index) => (
                 <article
                     key={index}
-                    className={`flex flex-col items-center md:items-start gap-8 lg:gap-[120px] ${item.imageLeft ? "md:flex-row" : "md:flex-row-reverse"
-                        }`}
+                    className={`flex flex-col items-center md:items-start gap-8 lg:gap-[120px] ${item.imageLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
                 >
                     {/* Image */}
                     <div className="w-full md:w-[45%] lg:w-1/2 overflow-hidden rounded-lg shadow-sm">

@@ -64,6 +64,7 @@ export default function MeasurementForm({ measurement, onClose }: MeasurementFor
                         name="role"
                         label="Measurement Type"
                         options={RoleSelect}
+                        defaultValue={measurement.role || undefined}
                         required
                     />
                 </div>

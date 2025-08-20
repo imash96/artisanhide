@@ -7,6 +7,8 @@ import ProductActions from "@modules/product/templates/product-action"
 import ProductDesc from "@modules/product/templates/product-desc"
 import ProductGallery from "@modules/product/templates/product-gallery"
 import ProductInfo from "@modules/product/templates/product-info"
+import RelatedProducts from "@modules/product/templates/product-related"
+import ProductReview from "@modules/product/templates/product-review"
 import { cookies } from "next/headers"
 import { notFound } from "next/navigation"
 
@@ -19,7 +21,7 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
     if (!region) notFound()
 
     const product = await listProducts({
-        countryCode: countryCode,
+        regionId: region.id,
         queryParams: { handle },
     }).then(({ response }) => response.products[0])
 
@@ -30,10 +32,10 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
     return (
         <Container className="py-8 md:py-10 lg:py-14 text-brown">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-                <div className={`flex flex-col-reverse self-start md:flex-row lg:sticky top-20 gap-2 col-span-full lg:col-span-7`}>
+                <div className={`flex flex-col-reverse self-start md:flex-row lg:sticky top-20 gap-2 col-span-full lg:col-span-7 xl:col-span-8`}>
                     <ProductGallery images={product.images} title={product.title} />
                 </div>
-                <div className="col-span-full lg:col-span-5">
+                <div className="col-span-full lg:col-span-5 xl:col-span-4">
                     <ProductInfo pages={pages} title={product.title} hs_code={product.hs_code} />
                     <ProductProvider product={product} countryCode={countryCode}>
                         <ProductActions product={product} />
@@ -42,6 +44,8 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
                 </div>
             </div>
             <ProductDesc />
+            <RelatedProducts product={product} region={region} />
+            <ProductReview />
         </Container >
     )
 }

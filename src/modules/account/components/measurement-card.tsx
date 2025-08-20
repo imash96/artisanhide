@@ -108,7 +108,7 @@ export default function MeasurementCard({ measurement }: MeasurementCardProps) {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 text-xs font-medium">
                     <Tag icon={Shirt} text={measurement.type} color={typeColors[measurement.type] || "bg-gray-100 text-gray-800 border-gray-300"} />
-                    <Tag icon={User} text={measurement.gender} color={typeColors[measurement.gender] || "bg-gray-100 text-gray-800 border-gray-300"} />
+                    <Tag icon={User} text={measurement.gender} color={genderColors[measurement.gender] || "bg-gray-100 text-gray-800 border-gray-300"} />
                     {measurement.role && <Tag text={measurement.role} color={"bg-orange-100 text-amber-700 border-amber-300"} />}
                 </div>
 

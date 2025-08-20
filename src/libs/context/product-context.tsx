@@ -66,7 +66,7 @@ export const useProduct = () => {
 type VariantOptions = Record<string, string | undefined> | undefined
 
 type ProductContextType = {
-    options: VariantOptions
+    options: Record<string, string | undefined>
     setOption: (id: string, value: string) => void
     selectedVariant?: StoreProductVariant
     inStock: boolean
