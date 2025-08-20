@@ -1,7 +1,7 @@
 "use client"
 
 import { StoreProduct } from "@medusajs/types"
-import { Heart, HeartPlus, Loader, Pencil, ShoppingBag, Shrink, Snowflake, Spool, Volleyball } from "lucide-react"
+import { Gem, Hammer, Heart, HeartPlus, Loader, Pencil, Scissors, ShoppingBag, Shrink, Snowflake, Spool, Volleyball, Wind } from "lucide-react"
 import Button from "@modules/common/custom-button"
 import { useIntersection } from "@libs/hooks/use-in-view"
 import OptionSelect from "../components/option-select"
@@ -20,22 +20,30 @@ export default function ProductActions({ product }: ProductActionsProps) {
         <>
             <div className="flex flex-col gap-y-4" >
                 <ProductPrice />
-                <div className="flex flex-col gap-2.5 text-sm">
-                    <div className="flex items-center gap-x-2">
-                        <Spool />
-                        Hand crafted, made to order. Each jacket is a work of art.
+                <div className="flex flex-col gap-y-3 text-sm">
+                    <div className="flex items-center gap-x-3">
+                        <Hammer width={32} />
+                        <span>
+                            <strong>Handcrafted Excellence</strong> – Each jacket is made to order by skilled artisans, ensuring uniqueness in every stitch.
+                        </span>
                     </div>
-                    <div className="flex items-center gap-x-2">
-                        <Shrink />
-                        Fitted design to suit your style.
+                    <div className="flex items-center gap-x-3">
+                        <Scissors width={32} />
+                        <span>
+                            <strong>Tailored Fit</strong> – Designed to complement your style with precision and comfort.
+                        </span>
                     </div>
-                    <div className="flex items-center gap-x-2">
-                        <Volleyball />
-                        Available in premium real leather.
+                    <div className="flex items-center gap-x-3">
+                        <Gem width={32} />
+                        <span>
+                            <strong>Premium Leather</strong> – Crafted from 100% genuine leather for lasting quality and luxury appeal.
+                        </span>
                     </div>
-                    <div className="flex items-center gap-x-2">
-                        <Snowflake />
-                        Real leather naturally stretches and adapts to your body.
+                    <div className="flex items-center gap-x-3">
+                        <Wind width={32} />
+                        <span>
+                            <strong>Adaptive Comfort</strong> – Natural leather breathes, stretches, and molds to your body over time.
+                        </span>
                     </div>
                 </div>
                 <div className="flex flex-col gap-y-4">

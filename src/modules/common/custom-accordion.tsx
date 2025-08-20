@@ -7,9 +7,7 @@ import "@/styles/accordion.css";
 
 export function Accordion({ className, children, ...props }: React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>) {
     return (
-        <AccordionPrimitive.Root className={`border-t ${className ?? ""}`}
-            {...props}
-        >
+        <AccordionPrimitive.Root className={`border-t ${className ?? ""}`} {...props} >
             {children}
         </AccordionPrimitive.Root>
     )
@@ -17,9 +15,7 @@ export function Accordion({ className, children, ...props }: React.ComponentProp
 
 export function AccordionItem({ className, children, ...props }: React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>) {
     return (
-        <AccordionPrimitive.Item className={`border-b transition ${className ?? ""}`}
-            {...props}
-        >
+        <AccordionPrimitive.Item className={`border-b transition ${className ?? ""}`} {...props}>
             {children}
         </AccordionPrimitive.Item>
     )
@@ -28,12 +24,9 @@ export function AccordionItem({ className, children, ...props }: React.Component
 export function AccordionTrigger({ className, children, ...props }: React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>) {
     return (
         <AccordionPrimitive.Header>
-            <AccordionPrimitive.Trigger
-                className={`group flex items-center justify-between py-4 px-2 w-full ${className ?? ""}`} {...props}
-            >
+            <AccordionPrimitive.Trigger className={`group flex items-center justify-between py-4 px-2 w-full ${className ?? ""}`} {...props}>
                 {children}
-                <Plus className="h-5 w-5 transition-transform duration-300 ease-in-out group-data-[state=open]:rotate-45" />
-                {/* <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 data-[state=open]:rotate-180" /> */}
+                <Plus className="h-5 w-5 transition-transform duration-200 ease-in group-data-[state=open]:rotate-45" />
             </AccordionPrimitive.Trigger>
         </AccordionPrimitive.Header>
     )
