@@ -17,7 +17,7 @@ export default function DashLayout({ customer, children }: DashLayoutProp) {
             <aside className="lg:mx-4 lg:sticky top-16 h-fit space-y-4 divide-y border-b lg:border-b-0 lg:pr-0">
                 {/* Customer Info */}
                 <div className="flex items-center gap-4 py-4 px-4">
-                    <div className="min-w-[60px] h-[60px] flex items-center justify-center rounded-full border border-amber-600">
+                    <div className="min-w-[60px] h-[60px] flex items-center justify-center rounded-full border border-[#DE8450]">
                         <UserRound size={26} className="text-amber-600" strokeWidth={1.2} />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -36,13 +36,13 @@ export default function DashLayout({ customer, children }: DashLayoutProp) {
                                 key={item.id}
                                 href={item.href}
                                 aria-current={isActive ? 'page' : undefined}
-                                className={`flex items-center m-1 gap-3 border-b-4 lg:border-b-0 lg:border-l-4 px-4 py-2 lg:px-3 lg:py-2.5 rounded-md transition-colors duration-150 ${isActive ? 'bg-orange-50 border-amber-600 text-amber-600' : 'hover:bg-gray-100 lg:border-transparent hover:border-gray-300'} focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1`}
+                                className={`flex items-center m-1 gap-3 border-b-4 lg:border-b-0 lg:border-l-4 px-4 py-2 lg:px-3 lg:py-2.5 rounded-md transition-colors duration-150 ${isActive ? 'bg-orange-50 border-[#DE8450] text-[#6A5038]' : 'hover:bg-gray-100 lg:border-transparent hover:border-gray-300'} focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1`}
                             >
                                 <div className="flex w-full flex-col lg:flex-row items-center justify-center lg:justify-start gap-1 lg:gap-3">
                                     <item.icon
                                         size={20}
                                         strokeWidth={1.2}
-                                        className={isActive ? 'text-amber-600' : 'text-gray-400'}
+                                        className={isActive ? 'text-[#DE8450]' : 'text-gray-400'}
                                         aria-hidden="true"
                                     />
                                     <div className="flex flex-col min-w-0">

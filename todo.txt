@@ -7,7 +7,6 @@ Region Modal
 Homepage
 - hero image
 - category image
-- product card
 - collection image
 - marquee image
 - more realistic feedbacks

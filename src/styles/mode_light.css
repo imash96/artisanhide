@@ -1,26 +1,84 @@
-:root[data-theme="light"] {
-    --bg-primary: 249 250 251;
+@layer base {
+    :root[data-theme="light"] {
+        /* --bg-primary: 249 250 251;
 
-    --background: hsl(0 0% 100%);
-    --foreground: hsl(0 0% 3.9%);
-    --border: hsl(0 0% 89.8%);
+        --background: hsl(0 0% 100%);
+        --foreground: hsl(0 0% 3.9%);
+        --border: hsl(0 0% 89.8%); */
 
-    --curtain: rgba(1 5 10);
+        --curtain: rgba(1 5 10);
 
-    /* Gray */
-    --color-gray-50: rgba(249 250 251);
-    --color-gray-100: rgba(243 244 246);
-    --color-gray-200: rgba(229 231 235);
-    --color-gray-300: rgba(209 213 219);
-    --color-gray-400: rgba(156 163 175);
-    --color-gray-500: rgba(107 114 128);
-    --color-gray-600: rgba(75 85 99);
-    --color-gray-700: rgba(55 65 81);
-    --color-gray-800: rgba(31 41 55);
-    --color-gray-900: rgba(17 24 39);
-    --color-gray-950: rgba(3 7 18);
+        /* Gray */
+        --color-gray-50: rgba(249 250 251);
+        --color-gray-100: rgba(243 244 246);
+        --color-gray-200: rgba(229 231 235);
+        --color-gray-300: rgba(209 213 219);
+        --color-gray-400: rgba(156 163 175);
+        --color-gray-500: rgba(107 114 128);
+        --color-gray-600: rgba(75 85 99);
+        --color-gray-700: rgba(55 65 81);
+        --color-gray-800: rgba(31 41 55);
+        --color-gray-900: rgba(17 24 39);
+        --color-gray-950: rgba(3 7 18);
 
 
-    --borders-interactive: 0px 0px 0px 1px rgb(var(--color-blue-500) / 1),
-        0px 0px 0px 4px rgb(var(--color-blue-500) / 0.3);
+        --borders-interactive: 0px 0px 0px 1px rgb(var(--color-blue-500) / 1), 0px 0px 0px 4px rgb(var(--color-blue-500) / 0.3);
+
+        /* Brand Colors */
+        --color-primary: #4f3424;
+        /* Deep brown for CTAs */
+        --color-primary-foreground: #ffffff;
+        --color-secondary: #6b8e23;
+        /* Olive green for filters */
+        --color-secondary-foreground: #ffffff;
+        --color-accent: #daa520;
+        /* Gold for icons */
+        --color-accent-foreground: #242424;
+
+        /* Neutrals */
+        --color-background: #f5f0e1;
+        /* Beige body */
+        --color-foreground: #242424;
+        /* Main text */
+        --color-card: #ffffff;
+        /* Cards */
+        --color-card-foreground: #242424;
+        --color-popover: #ffffff;
+        /* Popovers/modals */
+        --color-popover-foreground: #242424;
+        --color-muted: #f3f4f6;
+        /* Muted backgrounds */
+        --color-muted-foreground: #6b7280;
+        /* Subtext */
+        --color-border: #e5e7eb;
+        /* Borders */
+        --color-input: #e5e7eb;
+        /* Input backgrounds */
+        --color-ring: #4f3424;
+        /* Focus rings */
+
+        /* State Colors */
+        --color-success: #556b2f;
+        /* Success */
+        --color-warning: #cd853f;
+        /* Warning (warm orange) */
+        --color-danger: #8b4513;
+        /* Danger/destructive */
+        --color-destructive: #8b4513;
+        /* Alias for danger */
+        --color-destructive-foreground: #ffffff;
+
+        /* Additional Complements */
+        --color-teal-accent: #2f4f4f;
+        /* Teal for blue-green contrast */
+        --color-orange-highlight: #d2691e;
+        /* Vibrant orange for dark mode pops */
+        --color-chart-1: #4f3424;
+        /* For data viz */
+        --color-chart-2: #6b8e23;
+        --color-chart-3: #daa520;
+        --color-chart-4: #556b2f;
+        --color-chart-5: #cd853f;
+
+    }
 }

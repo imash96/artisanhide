@@ -22,11 +22,8 @@ export default function HeaderClient({ children }: React.PropsWithChildren) {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const baseClasses = "group/nav sticky top-0 z-10 transition-colors ease-in-out duration-300 hover:text-brown hover:bg-gray-100";
-    const scrolledClasses = isScrolled || !isHome ? "bg-gray-100 shadow-md text-brown" : "bg-transparent text-gray-50 group-hover/nav:text-brown";
-
     return (
-        <div className={`${baseClasses} ${scrolledClasses}`}>
+        <div className={`${"group/nav sticky top-0 z-10 transition-colors ease-out duration-300 hover:text-foreground hover:bg-background"} ${isScrolled || !isHome ? "bg-background shadow-md text-foreground" : "bg-transparent text-same-white group-hover/nav:text-foreground"}`}>
             {children}
         </div>
     )

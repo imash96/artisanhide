@@ -29,7 +29,7 @@ export default function Drawer({ state, onClose, direction = "left", type, child
             {state && <>
                 <motion.div
                     {...drawerBackdropMotion}
-                    className={`fixed inset-0 bg-curtain z-40 ${type != "cart" && "xm:hidden"}`}
+                    className={`fixed inset-0 bg-overlay z-40 ${type != "cart" && "xm:hidden"}`}
                     onClick={onClose}
                 />
                 <motion.div
@@ -38,7 +38,7 @@ export default function Drawer({ state, onClose, direction = "left", type, child
                     animate="open"
                     exit="closed"
                     transition={{ type: "spring", damping: 25, stiffness: 200, duration: 0.3 }}
-                    className={`fixed flex h-full w-11/12 sm:w-5/6 max-w-md bg-white shadow-2xl z-50 ${type != "cart" && "xm:hidden"} ${direction === "left" ? "inset-0" : "top-0 right-0"}`}
+                    className={`fixed flex h-full w-11/12 sm:w-5/6 max-w-md shadow-2xl z-50 ${type != "cart" && "xm:hidden"} ${direction === "left" ? "inset-0" : "top-0 right-0"}`}
                 >
                     {children}
                 </motion.div>

@@ -59,13 +59,13 @@ export default function ProductActions({ product }: ProductActionsProps) {
                 <div className="flex flex-col md:flex-row items-center gap-2" ref={actionsRef}>
                     <AddToCartButton />
                     <div className="flex items-center gap-2 w-full">
-                        <Button variant="outline" className="w-full h-12" ripple>
+                        <Button variant="outline" color="secondary" className="w-full h-12" ripple>
                             <span className="flex items-center justify-center gap-x-2">
                                 {<Pencil className="w-5 h-5" />}
                                 Customize
                             </span>
                         </Button>
-                        <Button variant="icon" className="h-12 px-4">
+                        <Button variant="icon" color="secondary" className="h-12 px-4">
                             {!selectedVariant ? <Heart className="w-5 h-5 fill-red-500 stroke-red-500" /> : <HeartPlus className="w-5 h-5" />}
                         </Button>
                     </div>

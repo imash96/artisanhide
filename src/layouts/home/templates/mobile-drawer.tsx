@@ -1,13 +1,12 @@
 "use client"
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { ChevronLeft, ChevronRight, Search, User, X } from "lucide-react";
+// TODO remove use or use use every where
 import Link from "next/link";
-
+import { useState, use } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import type { StoreProductCategory } from "@medusajs/types";
 import { DrawerContext } from "@libs/context/drawer-context";
-import { use } from "react";
 import Drawer from "../components/drawer";
 import MenuPromotion from "../components/menu-promotion";
 import MobileDrawerContact from "../components/mobile-drawer-contact";
@@ -55,10 +54,10 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
 
     return (
         <Drawer state={isMenuDrawerOpen} onClose={toggleMenuDrawer} direction="left" >
-            <div className="flex flex-col h-full bg-white w-full"> {/* bg-modile-drawe bg-scroll */}
+            <div className="flex flex-col h-full w-full bg-background text-foreground"> {/* bg-modile-drawe bg-scroll */}
                 <div className="flex items-center px-4 py-3 border-b justify-between">
                     {currentNav.level > 0 && (
-                        <button onClick={handleBack} className="flex items-center text-sm text-gray-600 hover:text-black">
+                        <button onClick={handleBack} className="flex items-center text-sm hover:text-foreground-muted">
                             <ChevronLeft className="w-4 h-4 mr-1" />
                             Back
                         </button>
@@ -66,7 +65,7 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
                     <h2 className="text-base font-semibold truncate">
                         {currentNav.level === 0 ? "Menu" : currentNav.category?.name}
                     </h2>
-                    <button className="p-2 hover:bg-gray-100 rounded-full" onClick={handleClose}>
+                    <button className="p-2 hover:bg-accent rounded-full" onClick={handleClose}>
                         <X className="h-5 w-5" />
                         <span className="sr-only">Close menu</span>
                     </button>
@@ -74,15 +73,13 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
 
                 {/* Breadcrumb - Fixed Height when present */}
                 {currentNav.breadcrumb.length > 0 && (
-                    <div className="px-4 py-2 text-sm text-gray-500 border-b bg-gray-50 flex items-center overflow-x-auto whitespace-nowrap">
+                    <div className="px-4 py-2 text-sm text-secondary-foreground bg-secondary flex items-center overflow-x-auto whitespace-nowrap">
                         {currentNav.breadcrumb.map((item, i) => (
                             <div key={item.id} className="flex items-center">
-                                <span className={i === currentNav.breadcrumb.length - 1 ? "font-medium text-gray-900" : ""}>
+                                <span className={i === currentNav.breadcrumb.length - 1 ? "font-medium" : ""}>
                                     {item.name}
                                 </span>
-                                {/* {i < currentNav.breadcrumb.length - 1 && ( */}
-                                <ChevronRight className="w-4 h-4 mx-1 text-gray-400" />
-                                {/* )} */}
+                                <ChevronRight className="w-4 h-4 mx-1" />
                             </div>
                         ))}
                     </div>
@@ -115,12 +112,12 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
                                         transition={{ delay: index * 0.04 }}
                                     >
                                         {cat.category_children?.length ? (
-                                            <button onClick={() => handleCategoryClick(cat)} className="w-full flex justify-between items-center text-left px-3 py-2 rounded-lg hover:bg-gray-100 transition">
-                                                <span className="text-gray-900 font-medium">{cat.name}</span>
-                                                <ChevronRight className="w-4 h-4 text-gray-400" />
+                                            <button onClick={() => handleCategoryClick(cat)} className="w-full flex justify-between items-center text-left px-3 py-2 rounded hover:bg-accent hover:text-accent-foreground transition">
+                                                <span className="font-medium">{cat.name}</span>
+                                                <ChevronRight className="w-4 h-4" />
                                             </button>
                                         ) : (
-                                            <Link href={`/category/${cat.handle}`} className="block px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-900 font-medium transition" onClick={handleClose}>
+                                            <Link href={`/category/${cat.handle}`} className="block px-3 py-2 rounded-lg hover:bg-accent hover:text-accent-foreground font-medium transition" onClick={handleClose}>
                                                 {cat.name}
                                             </Link>
                                         )}
@@ -145,13 +142,9 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
                     )}
                 </div>
                 <div className="flex items-center justify-between px-4 py-3 border-t">
-                    <button className="p-2 rounded-full hover:bg-gray-100">
+                    <button className="p-2 rounded-full hover:bg-accent">
                         <Search className="w-5 h-5" />
                         <span className="sr-only">Search</span>
-                    </button>
-                    <button className="p-2 rounded-full hover:bg-gray-100">
-                        <User className="w-5 h-5" />
-                        <span className="sr-only">Account</span>
                     </button>
                 </div>
             </div>

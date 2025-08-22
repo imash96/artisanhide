@@ -34,7 +34,7 @@ export function AccordionTrigger({ className, children, ...props }: React.Compon
 
 export function AccordionContent({ className, children, ...props }: React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>) {
     return (
-        <AccordionPrimitive.Content className={`overflow-hidden pb-4 pt-1 px-2 text-gray-600 text-sm leading-relaxed transition-[height] duration-300 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down ${className ?? ""}`} {...props}>
+        <AccordionPrimitive.Content className={`overflow-hidden no-scrollbar pb-4 pt-1 px-2 text-gray-600 text-sm leading-relaxed transition-[height] duration-300 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down ${className ?? ""}`} {...props}>
             {children}
         </AccordionPrimitive.Content>
     )

@@ -1,8 +1,8 @@
 import { SortOptions } from "@/types/common"
 import { listProductsWithSort } from "@libs/actions/product"
 import { getRegion } from "@libs/actions/region"
-import ProductCard from "@modules/home/components/product-card"
 import { Pagination } from "../components/pagination"
+import ProductCard from "@modules/common/product-card"
 
 const PRODUCT_LIMIT = 12
 

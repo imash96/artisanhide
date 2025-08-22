@@ -3,7 +3,8 @@
 @theme {
   /* --color-*: initial; */
   /* --color-white: #fff; */
-  --color-brown: oklch(0.3526 0.047 51.31);
+
+  --color-brown: var(--color-primary);
 
   --color-curtain: var(--curtain);
   --shadow-borders-interactive: var(--borders-interactive);
@@ -33,6 +34,125 @@
   --animate-zoom-out-95: zoomOut 0.2s ease-in;
   --animate-slide-in-from-bottom: slideInFromBottom 0.3s ease-out;
   --animate-slide-out-to-bottom: slideOutToBottom 0.2s ease-in;
+}
+
+@theme {
+  /* --color-*: initial; */
+  /* --color-white: #fff; */
+  --color-same-white: oklch(100% 0 0);
+  --color-same-black: oklch(0% 0 0);
+
+  /* 1. Brand Identity */
+  /* deep leather brown (primary) */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  /* Olive green for filters */
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  /* text on brand */
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* 2. Backgrounds */
+  /* warm page background */
+  --color-background: var(--background);
+  /* subtle section/card background */
+  --color-background-muted: var(--background-muted);
+  /* cards, modals, elevated surfaces */
+  --color-background-elevated: var(--background-elevated);
+
+  /* 3. Text Colors */
+  /* main body text (rich dark gray) */
+  --color-foreground: var(--foreground);
+  /* secondary text / captions */
+  --color-foreground-muted: var(--foreground-muted);
+  /* disabled / placeholder */
+  --color-foreground-disabled: var(--foreground-disabled);
+  /* text-on-dark backgrounds */
+  --color-foreground-inverse: var(--foreground-inverse);
+  /* primary link / interactive color */
+  --color-link: var(--link);
+
+  /* 4. Buttons & Interactive */
+  /* primary button bg */
+  --color-btn-primary: var(--btn-primary);
+  --color-btn-primary-hover: var(--btn-primary-hover);
+  --color-btn-primary-foreground: var(--btn-primary-foreground);
+  /* secondary button bg (muted olive) */
+  --color-btn-secondary: var(--btn-secondary);
+  --color-btn-secondary-hover: var(--btn-secondary-hover);
+  --color-btn-secondary-foreground: var(--btn-secondary-foreground);
+  /* disabled bg */
+  --color-btn-disabled: var(--btn-disabled);
+  --color-btn-disabled-foreground: var(--btn-disabled-foreground);
+
+  /* 5. Feedback States */
+  /* success (green) */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  /* warm amber */
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  /* destructive / error red */
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  /* teal info */
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+
+  /* 6. Borders & Dividers */
+  /* default border */
+  --color-border: var(--border);
+  /* focus/hover border */
+  --color-border-hover: var(--border-hover);
+  /* section dividers */
+  --color-divider: var(--divider);
+
+  /* 7. Ecommerce-Specific */
+  /* normal price */
+  --color-price: var(--price);
+  /* discounted price (red) */
+  --color-discount: var(--discount);
+  /* strikethrough / old price */
+  --color-original: var(--original);
+
+  /* "New" badge */
+  --color-badge-new: var(--badge-new);
+  /* sale/gold badge */
+  --color-badge-sale: var(--badge-sale);
+
+  /* cart/checkout CTA (brand) */
+  --color-cart: var(--cart);
+  /* wishlist heart color */
+  --color-wishlist: var(--wishlist);
+
+  /* 8. Overlays */
+  /* modal/drawer overlay */
+  --color-overlay: var(--overlay);
+  /* subtle primary tint overlay */
+  --color-overlay-hover: var(--overlay-hover);
+
+  /* 9. Utility Shades */
+  /* lightest neutral */
+  --color-neutral-50: var(--neutral-50);
+  /* surface base */
+  --color-neutral-100: var(--neutral-100);
+  /* darkest neutral */
+  --color-neutral-900: var(--neutral-900);
+  /* subtle shadow tint */
+  --color-shadow: var(--shadow);
+
+
+  --color-card-foreground: var(--card-foreground);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
 }
 
 @layer base {

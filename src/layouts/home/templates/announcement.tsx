@@ -51,7 +51,7 @@ export default function Announcement() {
 
 
     return (
-        <div className="bg-brown text-white select-none">
+        <div className="bg-primary text-primary-foreground select-none">
             <Container>
                 <div className="flex items-center justify-between h-9">
                     <button onClick={scrollPrev} disabled={prevBtnDisabled} aria-label="Previous announcement">
@@ -60,7 +60,7 @@ export default function Announcement() {
                     <div className="overflow-hidden no-scrollbar text-xs font-title" ref={emblaRef}>
                         <div className="flex">
                             {slides.map((text, index) => (
-                                <span className="grow-0 shrink-0 basis-full size-full my-auto tracking-wide text-center" key={index}>
+                                <span className="flex-[0_0_100%] size-full my-auto tracking-wide text-center" key={index}>
                                     {text}
                                 </span>
                             ))}

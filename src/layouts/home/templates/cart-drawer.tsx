@@ -23,7 +23,7 @@ function EmptyCart() {
                 width={150}
             />
             <h3 className="text-lg font-semibold">No products in the cart.</h3>
-            <p className="text-gray-500 mb-2">Your cart is currently empty. Let us help you find the perfect item!</p>
+            <p className="text-foreground-muted mb-2">Your cart is currently empty. Let us help you find the perfect item!</p>
             <Button pill className="px-6 py-3">
                 Continue Shopping
             </Button>

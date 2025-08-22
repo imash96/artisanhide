@@ -34,7 +34,7 @@ export default function ProductAccordion({ product }: ProductTabsProps) {
                     <AccordionTrigger className="transition-colors text-gray-800 font-medium hover:text-blue-600">
                         <h4 className="font-light text-base text-[#242424]">{item.label}</h4>
                     </AccordionTrigger>
-                    <AccordionContent className="text-sm font-light bg-white text-gray-900 leading-relaxed">
+                    <AccordionContent className="text-sm font-light text-gray-900 leading-relaxed">
                         {item.content}
                     </AccordionContent>
                 </AccordionItem>

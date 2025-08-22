@@ -1,26 +1,78 @@
-:root[data-theme="dark"] {
-    --bg-primary: 28 28 30;
+@layer base {
+    :root[data-theme="dark"] {
+        /* --bg-primary: 28 28 30;
 
-    --background: hsl(0 0% 3.9%);
-    --foreground: hsl(0 0% 98%);
-    --border: hsl(0 0% 14.9%);
+        --background: hsl(0 0% 3.9%);
+        --foreground: hsl(0 0% 98%);
+        --border: hsl(0 0% 14.9%); */
 
-    --curtain: rgba(0 0 0);
+        --curtain: rgba(0 0 0);
 
-    /* Gray */
-    --color-gray-50: rgba(3 7 18);
-    --color-gray-100: rgba(17 24 39);
-    --color-gray-200: rgba(31 41 55);
-    --color-gray-300: rgba(55 65 81);
-    --color-gray-400: rgba(75 85 99);
-    --color-gray-500: rgba(107 114 128);
-    --color-gray-600: rgba(156 163 175);
-    --color-gray-700: rgba(209 213 219);
-    --color-gray-800: rgba(229 231 235);
-    --color-gray-900: rgba(243 244 246);
-    --color-gray-950: rgba(249 250 251);
+        /* Gray */
+        --color-gray-50: rgba(3 7 18);
+        --color-gray-100: rgba(17 24 39);
+        --color-gray-200: rgba(31 41 55);
+        --color-gray-300: rgba(55 65 81);
+        --color-gray-400: rgba(75 85 99);
+        --color-gray-500: rgba(107 114 128);
+        --color-gray-600: rgba(156 163 175);
+        --color-gray-700: rgba(209 213 219);
+        --color-gray-800: rgba(229 231 235);
+        --color-gray-900: rgba(243 244 246);
+        --color-gray-950: rgba(249 250 251);
 
 
-    --borders-interactive: 0px 0px 0px 1px rgb(var(--color-blue-500) / 1),
-        0px 0px 0px 4px rgb(var(--color-blue-500) / 0.3);
+        --borders-interactive: 0px 0px 0px 1px rgb(var(--color-blue-500) / 1),
+            0px 0px 0px 4px rgb(var(--color-blue-500) / 0.3);
+
+        --color-primary: #7b5b3a;
+        /* Lighter brown for visibility */
+        --color-primary-foreground: #ffffff;
+        --color-secondary: #8ba845;
+        /* Lighter olive */
+        --color-secondary-foreground: #ffffff;
+        --color-accent: #e3b04b;
+        /* Brighter gold */
+        --color-accent-foreground: #242424;
+
+        /* Neutrals */
+        --color-background: #242424;
+        /* Dark gray body */
+        --color-foreground: #f5f0e1;
+        /* Beige text */
+        --color-card: #1d1d1d;
+        /* Dark cards */
+        --color-card-foreground: #f5f0e1;
+        --color-popover: #1d1d1d;
+        /* Dark popovers */
+        --color-popover-foreground: #f5f0e1;
+        --color-muted: #374151;
+        /* Muted dark backgrounds */
+        --color-muted-foreground: #9ca3af;
+        /* Lighter subtext */
+        --color-border: #374151;
+        /* Dark borders */
+        --color-input: #374151;
+        /* Dark inputs */
+        --color-ring: #7b5b3a;
+        /* Adjusted ring */
+
+        /* State Colors */
+        --color-success: #6d8a3b;
+        --color-warning: #e07c3e;
+        --color-danger: #a0522d;
+        --color-destructive: #a0522d;
+        --color-destructive-foreground: #ffffff;
+
+        /* Additional Complements */
+        --color-teal-accent: #5f9ea0;
+        /* Lighter teal */
+        --color-orange-highlight: #ff8c00;
+        /* Brighter orange */
+        --color-chart-1: #7b5b3a;
+        --color-chart-2: #8ba845;
+        --color-chart-3: #e3b04b;
+        --color-chart-4: #6d8a3b;
+        --color-chart-5: #e07c3e;
+    }
 }

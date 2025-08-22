@@ -1,0 +1,108 @@
+:root {
+    /* 1. Brand Identity */
+    /* deep leather brown (primary) */
+    --primary: #4f3424;
+    --primary-foreground: #ffffff;
+    /* Olive green for filters */
+    --secondary: #8d7400;
+    --secondary-foreground: #ffffff;
+    /* text on brand */
+    --accent: #d4a373;
+    /* warm tan / gold highlight */
+    --accent-foreground: #2d1a10;
+
+    /* 2. Backgrounds */
+    /* warm page background */
+    --background: #fdfbf8;
+    /* subtle section/card background */
+    --background-muted: #f2f0ed;
+    /* cards, modals, elevated surfaces */
+    --background-elevated: #ffffff;
+
+    /* 3. Text Colors */
+    /* main body text (rich dark gray) */
+    --foreground: #1f1f1f;
+    /* secondary text / captions */
+    --foreground-muted: #6d6d6d;
+    /* disabled / placeholder */
+    --foreground-disabled: #a8a8a8;
+    /* text-on-dark backgrounds */
+    --foreground-inverse: #ffffff;
+    /* primary link / interactive color */
+    --link: #3b7d7d;
+
+    --card: ;
+    --card-foreground: ;
+
+    /* 4. Buttons & Interactive */
+    /* primary button bg */
+    --btn-primary: #4f3424;
+    /* primary hover (darker) */
+    --btn-primary-hover: #3e291d;
+    /* text-on-dark backgrounds */
+    --btn-primary-foreground: #ffffff;
+    /* secondary button bg (muted olive) */
+    --btn-secondary: #7c8b65;
+    /* secondary hover */
+    --btn-secondary-hover: #6b7953;
+    --btn-secondary-foreground: #ffffff;
+    /* disabled bg */
+    --btn-disabled: #e9e6e0;
+    --btn-disabled-foreground: #9aa0a6;
+
+    /* 5. Feedback States */
+    /* success (green) */
+    --success: #16a34a;
+    --success-foreground: #ffffff;
+    /* warm amber */
+    --warning: #e6a23c;
+    --warning-foreground: #1f1f1f;
+    /* destructive / error red */
+    --destructive: #d9534f;
+    --destructive-foreground: #ffffff;
+    --error: #d9534f;
+    --error-foreground: #ffffff;
+    /* teal info */
+    --info: #0ea5a4;
+    --info-foreground: #ffffff;
+
+    /* 6. Borders & Dividers */
+    /* default border */
+    --border: #e5e3e0;
+    /* focus/hover border */
+    --border-hover: #d1ccc6;
+    /* section dividers */
+    --divider: #ece8e4;
+
+    /* 7. Ecommerce-Specific */
+    /* normal price */
+    --price: #1f1f1f;
+    /* discounted price (red) */
+    --price-discount: #d9534f;
+    /* strikethrough / old price */
+    --price-original: #6d6d6d;
+    /* "New" badge */
+    --badge-new: #3b7d7d;
+    /* sale/gold badge */
+    --badge-sale: #e6843c;
+    /* cart/checkout CTA (brand) */
+    --cart: #4f3424;
+    /* wishlist heart color */
+    --wishlist: #d9534f;
+
+    /* 8. Overlays */
+    /* modal/drawer overlay — 50% black (8-digit hex ok) */
+    --overlay: #00000080;
+    /* subtle primary tint overlay (~25%) */
+    --overlay-hover: #4f342440;
+
+    /* 9. Utility Shades */
+    /* lightest neutral */
+    --neutral-50: #faf9f7;
+    /* surface base */
+    --neutral-100: #f2f0ed;
+    /* darkest neutral */
+    --neutral-900: #121212;
+    /* subtle shadow tint (~8%) */
+    --shadow: #00000014;
+}

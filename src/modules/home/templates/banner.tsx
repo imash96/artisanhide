@@ -5,7 +5,7 @@ export default function BannerSlider() {
         <div className="relative w-full h-[75vh] lg:h-[80vh] -mt-[4.5rem]">
             <div className="h-full w-full hidden lg:block">
                 <Image
-                    src="/temp_img/desktopBanner.jpg"
+                    src="/temp_img/desktopBanner.webp"
                     alt={" Banner"}
                     quality={100}
                     sizes="100vw"

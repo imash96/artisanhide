@@ -1,7 +1,6 @@
 import { listProducts } from "@libs/actions/product"
 import { StoreProduct, StoreProductListParams, StoreRegion } from "@medusajs/types"
-import Container from "@modules/common/create-section"
-import ProductCard from "@modules/home/components/product-card"
+import ProductCard from "@modules/common/product-card"
 
 
 export default async function RelatedProducts({ product, region }: RelatedProductsProps) {

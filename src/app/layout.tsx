@@ -6,8 +6,8 @@ import HolyLoader from "holy-loader";
 import Announcement from "@/layouts/home/templates/announcement";
 
 import "@/styles/globals.css";
-import "@/styles/mode_light.css";
-import "@/styles/mode_dark.css";
+import "@/styles/mode_light_new.css";
+import "@/styles/mode_dark_new.css";
 
 const BricolageGrotesque = Bricolage_Grotesque({ subsets: ["latin"], display: 'swap' });
 
@@ -15,7 +15,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const theme = use(cookies()).get('__theme')?.value
   return (
     <html lang="en" data-theme={theme ? theme : "light"}>
-      <body className={`${BricolageGrotesque.className} antialiased pb-14 lg:pb-0`}>
+      <body className={`${BricolageGrotesque.className} bg-background antialiased pb-14 lg:pb-0`}>
         <HolyLoader color="gray" easing="ease-out" />
         <Announcement />
         {children}

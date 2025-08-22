@@ -12,7 +12,7 @@ export default function HeaderWrapper({ enhancedCategories, initialTheme, totalI
     return (
         <Container as="nav" aria-label="nav" className="flex justify-between items-center h-[4.5rem]">
             <div className="flex justify-center items-center gap-x-2 h-full">
-                <MenuDrawerButton className="xm:hidden p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400" />
+                <MenuDrawerButton className="xm:hidden p-1 lg:p-2 rounded-full cursor-pointer hover:bg-accent" />
                 <Link href={"/"} aria-label="logo">
                     <Logo className={`w-26`} />
                 </Link>
@@ -21,14 +21,14 @@ export default function HeaderWrapper({ enhancedCategories, initialTheme, totalI
                 </nav>
             </div>
             <div className="flex justify-center items-center h-full gap-2">
-                <ThemeButton initialTheme={initialTheme} className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400" />
-                <span className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
+                <ThemeButton initialTheme={initialTheme} className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-accent" />
+                <span className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-accent">
                     <Search size={18} strokeWidth={1.5} />
                 </span>
-                <Link href={"/account"} aria-label="account" className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400">
+                <Link href={"/account"} aria-label="account" className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-accent">
                     <User size={18} strokeWidth={1.5} />
                 </Link>
-                <CartDrawerButton totalItems={totalItems} className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-gray-400" />
+                <CartDrawerButton totalItems={totalItems} className="flex items-center p-1 lg:p-2 rounded-full cursor-pointer hover:bg-accent" />
             </div>
         </Container>
     )

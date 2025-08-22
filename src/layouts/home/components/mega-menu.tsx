@@ -1,15 +1,14 @@
 "use client"
 
-import { categories } from "../header";
-import { ChevronDown } from "lucide-react";
-import type { StoreProductCategory } from "@medusajs/types";
-import { ArrowRight } from "lucide-react";
-import MenuPromotion from "./menu-promotion";
-import Link from "next/link";
-import { EnhancedCategoriesType } from "./header-wrapper";
-import { AnimatePresence, motion } from "motion/react";
-import type { MotionProps } from "motion/react";
 import { useState } from "react";
+import Link from "next/link";
+import { ChevronDown, ArrowRight } from "lucide-react";
+import type { StoreProductCategory } from "@medusajs/types";
+import type { EnhancedCategoriesType } from "./header-wrapper";
+import type { MotionProps } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import MenuPromotion from "./menu-promotion";
+import { categories } from "../header";
 
 export default function MegaMenu({ enhancedCategories }: MegaMenuProps) {
     const [activeCategory, setActiveCategory] = useState<string | null>(null)
@@ -27,51 +26,35 @@ export default function MegaMenu({ enhancedCategories }: MegaMenuProps) {
                     </button>
                     <AnimatePresence>
                         {activeCategory === category.id && <>
-                            <div className="bg-black/75 absolute top-full left-0 w-full h-screen" />
+                            <div className="bg-overlay absolute top-full left-0 w-full h-screen" />
                             <motion.div
                                 {...megaMenuMotion}
                                 onMouseLeave={handleMouseLeave}
-                                className="overflow-hidden no-scrollbar border-t absolute top-full left-0 w-full bg-white z-40">
-                                <div className="relative z-20 bg-gray-100">
-                                    <div className="grid grid-cols-4 gap-8 px-10 py-12 mx-auto max-w-8xl md:px-10 lg:px-14">
+                                className="overflow-hidden no-scrollbar border-t absolute top-full left-0 w-full z-40">
+                                <div className="relative z-20 bg-background-muted">
+                                    <div className="grid grid-cols-4 text-foreground-muted gap-8 px-10 py-12 mx-auto max-w-8xl md:px-10 lg:px-14">
                                         <div className="col-span-1">
-                                            <h3 className="flex items-center text-lg font-semibold mb-2 pb-2 border-b border-gray-200">
+                                            <h3 className="flex items-center text-lg font-semibold mb-2 pb-2 border-b border-border">
                                                 Shop by Category
                                                 <ArrowRight className="w-5 h-5 ml-2" />
                                             </h3>
                                             <ul className="">
-                                                {category.shop.map((item) => (
-                                                    <li key={item.id} className="w-full px-2 py-3 hover:bg-gray-200 rounded">
-                                                        <Link href={`/category/${item.handle}`} className="text-gray-600 hover:text-blue-600 transition-colors duration-200">
-                                                            {item.name}
-                                                        </Link>
-                                                    </li>
-                                                ))}
-                                                <li className="w-full px-2 py-3 hover:bg-gray-200 rounded">
-                                                    <Link href={`/category/${category?.handle}`} className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
-                                                        View all
-                                                    </Link>
-                                                </li>
+                                                {category.shop.map((item) =>
+                                                    <LinkMenu key={item.id} handle={item.handle} title={item.name} />
+                                                )}
+                                                <LinkMenu handle={category?.handle} bold />
                                             </ul>
                                         </div>
                                         <div className="col-span-1">
-                                            <h3 className="flex items-center text-lg font-semibold mb-2 pb-2 border-b border-gray-200">
+                                            <h3 className="flex items-center text-lg font-semibold mb-2 pb-2 border-b border-border">
                                                 Shop by Style
                                                 <ArrowRight className="w-5 h-5 ml-2" />
                                             </h3>
                                             <ul className="">
-                                                {category.style.map((item) => (
-                                                    <li key={item.id} className="w-full px-2 py-3 hover:bg-gray-200 rounded">
-                                                        <Link href={`/category/${item.handle}`} className="text-gray-600 hover:text-blue-600 transition-colors duration-200">
-                                                            {item.name}
-                                                        </Link>
-                                                    </li>
-                                                ))}
-                                                <li className="w-full px-2 py-3 hover:bg-gray-200 rounded">
-                                                    <Link href={`/category/${category?.handle}`} className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
-                                                        View all
-                                                    </Link>
-                                                </li>
+                                                {category.style.map((item) =>
+                                                    <LinkMenu key={item.id} handle={item.handle} title={item.name} />
+                                                )}
+                                                <LinkMenu handle={category?.handle} bold />
                                             </ul>
                                         </div>
                                         <MenuPromotion name={category.name} isMegaMenu />
@@ -94,6 +77,16 @@ export default function MegaMenu({ enhancedCategories }: MegaMenuProps) {
     )
 }
 
+const LinkMenu = ({ bold, handle, title = "View all" }: LinkMenuProps) => {
+    return (
+        <li className={`group/link w-full px-2 py-3 hover:bg-accent rounded ${bold && "font-medium"}`}>
+            <Link href={`/category/${handle}`} className="group-hover/link:text-accent-foreground transition-colors duration-50">
+                {title}
+            </Link>
+        </li>
+    )
+}
+
 const megaMenuMotion: MotionProps = {
     initial: { opacity: 0, height: 0 },
     animate: { opacity: 1, height: "auto" },
@@ -107,4 +100,10 @@ type MegaMenuProps = {
         style: StoreProductCategory[]
         shop: StoreProductCategory[]
     } & StoreProductCategory
+}
+
+type LinkMenuProps = {
+    bold?: boolean,
+    handle: string,
+    title?: string
 }

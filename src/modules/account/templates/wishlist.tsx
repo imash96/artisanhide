@@ -1,5 +1,5 @@
 import { ProductWishlist } from "@/types/wishlist";
-import ProductCard from "@modules/home/components/product-card";
+import ProductCard from "@modules/common/product-card";
 import { Heart } from "lucide-react";
 
 export default function Wishlist({ wishlist }: { wishlist: ProductWishlist }) {

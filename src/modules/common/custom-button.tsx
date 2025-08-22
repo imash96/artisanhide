@@ -6,18 +6,18 @@ import { useRipple } from '@libs/hooks/use-ripple';
 
 const variantStyles = {
     solid: {
-        primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-        secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
+        primary: 'bg-btn-primary text-btn-primary-foreground hover:bg-btn-primary-hover focus:ring-btn-primary',
+        secondary: 'bg-btn-secondary text-btn-secondary-foreground hover:bg-btn-secondary-hover focus:ring-btn-secondary',
         danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
     },
     outline: {
-        primary: 'border border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-500',
-        secondary: 'border border-gray-600 text-gray-600 hover:bg-gray-50 focus:ring-gray-500',
+        primary: 'border border-btn-primary text-foreground hover:bg-btn-primary-hover focus:ring-btn-primary',
+        secondary: 'border border-btn-secondary text-foreground hover:btn-secondary-hover focus:ring-btn-secondary',
         danger: 'border border-red-600 text-red-600 hover:bg-red-50 focus:ring-red-500',
     },
     icon: {
-        primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-        secondary: 'bg-gray-600 text-white hover:bg-gray-500 focus:ring-gray-500',
+        primary: 'bg-btn-primary text-btn-primary-foreground hover:bg-btn-primary-hover focus:ring-btn-primary',
+        secondary: 'bg-btn-secondary text-btn-secondary-foreground hover:bg-btn-secondary-hover focus:ring-btn-secondary',
         danger: 'bg-red-600 text-white hover:bg-red-500 focus:ring-red-500',
     },
 };
