@@ -53,7 +53,7 @@ export default function ProfilePersonal({ customer }: { customer: StoreCustomer 
                 Update Profile
             </Button>
             {state.error && (
-                <p className="text-red-500 text-sm mt-2" role="alert">
+                <p className="text-destructive text-sm mt-2" role="alert">
                     {state.error}
                 </p>
             )}

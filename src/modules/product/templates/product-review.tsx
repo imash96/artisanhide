@@ -4,15 +4,15 @@ import Image from "next/image"
 import Button from "@modules/common/custom-button"
 
 const reviews = {
-    average: 4,
-    totalCount: 1624,
-    counts: [
-        { rating: 5, count: 1019 },
-        { rating: 4, count: 162 },
-        { rating: 3, count: 97 },
-        { rating: 2, count: 199 },
-        { rating: 1, count: 147 },
-    ],
+    rating: {
+        average_rating: 4.4,
+        review_count: 1624,
+        rating_count_1: 147,
+        rating_count_2: 162,
+        rating_count_3: 97,
+        rating_count_4: 199,
+        rating_count_5: 1019,
+    },
     featured: [
         {
             id: 1,
@@ -79,27 +79,25 @@ export default function ProductReview() {
                 <div className="lg:col-span-4">
                     <h2
                         id="product-review-heading"
-                        className="text-2xl font-semibold text-gray-900"
+                        className="text-2xl font-semibold"
                     >
                         Customer Reviews
                     </h2>
 
                     <div className="mt-3 flex items-center gap-2">
-                        <RatingSystem rating={reviews.average} />
-                        <p className="text-sm text-gray-600">
-                            Based on {reviews.totalCount.toLocaleString()} reviews
+                        <RatingSystem averageRating={reviews.rating.average_rating} type="test" size="lg" />
+                        <p className="text-sm text-foreground-muted">
+                            Based on {reviews.rating.review_count.toLocaleString()} reviews
                         </p>
                     </div>
 
-                    <div className="mt-6">
-                        <RatingBreakdown reviews={reviews} />
-                    </div>
+                    <RatingBreakdown reviews={reviews.rating} />
 
                     <div className="mt-10">
-                        <h3 className="text-lg font-medium text-gray-900">
+                        <h3 className="text-lg font-medium">
                             Share your thoughts
                         </h3>
-                        <p className="mt-1 text-sm text-gray-600">
+                        <p className="mt-1 text-sm text-foreground-muted">
                             If you&apos;ve used this product, share your experience with
                             others.
                         </p>
@@ -116,7 +114,7 @@ export default function ProductReview() {
 
                 {/* RIGHT PANEL */}
                 <div className="mt-12 lg:mt-0 lg:col-span-8">
-                    <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                    <h2 className="text-2xl font-semibold mb-4">
                         Recent Reviews
                     </h2>
 
@@ -124,7 +122,7 @@ export default function ProductReview() {
                         {reviews.featured.slice(0, 4).map((review) => (
                             <div
                                 key={review.id}
-                                className="border-b border-gray-200 p-6"
+                                className="border-b border-border py-6"
                             >
                                 <div className="flex items-center">
                                     <Image
@@ -135,14 +133,14 @@ export default function ProductReview() {
                                         className="rounded-full"
                                     />
                                     <div className="ml-4">
-                                        <h3 className="text-sm font-semibold text-gray-900">
+                                        <h3 className="text-sm font-semibold">
                                             {review.author}
                                         </h3>
-                                        <RatingSystem rating={review.rating} />
+                                        <RatingSystem averageRating={reviews.rating.average_rating} type="test" size="md" />
                                     </div>
                                 </div>
 
-                                <p className="mt-4 text-base text-gray-700 leading-relaxed">
+                                <p className="mt-4 text-base text-foreground-disabled leading-relaxed">
                                     {review.content}
                                 </p>
                             </div>

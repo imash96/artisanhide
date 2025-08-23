@@ -83,7 +83,7 @@ export default function AddressForm({ cart }: AddressFormProps) {
                     Save
                 </Button>
                 {addressState.error && (
-                    <div className="text-rose-500 text-sm pt-2" role="alert" aria-live="polite">
+                    <div className="text-destructive-foreground text-sm pt-2" role="alert" aria-live="polite">
                         {addressState.error}
                     </div>
                 )}

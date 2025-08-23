@@ -30,7 +30,7 @@ export default function OptionSelect({ option, title, disabled }: OptionSelectPr
                 }
             </div>
 
-            <div className="flex flex-wrap gap-2 text-sm uppercase text-brown">
+            <div className="flex flex-wrap gap-2 text-sm uppercase">
                 {values?.map((value) => {
                     const isSelected = value === current
                     if (!isSize) return (
@@ -40,14 +40,14 @@ export default function OptionSelect({ option, title, disabled }: OptionSelectPr
                             style={{
                                 backgroundColor: value, outline: current === value ? "2px solid black" : "none",
                             }}
-                            className="inline-block h-8 w-8 border-2 border-white rounded-full cursor-pointer"
+                            className="inline-block h-8 w-8 border-2 border-border rounded-full cursor-pointer"
                         ></span>
                     )
                     return (
                         <button
                             key={value}
                             onClick={() => setOption(option.id, value)}
-                            className={`flex-1 basis-1/6 rounded-md px-3 py-3 transition-colors duration-150 border cursor-pointer ${isSelected ? "bg-brown text-white  font-medium border-brown ring-2 ring-brown ring-offset-1" : "bg-gray-50 border-gray-300 hover:bg-brown hover:text-white hover:border-brown"}`}
+                            className={`flex-1 basis-1/6 rounded-md px-3 py-3 transition-colors duration-150 border cursor-pointer ${isSelected ? "bg-primary text-primary-foreground  font-medium border-border ring-2 ring-primary ring-offset-1" : "bg-background text-accent border-border hover:bg-primary hover:text-primary-foreground hover:border-accent"}`}
                             disabled={disabled}
                             aria-pressed={isSelected}
                             aria-label={`${title}: ${value}`}
@@ -58,9 +58,9 @@ export default function OptionSelect({ option, title, disabled }: OptionSelectPr
                 })}
             </div>
 
-            {isSize ? <p className="text-xs text-amber-700 font-medium">
+            {isSize ? <p className="text-xs text-warning-foreground font-medium">
                 {(current === "One Size") ? "Measurements can be added during checkout." : "Refer to our size chart for the best fit."}
-            </p> : <span className="text-xs text-amber-700 font-medium">
+            </p> : <span className="text-xs text-warning-foreground font-medium">
                 Check product images or color chart for actual color
             </span>}
         </div>

@@ -76,7 +76,7 @@ export default function Testimonials() {
                     transition={{ duration: 0.25 }}
                     className="max-w-lg mx-auto mt-8 text-center">
                     <div className="animate-fade-in-up">
-                        <RatingSystem size="lg" rating={{ average_rating: testimonials[selectedIndex].star }} type="test" className="justify-center mb-4" />
+                        <RatingSystem size="lg" averageRating={testimonials[selectedIndex].star} type="test" className="justify-center mb-4" />
 
                         <p className="text-foreground text-base font-light leading-relaxed">
                             {testimonials[selectedIndex].review}

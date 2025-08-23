@@ -30,19 +30,19 @@ export default function CustomSelect({
 
     const stateClasses = {
         default: {
-            border: "border-gray-300 focus:border-blue-600",
-            label: "text-gray-500 peer-focus:text-blue-600",
-            helper: "text-gray-500"
+            border: "border-border focus:border-card-foreground",
+            label: "text-card-foreground peer-focus:text-card-foreground",
+            helper: "text-card-foreground"
         },
         success: {
-            border: "border-green-600 focus:border-green-600",
-            label: "text-green-600",
-            helper: "text-green-600"
+            border: "border-success focus:border-success",
+            label: "text-success-foreground",
+            helper: "text-success-foreground"
         },
         error: {
-            border: "border-red-600 focus:border-red-600",
-            label: "text-red-600",
-            helper: "text-red-600"
+            border: "border-destructive focus:border-destructive",
+            label: "text-destructive-foreground",
+            helper: "text-destructive-foreground"
         }
     }[state]
 
@@ -55,7 +55,7 @@ export default function CustomSelect({
                     required={required}
                     aria-describedby={helpId}
                     aria-invalid={state === "error"}
-                    className={`peer block w-full px-2.5 pb-1 pt-5 text-sm bg-gray-50 border appearance-none focus:outline-none focus:ring-0 rounded-md ${stateClasses.border} ${disabled ? "text-gray-400 cursor-not-allowed bg-gray-100" : "text-gray-900"}`}
+                    className={`peer block w-full px-2.5 pb-1 pt-5 text-sm bg-card border appearance-none focus:outline-none focus:ring-0 rounded-md ${stateClasses.border} ${disabled ? "text-foreground-muted cursor-not-allowed bg-background-muted" : ""}`}
                     {...props}
                 >
                     <option value="" disabled hidden></option>
@@ -72,16 +72,16 @@ export default function CustomSelect({
 
                 <label
                     htmlFor={id}
-                    className={`absolute text-sm duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 transition-all peer-focus:scale-75 peer-focus:-translate-y-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 ${stateClasses.label} ${disabled && "text-gray-400"}`}
+                    className={`absolute text-sm duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 transition-all peer-focus:scale-75 peer-focus:-translate-y-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 ${stateClasses.label} ${disabled && "text-foreground-muted"}`}
                 >
                     {label}
-                    {required && <span className="text-red-500 ml-1">*</span>}
+                    {required && <span className="text-destructive-foreground ml-1">*</span>}
                 </label>
 
                 {/* Custom dropdown arrow */}
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2.5 pointer-events-none">
                     <svg
-                        className="w-4 h-4 text-gray-400"
+                        className="w-4 h-4 text-foreground-muted"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

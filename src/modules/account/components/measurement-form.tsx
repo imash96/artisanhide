@@ -138,7 +138,7 @@ export default function MeasurementForm({ measurement, onClose }: MeasurementFor
 
                         {/* Right: Help Box */}
                         {selectedImage && (
-                            <div className="self-start h-full p-4 border rounded-lg bg-gray-50 space-y-2 text-sm">
+                            <div className="self-start h-full p-4 border rounded-lg bg-background-muted space-y-2 text-sm">
                                 <p className="tracking-wide font-medium">{selectedImage.label}</p>
                                 <p className="font-light text-sm leading-tight tracking-wide">
                                     {selectedImage.info}
@@ -154,7 +154,7 @@ export default function MeasurementForm({ measurement, onClose }: MeasurementFor
                         )}
                     </div>
                 ) : (
-                    <p className="text-sm text-red-500">
+                    <p className="text-sm text-destructive">
                         No measurements available for this type.
                     </p>
                 )}
@@ -165,7 +165,7 @@ export default function MeasurementForm({ measurement, onClose }: MeasurementFor
                     <div className="flex-1">
                         {state.error && (
                             <div
-                                className="text-rose-500 text-sm py-2"
+                                className="text-destructive-foreground text-sm py-2"
                                 role="alert"
                                 aria-live="polite"
                             >

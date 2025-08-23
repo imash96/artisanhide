@@ -29,24 +29,24 @@ export default function CustomInput({
 
     const stateClasses = {
         default: {
-            border: "border-gray-300 focus:border-blue-600",
-            label: "text-gray-500 peer-focus:text-blue-600",
-            helper: "text-gray-500"
+            border: "border-border focus:border-card-foreground",
+            label: "text-card-foreground peer-focus:text-card-foreground",
+            helper: "text-card-foreground"
         },
         success: {
-            border: "border-green-600 focus:border-green-600",
-            label: "text-green-600",
-            helper: "text-green-600"
+            border: "border-success focus:border-success",
+            label: "text-success-foreground",
+            helper: "text-success-foreground"
         },
         error: {
-            border: "border-red-600 focus:border-red-600",
-            label: "text-red-600",
-            helper: "text-red-600"
+            border: "border-destructive focus:border-destructive",
+            label: "text-destructive-foreground",
+            helper: "text-destructive-foreground"
         },
         disabled: {
-            border: "border-gray-300",
-            label: "text-gray-500",
-            helper: "text-gray-500"
+            border: "border-border",
+            label: "text-card-foreground",
+            helper: "text-card-foreground"
         }
     }[state]
 
@@ -62,17 +62,17 @@ export default function CustomInput({
                     required={required}
                     aria-describedby={helpId}
                     aria-invalid={state === "error"}
-                    className={`peer block w-full px-2.5 pb-1 pt-5 text-sm bg-gray-50 border appearance-none focus:outline-none focus:ring-0 rounded-md ${stateClasses.border} ${(disabled || props.readOnly) ? "text-gray-400 cursor-not-allowed bg-gray-100" : "text-gray-900"}`}
+                    className={`peer block w-full px-2.5 pb-1 pt-5 text-sm bg-card border appearance-none focus:outline-none focus:ring-0 rounded-md ${stateClasses.border} ${(disabled || props.readOnly) ? "text-foreground-muted cursor-not-allowed bg-background-muted" : ""}`}
                     {...props}
                 />
 
                 <label
                     htmlFor={id}
                     onClick={() => inputRef.current?.focus()}
-                    className={`absolute text-sm duration-300 transform -translate-y-2.5 scale-75 top-3.5 z-10 origin-[0] start-2.5 transition-all peer-focus:scale-75 peer-focus:-translate-y-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 ${stateClasses.label} ${disabled ? "text-gray-400" : undefined}`}
+                    className={`absolute text-sm duration-300 transform -translate-y-2.5 scale-75 top-3.5 z-10 origin-[0] start-2.5 transition-all peer-focus:scale-75 peer-focus:-translate-y-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 ${stateClasses.label} ${disabled ? "text-foreground-muted" : undefined}`}
                 >
                     {label}
-                    {required && <span className="text-red-500 ml-1">*</span>}
+                    {required && <span className="text-destructive-foreground ml-1">*</span>}
                 </label>
 
                 {isPassword && (
@@ -80,7 +80,7 @@ export default function CustomInput({
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
                         disabled={disabled}
-                        className="absolute right-2.5 top-4 text-gray-500 hover:text-gray-700 focus:outline-none"
+                        className="absolute right-2.5 top-4 text-card-foreground hover:text-card-foreground-hover focus:outline-none"
                         aria-label={showPassword ? "Hide password" : "Show password"}
                     >
                         {showPassword ? (

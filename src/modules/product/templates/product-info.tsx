@@ -7,24 +7,19 @@ export default function ProductInfo({ title, hs_code, pages }: ProductInfoProps)
     return (
         <>
             <Breadcrumb items={pages} href="/category" />
-            <h1 className=" tracking-tight text-[20px] md:text-[26px] lg:text-[30px] leading-snug text-[#242424]">
+            <h1 className=" tracking-tight text-xl md:text-2xl lg:text-3xl leading-snug text-foreground">
                 {title}
             </h1>
             {hs_code && <h2>{hs_code}</h2>}
-            <RatingSystem rating={rating} size="md" className="mb-2" />
+            <RatingSystem averageRating={4.4} reviewCount={150} size="md" className="mb-2" />
             <div className="flex gap-x-2 text-sm font-semibold">
-                <span className="flex items-center gap-x-1 bg-green-700 rounded-full px-3 text-gray-100">
+                <span className="flex items-center gap-x-1 bg-btn-secondary rounded-full px-3 text-secondary-foreground">
                     <Zap className="w-3 h-3 shrink-0" />
                     Express Delivery
                 </span> Get it in 4 – 6 days
             </div>
         </>
     )
-}
-
-const rating = {
-    average_rating: 4.4,
-    review_count: 150
 }
 
 type ProductInfoProps = {

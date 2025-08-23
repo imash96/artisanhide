@@ -76,6 +76,7 @@
   /* card - set to elevated for product displays */
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+  --color-card-foreground-hover: var(--card-foreground-hover);
 
   /* 4. Buttons & Interactive */
   /* primary button bg */
@@ -123,9 +124,9 @@
   /* normal price */
   --color-price: var(--price);
   /* discounted price (red) */
-  --color-discount: var(--discount);
+  --color-price-discount: var(--price-discount);
   /* strikethrough / old price */
-  --color-original: var(--original);
+  --color-price-original: var(--price-original);
 
   /* "New" badge */
   --color-badge-new: var(--badge-new);

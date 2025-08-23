@@ -40,7 +40,7 @@ export default function ProfilePassword() {
                 Update Password
             </Button>
             {state.error && (
-                <p className="text-red-500 text-sm mt-2" role="alert">
+                <p className="text-destructive text-sm mt-2" role="alert">
                     {state.error}
                 </p>
             )}

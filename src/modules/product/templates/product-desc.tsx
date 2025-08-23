@@ -24,14 +24,14 @@ export default function ProductDesc() {
 
                     {/* Text Content */}
                     <div className="w-full md:w-[55%] lg:w-1/2 flex flex-col justify-center space-y-4">
-                        <h3 className="text-2xl lg:text-4xl font-semibold text-[#242424] tracking-tight">
+                        <h3 className="text-2xl lg:text-4xl font-semibold tracking-tight">
                             {item.heading}
                         </h3>
-                        <p className="text-base lg:text-lg text-gray-700 leading-relaxed">
+                        <p className="text-base lg:text-lg text-foreground-muted leading-relaxed">
                             {item.content}
                         </p>
                         {item.extra && (
-                            <p className="text-sm text-gray-500 italic">
+                            <p className="text-sm text-foreground-disabled italic">
                                 {item.extra}
                             </p>
                         )}

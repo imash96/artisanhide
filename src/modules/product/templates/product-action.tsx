@@ -20,7 +20,7 @@ export default function ProductActions({ product }: ProductActionsProps) {
         <>
             <div className="flex flex-col gap-y-4" >
                 <ProductPrice />
-                <div className="flex flex-col gap-y-3 text-sm">
+                <div className="flex flex-col gap-y-3 text-sm text-foreground-muted">
                     <div className="flex items-center gap-x-3">
                         <Hammer width={32} />
                         <span>
@@ -66,7 +66,7 @@ export default function ProductActions({ product }: ProductActionsProps) {
                             </span>
                         </Button>
                         <Button variant="icon" color="secondary" className="h-12 px-4">
-                            {!selectedVariant ? <Heart className="w-5 h-5 fill-red-500 stroke-red-500" /> : <HeartPlus className="w-5 h-5" />}
+                            {!selectedVariant ? <Heart className="w-5 h-5 fill-destructive stroke-destructive" /> : <HeartPlus className="w-5 h-5" />}
                         </Button>
                     </div>
                 </div>

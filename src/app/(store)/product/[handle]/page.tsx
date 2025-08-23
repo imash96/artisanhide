@@ -30,7 +30,7 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
     const pages = product.categories?.map((c) => ({ name: c.name, href: `/category/${c.handle}` }))
 
     return (
-        <Container className="py-8 md:py-10 lg:py-14 text-brown">
+        <Container className="py-8 md:py-10 lg:py-14">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
                 <div className={`flex flex-col-reverse self-start md:flex-row lg:sticky top-20 gap-2 col-span-full lg:col-span-7 xl:col-span-8`}>
                     <ProductGallery images={product.images} title={product.title} />

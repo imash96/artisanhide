@@ -57,7 +57,7 @@ export default function ShippingStep({ cart, availableShippingMethods }: Shippin
                             Save
                         </Button>
                         {formState.error && (
-                            <div className="text-rose-500 text-sm pt-2" role="alert" aria-live="polite">
+                            <div className="text-destructive-foreground text-sm pt-2" role="alert" aria-live="polite">
                                 {formState.error}
                             </div>
                         )}

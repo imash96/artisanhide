@@ -19,16 +19,11 @@ export default function AddressModal({ mode = "create", children, address, count
                         <DialogTitle className="text-xl font-semibold">
                             {mode === "create" ? "Add New Address" : "Edit Address"}
                         </DialogTitle>
-                        <DialogDescription className="text-sm text-gray-600">
+                        <DialogDescription>
                             {mode === "create" ? "Enter the shipping address you’d like to save to your account." : "Update the shipping address and save your changes."}
                         </DialogDescription>
                     </div>
-                    <DialogClose
-                        className="text-gray-500 hover:text-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-black rounded p-1 transition-colors"
-                        aria-label="Close dialog"
-                    >
-                        <X className="w-5 h-5" />
-                    </DialogClose>
+                    <DialogClose />
                 </DialogHeader>
 
                 <AddressForm

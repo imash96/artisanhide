@@ -131,7 +131,7 @@ export default function MeasurementAdd() {
             {/* Form Instructions
                 <div className="mt-6 pt-4 border-t border-gray-100">
                     <p className="text-xs text-gray-500">
-                        All fields marked with <span className="text-red-500">*</span> are required.
+                        All fields marked with <span className="text-destructive">*</span> are required.
                         Customer names are limited to 50 characters.
                     </p>
                 </div> */}

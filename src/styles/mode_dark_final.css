@@ -34,6 +34,7 @@
     /* card - set to elevated for product displays */
     --card: #171717;
     --card-foreground: #efe7dd;
+    --card-foreground-hover: #bcb2a8;
 
     /* 4. Buttons & Interactive */
     /* primary button bg (brand, lighter) */

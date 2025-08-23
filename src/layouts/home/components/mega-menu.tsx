@@ -17,7 +17,7 @@ export default function MegaMenu({ enhancedCategories }: MegaMenuProps) {
     const handleMouseEnter = (id: string) => setActiveCategory(id)
 
     return (
-        <>
+        <nav className="hidden gap-2.5 text-sm h-full font-extralight tracking-[0.05em] ml-6 lg:flex lg:gap-x-6">
             {enhancedCategories.map((category) => (
                 <div key={category.id} className="group/mega flex items-center gap-0.5 cursor-default" onMouseEnter={() => handleMouseEnter(category.id)} onMouseLeave={handleMouseLeave}>
                     <button className="flex h-full items-center gap-1 mega-hover">
@@ -26,7 +26,7 @@ export default function MegaMenu({ enhancedCategories }: MegaMenuProps) {
                     </button>
                     <AnimatePresence>
                         {activeCategory === category.id && <>
-                            <div className="bg-overlay absolute top-full left-0 w-full h-screen" />
+                            <div className="bg-overlay absolute top-full left-0 w-full h-screen" onClick={handleMouseLeave} />
                             <motion.div
                                 {...megaMenuMotion}
                                 onMouseLeave={handleMouseLeave}
@@ -72,7 +72,7 @@ export default function MegaMenu({ enhancedCategories }: MegaMenuProps) {
                     </Link>
                 </li>
             ))}
-        </>
+        </nav>
 
     )
 }

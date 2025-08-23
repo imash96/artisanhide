@@ -1,10 +1,8 @@
 import { Star } from "lucide-react";
 
-interface RatingProps {
-    rating?: {
-        average_rating: number;
-        review_count?: number;
-    }
+type RatingProps = {
+    averageRating: number;
+    reviewCount?: number;
     size?: "sm" | "md" | "lg";
     className?: string;   // extra classes
     type?: "card" | "test";
@@ -13,14 +11,13 @@ interface RatingProps {
 const sizeMap = { sm: 12, md: 16, lg: 20 } as const;
 const textMap = { sm: "text-xs", md: "text-sm", lg: "text-md" } as const;
 
-export default function Rating({ rating, size = "sm", className = "", type }: RatingProps) {
-    const average = rating?.average_rating ?? 0;
-    const reviewCount = rating?.review_count ?? 0;
+export default function Rating({ averageRating, reviewCount = 0, size = "sm", className = "", type }: RatingProps) {
+    const average = averageRating ?? 0;
     const rounded = Math.floor(average);
 
     return (
         <div className={`flex items-center gap-1 ${className}`} aria-label={`${average.toFixed(1)} out of 5 stars`} >
-            {[...Array(5)].map((_, i) => (
+            {[5, 4, 3, 2, 1].map((_, i) => (
                 <Star
                     key={i}
                     size={sizeMap[size]}

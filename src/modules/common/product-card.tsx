@@ -68,7 +68,7 @@ export default function ProductCard({ product }: { product: StoreProduct }) {
                 </h3>
 
                 {/* Rating */}
-                <RatingSystem rating={{ average_rating: 4.4, review_count: 150 }} size="sm" type="card" />
+                <RatingSystem averageRating={4.4} reviewCount={150} size="sm" type="card" />
 
                 {/* Price */}
                 <div className="flex items-center gap-2">

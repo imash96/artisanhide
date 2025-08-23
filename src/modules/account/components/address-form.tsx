@@ -113,7 +113,7 @@ export default function AddressForm({ mode, address, countryOptions, isDefaultSh
                         {["Home", "Office", "Other"].map((type) => (
                             <span key={type}>
                                 <input type="radio" id={type} name="address_name" defaultChecked={type === address?.address_name} value={type} className="sr-only peer" />
-                                <label htmlFor={type} className="relative cursor-pointer flex items-center px-4 py-2 text-xs border rounded-full transition-all select-none peer-checked:bg-brown peer-checked:text-white">
+                                <label htmlFor={type} className="relative cursor-pointer flex items-center px-4 py-2 text-xs border rounded-full transition-all select-none peer-checked:bg-accent peer-checked:text-accent-foreground">
                                     {type}
                                 </label>
                             </span>
@@ -126,7 +126,7 @@ export default function AddressForm({ mode, address, countryOptions, isDefaultSh
                         id="is_default_shipping"
                         type="checkbox"
                         name="is_default_shipping"
-                        className="h-4 w-4 rounded border-gray-300"
+                        className="h-4 w-4 rounded border-border"
                         defaultChecked={address?.is_default_shipping}
                     />
                     <label htmlFor="is_default_shipping" className="text-xs tracking-wide">
@@ -141,7 +141,7 @@ export default function AddressForm({ mode, address, countryOptions, isDefaultSh
                     <div className="flex-1">
                         {state.error && (
                             <div
-                                className="text-rose-500 text-sm py-2"
+                                className="text-destructive-foreground text-sm py-2"
                                 role="alert"
                                 aria-live="polite"
                             >

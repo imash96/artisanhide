@@ -36,3 +36,13 @@ export type ListingSectionProps = {
 export type SortOptions = "price_asc" | "price_desc" | "created_at"
 
 export type StepType = "address" | "delivery" | "payment"
+
+export type RatingType = {
+    average_rating: number;
+    review_count: number;
+    rating_count_1: number;
+    rating_count_2: number;
+    rating_count_3: number;
+    rating_count_4: number;
+    rating_count_5: number;
+} | undefined

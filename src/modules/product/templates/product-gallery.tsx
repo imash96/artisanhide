@@ -51,12 +51,12 @@ export default function ProductGallery({ images, title }: ProductGalleryProps) {
     return (
         <>
             {/* Thumbnails (Mobile = Horizontal | Desktop = Vertical) */}
-            <div className="relative md:max-h-[calc(100vh-12rem)] overflow-auto no-scrollbar px-1" ref={emblaThumbsRef}>
+            <div className="relative md:max-h-[calc(100vh-12rem)] overflow-auto no-scrollbar p-1" ref={emblaThumbsRef}>
                 <div className="flex md:flex-col w-max gap-2">
                     {images?.map((image, index) => (
                         <button
                             key={index}
-                            className={`relative aspect-[3/4] w-16 md:w-14 rounded-sm transition-transform duration-200 hover:scale-105 ${index === selectedIndex ? "border-b-4 border-brown shadow-sm" : "border border-transparent hover:border-brown"}`}
+                            className={`relative aspect-[3/4] bg-same-white w-16 md:w-14 rounded-sm transition-transform duration-200 hover:scale-105 ${index === selectedIndex ? "border-b-4 border-accent shadow-sm" : "border border-transparent hover:border-accent"}`}
                             onClick={() => onThumbClick(index)}
                         >
                             <Image
@@ -71,7 +71,7 @@ export default function ProductGallery({ images, title }: ProductGalleryProps) {
             </div>
 
             {/* Main Image Carousel */}
-            <div className="w-full m-auto relative overflow-hidden flex-1 no-scrollbar border" ref={emblaMainRef}>
+            <div className="w-full m-auto relative overflow-hidden flex-1 no-scrollbar border border-border bg-same-white" ref={emblaMainRef}>
                 <div className="flex touch-pan-y touch-pinch-zoom gap-x-2">
                     {images?.map((image, index) => (
                         <div key={index} className="flex-[0_0_100%] min-w-0 select-none aspect-[3/4]">
@@ -92,17 +92,17 @@ export default function ProductGallery({ images, title }: ProductGalleryProps) {
                 {/* Navigation Buttons */}
                 <button
                     aria-label="Previous image"
-                    className="absolute left-0 top-1/2 -translate-y-1/2  bg-white px-1 py-2 md:px-2 md:py-3 shadow-lg"
+                    className="absolute left-0 top-1/2 -translate-y-1/2  bg-accent px-1 py-2 md:px-2 md:py-3 shadow-lg"
                     onClick={scrollPrev}
                 >
-                    <ChevronLeft className="h-5 w-5 text-gray-800" />
+                    <ChevronLeft className="h-5 w-5 text-accent-foreground" />
                 </button>
                 <button
                     aria-label="Next image"
-                    className="absolute right-0 top-1/2 -translate-y-1/2  bg-white px-1 py-2 md:px-2 md:py-3 shadow-lg"
+                    className="absolute right-0 top-1/2 -translate-y-1/2  bg-accent px-1 py-2 md:px-2 md:py-3 shadow-lg"
                     onClick={scrollNext}
                 >
-                    <ChevronRight className="h-5 w-5 text-gray-800" />
+                    <ChevronRight className="h-5 w-5 text-accent-foreground" />
                 </button>
             </div>
         </ >
