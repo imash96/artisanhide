@@ -22,13 +22,13 @@ export default function CartContent({ cart }: { cart: StoreCart }) {
                         return (
                             <motion.li
                                 key={item.id}
-                                className="flex gap-2 py-2 text-brown"
+                                className="flex gap-2 py-2 text-foreground"
                                 initial={{ opacity: 0, x: -50 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
                             >
                                 {/* Product Image */}
-                                <div className="relative w-16 h-20 overflow-hidden no-scrollbar rounded-xs border flex-shrink-0 bg-white">
+                                <div className="relative w-16 h-20 overflow-hidden no-scrollbar rounded-xs border flex-shrink-0 bg-same-white">
                                     <Image
                                         src={item.thumbnail || "/svg/placeholder.svg"}
                                         alt={"product image"}
@@ -44,9 +44,9 @@ export default function CartContent({ cart }: { cart: StoreCart }) {
                                     <Link href={`/product/${item.product_handle}`}>
                                         <h3 className="text-sm leading-tight line-clamp-2">{item.title}</h3>
                                     </Link>
-                                    <div className="text-xs text-gray-500 mt-1">
+                                    <div className="text-xs text-foreground-muted mt-1">
                                         {item.variant && <span>Size: {item.variant?.title}</span>}<br />
-                                        {item.variant_sku && <span>SKU: {item.variant_sku}</span>}<br />
+                                        {item.variant_sku && <span>{item.variant_sku}</span>}<br />
                                     </div>
                                 </div>
                                 <div className="flex flex-col justify-between items-center w-20">
@@ -57,7 +57,7 @@ export default function CartContent({ cart }: { cart: StoreCart }) {
                                         })}
                                     </div>
                                     {item.quantity > 1 && <RemoveButton itemId={item.id} />}
-                                    <div className="flex items-center border rounded-md bg-gray-50">
+                                    <div className="flex items-center border rounded-md bg-btn-primary text-btn-primary-foreground">
                                         <QuntityButton itemId={item.id} quantity={item.quantity - 1}>
                                             {item.quantity === 1 ? <Trash className="w-3 h-3" /> : <Minus className="w-3 h-3" />}
                                         </QuntityButton>
@@ -85,7 +85,7 @@ function QuntityButton({ itemId, quantity, children }: { itemId: string, quantit
     const handleClick = () => startTransition(() => (quantity <= 0) ? deleteLineItem(itemId) : updateLineItem(itemId, quantity));
 
     return (
-        <button onClick={handleClick} className={`p-1 hover:bg-gray-200 transition-colors rounded-r-md ${isPending ? "pointer-events-none" : ""}`}>
+        <button onClick={handleClick} className={`p-1 hover:bg-btn-primary-hover transition-colors rounded-r-md ${isPending ? "pointer-events-none" : ""}`}>
             {isPending ? <LoaderCircle className="w-3 h-3 animate-spin" /> : children}
         </button>
     )
@@ -95,7 +95,7 @@ function RemoveButton({ itemId }: { itemId: string }) {
     const [isPending, startTransition] = useTransition();
     const handleClick = () => startTransition(() => deleteLineItem(itemId));
     return (
-        <button className={`text-xs flex items-center gap-1 font-extralight ${isPending ? "pointer-events-none" : ""}`} onClick={handleClick}>
+        <button className={`text-xs text-btn-destructive hover:text-btn-destructive-hover flex items-center gap-1 font-extralight ${isPending ? "pointer-events-none" : ""}`} onClick={handleClick}>
             {isPending ? <LoaderCircle className="w-3 h-3 animate-spin" /> : <Trash className="w-3 h-3" />} Remove
         </button>
     )

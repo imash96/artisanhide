@@ -27,7 +27,7 @@ export default function BannerSlider() {
                     priority
                 />
             </div>
-            <div className="hidden lg:block absolute inset-0 bg-black/25" />
+            <div className="absolute inset-0 bg-gradient-to-b from-overlay via-transparent to-transparent" />
         </div>
     );
 };

@@ -5,8 +5,9 @@ import { StoreProduct } from "@medusajs/types"
 import Image from "next/image"
 import { Star } from "lucide-react"
 import { getProductPrice } from "@libs/util/get-product-price"
+import RatingSystem from "./rating-system"
 
-export default function ProductCard({ product, showCol }: ProductCardProps) {
+export default function ProductCard({ product }: { product: StoreProduct }) {
     const { cheapestPrice } = getProductPrice({ product })
     const images = product.images ?? []
 
@@ -21,7 +22,7 @@ export default function ProductCard({ product, showCol }: ProductCardProps) {
                             src={images[0].url || "/placeholder.svg"}
                             alt={product.title}
                             fill
-                            className="h-full w-full object-contain object-center p-0.5 transition-opacity duration-300 ease-in opacity-100 group-hover:opacity-0"
+                            className="h-full w-full object-contain object-center transition-opacity duration-300 ease-in opacity-100 group-hover:opacity-0"
                             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                             priority
                         />
@@ -29,7 +30,7 @@ export default function ProductCard({ product, showCol }: ProductCardProps) {
                             src={images[1].url || "/placeholder.svg"}
                             alt={`${product.title} alternate view`}
                             fill
-                            className="h-full w-full absolute top-0 left-0 object-contain object-center p-0.5 transition-opacity duration-300 ease-in opacity-0 group-hover:opacity-100"
+                            className="h-full w-full absolute top-0 left-0 object-contain object-center transition-opacity duration-300 ease-in opacity-0 group-hover:opacity-100"
                             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                         />
                     </>
@@ -38,7 +39,7 @@ export default function ProductCard({ product, showCol }: ProductCardProps) {
                         src={product.thumbnail || "/placeholder.svg"}
                         alt={product.title}
                         fill
-                        className="h-full w-full object-contain object-center p-0.5"
+                        className="h-full w-full object-contain object-center"
                         sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                         priority
                     />
@@ -48,11 +49,11 @@ export default function ProductCard({ product, showCol }: ProductCardProps) {
                 {cheapestPrice?.price_type === "sale" && (
                     <>
                         <div className="absolute top-0 left-0 w-24 h-24 overflow-hidden z-10">
-                            <div className="absolute top-1 -left-12 w-32 bg-destructive text-destructive-foreground text-xs font-bold uppercase text-center rotate-[-45deg] shadow-md py-1">
+                            <div className="absolute top-2 -left-11 w-32 bg-destructive text-destructive-foreground text-xs font-bold uppercase text-center rotate-[-45deg] shadow-md py-1">
                                 Sale
                             </div>
                         </div>
-                        <span className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-md bg-primary px-2 py-0.5 text-xs font-semibold text-primary-foreground shadow animate-bounce">
+                        <span className="absolute top-2 right-1 rounded-md bg-secondary px-2 py-1 text-sm font-semibold text-secondary-foreground shadow animate-bounce">
                             -{cheapestPrice.percentage_diff}%
                         </span>
                     </>
@@ -67,15 +68,7 @@ export default function ProductCard({ product, showCol }: ProductCardProps) {
                 </h3>
 
                 {/* Rating */}
-                <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                        <Star
-                            key={i}
-                            className={`h-3 w-3 ${i < Math.floor(4.4) ? "fill-yellow-400 text-yellow-400" : "text-muted"}`}
-                        />
-                    ))}
-                    <span className="ml-1 text-xs text-muted">{115} Reviews</span>
-                </div>
+                <RatingSystem rating={{ average_rating: 4.4, review_count: 150 }} size="sm" type="card" />
 
                 {/* Price */}
                 <div className="flex items-center gap-2">
@@ -97,9 +90,4 @@ export default function ProductCard({ product, showCol }: ProductCardProps) {
             </div>
         </Link>
     )
-}
-
-type ProductCardProps = {
-    product: StoreProduct
-    showCol?: boolean
 }

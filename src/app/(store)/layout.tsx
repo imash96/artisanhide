@@ -9,7 +9,6 @@ import { listCategories } from "libs/actions/categories";
 import type { Metadata } from "next";
 import { DrawerProvider } from "@libs/context/drawer-context";
 
-
 export default function StoreLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 
     const cart = use(retrieveCart())

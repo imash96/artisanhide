@@ -1,7 +1,7 @@
 "use client"
 
 import { StoreProduct } from "@medusajs/types"
-import { Gem, Hammer, Heart, HeartPlus, Loader, Pencil, Scissors, ShoppingBag, Shrink, Snowflake, Spool, Volleyball, Wind } from "lucide-react"
+import { Gem, Hammer, Heart, HeartPlus, Pencil, Scissors, Wind } from "lucide-react"
 import Button from "@modules/common/custom-button"
 import { useIntersection } from "@libs/hooks/use-in-view"
 import OptionSelect from "../components/option-select"

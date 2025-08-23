@@ -6,8 +6,8 @@ import HolyLoader from "holy-loader";
 import Announcement from "@/layouts/home/templates/announcement";
 
 import "@/styles/globals.css";
-import "@/styles/mode_light_new.css";
-import "@/styles/mode_dark_new.css";
+import "@/styles/mode_light_final.css";
+import "@/styles/mode_dark_final.css";
 
 const BricolageGrotesque = Bricolage_Grotesque({ subsets: ["latin"], display: 'swap' });
 

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link"
 import { listCollection } from "libs/actions/collection"
 import SectionHeader from "../components/section-header";
+import Button from "@modules/common/custom-button";
 
 export default async function Collection() {
     const product_collections = await listCollection({ limit: 6, fields: "+metadata,*products" })
@@ -24,11 +25,11 @@ export default async function Collection() {
                 ))}
             </div>
             <div className="flex items-center justify-center">
-                <button className="relative overflow-hidden no-scrollbar">
-                    <Link href={`/collections`} className={`px-6 py-2 text-sm tracking-wide bg-white border border-brown text-brown flex items-center justify-center cursor-pointer transition-all duration-500 ease-in-out shadow-md hover:scale-100 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-brown before:to-brown before:transition-all before:duration-500 before:ease-in-out before:z-[-1] hover:text-white hover:before:left-0 `}>
+                <div className="relative overflow-hidden no-scrollbar">
+                    <Button href={`/collections`} variant="outline" className="transition-all duration-500 ease-in-out before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-brown before:to-brown before:transition-all before:duration-500 before:ease-in-out before:z-[-1] hover:text-white hover:before:left-0">
                         View all Collection
-                    </Link>
-                </button>
+                    </Button>
+                </div>
             </div>
         </SectionHeader>
 

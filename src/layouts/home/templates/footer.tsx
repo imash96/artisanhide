@@ -12,18 +12,18 @@ export default async function Footer() {
     const countryCode = (await cookies()).get('__country_code')?.value
     const regions = await listRegions()
     return (
-        <footer aria-labelledby="footer-heading" className="footer bg-brown text-gray-50 pb-4 lg:pb-0">
+        <footer aria-labelledby="footer-heading" className="footer bg-primary text-primary-foreground pb-4 lg:pb-0">
             <h2 id="footer-heading" className="sr-only">
                 Footer
             </h2>
             <Container>
                 <div className="grid grid-cols-1 gap-8 px-4 py-10 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1">
                     <div className="grid gap-y-6">
-                        <Logo className="w-32 fill-gray-50" />
+                        <Logo className="w-32 fill-primary-foreground" />
                         {contactInfo.map((info, idx) => (
                             <div key={idx} className="space-y-2">
                                 <div className="flex items-center gap-2">
-                                    <info.icon size={18} strokeWidth={1.5} className="text-white" />
+                                    <info.icon size={18} strokeWidth={1.5} />
                                     <span className="text-base tracking-wide">{info.title}</span>
                                 </div>
                                 <p className="text-sm tracking-wider px-4">{info.content}</p>

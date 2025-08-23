@@ -40,7 +40,9 @@ export default function ProductGallery({ images, title }: ProductGalleryProps) {
         onSelect()
         emblaMainApi.on('select', onSelect).on('reInit', onSelect)
 
-        return () => emblaMainApi.destroy()
+        return () => {
+            emblaMainApi?.destroy();
+        }
     }, [emblaMainApi, onSelect])
 
     const scrollPrev = useCallback(() => emblaMainApi?.scrollPrev(), [emblaMainApi])

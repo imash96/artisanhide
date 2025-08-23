@@ -1,4 +1,5 @@
 "use client";
+
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
@@ -6,8 +7,6 @@ import { Minus, MoveLeft, MoveRight } from "lucide-react";
 import { testimonials } from "../testimonials";
 import { AnimatePresence, motion } from "motion/react";
 import RatingSystem from "@modules/common/rating-system";
-
-import "@/styles/testimonials.css"
 
 export default function Testimonials() {
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -23,28 +22,27 @@ export default function Testimonials() {
 
     useEffect(() => {
         if (!emblaApi) return;
-        onSelect(); // sync initially
+        onSelect();
         emblaApi.on("select", onSelect);
-        return () => {
-            emblaApi?.off("select", onSelect);
-        }
+        return () => emblaApi?.destroy();
     }, [emblaApi, onSelect]);
 
     return (
-        <div className="max-w-6xl mx-auto flex flex-col px-4 md:px-16 lg:px-32 py-12 md:py-8 gap-y-8 lg:gap-y-10 lg:py-14">
-            <h2 className="text-center text-[24px] lg:text-[30px] tracking-tight font-normal text-brown">
+        <div className="max-w-6xl mx-auto px-4 md:px-12 lg:px-20 py-12 lg:py-16">
+            <h2 className="text-center text-2xl lg:text-3xl font-semibold tracking-tight text-foreground mb-8">
                 Our Customer Feedbacks
             </h2>
 
-            <div className="testembla relative overflow-hidden no-scrollbar">
-                <div className="testembla__viewport no-scrollbar" ref={emblaRef}>
-                    <div className="testembla__container">
+            <div className="relative">
+                <div className="overflow-hidden no-scrollbar" ref={emblaRef}>
+                    <div className="flex touch-pan-y -ml-12 sm:-ml-6">
                         {testimonials.map((item, index) => {
+                            const isActive = selectedIndex === index;
                             const distance = Math.abs(selectedIndex - index);
-                            const scale = [1, 0.7, 0.5][distance] || 0.4;
+                            const scale = [1, 0.6, 0.3][distance] || 0.3;
                             return (
-                                <div className="testembla__slide" key={item.id}>
-                                    <div className="testembla__slide__number border overflow-hidden no-scrollbar aspect-[4/4] transition-transform duration-500 ease-in-out" style={{ transform: `scale(${scale})`, opacity: scale }}>
+                                <div key={item.id} className="flex-[0_0_30%] md:flex-[0_0_20%] min-w-0 pl-12 md:pl-6">
+                                    <div className="rounded-xl overflow-hidden no-scrollbar shadow-md aspect-square transition-transform duration-500 ease-out" style={{ transform: `scale(${scale})`, opacity: isActive ? 1 : 0.5, }}>
                                         <Image
                                             src={item.image}
                                             alt={item.name}
@@ -60,11 +58,11 @@ export default function Testimonials() {
                     </div>
                 </div>
 
-                <button onClick={scrollPrev} aria-label="Previous testimonial" className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center">
+                <button onClick={scrollPrev} aria-label="Previous testimonial" className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/70 shadow hover:bg-background transition">
                     <MoveLeft size={18} strokeWidth={1.5} />
                 </button>
 
-                <button onClick={scrollNext} aria-label="Next testimonial" className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center">
+                <button onClick={scrollNext} aria-label="Next testimonial" className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/70 shadow hover:bg-background transition">
                     <MoveRight size={18} strokeWidth={1.5} />
                 </button>
             </div>
@@ -72,19 +70,19 @@ export default function Testimonials() {
             <AnimatePresence mode="wait">
                 <motion.div
                     key={selectedIndex}
-                    initial={{ opacity: 0, y: -20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    transition={{ duration: 0.2 }}
-                    className="relative max-w-md mx-auto text-center flex flex-col justify-center">
-                    <div className="space-y-4 animate-fade-in-up">
-                        <RatingSystem rating={testimonials[selectedIndex].star} className="justify-center" />
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.25 }}
+                    className="max-w-lg mx-auto mt-8 text-center">
+                    <div className="animate-fade-in-up">
+                        <RatingSystem size="lg" rating={{ average_rating: testimonials[selectedIndex].star }} type="test" className="justify-center mb-4" />
 
-                        <p className="text-gray-800 text-sm font-light leading-snug tracking-wide">
+                        <p className="text-foreground text-base font-light leading-relaxed">
                             {testimonials[selectedIndex].review}
                         </p>
 
-                        <div className="flex items-center justify-center gap-1 text-lg text-gray-800 tracking-wide">
+                        <div className="flex items-center justify-center gap-1 text-lg text-foreground-muted mt-1">
                             <Minus strokeWidth={1} size={18} />
                             {testimonials[selectedIndex].name}
                         </div>

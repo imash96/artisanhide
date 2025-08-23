@@ -6,7 +6,7 @@ import { convertToLocale } from "libs/util/money"
 import { DrawerContext } from "@libs/context/drawer-context";
 import { use } from "react";
 
-
+// Todo use*
 export default function CartFooter({ cart }: { cart: StoreCart }) {
     const { toggleCartDrawer } = use(DrawerContext);
     return (
@@ -21,10 +21,10 @@ export default function CartFooter({ cart }: { cart: StoreCart }) {
                 </span>
             </div>
 
-            <p className="text-xs mt-2 text-gray-500">Shipping, taxes, and discounts calculated at checkout.</p>
+            <p className="text-xs mt-2 text-foreground-muted">Shipping, taxes, and discounts calculated at checkout.</p>
 
-            <Button variant="solid" onClick={toggleCartDrawer} className="w-full mt-6" href="/cart" pill>
-                CHECKOUT
+            <Button variant="solid" onClick={toggleCartDrawer} className="w-full mt-6" href="/cart">
+                Go to Cart
             </Button>
         </div>
     )

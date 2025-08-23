@@ -9,8 +9,7 @@ Homepage
 - category image
 - collection image
 - marquee image
-- more realistic feedbacks
-- refine blog card & button
+- more realistic feedbacks data
 
 About-us
 - full image and layout optimize

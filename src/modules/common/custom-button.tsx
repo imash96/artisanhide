@@ -1,24 +1,24 @@
 'use client';
 
 import Link from 'next/link';
-import clx from '@libs/util/clx';
 import { useRipple } from '@libs/hooks/use-ripple';
+import clx from '@libs/util/clx';
 
 const variantStyles = {
     solid: {
-        primary: 'bg-btn-primary text-btn-primary-foreground hover:bg-btn-primary-hover focus:ring-btn-primary',
-        secondary: 'bg-btn-secondary text-btn-secondary-foreground hover:bg-btn-secondary-hover focus:ring-btn-secondary',
-        danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
+        primary: 'bg-btn-primary text-btn-primary-foreground hover:bg-btn-primary-hover focus:ring-btn-primary/50',
+        secondary: 'bg-btn-secondary text-btn-secondary-foreground hover:bg-btn-secondary-hover focus:ring-btn-secondary/50',
+        destructive: 'bg-btn-destructive text-btn-destructive-foreground hover:bg-btn-destructive-hover focus:ring-btn-destructive/50',
     },
     outline: {
-        primary: 'border border-btn-primary text-foreground hover:bg-btn-primary-hover focus:ring-btn-primary',
-        secondary: 'border border-btn-secondary text-foreground hover:btn-secondary-hover focus:ring-btn-secondary',
-        danger: 'border border-red-600 text-red-600 hover:bg-red-50 focus:ring-red-500',
+        primary: 'border border-btn-primary text-foreground hover:bg-btn-primary-hover hover:text-btn-primary-foreground focus:ring-btn-primary/50',
+        secondary: 'border border-btn-secondary text-foreground hover:bg-btn-secondary-hover hover:text-btn-secondary-foreground focus:ring-btn-secondary/50',
+        destructive: 'border border-btn-destructive text-btn-destructive hover:bg-btn-destructive-hover/20 focus:ring-btn-destructive/50',
     },
     icon: {
-        primary: 'bg-btn-primary text-btn-primary-foreground hover:bg-btn-primary-hover focus:ring-btn-primary',
-        secondary: 'bg-btn-secondary text-btn-secondary-foreground hover:bg-btn-secondary-hover focus:ring-btn-secondary',
-        danger: 'bg-red-600 text-white hover:bg-red-500 focus:ring-red-500',
+        primary: 'bg-btn-primary text-btn-primary-foreground hover:bg-btn-primary-hover focus:ring-btn-primary/50',
+        secondary: 'bg-btn-secondary text-btn-secondary-foreground hover:bg-btn-secondary-hover focus:ring-btn-secondary/50',
+        destructive: 'bg-btn-destructive text-btn-destructive-foreground hover:bg-btn-destructive-hover focus:ring-btn-destructive/50',
     },
 };
 
@@ -30,18 +30,27 @@ const baseStyles = {
 
 export type ButtonProps = {
     variant?: keyof typeof variantStyles;
-    color?: keyof typeof variantStyles['solid'];
+    color?: keyof typeof variantStyles['solid']
     isLoading?: boolean;
     pill?: boolean;
-    ripple?: boolean,
+    ripple?: boolean;
     children?: React.ReactNode;
-    onClick?: React.MouseEventHandler<HTMLButtonElement>
+    onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 } & (React.ComponentPropsWithoutRef<typeof Link> | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined }));
 
-export default function Button({ variant = 'solid', color = 'primary', isLoading = false, pill = false, ripple = false, className, children, onClick, ...props }: ButtonProps) {
-    props.href && (ripple = false)
+export default function Button({
+    variant = 'solid',
+    color = 'primary',
+    isLoading = false,
+    pill = false,
+    ripple = false,
+    className,
+    children,
+    onClick,
+    ...props
+}: ButtonProps) {
     const btnClass = clx(
-        'flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed text-sm shadow-sm transition-colors',
+        'flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed text-sm shadow-sm transition-colors duration-150',
         variantStyles[variant][color],
         baseStyles[variant],
         pill && 'rounded-full',
@@ -51,21 +60,24 @@ export default function Button({ variant = 'solid', color = 'primary', isLoading
 
     const handleRipple = useRipple();
 
-    const onClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => ripple && handleRipple(e)
+    const handleClick = (e: any) => {
+        if (ripple && !props.href) handleRipple(e);
+        onClick?.(e);
+    };
 
     const content = children ? children : "Submit"
 
     if (typeof props.href === 'undefined') {
         return (
-            <button className={btnClass} disabled={isLoading || props.disabled} {...props} onClick={(e) => { onClickHandler(e); onClick?.(e) }}>
+            <button className={btnClass} disabled={isLoading || props.disabled} {...props} onClick={handleClick} aria-busy={isLoading}>
                 {content}
             </button>
         );
     }
 
     return (
-        <Link className={btnClass} {...props}>
+        <Link className={btnClass} {...props} onClick={handleClick} aria-busy={isLoading}>
             {content}
         </Link>
     );
-}
+};

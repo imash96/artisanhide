@@ -9,18 +9,14 @@ export default function Blog() {
 
             {/* Blog Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {blogPosts.map((post, index) => (
-                    <div key={post.id} className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms`, animationFillMode: "forwards"}}>
-                        <BlogCard post={post} />
-                    </div>
+                {blogPosts.map(post => (
+                    <BlogCard key={post.id} post={post} />
                 ))}
             </div>
-
-            {/* View All Button */}
-            <div className="text-center mt-12">
-                <Button href="/blog" variant="solid" color="secondary" pill>
+            <div className="flex justify-center">
+                <Button href="/blog" variant="outline" color="secondary">
                     <span>View All Articles</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
             </div>
         </SectionHeader>

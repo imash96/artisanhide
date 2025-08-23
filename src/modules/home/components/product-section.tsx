@@ -9,11 +9,11 @@ export default function ProductSection({ products, title, desc, sectionName, ...
         <SectionHeader title={title} desc={desc} sectionName={sectionName}>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6 lg:gap-6">
                 {products?.map(product => (
-                    <ProductCard key={product.id} product={product} showCol />
+                    <ProductCard key={product.id} product={product} />
                 ))}
             </div>
             <div className="flex justify-center">
-                <Button href={props.buttonLink} variant="outline" color="secondary">
+                <Button href={props.buttonLink} variant="outline" color="primary">
                     {props.buttonText || "View all"}
                 </Button>
             </div>
