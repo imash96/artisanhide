@@ -32,12 +32,12 @@ export default function Addresses({ addresses, regions }: AddressBookProps) {
         <section className="space-y-4">
             <header className="space-y-2">
                 <div className="flex items-center gap-2">
-                    <BookUser size={20} className="text-brown" />
-                    <h2 className="text-lg lg:text-xl uppercase tracking-wide font-medium text-brown">
+                    <BookUser size={20} />
+                    <h2 className="text-lg lg:text-xl uppercase tracking-wide font-medium">
                         Addresses
                     </h2>
                 </div>
-                <p className="text-sm text-gray-600 max-w-prose">
+                <p className="text-sm text-foreground-muted max-w-prose">
                     View and update your shipping addresses. You can add as many as you like. Saving your addresses makes them available during checkout.
                 </p>
             </header>
@@ -45,7 +45,7 @@ export default function Addresses({ addresses, regions }: AddressBookProps) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <AddressModal mode="create" countryOptions={countryOptions} isDefaultShipping={isNoAddress}>
                     <button
-                        className="border border-gray-300 rounded-lg bg-gray-100 p-5 min-h-60 w-full flex flex-col justify-center items-center gap-2 hover:bg-gray-200 transition"
+                        className="border border-border rounded-lg bg-background-elevated p-5 min-h-60 w-full flex flex-col justify-center items-center gap-2 hover:bg-background-muted transition"
                         aria-label="Add new address"
                     >
                         <PlusIcon className="w-8 h-8" />
@@ -56,7 +56,7 @@ export default function Addresses({ addresses, regions }: AddressBookProps) {
                 {isNoAddress && (
                     <div className="border rounded-lg p-6 flex flex-col items-center justify-center text-center">
                         <p className="text-base font-medium mb-2">No saved addresses</p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-foreground-muted">
                             Add a shipping address to speed up future checkouts.
                         </p>
                     </div>

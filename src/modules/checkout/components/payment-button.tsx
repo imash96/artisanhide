@@ -54,34 +54,51 @@ function StripePaymentButton({ cart, notReady, }: { cart: StoreCart, notReady: b
     const handlePayment = async () => {
         setSubmitting(true)
 
+        console.log("payment submitting")
         if (!stripe || !elements || !card || !cart) {
             setSubmitting(false)
             return
         }
 
-        await stripe
-            .confirmCardPayment(session?.data.client_secret as string, {
-                payment_method: {
-                    card: card,
-                    billing_details: {
-                        name:
-                            cart.billing_address?.first_name +
-                            " " +
-                            cart.billing_address?.last_name,
-                        address: {
-                            city: cart.billing_address?.city ?? undefined,
-                            country: cart.billing_address?.country_code ?? undefined,
-                            line1: cart.billing_address?.address_1 ?? undefined,
-                            line2: cart.billing_address?.address_2 ?? undefined,
-                            postal_code: cart.billing_address?.postal_code ?? undefined,
-                            state: cart.billing_address?.province ?? undefined,
-                        },
-                        email: cart.email,
-                        phone: cart.billing_address?.phone ?? undefined,
+        console.log("payment started")
+        await stripe.confirmCardPayment(session?.data.client_secret as string, {
+            payment_method: {
+                card: card,
+                billing_details: {
+                    name:
+                        cart.billing_address?.first_name +
+                        " " +
+                        cart.billing_address?.last_name,
+                    address: {
+                        city: cart.billing_address?.city ?? undefined,
+                        country: cart.billing_address?.country_code ?? undefined,
+                        line1: cart.billing_address?.address_1 ?? undefined,
+                        line2: cart.billing_address?.address_2 ?? undefined,
+                        postal_code: cart.billing_address?.postal_code ?? undefined,
+                        state: cart.billing_address?.province ?? undefined,
                     },
+                    email: cart.email,
+                    phone: cart.billing_address?.phone ?? undefined,
                 },
-            })
+            },
+            shipping: {
+                name: cart.shipping_address?.first_name +
+                    " " +
+                    cart.shipping_address?.last_name,
+                address: {
+                    city: cart.shipping_address?.city ?? undefined,
+                    country: cart.shipping_address?.country_code ?? undefined,
+                    line1: cart.shipping_address?.address_1 ?? "",
+                    line2: cart.shipping_address?.address_2 ?? undefined,
+                    postal_code: cart.shipping_address?.postal_code ?? undefined,
+                    state: cart.shipping_address?.province ?? undefined,
+                },
+                phone: cart.shipping_address?.phone ?? undefined
+            }
+        })
             .then(({ error, paymentIntent }) => {
+                console.log("payment completed")
+                console.log(error, paymentIntent)
                 if (error) {
                     const pi = error.payment_intent
 
@@ -105,6 +122,7 @@ function StripePaymentButton({ cart, notReady, }: { cart: StoreCart, notReady: b
 
                 return
             })
+        console.log("payment done")
     }
 
     return (
@@ -113,6 +131,7 @@ function StripePaymentButton({ cart, notReady, }: { cart: StoreCart, notReady: b
                 disabled={disabled || notReady}
                 onClick={handlePayment}
                 isLoading={submitting}
+                className="mt-4"
             >
                 Place order
             </Button>

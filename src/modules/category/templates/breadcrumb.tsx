@@ -8,15 +8,15 @@ type BreadcrumbProps = {
 export default function Breadcrumb({ heading, breadCrumb }: BreadcrumbProps) {
     return (
         <div className="overflow-hidden border-t border-white/10 relative">
-            <div className="text-center Container py-10 relative md:py-8 lg:py-14 text-brown space-y-2">
+            <div className="text-center Container py-10 relative md:py-8 lg:py-14 text-primary space-y-2">
                 <h1 className="text-2xl lg:text-3xl tracking-wide font-normal capitalize">
                     {heading}
                 </h1>
-                <ul className="flex flex-wrap text-xs md:text-sm items-center gap-0.5 md:gap-1 justify-center text-brown">
+                <ul className="flex flex-wrap text-xs md:text-sm items-center gap-0.5 md:gap-1 justify-center text-primary">
                     {breadCrumb.map((item, index) => (
-                        <li key={index} className={`flex items-center gap-0.5 md:gap-1.5 font- tracking-wide capitalize ${index === breadCrumb.length - 1 ? "text-brown underline underline-offset-2  font-medium" : ""}`}>
+                        <li key={index} className={`flex items-center gap-0.5 md:gap-1.5 font- tracking-wide capitalize ${index === breadCrumb.length - 1 ? "text-primary underline underline-offset-2  font-medium" : ""}`}>
                             {index === 0 ? (
-                                <Link href="/" className="hover:text-brown">
+                                <Link href="/" className="hover:text-primary">
                                     {item}
                                 </Link>
                             ) : (

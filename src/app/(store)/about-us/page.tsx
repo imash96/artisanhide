@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Page() {
     return (
-        <div className="bg-brown">
+        <div className="bg-primary">
             <div
                 style={{
                     backgroundImage: "url('/banners/12260.jpg')",
@@ -13,7 +13,7 @@ export default function Page() {
                 }}
                 className="h-[55vh] md:h-[45vh] lg:h-[100vh] relative"
             >
-                <div className="absolute px-4 inset-0 flex items-center justify-center bg-gradient-to-t from-brown to-black/25">
+                <div className="absolute px-4 inset-0 flex items-center justify-center bg-gradient-to-t from-primary to-black/25">
                     {/* <p className="text-xl font-light text-center text-white">About</p> */}
                     <div>
                         <h1 className="text-5xl md:text-7xl lg:text-8xl text-center font-medium tracking-tight text-white uppercase">

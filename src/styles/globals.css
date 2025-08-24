@@ -4,8 +4,6 @@
   /* --color-*: initial; */
   /* --color-white: #fff; */
 
-  --color-brown: var(--color-primary);
-
   --color-curtain: var(--curtain);
   --shadow-borders-interactive: var(--borders-interactive);
 

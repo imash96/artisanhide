@@ -14,7 +14,6 @@ import PaymentButton from "../components/payment-button";
 export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
     const { currentStep, setCurrentStep } = useCheckout()
     const isOpen = currentStep === "payment"
-    console.log(cart)
     const activeSession = cart.payment_collection?.payment_sessions?.find(
         (paymentSession: any) => paymentSession.status === "pending"
     )
@@ -55,6 +54,7 @@ export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
             if (!checkActiveSession) {
                 await initiatePaymentSession(cart, {
                     provider_id: selectedPaymentMethod,
+                    data: { payment_description: "Men Leather Jacket" }
                 })
             }
 
@@ -69,12 +69,12 @@ export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
             <div className={isOpen ? "block" : "hidden"}>
                 {/* Show payment methods */}
                 {paymentMethods?.length > 0 && (
-                    <fieldset className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                    <fieldset className="grid grid-cols-1 gap-4 mt-6">
                         {paymentMethods.map((paymentMethod, idx) => (
                             <label
                                 key={paymentMethod.id}
                                 htmlFor={paymentMethod.id}
-                                className={`relative flex cursor-pointer rounded-lg border p-4 shadow-sm transition hover:border-indigo-400 hover:shadow-md ${selectedPaymentMethod === paymentMethod.id ? "border-indigo-500 bg-indigo-50" : "border-gray-200 bg-white"}`}
+                                className={`relative flex flex-col cursor-pointer rounded-lg border p-4 shadow-sm transition hover:border-indigo-400 hover:shadow-md ${selectedPaymentMethod === paymentMethod.id ? "border-indigo-500 bg-indigo-50" : "border-gray-200 bg-white"}`}
                             >
                                 {/* Hidden radio input */}
                                 <input
@@ -90,9 +90,7 @@ export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
                                 <div className="flex flex-col flex-1">
                                     <h3 className="font-semibold text-gray-900">{paymentMethod.id}</h3>
                                     <p className="text-sm text-gray-600 mt-1">
-                                        {isStripeFunc(paymentMethod.id)
-                                            ? "Pay securely with credit/debit card"
-                                            : "Alternative payment option"}
+                                        {isStripeFunc(paymentMethod.id) ? "Pay securely with credit/debit card" : "Alternative payment option"}
                                     </p>
                                 </div>
 
@@ -130,7 +128,7 @@ export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
                 {/* <ErrorMessage error={error} data-testid="payment-method-error-message" /> */}
 
                 {/* Submit button */}
-                <button
+                {/* <button
                     onClick={handleSubmit}
                     disabled={
                         // isLoading ||
@@ -140,7 +138,7 @@ export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
                     className="mt-6 px-6 py-3 w-full sm:w-auto rounded-md font-medium text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 flex items-center justify-center"
                     data-testid="submit-payment-button"
                 >
-                    {/* {isLoading && (
+                    {isLoading && (
                         <svg
                             className="animate-spin h-5 w-5 mr-2 text-white"
                             xmlns="http://www.w3.org/2000/svg"
@@ -161,11 +159,11 @@ export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
                                 d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
                             ></path>
                         </svg>
-                    )} */}
+                    )}
                     {!activeSession && isStripeFunc(selectedPaymentMethod)
                         ? "Enter card details"
                         : "Continue to review"}
-                </button>
+                </button> */}
                 <PaymentButton cart={cart} />
             </div>
         </div>

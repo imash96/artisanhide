@@ -25,68 +25,64 @@ export default function MeasurementCard({ measurement }: MeasurementCardProps) {
     const [isRemoving, startTransition] = useTransition()
 
     const typeColors: Record<Measurement["type"], string> = {
-        Jacket: "bg-blue-100 text-blue-800 border-blue-300",
-        Suit: "bg-blue-100 text-blue-800 border-blue-300",
-        Coat: "bg-blue-100 text-blue-800 border-blue-300",
-        Pant: "bg-purple-100 text-purple-800 border-purple-300",
-        Shorts: "bg-purple-100 text-purple-800 border-purple-300",
-        Skirt: "bg-purple-100 text-purple-800 border-purple-300",
-        Vest: "bg-green-100 text-green-800 border-green-300",
-        "T-Shirt": "bg-green-100 text-green-800 border-green-300",
-        "Flare Skirt": "bg-pink-100 text-pink-800 border-pink-300",
-        Kid: "bg-yellow-100 text-yellow-800 border-yellow-300",
+        Jacket: "bg-info/80 text-info-foreground border-info",
+        Suit: "bg-info/80 text-info-foreground border-info",
+        Coat: "bg-info/80 text-info-foreground border-info",
+        "Flare Skirt": "bg-secondary/80 text-secondary-foreground border-secondary",
+        Shorts: "bg-secondary/80 text-secondary-foreground border-secondary",
+        Skirt: "bg-secondary/80 text-secondary-foreground border-secondary",
+        Vest: "bg-success/80 text-success-foreground border-success",
+        "T-Shirt": "bg-success/80 text-success-foreground border-success",
+        Pant: "bg-destructive/80 text-destructive-foreground border-destructive",
+        Kid: "bg-accent/80 text-accent-foreground border-accent",
     }
 
     const genderColors: Record<Measurement["gender"], string> = {
-        Male: "bg-blue-50 text-blue-700 border-blue-200",
-        Female: "bg-pink-50 text-pink-700 border-pink-200",
-        Other: "bg-gray-50 text-gray-700 border-gray-200",
-    }
-
-    const handleDelete = () => {
-        startTransition(() => deleteCustomerMeasurement(measurement.id))
+        Male: "bg-warning/80 text-warning-foreground border-warning",
+        Female: "bg-destructive/80 text-destructive-foreground border-destructive",
+        Other: "bg-background text-foreground border-foreground-muted",
     }
 
     return (
         <article
-            className="border border-gray-200 rounded-xl p-4 sm:p-5 flex flex-col bg-white shadow-sm hover:shadow-md transition-shadow duration-200 focus-within:ring-2 focus-within:ring-blue-400"
-            role="region"
-            aria-labelledby={`measurement-${measurement.id}-title`}
+            className="border border-border rounded-xl p-4 sm:p-5 flex flex-col bg-background-elevated shadow-sm hover:shadow-md transition-shadow"
+            role="article"
+            aria-labelledby={`measurement-${measurement.name}-title`}
         >
             {/* Header */}
             <header className="mb-3">
-                <h3 id={`measurement-${measurement.id}-title`}
-                    className="text-lg sm:text-xl font-semibold text-gray-900 flex items-center gap-2"
+                <h3 id={`measurement-${measurement.name}-title`}
+                    className="text-lg sm:text-xl font-semibold flex items-center gap-2"
                 >
-                    <User className="w-5 h-5 text-gray-600 flex-shrink-0" />
+                    <User className="w-5 h-5 flex-shrink-0" />
                     {measurement.name}
                 </h3>
 
                 {measurement.info && (
-                    <p className="mt-1 text-sm text-gray-600 flex items-start gap-2">
-                        <Info className="w-4 h-4 flex-shrink-0 mt-0.5 text-gray-500" />
+                    <p className="mt-1 text-sm flex items-start gap-2">
+                        <Info className="w-4 h-4 flex-shrink-0 mt-0.5" />
                         <span className="line-clamp-2">{measurement.info}</span>
                     </p>
                 )}
             </header>
 
             {/* Body */}
-            <dl className="text-sm text-gray-700 space-y-1.5 flex-1">
+            <dl className="text-sm space-y-1.5 flex-1">
                 {measurement.height && (
                     <div className="flex items-center gap-2">
-                        <Maximize2 className="w-4 h-4 text-gray-500 flex-shrink-0" />
+                        <Maximize2 className="w-4 h-4 flex-shrink-0" />
                         <span>Height: {measurement.height} cm</span>
                     </div>
                 )}
                 {measurement.weight && (
                     <div className="flex items-center gap-2">
-                        <Scale className="w-4 h-4 text-gray-500 flex-shrink-0" />
+                        <Scale className="w-4 h-4 flex-shrink-0" />
                         <span>Weight: {measurement.weight} kg</span>
                     </div>
                 )}
                 {measurement.measurements && Object.keys(measurement.measurements).length > 0 ? (
                     <div className="flex items-start gap-2">
-                        <Ruler className="w-4 h-4 text-gray-500 flex-shrink-0 mt-0.5" />
+                        <Ruler className="w-4 h-4 flex-shrink-0 mt-0.5" />
                         <div className="flex flex-wrap gap-x-3 gap-y-1">
                             {Object.entries(measurement.measurements).map(([key, value]) => (
                                 <span key={key}>
@@ -96,7 +92,7 @@ export default function MeasurementCard({ measurement }: MeasurementCardProps) {
                         </div>
                     </div>
                 ) : (
-                    <div className="flex items-center gap-2 text-gray-500">
+                    <div className="flex items-center gap-2">
                         <Ruler className="w-4 h-4 flex-shrink-0" />
                         <span>No specific measurements available</span>
                     </div>
@@ -104,12 +100,12 @@ export default function MeasurementCard({ measurement }: MeasurementCardProps) {
             </dl>
 
             {/* Footer */}
-            <footer className="flex flex-row justify-between items-start xs:items-center gap-3 pt-4 border-t border-gray-100 mt-4">
+            <footer className="flex justify-between items-start pt-4 border-t border-border mt-4">
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 text-xs font-medium">
-                    <Tag icon={Shirt} text={measurement.type} color={typeColors[measurement.type] || "bg-gray-100 text-gray-800 border-gray-300"} />
-                    <Tag icon={User} text={measurement.gender} color={genderColors[measurement.gender] || "bg-gray-100 text-gray-800 border-gray-300"} />
-                    {measurement.role && <Tag text={measurement.role} color={"bg-orange-100 text-amber-700 border-amber-300"} />}
+                    <Tag icon={Shirt} text={measurement.type} className={typeColors[measurement.type] || "bg-btn-secondary text-btn-secondary-foreground border-btn-secondary-hover"} />
+                    <Tag icon={User} text={measurement.gender} className={genderColors[measurement.gender] || "bg-accent text-accent-foreground border-border"} />
+                    {measurement.role && <Tag text={measurement.role} className={"bg-btn-primary/50 text-btn-primary-foreground border-btn-primary-hover"} />}
                 </div>
 
                 {/* Actions */}
@@ -117,15 +113,17 @@ export default function MeasurementCard({ measurement }: MeasurementCardProps) {
                     <MeasurementModal measurement={measurement}>
                         <button
                             aria-label={`Edit measurement for ${measurement.name}`}
-                            className="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-blue-400"
+                            className="p-2 text-foreground-muted hover:text-warning-foreground hover:bg-warning/20 rounded-md transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-warning"
                         >
                             <Edit size={16} />
                         </button>
                     </MeasurementModal>
                     <button
                         aria-label={`Delete measurement for ${measurement.name}`}
-                        className="p-2 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-md transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-red-400"
-                        onClick={handleDelete}
+                        className="p-2 text-foreground-muted hover:text-destructive-foreground hover:bg-destructive/20 rounded-md transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-destructive"
+                        onClick={() => {
+                            startTransition(() => deleteCustomerMeasurement(measurement.id))
+                        }}
                         disabled={isRemoving}
                     >
                         {isRemoving ? (

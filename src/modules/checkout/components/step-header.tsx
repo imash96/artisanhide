@@ -8,7 +8,7 @@ export default function StepHeader({ title, subtitle, Icon, children }: StepHead
                     <Icon className="w-6 h-6" />
                     {title}
                 </h2>
-                <p className="mt-1 text-sm text-gray-600">{subtitle}</p>
+                <p className="mt-1 text-sm text-foreground-muted">{subtitle}</p>
             </div>
             {children}
         </div>

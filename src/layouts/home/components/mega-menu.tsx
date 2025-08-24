@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import type { StoreProductCategory } from "@medusajs/types";
@@ -9,9 +8,10 @@ import type { MotionProps } from "motion/react";
 import { AnimatePresence, motion } from "motion/react";
 import MenuPromotion from "./menu-promotion";
 import { categories } from "../header";
+import { useDrawer } from "@libs/context/drawer-context";
 
 export default function MegaMenu({ enhancedCategories }: MegaMenuProps) {
-    const [activeCategory, setActiveCategory] = useState<string | null>(null)
+    const { activeCategory, setActiveCategory } = useDrawer();
 
     const handleMouseLeave = () => setActiveCategory(null)
     const handleMouseEnter = (id: string) => setActiveCategory(id)
@@ -79,7 +79,7 @@ export default function MegaMenu({ enhancedCategories }: MegaMenuProps) {
 
 const LinkMenu = ({ bold, handle, title = "View all" }: LinkMenuProps) => {
     return (
-        <li className={`group/link w-full px-2 py-3 hover:bg-accent rounded ${bold && "font-medium"}`}>
+        <li className={`group/link w-full px-2 py-3 hover:bg-accent hover:text-accent-foreground rounded ${bold && "font-medium"}`}>
             <Link href={`/category/${handle}`} className="group-hover/link:text-accent-foreground transition-colors duration-50">
                 {title}
             </Link>

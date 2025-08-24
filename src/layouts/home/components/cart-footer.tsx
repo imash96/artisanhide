@@ -3,12 +3,10 @@
 import type { StoreCart } from "@medusajs/types"
 import Button from "@modules/common/custom-button"
 import { convertToLocale } from "libs/util/money"
-import { DrawerContext } from "@libs/context/drawer-context";
-import { use } from "react";
+import { useDrawer } from "@libs/context/drawer-context";
 
-// Todo use*
 export default function CartFooter({ cart }: { cart: StoreCart }) {
-    const { toggleCartDrawer } = use(DrawerContext);
+    const { toggleCartDrawer } = useDrawer();
     return (
         <div className="w-full p-4">
             <div className="flex w-full justify-between text-lg">

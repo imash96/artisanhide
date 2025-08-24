@@ -4,7 +4,6 @@ import { StoreCustomerAddress } from "@medusajs/types"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@modules/common/custom-modal"
 import { useState } from "react"
 import AddressForm from "./address-form"
-import { X } from "lucide-react"
 
 export default function AddressModal({ mode = "create", children, address, countryOptions, isDefaultShipping }: AddressModalProps) {
     const [open, setOpen] = useState(false)

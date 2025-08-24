@@ -2,6 +2,7 @@
 
 import { FormState } from "@/types/common"
 import { createMeasurement } from "@libs/actions/measurement"
+import Button from "@modules/common/custom-button"
 import CustomInput from "@modules/common/custom-input"
 import CustomSelect from "@modules/common/custom-select"
 import { LoaderCircle, PlusIcon } from 'lucide-react'
@@ -40,7 +41,7 @@ export default function MeasurementAdd() {
         <form
             id={formId}
             aria-labelledby={`${formId}-title`}
-            className="bg-white border border-gray-300 rounded-xl p-4 mb-4"
+            className="bg-background-elevated border border-border rounded-xl p-4 mb-4"
             action={formAction}
         >
             {/* Form Fields */}
@@ -84,57 +85,11 @@ export default function MeasurementAdd() {
 
                 {/* Submit Button */}
                 <div className="md:col-span-1">
-                    <button
-                        type="submit"
-                        disabled={isPending}
-                        aria-label={isPending ? "Adding measurement..." : "Add new measurement"}
-                        className={`w-full h-[52px] flex items-center justify-center gap-2 rounded-full border border-transparent font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${isPending ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 active:bg-blue-800'} text-white shadow-sm`}
-                    >
-                        {isPending ? <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" /> : <PlusIcon className="h-4 w-4" aria-hidden="true" />}
-                    </button>
+                    <Button pill variant="icon" className="h-11 px-4 mx-auto w-full">
+                        {isPending ? <LoaderCircle className="h-5 w-5 animate-spin" aria-hidden="true" /> : <PlusIcon className="h-5 w-5" aria-hidden="true" />}
+                    </Button>
                 </div>
             </div>
-
-            {/* Feedback Messages
-                <div className="mt-6 space-y-3">
-                    // Success Message 
-                    {state.success && (
-                        <div
-                            role="status"
-                            className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800"
-                        >
-                            <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" aria-hidden="true" />
-                            <div>
-                                <p className="font-medium">Measurement added successfully!</p>
-                                {state.message && (
-                                    <p className="text-sm text-green-700 mt-1">{state.message}</p>
-                                )}
-                            </div>
-                        </div>
-                    )}
-
-                    // Error Message 
-                    {state.error && !state.success && (
-                        <div
-                            role="alert"
-                            className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800"
-                        >
-                            <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                            <div>
-                                <p className="font-medium">Unable to add measurement</p>
-                                <p className="text-sm text-red-700 mt-1">{state.error}</p>
-                            </div>
-                        </div>
-                    )}
-                </div> */}
-
-            {/* Form Instructions
-                <div className="mt-6 pt-4 border-t border-gray-100">
-                    <p className="text-xs text-gray-500">
-                        All fields marked with <span className="text-destructive">*</span> are required.
-                        Customer names are limited to 50 characters.
-                    </p>
-                </div> */}
         </form>
     )
 }

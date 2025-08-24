@@ -82,7 +82,7 @@ export default function BlogCard({ post }: BlogCardProps) {
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3 line-clamp-3">
+                <p className="text-sm text-foreground-muted leading-relaxed mb-3 line-clamp-3">
                     {post.excerpt}
                 </p>
 

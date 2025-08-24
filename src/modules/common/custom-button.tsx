@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useRipple } from '@libs/hooks/use-ripple';
 import clx from '@libs/util/clx';
+import { Loader } from 'lucide-react';
 
 const variantStyles = {
     solid: {
@@ -32,6 +33,7 @@ export type ButtonProps = {
     variant?: keyof typeof variantStyles;
     color?: keyof typeof variantStyles['solid']
     isLoading?: boolean;
+    withIcon?: boolean;
     pill?: boolean;
     ripple?: boolean;
     children?: React.ReactNode;
@@ -47,6 +49,7 @@ export default function Button({
     className,
     children,
     onClick,
+    withIcon = true,
     ...props
 }: ButtonProps) {
     const btnClass = clx(
@@ -65,9 +68,10 @@ export default function Button({
         onClick?.(e);
     };
 
-    const content = children ? children : "Submit"
+    let content = children ? children : "Submit"
 
     if (typeof props.href === 'undefined') {
+        if (withIcon && isLoading) content = <><Loader className="animate-spin mr-2" /> {content}</>
         return (
             <button className={btnClass} disabled={isLoading || props.disabled} {...props} onClick={handleClick} aria-busy={isLoading}>
                 {content}

@@ -2,12 +2,14 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { useDrawer } from "@libs/context/drawer-context";
 
 const HOME_REGEX = /^\/?$/
 
 export default function HeaderClient({ children }: React.PropsWithChildren) {
     const [isScrolled, setIsScrolled] = useState(false)
     const pathname = usePathname()
+    const { activeCategory } = useDrawer();
 
     const isHome = useMemo(() => HOME_REGEX.test(pathname), [pathname]);
 
@@ -23,7 +25,7 @@ export default function HeaderClient({ children }: React.PropsWithChildren) {
     }, []);
 
     return (
-        <div className={`${"group/nav sticky top-0 z-10 transition-colors ease-out duration-300 hover:text-foreground hover:bg-background"} ${isScrolled || !isHome ? "bg-background shadow-md text-foreground" : "bg-transparent text-same-white group-hover/nav:text-foreground"}`}>
+        <div className={`${"group/nav sticky top-0 z-10 transition-colors ease-out duration-300 hover:text-foreground hover:bg-background"} ${isScrolled || !isHome || activeCategory ? "bg-background shadow-md text-foreground" : "bg-transparent text-same-white group-hover/nav:text-foreground"}`}>
             {children}
         </div>
     )

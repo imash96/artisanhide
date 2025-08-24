@@ -45,7 +45,7 @@ export default function ProfilePassword() {
                 </p>
             )}
             {state.success && (
-                <p className="text-green-500 text-sm mt-2" role="status">
+                <p className="text-success text-sm mt-2" role="status">
                     Profile updated successfully!
                 </p>
             )}

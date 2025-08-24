@@ -86,7 +86,7 @@ export default function OrderCard({ order }: { order: StoreOrder }) {
                             {/* Status + Actions */}
                             <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                                 <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
-                                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                    <CheckCircle className="w-4 h-4 text-success flex-shrink-0" />
                                     <p>
                                         Delivered on <time dateTime={product.updated_at.toString()}>{product.updated_at.toString()}</time>
                                     </p>

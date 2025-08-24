@@ -2,13 +2,12 @@
 
 import { usePathname } from "next/navigation";
 import { Home, Menu, Search, ShoppingBag, User } from "lucide-react";
-import { DrawerContext } from "@libs/context/drawer-context";
-import { use } from "react";
+import { useDrawer } from "@libs/context/drawer-context";
 import Link from "next/link"
 
 export default function BottomTabs() {
   const pathname = usePathname();
-  const { toggleCartDrawer, toggleMenuDrawer } = use(DrawerContext);
+  const { toggleCartDrawer, toggleMenuDrawer } = useDrawer();
   if (pathname.includes("/product")) return null;
 
   const isActive = (path: string) => pathname === path;

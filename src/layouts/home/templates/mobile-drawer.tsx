@@ -6,14 +6,14 @@ import { useState, use } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import type { StoreProductCategory } from "@medusajs/types";
-import { DrawerContext } from "@libs/context/drawer-context";
+import { useDrawer } from "@libs/context/drawer-context";
 import Drawer from "../components/drawer";
 import MenuPromotion from "../components/menu-promotion";
 import MobileDrawerContact from "../components/mobile-drawer-contact";
 import { MEGA_MENU } from "../header";
 
 export default function MobileDrawer({ parent_categories }: { parent_categories: StoreProductCategory[] }) {
-    const { isMenuDrawerOpen, toggleMenuDrawer } = use(DrawerContext);
+    const { isMenuDrawerOpen, toggleMenuDrawer } = useDrawer();
 
     const [navigationStack, setNavigationStack] = useState<NavigationState[]>([
         { level: 0, category: null, breadcrumb: [] },
@@ -65,7 +65,7 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
                     <h2 className="text-base font-semibold truncate">
                         {currentNav.level === 0 ? "Menu" : currentNav.category?.name}
                     </h2>
-                    <button className="p-2 hover:bg-accent rounded-full" onClick={handleClose}>
+                    <button className="p-2 hover:bg-accent hover:text-accent-foreground rounded-full" onClick={handleClose}>
                         <X className="h-5 w-5" />
                         <span className="sr-only">Close menu</span>
                     </button>
@@ -142,7 +142,7 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
                     )}
                 </div>
                 <div className="flex items-center justify-between px-4 py-3 border-t">
-                    <button className="p-2 rounded-full hover:bg-accent">
+                    <button className="p-2 rounded-full hover:bg-accent hover:text-accent-foreground">
                         <Search className="w-5 h-5" />
                         <span className="sr-only">Search</span>
                     </button>

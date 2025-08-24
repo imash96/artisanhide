@@ -7,9 +7,9 @@ export default function SummaryCard({ item, currency_code }: SummaryCardProps) {
     const adjustmentsSum = (item.adjustments || []).reduce((acc, adjustment) => adjustment.amount + acc, 0)
     const currentPrice = item.total - adjustmentsSum
     return (
-        <div className="flex gap-2 py-2 text-brown">
+        <div className="flex gap-2 py-2">
             {/* Product Image */}
-            <div className="relative w-16 h-20 overflow-hidden no-scrollbar rounded-xs border flex-shrink-0 bg-white">
+            <div className="relative w-16 h-20 overflow-hidden no-scrollbar rounded-xs border flex-shrink-0 bg-background-elevated">
                 <Image
                     src={item.thumbnail || "/svg/placeholder.svg"}
                     alt={"product image"}

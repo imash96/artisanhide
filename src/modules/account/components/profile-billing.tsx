@@ -105,12 +105,12 @@ export default function ProfileBilling({ customer, regions }: CustomerProps) {
             </Button>
 
             {state.error && (
-                <p className="text-red-600 text-sm mt-2" role="alert">
+                <p className="text-destructive text-sm mt-2" role="alert">
                     {state.error}
                 </p>
             )}
             {state.success && (
-                <p className="text-green-600 text-sm mt-2" role="status">
+                <p className="text-success text-sm mt-2" role="status">
                     Billing address updated successfully!
                 </p>
             )}
