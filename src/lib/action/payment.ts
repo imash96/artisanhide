@@ -41,7 +41,11 @@ export async function initiatePaymentSessionCustom(cartId: string, paymentCollec
         headers,
         body,
         query,
-    });
+    }).then(async (resp) => {
+        const cartCacheTag = await getCacheTag("carts")
+        revalidateTag(cartCacheTag)
+        return resp
+    }).catch(medusaError);
 }
 
 export async function createPaymentCollection(cartId: string) {

@@ -22,7 +22,7 @@ export default function Announcement() {
 
     const scrollPrev = useCallback(() => {
         if (!emblaApi) return
-        if (emblaApi) emblaApi.scrollPrev();
+        emblaApi.scrollPrev();
         emblaApi.plugins().autoplay.reset()
     }, [emblaApi])
     const scrollNext = useCallback(() => {
@@ -31,7 +31,8 @@ export default function Announcement() {
         emblaApi.plugins().autoplay.reset()
     }, [emblaApi])
 
-    const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
+    const onSelect = useCallback(() => {
+        if (!emblaApi) return;
         setPrevBtnDisabled(!emblaApi.canScrollPrev())
         setNextBtnDisabled(!emblaApi.canScrollNext())
     }, [])
@@ -39,7 +40,7 @@ export default function Announcement() {
     useEffect(() => {
         if (!emblaApi) return
 
-        onSelect(emblaApi)
+        onSelect()
         emblaApi.on('select', onSelect)
         emblaApi.on('reInit', onSelect)
 

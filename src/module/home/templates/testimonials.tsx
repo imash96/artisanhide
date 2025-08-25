@@ -7,13 +7,22 @@ import { Minus, MoveLeft, MoveRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import RatingSystem from "@module/common/rating-system";
 import { testimonials } from "@/JSON/testimonials";
+import Autoplay from "embla-carousel-autoplay";
 
 export default function Testimonials() {
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ stopOnInteraction: false, delay: 3000 })]);
     const [selectedIndex, setSelectedIndex] = useState(0);
 
-    const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-    const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+    const scrollPrev = useCallback(() => {
+        if (!emblaApi) return
+        emblaApi.scrollPrev();
+        emblaApi.plugins().autoplay.reset()
+    }, [emblaApi]);
+    const scrollNext = useCallback(() => {
+        if (!emblaApi) return
+        emblaApi.scrollNext();
+        emblaApi.plugins().autoplay.reset()
+    }, [emblaApi]);
 
     const onSelect = useCallback(() => {
         if (!emblaApi) return;
