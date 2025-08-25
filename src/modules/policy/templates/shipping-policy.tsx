@@ -89,7 +89,7 @@ export default function ShippingPolicy() {
                 </h2>
                 <p className="text-sm tracking-wide font-light">
                     Once your order is shipped, you will receive a tracking number by
-                    email or SMS. You can track your shipment via the courier's website.
+                    email or SMS. You can track your shipment via the courier&apos;s website.
                 </p>
             </div>
 

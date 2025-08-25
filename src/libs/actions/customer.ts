@@ -3,7 +3,7 @@
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { getAuthHeaders, getCacheOptions, getCacheTag, getCartId, removeAuthToken, removeCartId, setAuthToken, } from "./cookies"
-import { SelectParams, StoreCustomer, StoreUpdateCustomer, StoreUpdateCustomerAddress } from "@medusajs/types"
+import { StoreCustomer, StoreUpdateCustomer, StoreUpdateCustomerAddress } from "@medusajs/types"
 import { sdk } from "@libs/sdk"
 import { ClientHeaders } from "@medusajs/js-sdk"
 import medusaError from "@libs/util/medusa-error"

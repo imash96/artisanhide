@@ -78,5 +78,5 @@ type CountryFlagProps = React.ComponentPropsWithoutRef<'img'> & { countryCode: s
 
 const CountryFlag = ({ countryCode, alt, className = "w-5", ...props }: CountryFlagProps) => {
     const flagUrl = `https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/${countryCode.toLowerCase()}.svg`
-    return createElement("img", { src: flagUrl, className: `inline-block align-middle h-auto ${className ?? ""}`, ...props });
+    return createElement("img", { src: flagUrl, alt, className: `inline-block align-middle h-auto ${className ?? ""}`, ...props });
 }

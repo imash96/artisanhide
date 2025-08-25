@@ -30,6 +30,6 @@ export const calculatePriceForShippingOption = async (optionId: string, cartId: 
     return sdk.store.fulfillment.calculate(optionId, body, {}, {
         ...headers,
         next: nextOptions
-    }).then(({ shipping_option }) => shipping_option).catch((e) => { return null })
+    }).then(({ shipping_option }) => shipping_option).catch(() => { return null })
 
 }

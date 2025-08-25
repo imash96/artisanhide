@@ -20,7 +20,7 @@ export default function AddressForm({ mode, address, countryOptions, isDefaultSh
         if (state.success) {
             setTimeout(() => onClose(false), 100)
         }
-    }, [state.success])
+    }, [state.success, onClose])
 
     return (
         <form action={formAction} className="flex flex-col flex-1 min-h-0">

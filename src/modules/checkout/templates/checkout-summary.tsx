@@ -23,6 +23,12 @@ export default function CheckoutSummary({ cart }: { cart: StoreCart }) {
                         <p className="text-gray-700 text-sm">{convertToLocale({ amount: gift_card_total ?? 0, currency_code })}</p>
                     </div>
                 }
+                {!!discount_total &&
+                    <div className="flex items-center justify-between">
+                        <p className="text-sm">Discount</p>
+                        <p className="text-gray-700 text-sm">{convertToLocale({ amount: discount_total ?? 0, currency_code })}</p>
+                    </div>
+                }
                 <div className="flex items-center justify-between">
                     <p className="text-sm">Shipping</p>
                     <p className="text-gray-700 text-sm">{convertToLocale({ amount: shipping_subtotal ?? 0, currency_code })}</p>

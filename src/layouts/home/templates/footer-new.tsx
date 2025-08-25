@@ -1,7 +1,6 @@
-import type { StoreRegion } from "@medusajs/types";
 import Container from "@modules/common/create-section";
 
-export default async function Footer({ regions }: { regions: StoreRegion[] }) {
+export default async function Footer() {
 
     return (
         <footer aria-labelledby="footer-heading" className="footer bg-primary text-foreground-muted pb-4 lg:pb-0">

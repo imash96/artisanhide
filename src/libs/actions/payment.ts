@@ -3,7 +3,7 @@
 import { getAuthHeaders, getCacheOptions, getCacheTag } from "./cookies"
 import { ClientHeaders } from "@medusajs/js-sdk"
 import { sdk } from "@libs/sdk"
-import { SelectParams, StoreCart, StoreInitializePaymentSession, StorePaymentCollectionResponse } from "@medusajs/types"
+import { SelectParams, StoreCart, StoreInitializePaymentSession } from "@medusajs/types"
 import { revalidateTag } from "next/cache"
 import medusaError from "@libs/util/medusa-error"
 

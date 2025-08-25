@@ -2,7 +2,7 @@
 
 import { sdk } from "@libs/sdk"
 import { revalidateTag } from "next/cache"
-import { getAuthHeaders, getCacheOptions, getCacheTag, getCartId, removeAuthToken, setAuthToken, } from "./cookies"
+import { getAuthHeaders, getCacheOptions, getCacheTag } from "./cookies"
 import { ClientHeaders } from "@medusajs/js-sdk"
 import { Gender, StoreUpdateMeasurementDTO } from "@/types/measurement"
 

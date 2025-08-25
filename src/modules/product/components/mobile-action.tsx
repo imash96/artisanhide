@@ -1,10 +1,10 @@
 import { StoreProductOption } from '@medusajs/types'
 import { useToggleState } from '@libs/hooks/use-toggle-state'
 import Button from '@modules/common/custom-button'
-import { ChevronDown, X } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import OptionSelect from './option-select'
 import { useProduct } from '@libs/context/product-context'
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@modules/common/custom-modal"
+import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@modules/common/custom-modal"
 import AddToCartButton from './add-to-cart'
 
 export default function MobileActions({ pOption, show }: MobileActionsProps) {

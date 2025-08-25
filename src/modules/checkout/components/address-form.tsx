@@ -21,15 +21,14 @@ export default function AddressForm({ cart }: AddressFormProps) {
 
     const { state: sameAsBilling, toggle: toggleSameAsBilling } = useToggleState(cart?.shipping_address && cart?.billing_address ? compareAddresses(cart?.shipping_address, cart?.billing_address) : true)
 
-    const handleNext = () => setCurrentStep("delivery")
-
     useEffect(() => {
+        const handleNext = () => setCurrentStep("delivery")
         if (addressState.success) {
             handleNext()
             addressState.success = false;
             addressState.error = null;
         }
-    }, [addressState.success]);
+    }, [addressState, setCurrentStep]);
 
     const countryOptions = useMemo(() => {
         return (

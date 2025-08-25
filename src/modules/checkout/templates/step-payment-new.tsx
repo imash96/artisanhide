@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { CreditCard } from "lucide-react";
@@ -104,7 +105,7 @@ export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
                                             )}
                                             {paymentMethod.id === "paypal" && (
                                                 <p className="text-foreground-muted text-sm mt-2">
-                                                    After clicking "Pay with PayPal", you will be redirected to PayPal to complete your purchase securely.
+                                                    After clicking &quot;Pay with PayPal&quot;, you will be redirected to PayPal to complete your purchase securely.
                                                 </p>
                                             )}
                                             {error && <p className="text-error text-sm mt-2">{error}</p>}

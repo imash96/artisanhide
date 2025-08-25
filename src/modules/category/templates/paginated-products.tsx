@@ -50,7 +50,7 @@ export default async function PaginatedProducts({ sortBy, page, collectionId, ca
     if (!region) return null
 
 
-    let { response: { products, count } } = await listProductsWithSort({
+    const { response: { products, count } } = await listProductsWithSort({
         page,
         queryParams,
         sortBy,

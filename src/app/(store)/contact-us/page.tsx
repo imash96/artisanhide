@@ -1,6 +1,7 @@
 "use client"
 
 import { Mail, Phone } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Page() {
@@ -52,7 +53,7 @@ export default function Page() {
                             className="flex items-center gap-2 text-sm tracking-wide text-gray-600 "
                             href=""
                         >
-                            <img
+                            <Image
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s"
                                 className="h-4 w-4 mb-[1px] rounded-xs"
                                 alt=""
@@ -63,7 +64,7 @@ export default function Page() {
                             className="flex items-center gap-2 text-sm tracking-wide text-gray-600 "
                             href=""
                         >
-                            <img
+                            <Image
                                 src="https://static.vecteezy.com/system/resources/previews/021/495/985/non_2x/facebook-social-media-logo-icon-free-png.png"
                                 className="h-4 w-4 mb-[1px] rounded-xs"
                                 alt=""

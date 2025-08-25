@@ -17,12 +17,12 @@ export default function EmptyCart() {
         <div className="space-y-0.5">
           <h2 className="text-templateText text-center">Your cart is empty</h2>
           <p className="text-xs text-center text-gray-500 tracking-wide font-light">
-            There is nothing in your bag. Let's add some items.
+            There is nothing in your bag. Let&apos;s add some items.
           </p>
         </div>
         <Link href={"/"} className="block text-center">
           <button className="border uppercase border-templatePrimary tracking-wide text-templatePrimary py-2 px-6 text-xs font-medium">
-            Let's Shop
+            Let&apos;s Shop
           </button>
         </Link>
       </div>

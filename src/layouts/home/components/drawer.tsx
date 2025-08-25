@@ -13,11 +13,11 @@ export default function Drawer({ state, onClose, direction = "left", type, child
         return () => { document.body.style.overflow = "unset" };
     }, [state])
 
-    const drawerMotionMotion: MotionProps = {
-        initial: { x: direction === "left" ? "-100%" : "100%" },
-        animate: { x: 0 },
-        exit: { x: direction === "left" ? "-100%" : "100%" },
-    }
+    // const drawerMotionMotion: MotionProps = {
+    //     initial: { x: direction === "left" ? "-100%" : "100%" },
+    //     animate: { x: 0 },
+    //     exit: { x: direction === "left" ? "-100%" : "100%" },
+    // }
 
     const drawerVariants = {
         closed: { x: direction === "left" ? "-100%" : "100%" },

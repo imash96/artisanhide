@@ -6,6 +6,7 @@ import Link from "next/link"
 import { useActionState } from "react"
 
 export default function SIGNUP({ setCurrentView }: AuthProps) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [message, formAction] = useActionState(signup, null)
     return (
         <>

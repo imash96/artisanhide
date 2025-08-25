@@ -47,7 +47,7 @@ export default function MeasurementForm({ measurement, onClose }: MeasurementFor
         if (state.success) {
             setTimeout(() => onClose(false), 100)
         }
-    }, [state.success])
+    }, [state.success, onClose])
 
     return (
         <form className="flex flex-col flex-1 min-h-0" action={formAction}>

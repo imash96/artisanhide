@@ -29,7 +29,7 @@ export default function AddressModal({ mode = "create", children, address, count
                     mode={mode}
                     address={address}
                     countryOptions={countryOptions}
-                    isDefaultShipping
+                    isDefaultShipping={isDefaultShipping}
                     onClose={setOpen}
                 />
             </DialogContent>

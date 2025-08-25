@@ -2,7 +2,6 @@
 
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@modules/common/custom-modal"
 import { useState } from "react"
-import { X } from "lucide-react"
 import MeasurementForm from "./measurement-form"
 import { Measurement } from "@/types/measurement"
 

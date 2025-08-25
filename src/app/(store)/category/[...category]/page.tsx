@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation"
 import { SortOptions } from "@/types/common";
-import { getCategoryByHandle, listCategories } from "@libs/actions/categories";
+import { getCategoryByHandle } from "@libs/actions/categories";
 import type { Metadata } from "next";
-import { StoreProductCategory } from "@medusajs/types";
 import { cookies } from "next/headers";
 import Container from "@modules/common/create-section";
 import Breadcrumb from "@modules/category/templates/breadcrumb";
@@ -42,17 +41,17 @@ export default async function Page({ params, searchParams }: CategoryPageProps) 
     )
 }
 
-export async function generateStaticParams() {
-    const product_categories = await listCategories()
+// export async function generateStaticParams() {
+//     const product_categories = await listCategories()
 
-    if (!product_categories) return []
+//     if (!product_categories) return []
 
-    const categoryHandles = product_categories.map((category: StoreProductCategory) => category.handle)
+//     const categoryHandles = product_categories.map((category: StoreProductCategory) => category.handle)
 
 
-    return categoryHandles.map((handle) => ({ category: handle.split("/") }))
+//     return categoryHandles.map((handle) => ({ category: handle.split("/") }))
 
-}
+// }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
     const categorySegments = (await params).category;
@@ -70,6 +69,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
                 canonical: `${categorySegments.join("/")}`,
             },
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
         notFound()
     }

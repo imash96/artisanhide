@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import { CreditCard } from "lucide-react";
@@ -38,7 +39,7 @@ export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
 
     useLayoutEffect(() => {
         if (!cart.shipping_methods?.length && currentStep === "payment") setCurrentStep("delivery")
-    }, [currentStep]);
+    }, [currentStep, cart.shipping_methods?.length, setCurrentStep]);
 
     // useLayoutEffect(() => {
     //     if (!paymentReady && currentStep === "payment") setCurrentStep("delivery")

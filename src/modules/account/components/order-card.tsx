@@ -1,6 +1,6 @@
 import { StoreOrder } from "@medusajs/types";
 import { CheckCircle } from "lucide-react";
-
+import Image from "next/image";
 
 export default function OrderCard({ order }: { order: StoreOrder }) {
     return (
@@ -57,10 +57,10 @@ export default function OrderCard({ order }: { order: StoreOrder }) {
             <h4 className="text-sm sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Items</h4>
             <ul role="list" className="divide-y divide-gray-200">
                 {order.items?.map((product) => (
-                    <li className="py-4 sm:py-6 lg:py-8 grid grid-cols-[88px,1fr] gap-3 sm:flex sm:flex-row sm:items-start sm:gap-5 border-b border-gray-100 last:border-b-0">
+                    <li key={product.id} className="py-4 sm:py-6 lg:py-8 grid grid-cols-[88px,1fr] gap-3 sm:flex sm:flex-row sm:items-start sm:gap-5 border-b border-gray-100 last:border-b-0">
                         {/* Image */}
                         <div className="w-[88px] h-[88px] sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-lg overflow-hidden border border-gray-200 bg-gray-50">
-                            <img
+                            <Image
                                 src={product.thumbnail || "/placeholder.svg?height=128&width=128&query=product-image"}
                                 alt={product.title}
                                 loading="lazy"

@@ -29,6 +29,7 @@ export const getRegion = async (countryCode: string) => {
 
         return region
     } catch (e: any) {
+        console.error(e)
         return null
     }
 }

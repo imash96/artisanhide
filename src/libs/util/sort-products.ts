@@ -12,7 +12,7 @@ interface MinPricedProduct extends StoreProduct {
  * @returns products sorted by price
  */
 export function sortProducts(products: StoreProduct[], sortBy: SortOptions): StoreProduct[] {
-    let sortedProducts = products as MinPricedProduct[]
+    const sortedProducts = products as MinPricedProduct[]
 
     if (["price_asc", "price_desc"].includes(sortBy)) {
         // Precompute the minimum price for each product

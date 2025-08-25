@@ -12,8 +12,8 @@ export default function Page() {
                     Frequently Asked Questions
                 </h1>
                 <p className="text-sm font-light tracking-wide max-w-xl text-center mx-auto">
-                    These are the most commonly asked questions about Artisan Hide. Can't
-                    find what you're looking for ?{" "}
+                    These are the most common questions about Artisan Hide. Can&apos;t
+                    find what you&apos;re looking for?{" "}
                     <Link
                         href={"/contact"}
                         className="text-templateBrown font-medium underline underline-offset-2"

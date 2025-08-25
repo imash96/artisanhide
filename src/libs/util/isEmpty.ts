@@ -1,6 +1,6 @@
 // export const isObject = (input: any): boolean => input instanceof Object && !Array.isArray(input);
 function isObject(value: any) {
-    var type = typeof value;
+    const type = typeof value;
     return value != null && (type == 'object' || type == 'function');
 }
 export const isArray = Array.isArray;

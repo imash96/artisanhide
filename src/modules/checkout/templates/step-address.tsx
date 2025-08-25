@@ -8,6 +8,7 @@ import AddressCard from "../components/address-card"
 import AddressForm from "../components/address-form"
 import StepHeader from "../components/step-header"
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function AddressStep({ cart, customer, }: AddressStepProps) {
     const { currentStep, setCurrentStep } = useCheckout()
     const isOpen = currentStep === "address"

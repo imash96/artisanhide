@@ -3,17 +3,17 @@ import { isArray } from "./isEmpty";
 type ClassValue = ClassValue[] | Record<string, any> | string | number | bigint | null | boolean | undefined;
 
 function toVal(mix: ClassValue) {
-    var k, y, str = '';
+    let k, y, str = '';
 
     if (typeof mix === 'string' || typeof mix === 'number') {
         str += mix;
     } else if (typeof mix === 'object') {
         if (isArray(mix)) {
-            var len = mix.length;
+            const len = mix.length;
             for (k = 0; k < len; k++) {
                 if (mix[k]) {
                     if (y = toVal(mix[k])) {
-                        str && (str += ' ');
+                        if (str) str += ' ';
                         str += y;
                     }
                 }
@@ -21,7 +21,7 @@ function toVal(mix: ClassValue) {
         } else {
             for (y in mix) {
                 if (mix && mix[y]) {
-                    str && (str += ' ');
+                    if (str) str += ' ';
                     str += y;
                 }
             }
@@ -36,7 +36,7 @@ export default function clx(...inputs: ClassValue[]) {
     for (let i = 0; i < inputs.length; i++) {
         if (tmp = inputs[i]) {
             if (x = toVal(tmp)) {
-                str && (str += ' ');
+                if (str) str += ' ';
                 str += x
             }
         }

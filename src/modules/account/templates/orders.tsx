@@ -1,5 +1,5 @@
 import { StoreOrder } from "@medusajs/types";
-import { Heart, Package } from "lucide-react";
+import { Package } from "lucide-react";
 import OrderCard from "../components/order-card";
 
 export default function Orders({ orders }: { orders: StoreOrder[] | undefined }) {

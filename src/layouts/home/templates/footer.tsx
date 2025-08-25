@@ -7,6 +7,7 @@ import { footer } from "../footer";
 import HeaderCountrySelect from "../components/footer-country-select";
 import { listRegions } from "libs/actions/region";
 import { cookies } from "next/headers";
+import Image from "next/image";
 
 export default async function Footer() {
     const countryCode = (await cookies()).get('__country_code')?.value
@@ -59,7 +60,7 @@ const FooterTop = ({ title, data }: FooterTopProps) => {
 export function FooterBottom() {
     return (
         <div className="flex flex-col gap-y-4 md:flex-row-reverse py-4 text-center items-center justify-between">
-            <img className="h-12 w-auto" loading="lazy" aria-hidden="true" src="/images/contents/StripeBadge.png" alt="Stripe Payment Secure" />
+            <Image className="h-12 w-auto" loading="lazy" aria-hidden="true" src="/images/contents/StripeBadge.png" alt="Stripe Payment Secure" />
             <p>&copy; {new Date().getFullYear()} Artisan Hide</p>
         </div>
     )

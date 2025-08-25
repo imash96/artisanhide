@@ -1,4 +1,4 @@
-import { ChevronRight, Home, Slash } from "lucide-react";
+import { ChevronRight, Home } from "lucide-react";
 import Link from "next/link";
 
 type BreadcrumbItem = {

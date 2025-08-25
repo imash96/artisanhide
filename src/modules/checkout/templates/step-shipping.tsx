@@ -21,20 +21,20 @@ export default function ShippingStep({ cart, availableShippingMethods }: Shippin
     })
 
     const handleEdit = () => setCurrentStep("delivery")
-    const handleNext = () => setCurrentStep("payment")
 
     useLayoutEffect(() => {
         if (!cart.shipping_address?.address_1 && currentStep === "delivery") setCurrentStep("address")
-    }, [currentStep]);
+    }, [currentStep, setCurrentStep, cart.shipping_address?.address_1]);
 
     useEffect(() => {
+        const handleNext = () => setCurrentStep("payment")
         if (formState.success) {
             handleNext()
             formState.success = false;
             formState.error = null;
             formState.cartId = cart.id
         }
-    }, [formState.success]);
+    }, [formState, cart.id, setCurrentStep]);
 
 
     return (
@@ -64,7 +64,7 @@ export default function ShippingStep({ cart, availableShippingMethods }: Shippin
                     </div>
                 </form>
                 : <>
-                    {cart.shipping_methods?.map((method, idx) => (
+                    {cart.shipping_methods?.map((method) => (
                         <ShippingCardShow key={method.id} method={method} currencyCode={cart.currency_code} />
                     ))}
 

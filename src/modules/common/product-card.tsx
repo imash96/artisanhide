@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { StoreProduct } from "@medusajs/types"
 import Image from "next/image"
-import { Star } from "lucide-react"
 import { getProductPrice } from "@libs/util/get-product-price"
 import RatingSystem from "./rating-system"
 

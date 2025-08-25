@@ -1,4 +1,4 @@
-import { StoreCustomer, StoreCustomerAddress, StoreRegion } from "@medusajs/types"
+import { StoreCustomerAddress, StoreRegion } from "@medusajs/types"
 import { BookUser, PlusIcon } from "lucide-react"
 import { useMemo } from "react"
 import AddressCard from "../components/address-card"

@@ -1,8 +1,7 @@
 "use client"
 
-// TODO remove use or use use every where
 import Link from "next/link";
-import { useState, use } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import type { StoreProductCategory } from "@medusajs/types";
