@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+@theme {
+  /* --color-*: initial; */
+  /* --color-white: #fff; */
+
+  --color-curtain: var(--curtain);
+  --shadow-borders-interactive: var(--borders-interactive);
+
+  --container-8xl: 94rem;
+
+  --breakpoint-2xs: 360px;
+  --breakpoint-xs: 489px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-xm: 992px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1680px;
+  --breakpoint-4xl: 1920px;
+
+  --animate-accordion-down: accordion-down 0.2s ease-in;
+  --animate-accordion-up: accordion-up 0.2s ease-in;
+
+  --animate-marquee: marquee var(--duration, 20s) linear infinite;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out;
+
+  --animate-fade-in-0: fadeIn 0.3s ease-out;
+  --animate-fade-out-0: fadeOut 0.2s ease-in;
+  --animate-zoom-in-95: zoomIn 0.3s ease-out;
+  --animate-zoom-out-95: zoomOut 0.2s ease-in;
+  --animate-slide-in-from-bottom: slideInFromBottom 0.3s ease-out;
+  --animate-slide-out-to-bottom: slideOutToBottom 0.2s ease-in;
+}
+
+@theme {
+  /* --color-*: initial; */
+  /* --color-white: #fff; */
+  --color-same-white: oklch(100% 0 0);
+  --color-same-black: oklch(0% 0 0);
+
+  /* 1. Brand Identity */
+  /* deep leather brown (primary) */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  /* Olive green for filters */
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  /* text on brand */
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* 2. Backgrounds */
+  /* warm page background */
+  --color-background: var(--background);
+  /* subtle section/card background */
+  --color-background-muted: var(--background-muted);
+  /* cards, modals, elevated surfaces */
+  --color-background-elevated: var(--background-elevated);
+
+  /* 3. Text Colors */
+  /* main body text (rich dark gray) */
+  --color-foreground: var(--foreground);
+  /* secondary text / captions */
+  --color-foreground-muted: var(--foreground-muted);
+  /* disabled / placeholder */
+  --color-foreground-disabled: var(--foreground-disabled);
+  /* text-on-dark backgrounds */
+  --color-foreground-inverse: var(--foreground-inverse);
+  /* primary link / interactive color */
+  --color-link: var(--link);
+
+  /* card - set to elevated for product displays */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-foreground-hover: var(--card-foreground-hover);
+
+  /* 4. Buttons & Interactive */
+  /* primary button bg */
+  --color-btn-primary: var(--btn-primary);
+  --color-btn-primary-hover: var(--btn-primary-hover);
+  --color-btn-primary-foreground: var(--btn-primary-foreground);
+  /* secondary button bg (muted olive) */
+  --color-btn-secondary: var(--btn-secondary);
+  --color-btn-secondary-hover: var(--btn-secondary-hover);
+  --color-btn-secondary-foreground: var(--btn-secondary-foreground);
+  /* destructive button bg (rusty red for earthy error) */
+  --color-btn-destructive: var(--btn-destructive);
+  --color-btn-destructive-hover: var(--btn-destructive-hover);
+  --color-btn-destructive-foreground: var(--btn-destructive-foreground);
+  /* disabled bg */
+  --color-btn-disabled: var(--btn-disabled);
+  --color-btn-disabled-foreground: var(--btn-disabled-foreground);
+
+  /* 5. Feedback States */
+  /* success (green) */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  /* warm amber */
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  /* destructive / error red */
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+  /* destructive / error red - rusty for theme fit */
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  /* teal info */
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+
+  /* 6. Borders & Dividers */
+  /* default border */
+  --color-border: var(--border);
+  /* focus/hover border */
+  --color-border-hover: var(--border-hover);
+  /* section dividers */
+  --color-divider: var(--divider);
+
+  /* 7. Ecommerce-Specific */
+  /* normal price */
+  --color-price: var(--price);
+  /* discounted price (red) */
+  --color-price-discount: var(--price-discount);
+  /* strikethrough / old price */
+  --color-price-original: var(--price-original);
+
+  /* "New" badge */
+  --color-badge-new: var(--badge-new);
+  /* sale/gold badge */
+  --color-badge-sale: var(--badge-sale);
+
+  /* cart/checkout CTA (brand) */
+  --color-cart: var(--cart);
+  /* wishlist heart color */
+  --color-wishlist: var(--wishlist);
+
+  /* 8. Overlays */
+  /* modal/drawer overlay */
+  --color-overlay: var(--overlay);
+  /* subtle primary tint overlay */
+  --color-overlay-hover: var(--overlay-hover);
+
+  /* 9. Utility Shades */
+  /* lightest neutral */
+  --color-neutral-50: var(--neutral-50);
+  /* surface base */
+  --color-neutral-100: var(--neutral-100);
+  /* darkest neutral */
+  --color-neutral-900: var(--neutral-900);
+  /* subtle shadow tint */
+  --color-shadow: var(--shadow);
+
+
+  --color-card-foreground: var(--card-foreground);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+}
+
+@layer base {
+  * {
+    border-color: var(--border)
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground)
+  }
+}
+
+.bg-modile-drawer {
+  background-image: url(/images/bg_navi.webp);
+  background-position: center bottom;
+  background-size: cover;
+}
+
+.mega-menu:hover:has(.mega-menu-backdrop:hover) {
+  display: none;
+}
+
+.mega-hover {
+  position: relative;
+}
+
+.mega-hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(to right, #4f3424, #4f3424);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.mega-hover:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+
+.useful-link {
+  position: relative;
+  text-transform: uppercase;
+}
+
+.useful-link:after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background: var(--color-gray-50);
+  left: 0;
+  top: -4px;
+}
+
+.listHoverAnimation {
+  @apply transition-transform duration-200 ease-in-out hover:pl-1;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  /* Thin scrollbar width */
+  height: 8px;
+  /* For horizontal scrollbars */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5);
+  /* Semi-transparent thumb */
+  border-radius: 4px;
+  /* Rounded corners */
+}
+
+/* Optional: Customize scrollbars on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 100, 100, 0.6);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  /* Transparent track */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  /* Makes the scrollbar thinner */
+  scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
+  /* Thumb and track colors */
+  scrollbar-gutter: stable;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}

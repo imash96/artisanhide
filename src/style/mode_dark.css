@@ -1,0 +1,116 @@
+:root[data-theme="dark"] {
+    /* 1. Brand Identity */
+    /* warmed-up leather brown for dark surfaces */
+    --primary: #7a513a;
+    --primary-foreground: #ffffff;
+    /* tuned for filters - lightened for visibility 8b9a54 */
+    --secondary: #8d7400;
+    --secondary-foreground: #ffffff;
+    /* lighter gold/tan for accents */
+    --accent: #e6b887;
+    /* warm tan / gold highlight */
+    --accent-foreground: #2d1a10;
+
+    /* 2. Backgrounds */
+    /* app background (very dark charcoal) */
+    --background: #0f1111;
+    /* slightly lifted section surface */
+    --background-muted: #141515;
+    /* cards / modals (elevated) */
+    --background-elevated: #171717;
+
+    /* 3. Text Colors */
+    /* primary text (warm off-white) */
+    --foreground: #efe7dd;
+    /* muted captions - lightened slightly */
+    --foreground-muted: #bcb2a8;
+    /* disabled / placeholder */
+    --foreground-disabled: #7f7a76;
+    /* for light-on-dark inverse contexts */
+    --foreground-inverse: #0b0b0b;
+    /* teal/turquoise interactive links - brighter for pop */
+    --link: #4fd1c5;
+
+    /* card - set to elevated for product displays */
+    --card: #171717;
+    --card-foreground: #efe7dd;
+    --card-foreground-hover: #bcb2a8;
+
+    /* 4. Buttons & Interactive */
+    /* primary button bg (brand, lighter) */
+    --btn-primary: #7a513a;
+    /* hover (slightly darker) */
+    --btn-primary-hover: #6a442f;
+    /* text-on-dark backgrounds */
+    --btn-primary-foreground: #ffffff;
+    /* muted olive secondary - tuned for contrast (6.2:1) */
+    --btn-secondary: #6a7d3e;
+    /* hover for secondary - deeper */
+    --btn-secondary-hover: #596c32;
+    --btn-secondary-foreground: #ffffff;
+    /* destructive button bg - rusty red for theme */
+    --btn-destructive: #ef4444;
+    /* destructive hover - darker */
+    --btn-destructive-hover: #dc2626;
+    --btn-destructive-foreground: #111111;
+    /* dark disabled bg */
+    --btn-disabled: #242424;
+    --btn-disabled-foreground: #646464;
+
+    /* 5. Feedback States */
+    /* brighter green for dark bg */
+    --success: #22c55e;
+    --success-foreground: #07130a;
+    /* punchy amber */
+    --warning: #f59e0b;
+    --warning-foreground: #111111;
+    /* destructive red - brighter rusty for visibility */
+    --destructive: #ef4444;
+    --destructive-foreground: #111111;
+    /* error red */
+    --error: #ef4444;
+    --error-foreground: #111111;
+    /* teal info */
+    --info: #2dd4bf;
+    --info-foreground: #09201e;
+
+    /* 6. Borders & Dividers */
+    /* subtle border on dark surfaces */
+    --border: #262422;
+    /* focus/hover border - warmer */
+    --border-hover: #3a322d;
+    /* faint divider */
+    --divider: #1f1f1f;
+
+    /* 7. Ecommerce-Specific */
+    /* product price (light text) */
+    --price: #efe7dd;
+    /* discount price (red) - matched to destructive */
+    --price-discount: #ef4444;
+    /* old price */
+    --price-original: #9e9e9e;
+    /* "New" badge */
+    --badge-new: #4fd1c5;
+    /* sale badge */
+    --badge-sale: #f59e0b;
+    /* cart CTA (brand) */
+    --cart: #7a513a;
+    /* wishlist heart - matched to destructive */
+    --wishlist: #ef4444;
+
+    /* 8. Overlays */
+    /* deep overlay (~60%) */
+    --overlay: #00000099;
+    /* primary tint overlay (~20%) */
+    --hover-overlay: #7a513a33;
+
+    /* 9. Utility Shades */
+    /* darkest neutral (background) */
+    --neutral-50: #0b0b0b;
+    /* surface base */
+    --neutral-100: #121212;
+    /* lightest neutral (text, accents) */
+    --neutral-900: #efe7dd;
+    /* shadow tint (~40%) */
+    --shadow: #00000066;
+}
