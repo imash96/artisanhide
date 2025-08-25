@@ -1,0 +1,56 @@
+Color
+- color customization with dark mode
+
+Region Modal
+- make region and currency code modal
+
+Homepage
+- hero image
+- category image
+- collection image
+- marquee image
+- more realistic feedbacks data
+
+About-us
+- full image and layout optimize
+
+account
+- login page
+- order page
+
+Cart
+- full work pending
+
+category
+- full work pending
+
+collection
+- full work pending
+
+contact-us
+-connect to backend
+
+faqs
+- make faq accordion
+- optimize
+
+policy
+- all page optimize
+
+guide
+- make guide page
+
+blog
+- make blog page
+
+return
+- make return page
+
+search
+- make search component
+
+order
+- make order detail page
+- make order successful page
+
+- make all animation smooth
