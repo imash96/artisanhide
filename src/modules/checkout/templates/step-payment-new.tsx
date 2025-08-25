@@ -6,7 +6,7 @@ import { useCheckout } from "@libs/context/checkout-context";
 import { StoreCart, StorePaymentProvider } from "@medusajs/types";
 import { isStripe as isStripeFunc } from "@libs/constant";
 import { useState } from "react";
-import { initiatePaymentSession } from "@libs/actions/cart";
+import { initiatePaymentSession } from "@libs/actions/payment";
 import PaymentContainer, { StripeCardContainer } from "../components/payment-container";
 import { paymentInfoMap } from "../components/payment-map";
 import PaymentButton from "../components/payment-button";
