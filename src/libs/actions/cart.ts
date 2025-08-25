@@ -1,6 +1,6 @@
 "use server"
 
-import { StoreCart, StoreInitializePaymentSession, StoreUpdateCart } from "@medusajs/types"
+import { StoreUpdateCart } from "@medusajs/types"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { getAuthHeaders, getCacheOptions, getCacheTag, getCartId, removeCartId, setCartId, setCountryCode, } from "./cookies"
@@ -147,16 +147,6 @@ export async function setShippingMethod({ cartId, shippingMethodId }: { cartId: 
     return sdk.store.cart.addShippingMethod(cartId, { option_id: shippingMethodId }, {}, headers).then(async () => {
         const cartCacheTag = await getCacheTag("carts")
         revalidateTag(cartCacheTag)
-    }).catch(medusaError)
-}
-
-export async function initiatePaymentSession(cart: StoreCart, data: StoreInitializePaymentSession) {
-    const headers = { ...(await getAuthHeaders()) as ClientHeaders };
-
-    return sdk.store.payment.initiatePaymentSession(cart, data, {}, headers).then(async (resp) => {
-        const cartCacheTag = await getCacheTag("carts")
-        revalidateTag(cartCacheTag)
-        return resp
     }).catch(medusaError)
 }
 

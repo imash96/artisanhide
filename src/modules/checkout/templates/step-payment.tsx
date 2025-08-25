@@ -6,7 +6,7 @@ import { useCheckout } from "@libs/context/checkout-context";
 import { StoreCart, StorePaymentProvider } from "@medusajs/types";
 import { isStripe as isStripeFunc } from "@libs/constant";
 import { useLayoutEffect, useState } from "react";
-import { initiatePaymentSession } from "@libs/actions/cart";
+import { initiatePaymentSessionCustom, initiatePaymentSession } from "@libs/actions/payment";
 import PaymentContainer, { StripeCardContainer } from "../components/payment-container";
 import { paymentInfoMap } from "../components/payment-map";
 import PaymentButton from "../components/payment-button";
@@ -27,9 +27,10 @@ export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
     const setPaymentMethod = async (method: string) => {
         setSelectedPaymentMethod(method)
         if (isStripeFunc(method)) {
-            await initiatePaymentSession(cart, {
+            await initiatePaymentSessionCustom(cart.id, cart.payment_collection?.id, {
                 provider_id: method,
-            })
+                data: { payment_description: "Men Leather Jacket" }
+            }, {})
         }
     }
 
