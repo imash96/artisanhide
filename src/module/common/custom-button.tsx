@@ -1,8 +1,8 @@
 'use client';
 
+import { Loader } from 'lucide-react';
 import Link from 'next/link';
 import { useRipple } from '@lib/hook/use-ripple';
-import { Loader } from 'lucide-react';
 
 const variantStyles = {
     solid: {
@@ -29,10 +29,12 @@ const baseStyles = {
 };
 
 export type ButtonProps = {
-    variant?: keyof typeof variantStyles;
-    color?: keyof typeof variantStyles['solid']
+    variant?: Variant;
+    color?: Color;
     isLoading?: boolean;
-    withIcon?: boolean;
+    Icon?: React.ElementType;
+    iconClassName?: string;
+    iconProps?: Record<string, any>;
     pill?: boolean;
     ripple?: boolean;
     children?: React.ReactNode;
@@ -45,35 +47,61 @@ export default function Button({
     isLoading = false,
     pill = false,
     ripple = false,
-    className = "",
+    className = '',
     children,
     onClick,
-    withIcon = true,
+    Icon,
+    iconClassName,
+    iconProps,
     ...props
 }: ButtonProps) {
-    const btnClass = `flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed text-sm shadow-sm transition-colors duration-150  ${variantStyles[variant][color]} ${baseStyles[variant]} ${pill && 'rounded-full'} ${ripple && 'relative overflow-hidden'} ${className}`
+    const btnClass = `inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed text-sm shadow-sm transition-colors duration-150 ${variantStyles[variant][color]} ${baseStyles[variant]} ${pill ? 'rounded-full' : 'rounded-xs'} ${ripple ? 'relative overflow-hidden' : ''} ${className}`;
 
     const handleRipple = useRipple();
 
-    const handleClick = (e: any) => {
-        if (ripple && !props.href) handleRipple(e);
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+        if (ripple && !('href' in props)) handleRipple(e);
         onClick?.(e);
     };
 
-    let content = children ? children : "Submit"
+    const IconComponent = isLoading ? Loader : Icon;
+    const showChildren = variant !== 'icon' && children != null;
 
-    if (typeof props.href === 'undefined') {
-        if (withIcon && isLoading) content = <><Loader className="animate-spin mr-2" /> {content}</>
+    const content = (
+        <>
+            {
+                IconComponent && <span className={showChildren ? 'mr-2' : ''}>
+                    <IconComponent
+                        className={`${isLoading ? `animate-spin ${iconClassName || 'w-5 h-5'}` : iconClassName}`}
+                        {...(iconProps ?? {})}
+                        aria-hidden="true"
+                    />
+                </span>
+            }
+            {showChildren && children}
+        </>
+    );
+
+    if ('href' in props && props.href !== undefined) {
         return (
-            <button className={btnClass} disabled={isLoading || props.disabled} {...props} onClick={handleClick} aria-busy={isLoading}>
+            <Link className={btnClass} {...props} onClick={handleClick} aria-busy={isLoading}>
                 {content}
-            </button>
+            </Link>
         );
     }
 
     return (
-        <Link className={btnClass} {...props} onClick={handleClick} aria-busy={isLoading}>
+        <button
+            className={btnClass}
+            disabled={isLoading || props.disabled}
+            {...props}
+            onClick={handleClick}
+            aria-busy={isLoading}
+        >
             {content}
-        </Link>
+        </button>
     );
-};
+}
+
+type Variant = 'solid' | 'outline' | 'icon';
+type Color = 'primary' | 'secondary' | 'destructive';

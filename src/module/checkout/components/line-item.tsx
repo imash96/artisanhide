@@ -3,7 +3,7 @@ import { StoreCartLineItem } from "@medusajs/types";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function SummaryCard({ item, currency_code }: SummaryCardProps) {
+export default function CheckoutLineItem({ item, currency_code }: SummaryCardProps) {
     const adjustmentsSum = (item.adjustments || []).reduce((acc, adjustment) => adjustment.amount + acc, 0)
     const currentPrice = item.total - adjustmentsSum
     return (

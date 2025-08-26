@@ -1,6 +1,6 @@
 import { convertToLocale } from "@lib/util/money"
-import SummaryCard from "../components/summary-card"
 import { StoreCart } from "@medusajs/types"
+import CheckoutLineItem from "../components/line-item"
 
 export default function CheckoutSummary({ cart }: { cart: StoreCart }) {
     const { currency_code, total, subtotal, tax_total, discount_total, gift_card_total, shipping_subtotal, } = cart
@@ -8,34 +8,34 @@ export default function CheckoutSummary({ cart }: { cart: StoreCart }) {
         <div className="border rounded-lg space-y-6 p-5">
             <div className="py-2">
                 {cart.items?.map((item, index) => (
-                    <SummaryCard key={index} item={item as any} currency_code={currency_code} />
+                    <CheckoutLineItem key={index} item={item as any} currency_code={currency_code} />
                 ))}
             </div>
             <hr />
-            <div className="space-y-4">
+            <div className="space-y-4 text-sm">
                 <div className="flex items-center justify-between">
-                    <p className="text-sm">Subtotal</p>
-                    <p className="text-gray-700 text-sm">{convertToLocale({ amount: subtotal ?? 0, currency_code })}</p>
+                    <p className="">Subtotal</p>
+                    <p className="text-foreground-muted">{convertToLocale({ amount: subtotal ?? 0, currency_code })}</p>
                 </div>
                 {!!gift_card_total &&
                     <div className="flex items-center justify-between">
-                        <p className="text-sm">Gift Card</p>
-                        <p className="text-gray-700 text-sm">{convertToLocale({ amount: gift_card_total ?? 0, currency_code })}</p>
+                        <p className="">Gift Card</p>
+                        <p className="text-foreground-muted">{convertToLocale({ amount: gift_card_total ?? 0, currency_code })}</p>
                     </div>
                 }
                 {!!discount_total &&
                     <div className="flex items-center justify-between">
-                        <p className="text-sm">Discount</p>
-                        <p className="text-gray-700 text-sm">{convertToLocale({ amount: discount_total ?? 0, currency_code })}</p>
+                        <p className="">Discount</p>
+                        <p className="text-foreground-muted">{convertToLocale({ amount: discount_total ?? 0, currency_code })}</p>
                     </div>
                 }
                 <div className="flex items-center justify-between">
-                    <p className="text-sm">Shipping</p>
-                    <p className="text-gray-700 text-sm">{convertToLocale({ amount: shipping_subtotal ?? 0, currency_code })}</p>
+                    <p className="">Shipping</p>
+                    <p className="text-foreground-muted">{convertToLocale({ amount: shipping_subtotal ?? 0, currency_code })}</p>
                 </div>
                 <div className="flex items-center justify-between">
-                    <p className="text-sm">Taxes</p>
-                    <p className="text-gray-700 text-sm">{convertToLocale({ amount: tax_total ?? 0, currency_code })}</p>
+                    <p className="">Taxes</p>
+                    <p className="text-foreground-muted">{convertToLocale({ amount: tax_total ?? 0, currency_code })}</p>
                 </div>
                 <hr />
                 <div className="flex items-center font-medium text-lg justify-between">

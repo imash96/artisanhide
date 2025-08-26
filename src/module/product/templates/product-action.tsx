@@ -59,15 +59,10 @@ export default function ProductActions({ product }: ProductActionsProps) {
                 <div className="flex flex-col md:flex-row items-center gap-2" ref={actionsRef}>
                     <AddToCartButton />
                     <div className="flex items-center gap-2 w-full">
-                        <Button variant="outline" color="secondary" className="w-full h-12" ripple>
-                            <span className="flex items-center justify-center gap-x-2">
-                                {<Pencil className="w-5 h-5" />}
-                                Customize
-                            </span>
+                        <Button variant="outline" iconClassName="w-5 h-5" Icon={Pencil} color="secondary" className="w-full h-12" ripple>
+                            Customize
                         </Button>
-                        <Button variant="icon" color="secondary" className="h-12 px-4">
-                            {!selectedVariant ? <Heart className="w-5 h-5 fill-destructive stroke-destructive" /> : <HeartPlus className="w-5 h-5" />}
-                        </Button>
+                        <Button variant="icon" Icon={HeartPlus} iconClassName="w-5 h-5" color="secondary" className="h-12 px-4" />
                     </div>
                 </div>
                 <MobileActions

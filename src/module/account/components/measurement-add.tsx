@@ -5,7 +5,7 @@ import { createMeasurement } from "@lib/action/measurement"
 import Button from "@module/common/custom-button"
 import CustomInput from "@module/common/custom-input"
 import CustomSelect from "@module/common/custom-select"
-import { LoaderCircle, PlusIcon } from 'lucide-react'
+import { PlusIcon } from 'lucide-react'
 import { useActionState, useId } from "react"
 
 // Move constants to separate object for better organization
@@ -85,9 +85,7 @@ export default function MeasurementAdd() {
 
                 {/* Submit Button */}
                 <div className="md:col-span-1">
-                    <Button pill variant="icon" className="h-11 px-4 mx-auto w-full">
-                        {isPending ? <LoaderCircle className="h-5 w-5 animate-spin" aria-hidden="true" /> : <PlusIcon className="h-5 w-5" aria-hidden="true" />}
-                    </Button>
+                    <Button pill variant="icon" Icon={PlusIcon} iconClassName="w-6 h-6" isLoading={isPending} className="h-11 px-4 mx-auto w-full" />
                 </div>
             </div>
         </form>

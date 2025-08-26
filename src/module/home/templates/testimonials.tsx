@@ -37,7 +37,7 @@ export default function Testimonials() {
     }, [emblaApi, onSelect]);
 
     return (
-        <div className="max-w-6xl mx-auto px-4 md:px-12 lg:px-20 py-12 lg:py-16">
+        <div className="max-w-6xl mx-auto px-4 md:px-12 lg:px-20 pt-12 lg:pt-16 min-h-[37rem]">
             <h2 className="text-center text-2xl lg:text-3xl font-semibold tracking-tight text-foreground mb-8">
                 Our Customer Feedbacks
             </h2>

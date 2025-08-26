@@ -7,7 +7,7 @@ export default function Layout({ children }: React.PropsWithChildren) {
     return (
         <>
             <CheckoutHeader />
-            <Container as="main" width={7} className="grid grid-cols-1 gap-x-14 lg:grid-cols-10 py-8 md:py-10 lg:py-14 w-full">
+            <Container as="main" width={7} className="grid grid-cols-1 gap-x-14 gap-y-8 lg:grid-cols-10 py-8 md:py-10 lg:py-14">
                 {children}
             </Container>
             <CheckoutFooter />
