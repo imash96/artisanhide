@@ -32,7 +32,7 @@ export default function BlogCard({ post }: BlogCardProps) {
             {/* Image Container */}
             <div className="relative h-48 sm:h-56 overflow-hidden no-scrollbar">
                 <Image
-                    src={post.image || "/placeholder.svg"}
+                    src={post.image || "/svg/placeholder.svg"}
                     alt={post.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -90,7 +90,7 @@ export default function BlogCard({ post }: BlogCardProps) {
                 <div className="flex items-center gap-3">
                     <div className="relative w-8 h-8 rounded-full overflow-hidden  no-scrollbar">
                         <Image
-                            src={post.author.avatar || "/placeholder.svg"}
+                            src={post.author.avatar || "/svg/placeholder.svg"}
                             alt={post.author.name}
                             fill
                             className="object-cover"

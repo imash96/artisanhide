@@ -11,7 +11,7 @@ export default function Marquee({ images, direction = "forward", duration = 20, 
                 {images.map((img, index) => (
                     <div key={index} className="flex-shrink-0 mx-2 relative" style={{ width: "240px", height: "260px" }}>
                         <Image
-                            src={img.src || "/placeholder.svg"}
+                            src={img.src || "/svg/placeholder.svg"}
                             alt={`Marquee image ${(index % images.length) + 1}`}
                             fill
                             className="shadow-md object-cover object-center hover:scale-105 hover:rotate-2 transition-transform ease-in-out duration-300 h-full w-full"
@@ -23,7 +23,7 @@ export default function Marquee({ images, direction = "forward", duration = 20, 
                 {images.map((img, index) => (
                     <div key={index} className="flex-shrink-0 mx-2 relative" style={{ width: "240px", height: "260px" }} aria-hidden="true">
                         <Image
-                            src={img.src || "/placeholder.svg"}
+                            src={img.src || "/svg/placeholder.svg"}
                             alt={`Marquee image ${(index % images.length) + 1}`}
                             fill
                             className="shadow-md object-cover object-center hover:scale-105 hover:rotate-2 transition-transform ease-in-out duration-300 h-full w-full"

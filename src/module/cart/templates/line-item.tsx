@@ -3,16 +3,16 @@
 import { deleteLineItem, updateLineItem } from "@lib/action/cart";
 import { convertToLocale } from "@lib/util/money";
 import { StoreCartLineItem, StoreProductVariant } from "@medusajs/types";
+import ProductThumbnail from "@module/product/components/product-thumbnail";
 import { Loader, MinusIcon, PlusIcon, X } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useTransition } from "react";
 
 export default function CartLineitem({ items, currencyCode }: { items: StoreCartLineItem[], currencyCode: string }) {
     return (
-        <ul role="list" className="divide-y divide-divider">
+        <ul role="list" className="space-y-4">
             {items.map(item => (
-                <li key={item.id} className="flex gap-3 md:gap-4">
+                <li key={item.id} className="flex gap-3 md:gap-4 p-4 border border-border">
                     <CartThumbnail thumbnail={item.thumbnail} title={item.title} id={item.id} />
                     <div className="flex gap-2 w-full justify-between flex-1">
                         <div className="flex flex-col justify-between gap-y-1 w-full md:gap-y-2">
@@ -50,13 +50,7 @@ type CartThumbnailProps = {
 export function CartThumbnail({ thumbnail, title, id }: CartThumbnailProps) {
     return (
         <div className="relative w-24 xs:w-20">
-            <Image
-                src={thumbnail || ""}
-                alt={title}
-                width={300}
-                height={400}
-                className="bg-gray-50 rounded-md border border-gray-300"
-            />
+            <ProductThumbnail src={thumbnail} alt={title} width={300} height={400} />
             <CartRemoveButton
                 itemId={id}
                 size='default'

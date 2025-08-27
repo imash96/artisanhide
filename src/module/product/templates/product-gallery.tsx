@@ -60,7 +60,7 @@ export default function ProductGallery({ images, title }: ProductGalleryProps) {
                             onClick={() => onThumbClick(index)}
                         >
                             <Image
-                                src={image.url || "/placeholder.svg"}
+                                src={image.url || "/svg/placeholder.svg"}
                                 alt={`${title} thumbnail ${index + 1}`}
                                 fill
                                 className="object-contain h-full w-full object-center p-0.5"
@@ -76,7 +76,7 @@ export default function ProductGallery({ images, title }: ProductGalleryProps) {
                     {images?.map((image, index) => (
                         <div key={index} className="flex-[0_0_100%] min-w-0 select-none aspect-[3/4]">
                             <Image
-                                src={image.url || "/placeholder.svg"}
+                                src={image.url || "/svg/placeholder.svg"}
                                 alt={`${title} - Image ${index + 1}`}
                                 sizes="100vw"
                                 width={1200}

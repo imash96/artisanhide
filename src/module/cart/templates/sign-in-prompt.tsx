@@ -2,7 +2,7 @@ import Button from "@module/common/custom-button";
 
 export default function SignInPrompt() {
     return (
-        <section aria-labelledby="signin-prompt-title" className="flex flex-col sm:flex-row items-center gap-2">
+        <section aria-labelledby="signin-prompt-title" className="flex flex-col sm:flex-row items-center gap-2 bg-warning/30 p-4 rounded-lg border border-border shadow-sm">
             {/* Left: text */}
             <div className="flex-1 min-w-0 text-center sm:text-left">
                 <h3 id="signin-prompt-title" className="text-lg font-semibold text-card-foreground">
@@ -13,7 +13,7 @@ export default function SignInPrompt() {
                 </p>
             </div>
 
-            <Button href="/account" variant="outline" className="w-full sm:w-auto" aria-label="Sign in to your account">
+            <Button href="/account" variant="outline" color="primary" className="w-full sm:w-auto max-w-56" aria-label="Sign in to your account">
                 Sign in
             </Button>
         </section >

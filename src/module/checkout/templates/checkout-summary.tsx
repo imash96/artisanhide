@@ -5,11 +5,9 @@ import CheckoutLineItem from "../components/line-item"
 export default function CheckoutSummary({ cart }: { cart: StoreCart }) {
     const { currency_code, total, subtotal, tax_total, discount_total, gift_card_total, shipping_subtotal, } = cart
     return (
-        <div className="border rounded-lg space-y-6 p-5">
-            <div className="py-2">
-                {cart.items?.map((item, index) => (
-                    <CheckoutLineItem key={index} item={item as any} currency_code={currency_code} />
-                ))}
+        <div className="border border-border bg-background-elevated rounded-lg space-y-5 p-5">
+            <div className="space-y-2">
+                {cart.items?.map((item, index) => <CheckoutLineItem key={index} item={item} currency_code={currency_code} />)}
             </div>
             <hr />
             <div className="space-y-4 text-sm">

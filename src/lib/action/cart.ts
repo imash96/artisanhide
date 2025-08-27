@@ -157,13 +157,18 @@ export async function applyPromotions(codes: string[]) {
 
     const headers = { ...(await getAuthHeaders()) as ClientHeaders };
 
-    return sdk.store.cart.update(cartId, { promo_codes: codes }, {}, headers).then(async () => {
-        const cartCacheTag = await getCacheTag("carts")
-        revalidateTag(cartCacheTag)
+    try {
+        return await sdk.store.cart.update(cartId, { promo_codes: codes }, {}, headers).then(async () => {
+            const cartCacheTag = await getCacheTag("carts")
+            revalidateTag(cartCacheTag)
 
-        const fulfillmentCacheTag = await getCacheTag("fulfillment")
-        revalidateTag(fulfillmentCacheTag)
-    }).catch(medusaError)
+            const fulfillmentCacheTag = await getCacheTag("fulfillment")
+            revalidateTag(fulfillmentCacheTag)
+            return { success: true, error: null, message: codes[0] }
+        })
+    } catch {
+        return { success: false, error: "Invalid or expired coupon code." }
+    }
 }
 
 // export async function applyGiftCard(code: string) {

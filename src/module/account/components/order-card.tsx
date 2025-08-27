@@ -61,7 +61,7 @@ export default function OrderCard({ order }: { order: StoreOrder }) {
                         {/* Image */}
                         <div className="w-[88px] h-[88px] sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-lg overflow-hidden border border-gray-200 bg-gray-50">
                             <Image
-                                src={product.thumbnail || "/placeholder.svg?height=128&width=128&query=product-image"}
+                                src={product.thumbnail || "/svg/placeholder.svg?height=128&width=128&query=product-image"}
                                 alt={product.title}
                                 loading="lazy"
                                 decoding="async"
