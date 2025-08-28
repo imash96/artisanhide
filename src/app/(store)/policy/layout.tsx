@@ -3,11 +3,10 @@
 import { ShieldCheck, RotateCcw, Truck, CreditCard, FileText } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { StoreCustomer } from "@medusajs/types"
 import Container from "@module/common/create-section"
 import InteractiveLink from "@module/common/interactive-link"
 
-export default function DashLayout({ children }: DashLayoutProp) {
+export default function DashLayout({ children }: React.PropsWithChildren) {
   const pathname = usePathname()
   return (
     <Container width={7} className="py-6 md:py-10 lg:py-12">
@@ -63,7 +62,7 @@ export default function DashLayout({ children }: DashLayoutProp) {
             You can find answers in our customer service section.
           </p>
         </div>
-        <InteractiveLink href="/customer-service">Customer Service</InteractiveLink>
+        <InteractiveLink href="/contact-us">Customer Service</InteractiveLink>
       </div>
     </Container>
   )
@@ -106,7 +105,3 @@ const navigationItems = [
     description: "Purchase terms",
   },
 ]
-
-type DashLayoutProp = {
-  customer: StoreCustomer
-} & React.PropsWithChildren

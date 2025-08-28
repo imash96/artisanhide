@@ -19,7 +19,7 @@ export default async function Layout({ dash, auth }: AcccountLayoutProp) {
                     </span>
                 </div>
                 <div className="float-right mt-4">
-                    <InteractiveLink href="/customer-service">
+                    <InteractiveLink href="/contact-us">
                         Customer Service
                     </InteractiveLink>
                 </div>

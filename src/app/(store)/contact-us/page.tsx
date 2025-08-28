@@ -1,15 +1,18 @@
 "use client"
 
+import Container from "@module/common/create-section";
+import Button from "@module/common/custom-button";
+import CustomInput from "@module/common/custom-input";
 import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
 export default function Page() {
     return (
-        <div className="templateContainer py-6 md:py-10 lg:py-16 space-y-[4vw] lg:space-y-[2vw]">
+        <Container className="py-6 md:py-10 lg:py-16 space-y-[4vw] lg:space-y-[2vw]">
             <div className="space-y-[2vw] lg:space-y-[1vw]">
                 <h1 className="text-center text-3xl text-templateBrown">Contact Us</h1>
-                <p className="text-center lg:max-w-[45vw] mx-auto text-sm tracking-wide text-gray-600">
+                <p className="text-center lg:max-w-[45vw] mx-auto text-sm tracking-wide text-foreground-muted">
                     Got any questions? We invite you to get in touch with us. Our team is
                     here to help you. Our team will respond to your inquiry as soon as
                     possible.
@@ -24,18 +27,18 @@ export default function Page() {
                         <h3 className="text-[5.5vw]  md:text-[4vw] text-left lg:text-[1.5vw] leading-[1.1] text-templateBrown">
                             Chat with us
                         </h3>
-                        <p className="text-sm tracking-wide text-gray-600">
+                        <p className="text-sm tracking-wide text-foreground-muted">
                             We invite you to get in touch with us.{" "}
                         </p>
                         <a
-                            className="flex items-center gap-2 text-sm tracking-wide text-gray-600 "
+                            className="flex items-center gap-2 text-sm tracking-wide text-foreground-muted "
                             href=""
                         >
                             <Mail size={15} className="mb-[1px]" strokeWidth={1.5} />
                             contact@artisanhide.com
                         </a>
                         <a
-                            className="flex items-center gap-2 text-sm tracking-wide text-gray-600 "
+                            className="flex items-center gap-2 text-sm tracking-wide text-foreground-muted "
                             href=""
                         >
                             <Phone size={15} className="mb-[1px]" strokeWidth={1.5} />
@@ -46,27 +49,31 @@ export default function Page() {
                         <h3 className="text-[5.5vw] md:text-[4vw] text-left lg:text-[1.5vw] leading-[1.1] text-templateBrown">
                             Connect with us
                         </h3>
-                        <p className="text-sm tracking-wide text-gray-600">
+                        <p className="text-sm tracking-wide text-foreground-muted">
                             We invite you to get in touch with us on social media.{" "}
                         </p>
                         <a
-                            className="flex items-center gap-2 text-sm tracking-wide text-gray-600 "
+                            className="flex items-center gap-2 text-sm tracking-wide text-foreground-muted "
                             href=""
                         >
                             <Image
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s"
                                 className="h-4 w-4 mb-[1px] rounded-xs"
+                                width={50}
+                                height={50}
                                 alt=""
                             />
                             Instagram
                         </a>
                         <a
-                            className="flex items-center gap-2 text-sm tracking-wide text-gray-600 "
+                            className="flex items-center gap-2 text-sm tracking-wide text-foreground-muted "
                             href=""
                         >
                             <Image
                                 src="https://static.vecteezy.com/system/resources/previews/021/495/985/non_2x/facebook-social-media-logo-icon-free-png.png"
                                 className="h-4 w-4 mb-[1px] rounded-xs"
+                                width={50}
+                                height={50}
                                 alt=""
                             />
                             Facebook
@@ -76,13 +83,13 @@ export default function Page() {
                         <h3 className="text-[5.5vw] md:text-[4vw] text-left lg:text-[1.5vw] leading-[1.1] text-templateBrown">
                             Our Timing
                         </h3>
-                        <p className="text-sm tracking-wide text-gray-600">
+                        <p className="text-sm tracking-wide text-foreground-muted">
                             9AM - 5PM Monday to Friday
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
+        </Container>
     )
 }
 
@@ -102,74 +109,40 @@ function ContactForm() {
         <form onSubmit={handleSubmit} className={`space-y-6`}>
             <div className="flex items-center gap-2.5">
                 <div className="space-y-1 w-full">
-                    <label
-                        htmlFor="firstName"
-                        className="text-[13px] tracking-wide block"
-                    >
-                        First Name
-                    </label>
-                    <input
+                    <CustomInput
+                        label="First Name"
                         name="firstName"
-                        required
                         value={formData.firstName}
-                        onChange={(e) =>
-                            setFormData({ ...formData, firstName: e.target.value })
-                        }
-                        type="text"
-                        placeholder="First Name"
-                        className="w-full border placeholder:text-xs rounded-md px-3 py-2.5 text-[13px]"
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                     />
                 </div>
                 <div className="space-y-1 w-full">
-                    <label htmlFor="lastName" className="text-[13px] tracking-wide block">
-                        Last Name
-                    </label>
-                    <input
+                    <CustomInput
+                        label="Last Name"
                         name="lastName"
-                        required
-                        value={formData.lastName}
-                        onChange={(e) =>
-                            setFormData({ ...formData, lastName: e.target.value })
-                        }
-                        type="text"
-                        placeholder="Last Name"
-                        className="w-full border placeholder:text-xs rounded-md px-3 py-2.5 text-[13px]"
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                     />
                 </div>
             </div>
 
             <div className="space-y-1 w-full">
-                <label htmlFor="email" className="text-[13px] tracking-wide block">
-                    Email
-                </label>
-                <input
+                <CustomInput
+                    label="Email"
                     name="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     type="email"
-                    placeholder="Email"
-                    className="w-full border placeholder:text-xs rounded-md px-3 py-2.5 text-[13px]"
+                    value={formData.firstName}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
             </div>
 
             <div className="space-y-1 w-full">
-                <label
-                    htmlFor="mobileNumber"
-                    className="text-[13px] tracking-wide block"
-                >
-                    Mobile Number
-                </label>
-                <input
+                <CustomInput
+                    label="Mobile Number"
                     name="mobileNumber"
-                    required
-                    value={formData.mobileNumber}
-                    onChange={(e) =>
-                        setFormData({ ...formData, mobileNumber: e.target.value })
-                    }
                     type="tel"
-                    placeholder="Mobile Number"
-                    className="w-full border placeholder:text-xs rounded-sm px-3 py-2.5 text-[13px]"
+                    value={formData.firstName}
+                    onChange={(e) => setFormData({ ...formData, mobileNumber: e.target.value })}
                 />
             </div>
 
@@ -188,12 +161,9 @@ function ContactForm() {
                 />
             </div>
 
-            <button
-                type="submit"
-                className="text-sm flex items-center justify-center gap-2 tracking-wide cursor-pointer bg-templateBrown text-white rounded-md w-full py-3.5"
-            >
+            <Button className="tracking-wide cursor-pointer w-full">
                 Submit
-            </button>
+            </Button>
         </form>
     )
 }
