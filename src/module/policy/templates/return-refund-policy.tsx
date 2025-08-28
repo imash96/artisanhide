@@ -1,200 +1,192 @@
-
+import buildJsonLd from "@lib/util/jsonld"
+import { Metadata } from "next"
 
 export default function ReturnRefundPolicy() {
     return (
-        <div className="space-y-8">
-            <h1 className="text-4xl uppercase text-templateBrown font-light">
-                Return & Refund Policy
-            </h1>
-            <p className="text-sm text-templateBrown tracking-wide font-light">
-                Effective Date: 08/01/2025
-            </p>
-            <p className="text-sm tracking-wide font-light">
-                At Artisan Hide, we take pride in our craftsmanship and are committed to
-                ensuring your satisfaction. This Return & Refund Policy outlines the
-                conditions under which you may return products or request a refund.
-            </p>
+        <main className="mx-auto max-w-3xl px-4 py-12">
+            <header className="mb-8">
+                <h1 className="text-3xl uppercase text-templateBrown font-light tracking-tight">Return & Refund Policy</h1>
+                <p className="mt-2 text-sm text-gray-500">Applies to orders delivered within India • Last updated: Aug 28, 2025</p>
+            </header>
+            <section className="prose max-w-none prose-gray space-y-4">
+                <p className="text-sm tracking-wide font-light">
+                    At Artisan Hide, we take pride in our craftsmanship and are committed to ensuring your satisfaction. We want you to love your purchase. If something isn’t right, we’re here to help with an easy and transparent process. This policy covers returns and exchanges for orders shipped within India.
+                </p>
 
-            {/* 1. Eligibility for Returns */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    1. Eligibility for Returns
-                </h2>
-                <p className="text-sm tracking-wide font-light">
-                    To be eligible for a return:
-                </p>
-                <ul className="list-inside list-disc space-y-3">
-                    <li className="text-sm tracking-wide font-light">
-                        The item must be unused, unworn, and in its original condition with
-                        tags and packaging intact.
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        The return request must be initiated within 7 days of receiving the
-                        product.
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        Custom-made or personalized products are non-returnable unless
-                        defective or damaged on arrival.
-                    </li>
-                </ul>
-            </div>
+                {/* 1. Eligibility for Returns */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase text-templateBrown font-light">1. Eligibility for Returns</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        We accept returns for both defective and non-defective products. To be eligible for a return:
+                    </p>
+                    <ul className="list-inside list-disc space-y-2 text-sm tracking-wide font-light">
+                        <li>The item must be new, unused, and unworn with all original tags and packaging intact.</li>
+                        <li>Requests must be initiated within 14 days of delivery.</li>
+                        <li>Custom-made or personalized products are non-returnable unless defective or damaged on arrival.</li>
+                        <li>Items marked as final sale, clearance, gift cards, or downloadable content are non-returnable.</li>
+                    </ul>
+                </div>
 
-            {/* 2. Return Process */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    2. Return Process
-                </h2>
-                <p className="text-sm tracking-wide font-light">
-                    To initiate a return, please:
-                </p>
-                <ul className="list-inside list-disc space-y-3">
-                    <li className="text-sm tracking-wide font-light">
-                        Contact our support team at <strong>support@artisanhide.com</strong>{" "}
-                        with your order number and reason for return.
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        We will respond with return instructions and the return shipping
-                        address.
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        Please ensure the item is securely packaged to avoid damage during
-                        transit.
-                    </li>
-                </ul>
-            </div>
+                {/* 2. Return Process */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase text-templateBrown font-light">2. Return Process</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        To initiate a return:
+                    </p>
+                    <ol className="list-inside list-decimal space-y-2 text-sm tracking-wide font-light">
+                        <li>Go to your order on our website or contact our support team at <a href="mailto:support@artisan hide.com" className="text-templateBrown hover:underline">support@artisan hide.com</a> with your order number and reason for return.</li>
+                        <li>Download and print the free return label.</li>
+                        <li>Pack your item securely, attach the label, and send it back by mail to the provided return shipping address.</li>
+                    </ol>
+                    <p className="text-sm tracking-wide font-light">
+                        Once your item reaches us, we’ll inspect it and update you by email on the approval status.
+                    </p>
+                </div>
 
-            {/* 3. Refunds */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">3. Refunds</h2>
-                <p className="text-sm tracking-wide font-light">
-                    Once we receive and inspect the returned item, we will:
-                </p>
-                <ul className="list-inside list-disc space-y-3">
-                    <li className="text-sm tracking-wide font-light">
-                        Notify you via email about the status of your return.
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        Approve or reject your refund request based on item condition.
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        If approved, initiate a refund to your original payment method
-                        within 7-10 business days.
-                    </li>
-                </ul>
-                <p className="text-sm tracking-wide font-light">
-                    Please note: Original shipping charges are non-refundable.
-                </p>
-            </div>
+                {/* 3. Fees & Refunds */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase text-templateBrown font-light">3. Fees & Refunds</h2>
+                    <ul className="list-inside list-disc space-y-2 text-sm tracking-wide font-light">
+                        <li><strong>Non-defective returns:</strong> A 15% restocking fee is deducted from the product price.</li>
+                        <li><strong>Defective items:</strong> The restocking fee is waived. You may choose a refund or exchange.</li>
+                        <li><strong>Refund timing:</strong> Approved refunds are issued to the original payment method within 2 business days after inspection.</li>
+                        <li>Original shipping charges are non-refundable unless the item is defective or incorrect.</li>
+                    </ul>
+                </div>
 
-            {/* 4. Exchanges */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">4. Exchanges</h2>
-                <p className="text-sm tracking-wide font-light">
-                    We only replace items if they are defective or damaged upon arrival.
-                    If you need to exchange a product, please email us within 48 hours of
-                    delivery.
-                </p>
-            </div>
+                {/* 4. Exchanges */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase text-templateBrown font-light">4. Exchanges</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        Exchanges are accepted for reasons like size, fit, or style, as well as for defective items. If there’s a price difference, we’ll charge or refund the difference accordingly once your original item is received and approved. For defective or damaged products, contact us within 48 hours of delivery with photos and a description for expedited handling.
+                    </p>
+                </div>
 
-            {/* 5. Non-Returnable Items */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    5. Non-Returnable Items
-                </h2>
-                <ul className="list-inside list-disc space-y-3">
-                    <li className="text-sm tracking-wide font-light">
-                        Customized or personalized products.
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        Items marked as final sale or clearance.
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        Gift cards or downloadable content.
-                    </li>
-                </ul>
-            </div>
+                {/* 5. Shipping Costs */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase text-templateBrown font-light">5. Shipping Costs</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        You are responsible for return shipping costs unless the item is defective or incorrect. We recommend using a trackable shipping service or purchasing shipping insurance, as we cannot guarantee receipt of your returned item without it.
+                    </p>
+                </div>
 
-            {/* 6. Damaged or Defective Products */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    6. Damaged or Defective Products
-                </h2>
-                <p className="text-sm tracking-wide font-light">
-                    If you receive a damaged or defective product:
-                </p>
-                <ul className="list-inside list-disc space-y-3">
-                    <li className="text-sm tracking-wide font-light">
-                        Please contact us within 48 hours of delivery.
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        Include photos and a description of the issue in your email.
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        We will review and arrange a replacement or refund at no extra
-                        charge.
-                    </li>
-                </ul>
-            </div>
+                {/* 6. Late or Missing Refunds */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase text-templateBrown font-light">6. Late or Missing Refunds</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        If you haven’t received a refund yet:
+                    </p>
+                    <ul className="list-inside list-disc space-y-2 text-sm tracking-wide font-light">
+                        <li>Double-check your bank account or credit card statement.</li>
+                        <li>Contact your payment provider; it may take additional time to post the refund.</li>
+                        <li>If you still have not received your refund after 10 business days, contact us at <a href="mailto:support@artisan hide.com" className="text-templateBrown hover:underline">support@artisan hide.com</a>.</li>
+                    </ul>
+                </div>
 
-            {/* 7. Shipping Costs */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    7. Shipping Costs
-                </h2>
-                <p className="text-sm tracking-wide font-light">
-                    You will be responsible for paying the return shipping costs unless
-                    the item is defective or incorrect. We recommend using a trackable
-                    shipping service or purchasing shipping insurance, as we cannot
-                    guarantee that we will receive your returned item.
-                </p>
-            </div>
+                {/* 7. Policy Updates */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase text-templateBrown font-light">7. Policy Updates</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        We may update this Return & Refund Policy at any time. Changes will be posted on this page with a revised effective date. Continued use of our services implies your acceptance of the updated policy.
+                    </p>
+                </div>
 
-            {/* 8. Late or Missing Refunds */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    8. Late or Missing Refunds
-                </h2>
-                <p className="text-sm tracking-wide font-light">
-                    If you haven’t received a refund yet:
-                </p>
-                <ul className="list-inside list-disc space-y-3">
-                    <li className="text-sm tracking-wide font-light">
-                        Double-check your bank account or credit card statement.
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        Contact your payment provider; it may take additional time to post
-                        the refund.
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        If you still have not received your refund after 10 business days,
-                        contact us at <strong>support@artisanhide.com</strong>.
-                    </li>
-                </ul>
-            </div>
+                {/* Quick Summary */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase text-templateBrown font-light">Quick Summary</h2>
+                    <div className="overflow-x-auto">
+                        <table className="w-full border border-gray-200 text-sm">
+                            <thead className="bg-gray-50">
+                                <tr>
+                                    <th className="p-3 text-left">Item Type</th>
+                                    <th className="p-3 text-left">Window</th>
+                                    <th className="p-3 text-left">Condition</th>
+                                    <th className="p-3 text-left">Restocking Fee</th>
+                                    <th className="p-3 text-left">Refund Timing*</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="border-t">
+                                    <td className="p-3">Defective & Exchange</td>
+                                    <td className="p-3">14 days</td>
+                                    <td className="p-3">New, unused</td>
+                                    <td className="p-3">0%</td>
+                                    <td className="p-3">2 business days</td>
+                                </tr>
+                                <tr className="border-t">
+                                    <td className="p-3">Non-defective Return</td>
+                                    <td className="p-3">14 days</td>
+                                    <td className="p-3">New, unused</td>
+                                    <td className="p-3">15%</td>
+                                    <td className="p-3">2 business days</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p className="mt-2 text-xs text-gray-500">*After your return is received and approved.</p>
+                </div>
 
-            {/* 9. Policy Updates */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    9. Policy Updates
-                </h2>
-                <p className="text-sm tracking-wide font-light">
-                    We may update this Return & Refund Policy at any time. Changes will be
-                    posted on this page with a revised effective date. Continued use of
-                    our services implies your acceptance of the updated policy.
-                </p>
-            </div>
-
-            {/* 10. Contact Us */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">10. Contact Us</h2>
-                <p className="text-sm tracking-wide font-light">
-                    For any questions or assistance with returns or refunds, please
-                    contact:
-                </p>
-                <p className="text-sm tracking-wide font-light">
-                    📧 <strong>support@artisanhide.com</strong>
-                </p>
-            </div>
-        </div>
+                {/* Contact Us */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase text-templateBrown font-light">Questions?</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        We’re here to help. Email us at <a href="mailto:support@artisan hide.com" className="text-templateBrown hover:underline">support@artisan hide.com</a> and we’ll get back to you quickly.
+                    </p>
+                </div>
+            </section>
+        </main>
     )
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+    const canonical = "https://artisan hide.com/policy/return-and-refund-policy"
+    const policyLd = {
+        "@context": "https://schema.org",
+        "@type": "MerchantReturnPolicy",
+        name: "Artisan Hide Return & Refund Policy",
+        url: canonical,
+        applicableCountry: "IN",
+        itemCondition: "https://schema.org/NewCondition",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: 14,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/ReturnFeesCustomerResponsibility",
+        inStoreReturnsOffered: false,
+        refundType: "https://schema.org/FullRefund",
+        restockingFee: {
+            "@type": "MonetaryAmount",
+            value: "15",
+            unitCode: "P1"
+        },
+        additionalProperty: [
+            { "@type": "PropertyValue", name: "Return Label", value: "Download and print (Free)" },
+            { "@type": "PropertyValue", name: "Refund Processing Time", value: "2 business days" },
+            { "@type": "PropertyValue", name: "Exchanges", value: "Accepted" },
+            { "@type": "PropertyValue", name: "Restocking Fee Details", value: "15% for non-defective; waived for defective" }
+        ],
+        merchantReturnLink: canonical
+    }
+
+    return {
+        title: "Return & Refund Policy | Artisan Hide",
+        description:
+            "Easy 14-day returns and exchanges for orders in India. Accept both defective and non-defective products in new condition. Free downloadable return labels by mail, 15% restocking fee on non-defective returns, and 2-business-day refund processing.",
+        alternates: { canonical },
+        openGraph: {
+            type: "website",
+            title: "Return & Refund Policy | Artisan Hide",
+            description:
+                "Easy 14-day returns and exchanges for orders in India. Accept both defective and non-defective products in new condition. Free downloadable return labels by mail, 15% restocking fee on non-defective returns, and 2-business-day refund processing.",
+            url: canonical,
+            siteName: "Artisan Hide",
+        },
+        twitter: {
+            card: "summary",
+            title: "Return & Refund Policy | Artisan Hide",
+            description:
+                "Easy 14-day returns and exchanges for orders in India. Accept both defective and non-defective products in new condition. Free downloadable return labels by mail, 15% restocking fee on non-defective returns, and 2-business-day refund processing.",
+        },
+        robots: { index: true, follow: true },
+        other: buildJsonLd(policyLd),
+    }
 }
