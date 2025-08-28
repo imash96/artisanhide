@@ -37,7 +37,7 @@ export default function Testimonials() {
     }, [emblaApi, onSelect]);
 
     return (
-        <div className="max-w-6xl mx-auto px-4 md:px-12 lg:px-20 pt-12 lg:pt-16 min-h-[37rem]">
+        <div className="max-w-6xl mx-auto px-4 md:px-12 lg:px-20 pt-12 lg:pt-16">
             <h2 className="text-center text-2xl lg:text-3xl font-semibold tracking-tight text-foreground mb-8">
                 Our Customer Feedbacks
             </h2>
@@ -83,7 +83,7 @@ export default function Testimonials() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.25 }}
-                    className="max-w-lg mx-auto mt-8 text-center">
+                    className="max-w-lg mx-auto mt-8 text-center min-h-[11rem]">
                     <div className="animate-fade-in-up">
                         <RatingSystem size="lg" averageRating={testimonials[selectedIndex].star} type="test" className="justify-center mb-4" />
 

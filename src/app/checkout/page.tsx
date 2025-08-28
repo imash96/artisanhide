@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 import ShippingStep from "@module/checkout/templates/step-shipping";
 import PaymentStep from "@module/checkout/templates/step-payment";
 import { CheckoutProvider } from "@lib/context/checkout-context";
+import CheckoutExpress from "@module/checkout/templates/checkout-express";
 
 export default async function Page() {
     const cart = await retrieveCart();
@@ -25,7 +26,8 @@ export default async function Page() {
 
     return (
         <CheckoutProvider>
-            <div className="lg:col-span-6 space-y-8 min-h-screen">
+            <div className="lg:col-span-6 space-y-6">
+                <CheckoutExpress />
                 <CheckoutProgress />
                 <PaymentWrapper cart={cart}>
                     <AddressStep cart={cart} customer={customer} />

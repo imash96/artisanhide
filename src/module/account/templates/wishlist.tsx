@@ -27,9 +27,9 @@ export default function Wishlist({ wishlist }: { wishlist: ProductWishlist }) {
                 </div>
             ) : (
                 <div className="flex flex-col items-center justify-center py-10 text-center border border-dashed border-border rounded-lg">
-                    <Heart size={36} className="mb-2 text-gray-400" />
+                    <Heart size={36} className="mb-2 text-wishlist" />
                     <p className="text-lg">No product found.</p>
-                    <p className="text-gray-500 text-sm">Start exploring to see your wishlist items here!</p>
+                    <p className="text-foreground-muted text-sm">Start exploring to see your wishlist items here!</p>
                 </div>
             )}
         </section>

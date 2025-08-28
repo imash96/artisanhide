@@ -16,14 +16,14 @@ export default function AddressStep({ cart, customer, }: AddressStepProps) {
 
     return (
         <div className="pb-4 border-b">
-            <StepHeader Icon={BookUser} title="Address Information" subtitle="Shipping and billing addresses">
-                {!isOpen ?
+            <StepHeader Icon={BookUser} title="Addresses" subtitle="Shipping and billing addresses">
+                {!isOpen &&
                     <Button variant="outline" color="secondary" onClick={handleEdit}>
                         Edit
-                    </Button> :
-                    <Button variant="outline" color="secondary" onClick={handleEdit}>
-                        Save Address
                     </Button>
+                    // <Button variant="outline" color="secondary" onClick={handleEdit}>
+                    //     Save Address
+                    // </Button>
                 }
             </StepHeader>
             {!isOpen ? <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">

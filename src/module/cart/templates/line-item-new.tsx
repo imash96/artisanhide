@@ -3,6 +3,9 @@ import ProductThumbnail from "@module/product/components/product-thumbnail";
 import Link from "next/link";
 import LineItemPrice from "../components/lineitem-price";
 import CartEditQuantity from "../components/quantity-button";
+import CustomSelect from "@module/common/custom-select";
+import Button from "@module/common/custom-button";
+import { Plus } from "lucide-react";
 
 export default function CartLineitem({ items, currencyCode }: { items: StoreCartLineItem[], currencyCode: string }) {
     return (
@@ -13,7 +16,7 @@ export default function CartLineitem({ items, currencyCode }: { items: StoreCart
                         <ProductThumbnail src={item.thumbnail} alt={item.title} width={300} height={400} />
                     </div>
                     <div className="space-y-1 md:space-y-1.5 w-full">
-                        <div className="flex flex-col gap-x-2 md:flex-row md:justify-between">
+                        <div className="flex flex-col gap-y-1 gap-x-2 md:flex-row md:justify-between">
                             <h2 className="text-sm leading-snug font-medium">
                                 <Link href={`/products/${item.product?.handle || ''}`} className="hover:text-link transition-colors line-clamp-2 max-w-[35ch]">
                                     {item.product?.title}
@@ -22,16 +25,41 @@ export default function CartLineitem({ items, currencyCode }: { items: StoreCart
 
                             <LineItemPrice item={item} currencyCode={currencyCode} />
                         </div>
-                        <div className="flex flex-col gap-x-2 md:flex-row md:justify-between">
+                        <div className="flex flex-col gap-y-1 gap-x-2 md:flex-row md:justify-between">
                             <div className="text-sm text-foreground-muted truncate">
                                 <p><strong>Variant: </strong>{item.variant?.title ?? "Standard"}</p>
                                 <p><strong>Type: </strong>{item.product_type ?? "Standard"}</p>
                             </div>
                             <CartEditQuantity lineId={item.id} quantity={item.quantity} />
                         </div>
+                        {/Custom Size|One Size/.test(item.variant_title || "") && <div className="flex gap-x-2">
+                            <CustomSelect
+                                label="Measurement"
+                                options={options}
+                                className="min-w-36 max-w-64 w-full"
+                            />
+                            <Button>
+                                <Plus className="w-4 h-4" />
+                            </Button>
+                        </div>}
                     </div>
                 </li>
             ))}
         </ul>
     )
 }
+
+const options = [
+    {
+        label: "Arshad Ansari",
+        value: "arshad"
+    },
+    {
+        label: "Afroz Ansari",
+        value: "afroz"
+    },
+    {
+        label: "Afroz Jolha",
+        value: "jolha"
+    },
+]

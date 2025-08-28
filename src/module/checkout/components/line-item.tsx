@@ -6,7 +6,6 @@ import Link from "next/link";
 export default function CheckoutLineItem({ item, currency_code }: CheckoutLineItemProps) {
     const adjustmentsSum = (item.adjustments || []).reduce((acc, adjustment) => adjustment.amount + acc, 0)
     const currentPrice = item.total - adjustmentsSum
-    console.log(item.adjustments)
     return (
         <div className="flex gap-x-2">
             {/* Product Image */}
