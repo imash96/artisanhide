@@ -28,7 +28,7 @@ export default function DashLayout({ customer, children }: DashLayoutProp) {
                 </div>
 
                 {/* Navigation */}
-                <nav aria-label="Account navigation" className="px-2 py-2 flex lg:flex-col gap-2 overflow-x-auto no-scrollbar">
+                <nav aria-label="Account navigation" className="p-2 flex lg:flex-col gap-2 overflow-x-auto no-scrollbar">
                     {navigationItems.map((item) => {
                         const isActive = pathname === item.href;
                         return (
@@ -36,7 +36,7 @@ export default function DashLayout({ customer, children }: DashLayoutProp) {
                                 key={item.id}
                                 href={item.href}
                                 aria-current={isActive ? 'page' : undefined}
-                                className={`flex items-center m-1 gap-3 border-b-4 lg:border-b-0 lg:border-l-4 px-4 py-2 lg:px-3 lg:py-2.5 rounded-md transition-colors duration-150 ${isActive ? 'bg-accent/20 border-accent' : 'hover:bg-background-muted lg:border-transparent hover:border-border-hover'} focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1`}
+                                className={`flex items-center m-1 gap-3 border-b-4 lg:border-b-0 lg:border-l-4 px-4 py-2 lg:px-3 lg:py-2.5 rounded-lg transition-all duration-150 ${isActive ? 'bg-accent/20 border-accent' : 'hover:bg-background-muted lg:border-transparent hover:border-border-hover'} focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1`}
                             >
                                 <div className="flex w-full flex-col lg:flex-row items-center justify-center lg:justify-start gap-1 lg:gap-3">
                                     <item.icon
@@ -45,13 +45,13 @@ export default function DashLayout({ customer, children }: DashLayoutProp) {
                                         className={isActive ? 'text-accent' : ''}
                                         aria-hidden="true"
                                     />
-                                    <div className="flex flex-col min-w-0">
-                                        <div className={`text-sm ${isActive ? 'font-semibold' : 'font-medium'} truncate`}>
+                                    <div className="flex flex-col min-w-0 text-center lg:text-left">
+                                        <span className={`text-sm ${isActive ? "font-semibold text-accent" : "font-medium"} truncate`}>
                                             {item.label}
-                                        </div>
-                                        <div className="hidden lg:block text-xs text-foreground-muted truncate">
+                                        </span>
+                                        <span className="hidden lg:block text-xs text-foreground-muted truncate">
                                             {item.description}
-                                        </div>
+                                        </span>
                                     </div>
                                 </div>
                             </Link>

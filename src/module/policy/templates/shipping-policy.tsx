@@ -1,133 +1,150 @@
-
 export default function ShippingPolicy() {
     return (
-        <div className="space-y-8">
-            <h1 className="text-4xl uppercase text-templateBrown font-light">
-                Shipping Policy
-            </h1>
-            <p className="text-sm text-templateBrown tracking-wide font-light">
-                Effective Date: 08/01/2025
-            </p>
-            <p className="text-sm tracking-wide font-light">
-                At Artisan Hide, we are committed to delivering your handcrafted items
-                safely and on time. This Shipping Policy explains our process,
-                timelines, and options for delivering your orders.
-            </p>
+        <>
+            <header className="mb-8">
+                <h1 className="text-3xl uppercase tracking-tight">Shipping Policy</h1>
+                <p className="mt-2 text-sm text-foreground-muted">Effective Date: August 28, 2025</p>
+            </header>
+            <section className="prose max-w-none prose-gray space-y-4">
+                <p className="text-sm tracking-wide font-light">
+                    At ArtisanHide, we are dedicated to delivering your handcrafted leather goods safely, efficiently, and on time. This Shipping Policy outlines our shipping processes, timelines, costs, and procedures to ensure a seamless experience for our customers in India. For international inquiries, please reach out to us. We prioritize transparency to set clear expectations and build trust.
+                </p>
 
-            {/* 1. Shipping Locations */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    1. Shipping Locations
-                </h2>
-                <p className="text-sm tracking-wide font-light">
-                    We currently ship across India. For international shipping requests,
-                    please contact us directly at <strong>support@artisanhide.com</strong>
-                    .
-                </p>
-            </div>
+                {/* 1. Shipping Locations */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase">1. Shipping Locations</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        We ship to all locations across India, including metro cities, urban areas, and remote regions (subject to pin code coverage). For international shipping to select countries, additional customs duties, taxes, and fees may apply. Please contact us at <a href="mailto:support@artisanhide.com" className="hover:underline">support@artisanhide.com</a> for availability and quotes.
+                    </p>
+                </div>
 
-            {/* 2. Processing Time */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    2. Processing Time
-                </h2>
-                <p className="text-sm tracking-wide font-light">
-                    All orders are processed within 2–4 business days. During peak
-                    seasons, processing may take slightly longer. You’ll receive an email
-                    confirmation with tracking details once your order has been shipped.
-                </p>
-            </div>
+                {/* 2. Order Processing Time */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase">2. Order Processing Time</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        Orders are typically processed within 2–4 business days after payment confirmation. Custom or personalized items may require additional time (up to 7 days). During peak seasons, sales, or holidays, processing may extend slightly. You will receive an email confirmation once your order is ready for shipment.
+                    </p>
+                </div>
 
-            {/* 3. Shipping Time & Delivery */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    3. Shipping Time & Delivery
-                </h2>
-                <p className="text-sm tracking-wide font-light">
-                    Delivery times vary based on your location:
-                </p>
-                <ul className="list-inside list-disc space-y-3">
-                    <li className="text-sm tracking-wide font-light">
-                        Metro cities: 2–5 business days
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        Other regions: 5–9 business days
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        Remote areas: 7–14 business days
-                    </li>
-                </ul>
-                <p className="text-sm tracking-wide font-light">
-                    We are not responsible for delays caused by courier partners or due to
-                    unforeseen circumstances (like natural disasters or strikes).
-                </p>
-            </div>
+                {/* 3. Shipping Carriers and Methods */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase">3. Shipping Carriers and Methods</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        We partner with reliable courier services such as Delhivery, BlueDart, and India Post to ensure secure and timely delivery. Shipping methods include:
+                    </p>
+                    <ul className="list-inside list-disc space-y-2 text-sm tracking-wide font-light">
+                        <li><strong>Standard Shipping:</strong> Cost-effective for most orders.</li>
+                        <li><strong>Express Shipping:</strong> Available at an additional cost for faster delivery (1–3 business days in metros).</li>
+                        <li><strong>Cash on Delivery (COD):</strong> Offered in select areas with extra fees.</li>
+                    </ul>
+                    <p className="text-sm tracking-wide font-light">
+                        All packages are shipped with eco-friendly, sturdy packaging to protect your items during transit.
+                    </p>
+                </div>
 
-            {/* 4. Shipping Charges */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    4. Shipping Charges
-                </h2>
-                <p className="text-sm tracking-wide font-light">We offer:</p>
-                <ul className="list-inside list-disc space-y-3">
-                    <li className="text-sm tracking-wide font-light">
-                        Free shipping on all prepaid orders above ₹999
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        A flat fee of ₹79 on orders below ₹999
-                    </li>
-                    <li className="text-sm tracking-wide font-light">
-                        Additional charges may apply for Cash on Delivery (COD)
-                    </li>
-                </ul>
-            </div>
+                {/* 4. Delivery Times */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase">4. Delivery Times</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        Delivery times depend on your location and shipping method. Business days exclude weekends and national holidays. Estimated times after processing:
+                    </p>
+                    <div className="overflow-x-auto">
+                        <table className="w-full border border-border text-sm">
+                            <thead className="bg-background-muted">
+                                <tr>
+                                    <th className="p-3 text-left">Location</th>
+                                    <th className="p-3 text-left">Standard Delivery</th>
+                                    <th className="p-3 text-left">Express Delivery</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="border-t">
+                                    <td className="p-3">Metro Cities (e.g., Mumbai, Delhi)</td>
+                                    <td className="p-3">2–5 business days</td>
+                                    <td className="p-3">1–3 business days</td>
+                                </tr>
+                                <tr className="border-t">
+                                    <td className="p-3">Urban/Other Regions</td>
+                                    <td className="p-3">5–9 business days</td>
+                                    <td className="p-3">3–5 business days</td>
+                                </tr>
+                                <tr className="border-t">
+                                    <td className="p-3">Remote Areas</td>
+                                    <td className="p-3">7–14 business days</td>
+                                    <td className="p-3">5–7 business days</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p className="mt-2 text-xs text-foreground-muted">*Times are estimates and may vary due to external factors like weather or strikes.</p>
+                </div>
 
-            {/* 5. Tracking Your Order */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    5. Tracking Your Order
-                </h2>
-                <p className="text-sm tracking-wide font-light">
-                    Once your order is shipped, you will receive a tracking number by
-                    email or SMS. You can track your shipment via the courier&apos;s website.
-                </p>
-            </div>
+                {/* 5. Shipping Charges */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase">5. Shipping Charges</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        Shipping costs are calculated based on weight, dimensions, destination, and method. We offer:
+                    </p>
+                    <ul className="list-inside list-disc space-y-2 text-sm tracking-wide font-light">
+                        <li>Free shipping on all prepaid orders above ₹999.</li>
+                        <li>A flat fee of ₹79 for orders below ₹999 (standard shipping).</li>
+                        <li>Additional ₹50–₹100 for COD orders, depending on location.</li>
+                        <li>Express shipping: ₹100–₹300 extra, based on package details.</li>
+                        <li>International: Variable, starting from ₹500, plus customs.</li>
+                    </ul>
+                    <p className="text-sm tracking-wide font-light">
+                        Costs are displayed at checkout. We recommend prepaid orders to avoid COD fees and qualify for free shipping.
+                    </p>
+                </div>
 
-            {/* 6. Undeliverable Packages */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    6. Undeliverable Packages
-                </h2>
-                <p className="text-sm tracking-wide font-light">
-                    If a package is returned due to incorrect address or repeated failed
-                    delivery attempts, we will contact you for an alternative address.
-                    Additional shipping charges may apply for reshipping.
-                </p>
-            </div>
+                {/* 6. Tracking Your Order */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase">6. Tracking Your Order</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        Upon shipment, you will receive a tracking number via email and SMS. Track your order directly on our website or the courier's portal. For assistance, contact support.
+                    </p>
+                </div>
 
-            {/* 7. Damaged or Lost Items */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">
-                    7. Damaged or Lost Items
-                </h2>
-                <p className="text-sm tracking-wide font-light">
-                    If your package arrives damaged or is lost in transit, please notify
-                    us at <strong>support@artisanhide.com</strong> within 48 hours. We’ll
-                    coordinate with the courier to resolve the issue.
-                </p>
-            </div>
+                {/* 7. Undeliverable or Returned Packages */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase">7. Undeliverable or Returned Packages</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        If a package is undeliverable due to incorrect address, failed attempts, or refusal, it will be returned to us. We will contact you for reshipping, which may incur additional charges. Please ensure accurate address details at checkout.
+                    </p>
+                </div>
 
-            {/* 8. Contact Us */}
-            <div className="space-y-4">
-                <h2 className="text-xl uppercase text-templateBrown">8. Contact Us</h2>
-                <p className="text-sm tracking-wide font-light">
-                    For questions about shipping, delivery, or tracking, feel free to
-                    reach out to:
-                </p>
-                <p className="text-sm tracking-wide font-light">
-                    📧 <strong>support@artisanhide.com</strong>
-                </p>
-            </div>
-        </div>
+                {/* 8. Damaged, Lost, or Delayed Items */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase">8. Damaged, Lost, or Delayed Items</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        Report any damaged or lost items within 48 hours of delivery attempt via <a href="mailto:support@artisanhide.com" className="hover:underline">support@artisanhide.com</a> with photos and order details. We offer shipping insurance for high-value items and will investigate claims promptly, providing replacements or refunds as per our return policy. Delays beyond our control (e.g., natural disasters) are not eligible for compensation.
+                    </p>
+                </div>
+
+                {/* 9. Customs and International Shipping */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase">9. Customs and International Shipping</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        For international orders, customers are responsible for customs duties, taxes, and import fees. Delivery times may extend to 10–21 days. We comply with all export regulations.
+                    </p>
+                </div>
+
+                {/* 10. Policy Updates */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase">10. Policy Updates</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        We may update this policy periodically. Changes will be posted here with a new effective date. Continued use of our services indicates acceptance.
+                    </p>
+                </div>
+
+                {/* 11. Contact Us */}
+                <div className="space-y-2">
+                    <h2 className="text-xl uppercase">11. Contact Us</h2>
+                    <p className="text-sm tracking-wide font-light">
+                        For any shipping-related questions, reach out to us at <a href="mailto:support@artisanhide.com" className="hover:underline">support@artisanhide.com</a>. We're here to assist!
+                    </p>
+                </div>
+            </section>
+        </>
     )
 }

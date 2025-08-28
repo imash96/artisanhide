@@ -2,7 +2,7 @@ import { retrieveCart } from "@lib/action/cart";
 import CartSummary from "@module/cart/templates/cart-summary";
 import Container from "@module/common/create-section";
 import { notFound } from "next/navigation";
-import CartLineitem from "@module/cart/templates/line-item-new";
+import CartLineitem from "@module/cart/templates/line-item";
 import { retrieveCustomer } from "@lib/action/customer";
 import SignInPrompt from "@module/cart/templates/sign-in-prompt";
 import EmptyCart from "@module/common/empty-cart";
