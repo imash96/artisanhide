@@ -9,7 +9,7 @@ export default function SIGNUP({ setCurrentView }: AuthProps) {
     const [message, formAction] = useActionState(signup, null)
     return (
         <>
-            <h2 className="text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            <h2 className="text-2xl font-bold leading-9 tracking-tight">
                 Become a Member
             </h2>
             <h3>

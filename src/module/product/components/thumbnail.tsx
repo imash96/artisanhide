@@ -18,7 +18,7 @@ export default function Thumbnail({ thumbnail, alt = "Product thumbnail", classN
 
 export const ImageHolder = ({ className = "", children, isShadow }: Pick<ThumbnailProps, "className" | "isShadow"> & React.PropsWithChildren) => {
     return (
-        <div className={`relative w-full overflow-hidden bg-white rounded-lg aspect-[.75] no-scrollbar border border-gray-300 ${isShadow ? "shadow-md shadow-gray-300 hover:shadow-lg transition-shadow ease-in-out duration-300" : ""} ${className ?? ""}`}>
+        <div className={`relative w-full overflow-hidden bg-white rounded-lg aspect-[.75] no-scrollbar border border-border ${isShadow ? "shadow-md shadow-shadow hover:shadow-lg transition-shadow ease-in-out duration-300" : ""} ${className ?? ""}`}>
             {children}
         </div>
     )
@@ -38,7 +38,7 @@ export const ImageOrPlaceholder = ({ thumbnail, alt }: Pick<ThumbnailProps, "thu
                 />
             ) : (
                 <div className="flex items-center justify-center h-full">
-                    <Placeholder className="w-1/2 h-1/2 sm:w-1/3 sm:h-1/3 text-gray-300" />
+                    <Placeholder className="w-1/2 h-1/2 sm:w-1/3 sm:h-1/3 text-border" />
                 </div>
             )}
         </>

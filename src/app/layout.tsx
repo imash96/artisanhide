@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { use } from "react";
 import { Bricolage_Grotesque } from "next/font/google";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import HolyLoader from "holy-loader";
 import Announcement from "@/layout/home/templates/announcement";
 
@@ -17,6 +17,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" data-theme={theme ? theme : "light"}>
       <head>
+        {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_ID} />}
         {/* Trustpilot Script */}
         {process.env.NODE_ENV === "production" &&
           <Script id="trustpilot-script" strategy="afterInteractive">

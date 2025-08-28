@@ -8,7 +8,7 @@ export default function SIGNIN({ setCurrentView }: AuthProps) {
     const [message, formAction] = useActionState(login, null)
     return (
         <>
-            <h2 className="text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            <h2 className="text-2xl font-bold leading-9 tracking-tight">
                 Welcome back
             </h2>
             <h3>

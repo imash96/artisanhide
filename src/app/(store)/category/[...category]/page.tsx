@@ -30,7 +30,7 @@ export default async function Page({ params, searchParams }: CategoryPageProps) 
                 </h1>
                 <Breadcrumb crumbs={crumbs} className="justify-center items-center mt-2" />
                 {/* {category.description && (
-                    <p className="mt-3 text-lg text-gray-600 max-w-xl mx-auto">{category.description}</p>
+                    <p className="mt-3 text-lg text-foreground-muted max-w-xl mx-auto">{category.description}</p>
                 )} */}
                 <p className="mt-3 text-lg text-foreground-muted max-w-4xl mx-auto">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates eveniet tempora dignissimos quae in! Nam beatae suscipit amet quis a nesciunt consequuntur asperiores qui corporis ea! Consequatur exercitationem aspernatur voluptates expedita ut! Cupiditate suscipit odio ex aliquam, doloremque aperiam in libero quisquam, excepturi iure illum et explicabo id quam. Id.</p>
             </header>

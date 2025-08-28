@@ -18,9 +18,6 @@ account
 - login page
 - order page
 
-Cart
-- full work pending
-
 category
 - full work pending
 
@@ -33,9 +30,6 @@ contact-us
 faqs
 - make faq accordion
 - optimize
-
-policy
-- all page optimize
 
 guide
 - make guide page
