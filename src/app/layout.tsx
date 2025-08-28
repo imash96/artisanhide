@@ -16,16 +16,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const theme = use(cookies()).get('__theme')?.value
   return (
     <html lang="en" data-theme={theme ? theme : "light"}>
-      <body className={`${BricolageGrotesque.className} bg-background antialiased pb-14 lg:pb-0`}>
-        <HolyLoader color="gray" easing="ease-out" />
-        <Announcement />
-        {children}
-      </body>
-      {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />}
-      {/* Trustpilot Script */}
-      {process.env.NODE_ENV === "production" &&
-        <Script id="trustpilot-script" strategy="afterInteractive">
-          {`(function(w,d,s,r,n){
+      <head>
+        {/* Trustpilot Script */}
+        {process.env.NODE_ENV === "production" &&
+          <Script id="trustpilot-script" strategy="afterInteractive">
+            {`(function(w,d,s,r,n){
               w.TrustpilotObject=n;
               w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};
               var a=d.createElement(s);a.async=1;a.src=r;a.type='text/javascript';
@@ -34,8 +29,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             })(window,document,'script','https://invitejs.trustpilot.com/tp.min.js','tp');
             tp('register','ogjwFsXcS1kWSc5k');
           `}
-        </Script>
-      }
+          </Script>
+        }
+      </head>
+      <body className={`${BricolageGrotesque.className} bg-background antialiased pb-14 lg:pb-0`}>
+        <HolyLoader color="gray" easing="ease-out" />
+        <Announcement />
+        {children}
+      </body>
+      {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />}
     </html>
   );
 }
