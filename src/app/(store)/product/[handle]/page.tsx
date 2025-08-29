@@ -11,6 +11,7 @@ import RelatedProducts from "@module/product/templates/product-related"
 import ProductReview from "@module/product/templates/product-review"
 import { cookies } from "next/headers"
 import { notFound } from "next/navigation"
+import Script from "next/script"
 
 export default async function Page({ params }: { params: Promise<{ handle: string }> }) {
     const { handle } = await params
@@ -46,6 +47,15 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
             <ProductDesc />
             <RelatedProducts product={product} region={region} />
             <ProductReview />
+            {process.env.NEXT_PUBLIC_TRUST_PILOT_ID &&
+                <Script
+                    id="trustpilot-script"
+                    strategy="lazyOnload"
+                    dangerouslySetInnerHTML={{
+                        __html: `document.addEventListener('DOMContentLoaded', function() { const trustpilot_invitation = { recipientEmail: 'john@gmail.com', recipientName: 'John', referenceId: 'Order_123', source: 'InvitationScript', productSkus: ['sku_1', 'sku_2'], products: [{ sku: 'sku_1', productUrl: 'https://your_shop.com/product/1', imageUrl: 'https://your_shop.com/product/images/1', name: 'test_product_1', }, { sku: 'sku_2', productUrl: 'https://your_shop.com/product/2', imageUrl: 'https://your_shop.com/product/images/2', name: 'test_product_2', }], }; tp('createInvitation', trustpilot_invitation); });`,
+                    }}
+                />
+            }
         </Container >
     )
 }
