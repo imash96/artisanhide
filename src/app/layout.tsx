@@ -20,17 +20,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_ID} />}
         {/* Trustpilot Script */}
         {process.env.NODE_ENV === "production" &&
-          <Script id="trustpilot-script" strategy="afterInteractive">
-            {`(function(w,d,s,r,n){
-              w.TrustpilotObject=n;
-              w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};
-              var a=d.createElement(s);a.async=1;a.src=r;a.type='text/javascript';
-              var f=d.getElementsByTagName(s)[0];
-              f.parentNode.insertBefore(a,f)
-            })(window,document,'script','https://invitejs.trustpilot.com/tp.min.js','tp');
-            tp('register','ogjwFsXcS1kWSc5k');
-          `}
-          </Script>
+          <Script
+            id="trustpilot-script"
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,r,n){w.TrustpilotObject=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};a=d.createElement(s);a.async=1;a.src=r;a.type='text/java'+s;f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(a,f)})(window,document,'script','https://invitejs.trustpilot.com/tp.min.js ', 'tp');tp('register', 'ogjwFsXcS1kWSc5k');`,
+            }}
+          />
         }
       </head>
       <body className={`${BricolageGrotesque.className} bg-background antialiased pb-14 lg:pb-0`}>
