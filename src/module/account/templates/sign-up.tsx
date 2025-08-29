@@ -6,7 +6,7 @@ import { useActionState } from "react"
 import { AuthProps } from "./sign-in"
 
 export default function SIGNUP({ setCurrentView }: AuthProps) {
-    const [message, formAction] = useActionState(signup, null)
+    const [message, formAction, isPending] = useActionState(signup, null)
     return (
         <>
             <h2 className="text-2xl font-bold leading-9 tracking-tight">
@@ -61,18 +61,18 @@ export default function SIGNUP({ setCurrentView }: AuthProps) {
                     </div>
                     <div className="flex items-center justify-between">
                         <div className="text-sm leading-6">
-                            <Link href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                            <Link href="#" className="font-semibold text-secondary hover:text-link">
                                 Forgot password?
                             </Link>
                         </div>
                         <div className="text-sm leading-6">
-                            <span onClick={() => setCurrentView("SIGN_IN")} className="font-semibold text-indigo-600 hover:text-indigo-500 cursor-pointer">
+                            <span onClick={() => setCurrentView("SIGN_IN")} className="font-semibold text-secondary hover:text-link cursor-pointer">
                                 Sign in
                             </span>
                         </div>
                     </div>
 
-                    <Button type="submit" variant="solid" className="w-full rounded-md">
+                    <Button type="submit" variant="solid" className="w-full rounded-md" isLoading={isPending}>
                         Join
                     </Button>
                 </form>

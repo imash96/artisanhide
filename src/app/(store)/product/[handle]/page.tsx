@@ -47,15 +47,16 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
             <ProductDesc />
             <RelatedProducts product={product} region={region} />
             <ProductReview />
-            {process.env.NEXT_PUBLIC_TRUST_PILOT_ID &&
+            {/* TODO move this to order section page */}
+            {/* {process.env.NEXT_PUBLIC_TRUST_PILOT_ID &&
                 <Script
                     id="trustpilot-script"
                     strategy="lazyOnload"
                     dangerouslySetInnerHTML={{
-                        __html: `document.addEventListener('DOMContentLoaded', function() { const trustpilot_invitation = { recipientEmail: 'john@gmail.com', recipientName: 'John', referenceId: 'Order_123', source: 'InvitationScript', productSkus: ['sku_1', 'sku_2'], products: [{ sku: 'sku_1', productUrl: 'https://your_shop.com/product/1', imageUrl: 'https://your_shop.com/product/images/1', name: 'test_product_1', }, { sku: 'sku_2', productUrl: 'https://your_shop.com/product/2', imageUrl: 'https://your_shop.com/product/images/2', name: 'test_product_2', }], }; tp('createInvitation', trustpilot_invitation); });`,
+                        __html: `document.addEventListener('DOMContentLoaded', function() { const trustpilot_invitation = { recipientEmail: 'arshad.ans7006@gmail.com', recipientName: 'Arshad', referenceId: 'Order_D654SE65XF46D', source: 'InvitationScript', productSkus: ['MJBI84'], products: [{ sku: 'MJBI84', productUrl: 'https://artisanhide.com/product/racer-leather-jacket-men-original-nappa-lambskin-outwear-mjbi84', imageUrl: 'https://backend-file-service.s3.us-east-2.amazonaws.com/Men/Leather/Jacket/Biker%20Racer/MJBI_84%20(1).webp', name: 'Racer Leather Jacket Men Original Nappa Lambskin Outwear MJBI84', }], }; tp('createInvitation', trustpilot_invitation); });`,
                     }}
                 />
-            }
+            } */}
         </Container >
     )
 }

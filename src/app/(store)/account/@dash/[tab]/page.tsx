@@ -10,7 +10,7 @@ import Profile from "@module/account/templates/profile"
 import Wishlist from "@module/account/templates/wishlist"
 
 export default async function Page({ params }: { params: Promise<{ tab: string }> }) {
-    const [customer, regions] = await Promise.all([retrieveCustomer("+*orders,*measurements,wishlist.items.product.*"), listRegions()]);
+    const [customer, regions] = await Promise.all([retrieveCustomer("+measurements.*,wishlist.items.product.*"), listRegions()]);
     if (!customer || !regions) notFound()
 
     const renderContent = async () => {
@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: Promise<{ tab: string }
             case "addresses":
                 return <Addresses addresses={customer.addresses} regions={regions} />
             case "orders":
-                return <Orders orders={customer.orders} />
+                return <Orders />
             case "wishlist":
                 return <Wishlist wishlist={customer.wishlist} />
             case "measurement":

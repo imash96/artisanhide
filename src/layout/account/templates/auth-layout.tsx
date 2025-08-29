@@ -7,7 +7,7 @@ export default function AuthLayout({ children }: React.PropsWithChildren) {
     return (
         <div className="max-w-sm mx-auto flex flex-col justify-center">
             {children}
-            <div className="mt-6">
+            <div className="my-6">
                 <CustomDivider text="or" />
                 <div className="mt-6 grid grid-cols-2 gap-3">
                     <Button variant="outline" className="w-full bg-transparent rounded-md">

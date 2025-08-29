@@ -5,7 +5,7 @@ import Link from "next/link"
 import { useActionState } from "react"
 
 export default function SIGNIN({ setCurrentView }: AuthProps) {
-    const [message, formAction] = useActionState(login, null)
+    const [message, formAction, isPending] = useActionState(login, null)
     return (
         <>
             <h2 className="text-2xl font-bold leading-9 tracking-tight">
@@ -36,18 +36,18 @@ export default function SIGNIN({ setCurrentView }: AuthProps) {
                     </div>
                     <div className="flex items-center justify-between">
                         <div className="text-sm leading-6">
-                            <Link href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                            <Link href="#" className="font-semibold text-secondary hover:text-link">
                                 Forgot password?
                             </Link>
                         </div>
                         <div className="text-sm leading-6">
-                            <span onClick={() => setCurrentView("SIGN_UP")} className="font-semibold text-indigo-600 hover:text-indigo-500 cursor-pointer">
+                            <span onClick={() => setCurrentView("SIGN_UP")} className="font-semibold text-secondary hover:text-link cursor-pointer">
                                 Join us
                             </span>
                         </div>
                     </div>
 
-                    <Button type="submit" variant="outline" className="w-full rounded-md">
+                    <Button type="submit" variant="outline" className="w-full rounded-md" isLoading={isPending}>
                         Sign in
                     </Button>
                 </form>
