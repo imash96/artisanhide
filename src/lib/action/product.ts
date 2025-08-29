@@ -94,8 +94,11 @@ export const listProductsWithSort = async ({ page = 0, queryParams, sortBy = "cr
 }
 
 export const fetchProductByCollection = async (query?: StoreProductListParams, cacheTag?: string) => {
-    const next = await getCacheOptions(cacheTag ?? "prod_collection")
-    return sdk.store.product.list(query, { next }).then(({ products }) => products)
+    const nextOptions = await getCacheOptions(cacheTag ?? "prod_collection")
+    return sdk.store.product.list(query, {
+        next: nextOptions,
+        cache: "force-cache",
+    }).then(({ products }) => products)
 }
 
 type ListProductsProps = {

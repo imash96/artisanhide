@@ -3,10 +3,9 @@ import ProductThumbnail from "@module/product/components/product-thumbnail";
 import Link from "next/link";
 import { convertToLocale } from "@lib/util/money";
 
-export default function OrderLineitem({ item, currencyCode }: { item: StoreOrderLineItem, currencyCode: string }) {
-    // console.log(item)
+export default function OrderLineitem({ item, currencyCode, className = "" }: OrderLineitemProp) {
     return (
-        <li key={item.id} className="flex gap-2">
+        <li key={item.id} className={`flex gap-2 ${className}`}>
             <div className="relative w-24 flex-shrink-0">
                 <ProductThumbnail
                     src={item.thumbnail}
@@ -38,4 +37,10 @@ export default function OrderLineitem({ item, currencyCode }: { item: StoreOrder
             </div>
         </li>
     )
+}
+
+type OrderLineitemProp = {
+    item: StoreOrderLineItem,
+    currencyCode: string,
+    className?: string
 }

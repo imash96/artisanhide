@@ -11,7 +11,7 @@ export const retrieveOrder = async (id: string) => {
     const nextOptions = await getCacheOptions("orders")
 
     return sdk.store.order.retrieve(id, {
-        fields: "*payment_collections.payments,*items,*items.metadata,*items.variant,*items.product",
+        fields: "*payment_collections.payments,*items,*items.metadata,*items.variant,*items.product,*fulfillments.shipping_option",
     }, {
         ...headers,
         next: nextOptions,

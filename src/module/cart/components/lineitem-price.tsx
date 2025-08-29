@@ -13,9 +13,9 @@ export default function LineItemPrice({ item, currencyCode }: LineItemPriceProps
                 {convertToLocale({ amount: currentPrice, currency_code: currencyCode })}
             </span>
             {hasReducedPrice && (
-                <span className="text-xs text-foreground-disabled line-through">
+                <del className="text-xs text-foreground-disabled line-through">
                     {convertToLocale({ amount: originalPrice, currency_code: currencyCode })}
-                </span>
+                </del>
             )}
         </div>
     );

@@ -5,19 +5,16 @@ import MobileDrawer from "@/layout/home/templates/mobile-drawer";
 import CartDrawer from "@/layout/home/templates/cart-drawer";
 import Footer from "@/layout/home/templates/footer";
 import BottomTabs from "@/layout/home/templates/bottom-tabs";
-import { retrieveCart } from "@lib/action/cart";
 import { listCategories } from "@lib/action/categories";
 import { DrawerProvider } from "@lib/context/drawer-context";
 
 export default function StoreLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-
-    const cart = use(retrieveCart())
     const parent_categories = use(listCategories({ include_descendants_tree: true, limit: 6, parent_category_id: "null", }))
     return (
         <DrawerProvider>
             <Header parent_categories={parent_categories} />
             <MobileDrawer parent_categories={parent_categories} />
-            <CartDrawer cart={cart} />
+            <CartDrawer />
             {children}
             <BottomTabs />
             <Footer />

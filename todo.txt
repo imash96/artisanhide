@@ -43,8 +43,4 @@ return
 search
 - make search component
 
-order
-- make order detail page
-- make order successful page
-
 - make all animation smooth

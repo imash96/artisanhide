@@ -38,7 +38,7 @@ export default function OrderCard({ order }: { order: StoreOrder }) {
                     </div>
                 </div>
                 <div className="flex flex-col gap-2 w-auto">
-                    <Button variant="outline">
+                    <Button href={`/order/${order.id}`} variant="outline">
                         <span>View Order</span>
                         <span className="sr-only"> {order_id}</span>
                     </Button>
