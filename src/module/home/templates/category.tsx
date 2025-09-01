@@ -15,7 +15,7 @@ export default async function Category() {
                 {product_categories.map((category, xIndex) => (
                     <div key={category.id} className="tw-category-card relative overflow-hidden no-scrollbar max-h-72" data-index={xIndex}>
                         <Image
-                            src={category.description ?? ""}
+                            src={category.metadata?.thumbnail as string ?? ""}
                             width={500} height={250}
                             alt={category.name}
                             className="object-cover object-center w-full h-full transition-transform duration-300 group-hover:scale-105"

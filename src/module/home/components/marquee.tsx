@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export default function Marquee({ images, direction = "forward", duration = 20, className="" }: MarqueeProps) {
+export default function Marquee({ images, direction = "forward", duration = 20, className = "" }: MarqueeProps) {
 
     return (
         <div className={`overflow-hidden no-scrollbar whitespace-nowrap ${className ?? ""}`}>
@@ -13,7 +13,8 @@ export default function Marquee({ images, direction = "forward", duration = 20, 
                         <Image
                             src={img.src || "/svg/placeholder.svg"}
                             alt={`Marquee image ${(index % images.length) + 1}`}
-                            fill
+                            width={240}
+                            height={260}
                             className="shadow-md object-cover object-center hover:scale-105 hover:rotate-2 transition-transform ease-in-out duration-300 h-full w-full"
                             sizes="240px"
                             priority={index < 4} // Prioritize first few images
@@ -25,7 +26,8 @@ export default function Marquee({ images, direction = "forward", duration = 20, 
                         <Image
                             src={img.src || "/svg/placeholder.svg"}
                             alt={`Marquee image ${(index % images.length) + 1}`}
-                            fill
+                            width={240}
+                            height={260}
                             className="shadow-md object-cover object-center hover:scale-105 hover:rotate-2 transition-transform ease-in-out duration-300 h-full w-full"
                             sizes="240px"
                             priority={index < 4} // Prioritize first few images

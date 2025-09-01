@@ -8,7 +8,6 @@ export default function OrderCard({ order }: { order: StoreOrder }) {
     const order_paced = new Date(order.created_at).toLocaleDateString()
     const order_id = `${order.id.split("_")[1]}_${order.display_id}`
     const delivery = new Date(order.updated_at).toLocaleDateString()
-    console.log(order)
     return (
         <section aria-labelledby={`order-${order.id}-title`} className="bg-background-elevated rounded-lg border border-border p-5">
             <div className="flex flex-col md:flex-row gap-4 mb-4 sm:mb-6 pb-4 sm:pb-6 border-b">

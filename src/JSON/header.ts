@@ -1,4 +1,4 @@
-export const MEGA_MENU = ["Men", "Women"]
+export const MEGA_MENU = ["Apparel", "Bags & Luggage"]
 
 export const categories = [
     {
@@ -6,21 +6,21 @@ export const categories = [
         href: "/category/kids"
     },
     {
-        name: "Pillow Covers",
-        href: "/category/pillow-covers"
+        name: "Home & Living",
+        href: "/category/home-living"
     },
     {
         name: "Accessories",
         href: "/category/accessories"
     },
     {
-        name: "Travel Bags",
-        href: "/category/travel-bags"
+        name: "Footwear",
+        href: "/category/footwear"
     },
 ]
 
 export const features = {
-    "Men": [
+    "Apparel": [
         {
             id: 'men-co1-01',
             name: 'New Arrivals',
@@ -37,7 +37,7 @@ export const features = {
         }
     ],
 
-    "Women": [
+    "Bags & Luggage": [
         {
             id: 'women-col-01',
             name: 'New Arrivals',

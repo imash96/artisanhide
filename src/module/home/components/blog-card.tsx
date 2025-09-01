@@ -34,8 +34,9 @@ export default function BlogCard({ post }: BlogCardProps) {
                 <Image
                     src={post.image || "/svg/placeholder.svg"}
                     alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    width={350}
+                    height={250}
+                    className="object-fill transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     priority
                 />
@@ -92,8 +93,9 @@ export default function BlogCard({ post }: BlogCardProps) {
                         <Image
                             src={post.author.avatar || "/svg/placeholder.svg"}
                             alt={post.author.name}
-                            fill
-                            className="object-cover"
+                            width={35}
+                            height={35}
+                            className="object-fill"
                             sizes="32px"
                         />
                     </div>

@@ -62,7 +62,8 @@ export default function ProductGallery({ images, title }: ProductGalleryProps) {
                             <Image
                                 src={image.url || "/svg/placeholder.svg"}
                                 alt={`${title} thumbnail ${index + 1}`}
-                                fill
+                                width={200}
+                                height={150}
                                 className="object-contain h-full w-full object-center p-0.5"
                             />
                         </button>
@@ -78,9 +79,9 @@ export default function ProductGallery({ images, title }: ProductGalleryProps) {
                             <Image
                                 src={image.url || "/svg/placeholder.svg"}
                                 alt={`${title} - Image ${index + 1}`}
-                                sizes="100vw"
-                                width={1200}
-                                height={1600}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 45vw"
+                                width={3}
+                                height={4}
                                 className="object-contain h-full w-full object-center text-transparent p-0.5"
                                 priority={index === 0}
                                 fetchPriority={index == 0 ? "high" : "auto"}

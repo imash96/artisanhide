@@ -21,7 +21,7 @@ export default async function Page({ params, searchParams }: CategoryPageProps) 
 
     if (!category || !countryCode) notFound();
     const crumbs = getCategoryBreadcrumbs(category);
-
+    
     return (
         <Container className="py-12 md:py-10 lg:py-16 max-w-7xl mx-auto px-4 md:px-8">
             <header className="text-center mb-10">

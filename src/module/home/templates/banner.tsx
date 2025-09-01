@@ -7,7 +7,7 @@ export default function BannerSlider() {
                 <Image
                     src="/temp_img/desktopBanner.webp"
                     alt={" Banner"}
-                    quality={100}
+                    quality={80}
                     sizes="100vw"
                     className="h-full w-full object-cover object-top"
                     height={9}
@@ -19,7 +19,7 @@ export default function BannerSlider() {
                 <Image
                     src="/temp_img/mobileBanner.jpg"
                     alt={" Banner"}
-                    quality={100}
+                    quality={80}
                     sizes="100vw"
                     className="h-full w-full object-cover object-top"
                     height={6}

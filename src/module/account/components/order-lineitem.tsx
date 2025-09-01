@@ -4,7 +4,6 @@ import Link from "next/link";
 import { convertToLocale } from "@lib/util/money";
 
 export default function OrderLineitem({ item, currencyCode }: { item: StoreOrderLineItem, currencyCode: string }) {
-    // console.log(item)
     return (
         <li key={item.id} className="flex gap-2">
             <div className="relative w-24 flex-shrink-0">
