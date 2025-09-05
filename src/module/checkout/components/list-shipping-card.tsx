@@ -1,21 +1,20 @@
 import { convertToLocale } from "@lib/util/money"
-import { StoreCartShippingOption } from "@medusajs/types"
+import { StoreCartShippingMethod, StoreCartShippingOption } from "@medusajs/types"
 import { CheckCircle, Clock, Truck, TruckElectric } from "lucide-react"
 
-export default function ShippingCardList({ method, currencyCode, idx }: ShippingCardProps) {
-    const isExpress = method.name.toLowerCase().includes("expedite")
+export default function ShippingCardList({ availableMethod, currencyCode, selectedMethod }: ShippingCardProps) {
     return (
         <label
-            htmlFor={method.id}
+            htmlFor={availableMethod.id}
             className={`relative flex cursor-pointer rounded-xl border bg-card p-4 shadow-sm transition hover:shadow-md hover:border-card-foreground-hover peer-checked:border-accent`}
         >
             {/* Hidden native radio */}
             <input
                 type="radio"
                 name="shippingMethod"
-                id={method.id}
-                value={method.id}
-                defaultChecked={idx === 0}
+                id={availableMethod.id}
+                value={availableMethod.id}
+                defaultChecked={selectedMethod?.shipping_option_id === availableMethod.id}
                 className="peer sr-only"
             />
 
@@ -23,14 +22,14 @@ export default function ShippingCardList({ method, currencyCode, idx }: Shipping
             <span className="flex flex-1">
                 <span className="flex flex-col">
                     <h3 className="flex items-center font-semibold">
-                        {isExpress ? <TruckElectric className="w-4 h-4 mr-1" /> : <Truck className="w-4 h-4 mr-1" />}
-                        {method.name}
+                        {availableMethod.type?.code === "expedite" ? <TruckElectric className="w-4 h-4 mr-1" /> : <Truck className="w-4 h-4 mr-1" />}
+                        {availableMethod.name}
                     </h3>
                     <p className="text-sm text-card-foreground-hover flex items-center mt-1">
                         <Clock className="w-4 h-4 mr-1 text-warning" />
-                        {method.type.description}
+                        {availableMethod.type?.description}
                     </p>
-                    <span className="mt-8 text-sm font-medium">{method.amount === 0 ? "Free Shipping" : convertToLocale({ amount: method.amount, currency_code: currencyCode })}</span>
+                    <span className="mt-8 text-sm font-medium">{availableMethod.amount === 0 ? "Free Shipping" : convertToLocale({ amount: availableMethod.amount, currency_code: currencyCode })}</span>
                 </span>
             </span>
 
@@ -50,7 +49,8 @@ export default function ShippingCardList({ method, currencyCode, idx }: Shipping
 }
 
 type ShippingCardProps = {
-    method: StoreCartShippingOption,
+    availableMethod: StoreCartShippingOption,
+    selectedMethod: StoreCartShippingMethod | undefined
     currencyCode: string,
     idx?: number
 }

@@ -32,6 +32,9 @@ export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
                 data: { payment_description: "Men Leather Jacket" }
             }, {})
         }
+        await initiatePaymentSessionCustom(cart.id, cart.payment_collection?.id, {
+            provider_id: method
+        }, {})
     }
 
     const paymentReady = (activeSession && cart.shipping_methods?.length !== 0 && cart.shipping_address?.address_1)
@@ -111,6 +114,7 @@ export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
                                             paymentInfoMap={paymentInfoMap}
                                             paymentProviderId={paymentMethod.id}
                                             selectedPaymentOptionId={selectedPaymentMethod}
+                                            onChange={setPaymentMethod}
                                         />
                                     )}
                                 </div>

@@ -19,7 +19,7 @@ export async function retrieveCart(cartId?: string) {
     const nextOptions = await getCacheOptions("carts");
 
     return await sdk.store.cart.retrieve(id, {
-        fields: "*items, *region, *items.product, *items.variant, *items.thumbnail, *items.metadata, +items.total, *promotions, +shipping_methods.name",
+        fields: "*items, *region, *items.product, *items.variant, *items.thumbnail, *items.metadata, +items.total, *promotions, shipping_methods.name, shipping_methods.shipping_option.type.*",
     }, {
         ...headers,
         next: nextOptions ? nextOptions : null,

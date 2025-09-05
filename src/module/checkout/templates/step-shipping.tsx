@@ -48,8 +48,8 @@ export default function ShippingStep({ cart, availableShippingMethods }: Shippin
             </StepHeader>
             {isOpen ?
                 <form action={formAction} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4 w-fit">
-                    {availableShippingMethods.map((method, idx) => (
-                        <ShippingCardList key={method.id} method={method} currencyCode={cart.currency_code} idx={idx} />
+                    {availableShippingMethods.map((availableMethod, idx) => (
+                        <ShippingCardList key={availableMethod.id} availableMethod={availableMethod} currencyCode={cart.currency_code} selectedMethod={cart.shipping_methods?.[0]} />
                     ))}
                     {/* Footer */}
                     <div>

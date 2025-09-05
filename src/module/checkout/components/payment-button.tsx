@@ -1,12 +1,15 @@
 "use client"
 
 import { placeOrder } from "@lib/action/cart"
-import { isManual, isStripe } from "@lib/constant"
+import { isManual, isPaypal, isStripe } from "@lib/constant"
 import { StoreCart } from "@medusajs/types"
 import Button from "@module/common/custom-button"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
+import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
+import { PayPalButtons, PayPalCardFieldsProvider, PayPalCVVField, PayPalExpiryField, PayPalNameField, PayPalNumberField, usePayPalCardFields, usePayPalScriptReducer } from "@paypal/react-paypal-js"
 import { useState } from "react"
 import ErrorMessage from "./error-message"
+import { Loader } from "lucide-react"
 
 export default function PaymentButton({ cart }: { cart: StoreCart }) {
     const notReady = !cart || !cart.shipping_address || !cart.billing_address || !cart.email || (cart.shipping_methods?.length ?? 0) < 1
@@ -25,10 +28,132 @@ export default function PaymentButton({ cart }: { cart: StoreCart }) {
             return (
                 <ManualTestPaymentButton notReady={notReady} />
             )
-        default:
-            return <Button disabled>Select a payment method</Button>
+        case isPaypal(paymentSession?.provider_id):
+            return (
+                <PayPalPaymentButton
+                    notReady={notReady}
+                    cart={cart}
+                />
+            )
     }
 }
+
+const PayPalPaymentButton = ({ cart, notReady }: { cart: StoreCart; notReady: boolean }) => {
+    const [submitting, setSubmitting] = useState(false)
+    const [errorMessage, setErrorMessage] = useState<string | null>(null)
+
+    const onPaymentCompleted = async () => {
+        await placeOrder().catch(() => {
+            setErrorMessage("An error occurred, please try again.")
+            setSubmitting(false)
+        })
+    }
+
+    const session = cart.payment_collection?.payment_sessions?.find(
+        (s) => s.status === "pending"
+    )
+
+    const handlePayment = async (
+        _data: OnApproveData,
+        actions: OnApproveActions
+    ) => {
+        actions?.order
+            ?.authorize()
+            .then((authorization) => {
+                if (authorization.status !== "COMPLETED") {
+                    setErrorMessage(`An error occurred, status: ${authorization.status}`)
+                    return
+                }
+                onPaymentCompleted()
+            })
+            .catch(() => {
+                setErrorMessage(`An unknown error occurred, please try again.`)
+                setSubmitting(false)
+            })
+    }
+
+    const [{ isPending, isResolved }] = usePayPalScriptReducer()
+
+    if (isPending) {
+        return <Loader />
+    }
+
+    if (isResolved) {
+        return (
+            <>
+                <PayPalButtons
+                    style={{ layout: "horizontal",  }}
+                    
+                    createOrder={async () => session?.data.id as string}
+                    onApprove={handlePayment}
+                    disabled={notReady || submitting || isPending}
+                />
+                <PayPalCardFieldsProvider
+                    createOrder={async () => session?.data.id as string}
+                    onApprove={(onApprove) => { console.log(onApprove) }}
+                    onError={(err) => console.log(err)}
+                    style={{
+                        input: {
+                            "font-size": "16px",
+                            "font-family": "courier, monospace",
+                            "font-weight": "lighter",
+                            color: "#ccc",
+                        },
+                        ".invalid": { color: "purple" },
+                    }}
+                >
+                    <PayPalNameField
+                        style={{
+                            input: { color: "blue" },
+                            ".invalid": { color: "purple" },
+                        }}
+                    />
+                    <PayPalNumberField />
+                    <PayPalExpiryField />
+                    <PayPalCVVField />
+
+                    {/* Custom client component to handle card fields submission */}
+                    <SubmitPayment />
+                </PayPalCardFieldsProvider>
+                <ErrorMessage
+                    error={errorMessage}
+                />
+            </>
+        )
+    }
+}
+
+const SubmitPayment = () => {
+    const { cardFieldsForm, fields } = usePayPalCardFields();
+
+    const handleClick = async () => {
+        if (!cardFieldsForm) {
+            const childErrorMessage =
+                "Unable to find any child components in the <PayPalCardFieldsProvider />";
+
+            throw new Error(childErrorMessage);
+        }
+        const formState = await cardFieldsForm.getState();
+
+        if (!formState.isFormValid) {
+            return alert("The payment form is invalid");
+        }
+
+        cardFieldsForm.submit().catch((err) => {
+            console.log(err)
+        });
+    };
+
+    return (
+        <Button
+            style={{ float: "right" }}
+            onClick={handleClick}
+        >
+            {"Pay"}
+        </Button>
+    );
+};
+
 
 function StripePaymentButton({ cart, notReady, }: { cart: StoreCart, notReady: boolean }) {
     const [submitting, setSubmitting] = useState(false)
