@@ -3,7 +3,6 @@ import { use } from "react";
 import { Bricolage_Grotesque } from "next/font/google";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import HolyLoader from "holy-loader";
-import Announcement from "@/layout/home/templates/announcement";
 
 import "@/style/globals.css";
 import "@/style/mode_light.css";
@@ -29,9 +28,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           />
         }
       </head>
-      <body className={`${BricolageGrotesque.className} bg-background antialiased pb-14 lg:pb-0`}>
+      <body className={`${BricolageGrotesque.className} bg-background antialiased`}>
         <HolyLoader color="gray" easing="ease-out" />
-        <Announcement />
         {children}
       </body>
       {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />}

@@ -1,3 +1,5 @@
+"use client"
+
 import { useTransition } from "react"
 import { LogOut, LoaderCircle } from "lucide-react"
 import { signout } from "@lib/action/customer"

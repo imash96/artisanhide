@@ -71,6 +71,8 @@ export async function signup(_currentState: unknown, formData: FormData) {
     } catch (error: any) {
         return error.toString()
     }
+
+    redirect("/account")
 }
 
 export async function login(_currentState: unknown, formData: FormData) {
@@ -92,6 +94,8 @@ export async function login(_currentState: unknown, formData: FormData) {
     } catch (error: any) {
         return error.toString()
     }
+
+    redirect("/account")
 }
 
 export async function signout() {
@@ -107,7 +111,7 @@ export async function signout() {
     const cartCacheTag = await getCacheTag("carts")
     revalidateTag(cartCacheTag)
 
-    redirect(`/account`)
+    redirect(`/auth`)
 }
 
 export async function transferCart() {

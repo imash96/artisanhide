@@ -31,7 +31,7 @@ export default function ProductAccordion({ product }: ProductTabsProps) {
         <Accordion type="multiple" defaultValue={[accordionDetails[0].id]} className="my-8">
             {accordionDetails.map((item) => (
                 <AccordionItem value={item.id} key={item.id}>
-                    <AccordionTrigger className="transition-colors font-medium hover:text-foreground-muted">
+                    <AccordionTrigger className="transition-colors font-medium hover:text-foreground-muted py-4 px-2">
                         <h4 className="font-light text-base text-accent">{item.label}</h4>
                     </AccordionTrigger>
                     <AccordionContent className="text-sm font-light leading-relaxed">

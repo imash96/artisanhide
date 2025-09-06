@@ -7,11 +7,13 @@ import Footer from "@/layout/home/templates/footer";
 import BottomTabs from "@/layout/home/templates/bottom-tabs";
 import { listCategories } from "@lib/action/categories";
 import { DrawerProvider } from "@lib/context/drawer-context";
+import Announcement from "@/layout/home/templates/announcement";
 
 export default function StoreLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     const parent_categories = use(listCategories({ include_descendants_tree: true, limit: 6, parent_category_id: "null", }))
     return (
         <DrawerProvider>
+            <Announcement />
             <Header parent_categories={parent_categories} />
             <MobileDrawer parent_categories={parent_categories} />
             <CartDrawer />

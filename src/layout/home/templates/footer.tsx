@@ -2,16 +2,14 @@ import Logo from "@/icon/logo";
 import Container from "@module/common/create-section";
 import Link from "next/link"
 import { Clock, Mail, MessageCircleQuestion } from "lucide-react";
-import FooterCountrySelect from "../components/footer-country-select";
-import { listRegions } from "@lib/action/region";
 import { cookies } from "next/headers";
 import Image from "next/image";
 import { IconProp } from "@/type/common";
 import { footer } from "@/JSON/footer";
+import RegionModal from "./region-modal";
 
 export default async function Footer() {
     const countryCode = (await cookies()).get('__country_code')?.value
-    const regions = await listRegions()
     return (
         <footer aria-labelledby="footer-heading" className="footer bg-primary text-primary-foreground pb-4 lg:pb-0">
             <h2 id="footer-heading" className="sr-only">
@@ -30,7 +28,7 @@ export default async function Footer() {
                                 <p className="text-sm tracking-wider px-4">{info.content}</p>
                             </div>
                         ))}
-                        {regions && <FooterCountrySelect regions={regions} countryCode={countryCode} />}
+                        <RegionModal countryCode={countryCode} />
                     </div>
                     {Object.entries(footer).map(([title, data]) => <FooterTop key={title} title={title} data={data} />)}
                 </div>

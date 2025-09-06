@@ -2,15 +2,20 @@ import { sdk } from "../sdk"
 import { getCacheOptions } from "./cookies"
 import medusaError from "../util/medusa-error";
 import type { StoreRegion } from "@medusajs/types";
+import { regions } from "../../region";
 
-export const listRegions = async () => {
-    const nextOptions = await getCacheOptions("regions");
-    return sdk.store.region.list({
-        fields: "id,*countries"
-    }, {
-        next: nextOptions ? nextOptions : null,
-        cache: "force-cache",
-    }).then(({ regions }) => regions).catch(medusaError)
+// export const listRegions = async () => {
+//     const nextOptions = await getCacheOptions("regions");
+//     return sdk.store.region.list({
+//         fields: "id,*countries"
+//     }, {
+//         next: nextOptions ? nextOptions : null,
+//         cache: "force-cache",
+//     }).then(({ regions }) => regions).catch(medusaError)
+// }
+
+export const listRegions = () => {
+    return regions
 }
 
 const regionMap = new Map<string, StoreRegion>()

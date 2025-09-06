@@ -29,7 +29,7 @@ export default function CustomInput({
 
     const stateClasses = {
         default: {
-            border: "border-border focus:border-card-foreground",
+            border: "border-border focus:border-accent",
             label: "text-card-foreground peer-focus:text-card-foreground",
             helper: "text-card-foreground"
         },
@@ -72,7 +72,7 @@ export default function CustomInput({
                     className={`absolute text-sm duration-300 transform -translate-y-3 scale-75 top-3.5 z-9 origin-[0] start-2.5 transition-all peer-focus:scale-75 peer-focus:-translate-y-3 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 ${stateClasses.label} ${disabled ? "text-foreground-muted" : undefined}`}
                 >
                     {label}
-                    {required && <span className="text-destructive-foreground ml-1">*</span>}
+                    {required && <span className="text-destructive ml-1">*</span>}
                 </label>
 
                 {isPassword && (

@@ -34,5 +34,7 @@ export const DrawerProvider = ({ children }: React.PropsWithChildren) => {
         setActiveCategory,
     };
 
-    return <DrawerContext.Provider value={value}>{children}</DrawerContext.Provider>;
+    return <DrawerContext.Provider value={value}>
+        <main className="pb-14 lg:pb-0">{children}</main>
+    </DrawerContext.Provider>;
 };

@@ -36,7 +36,7 @@ function DialogTitle({ className = "", ...props }: React.ComponentPropsWithoutRe
 }
 
 function DialogDescription({ className = "", ...props }: React.ComponentPropsWithoutRef<typeof DialogDescriptionPri>) {
-    return <DialogDescriptionPri className={`text-sm  text-foreground-muted ${className}`} {...props} />
+    return <DialogDescriptionPri className={`text-sm text-foreground-muted ${className}`} {...props} />
 }
 
 function DialogClose({ className = "", children, ...props }: React.ComponentPropsWithoutRef<typeof DialogClosePri>) {

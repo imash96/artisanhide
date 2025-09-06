@@ -3,6 +3,7 @@
 import Container from "@module/common/create-section";
 import Button from "@module/common/custom-button";
 import CustomInput from "@module/common/custom-input";
+import CustomTextarea from "@module/common/custom-textarea";
 import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -94,72 +95,52 @@ export default function Page() {
 }
 
 function ContactForm() {
-    const [formData, setFormData] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        mobileNumber: "",
-        message: "",
-    });
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+
+    const handleSubmit = async (formData: FormData) => {
+        const payLoad = {
+            first_name: formData.get("firstName"),
+            last_name: formData.get("lastName"),
+            email: formData.get("email"),
+            number: formData.get("mobileNumber"),
+            message: formData.get("message"),
+        }
+        console.log(payLoad)
     };
     return (
-        <form onSubmit={handleSubmit} className={`space-y-6`}>
+        <form action={handleSubmit} className="space-y-6">
             <div className="flex items-center gap-2.5">
-                <div className="space-y-1 w-full">
-                    <CustomInput
-                        label="First Name"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    />
-                </div>
-                <div className="space-y-1 w-full">
-                    <CustomInput
-                        label="Last Name"
-                        name="lastName"
-                        value={formData.firstName}
-                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    />
-                </div>
-            </div>
-
-            <div className="space-y-1 w-full">
                 <CustomInput
-                    label="Email"
-                    name="email"
-                    type="email"
-                    value={formData.firstName}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    label="First Name"
+                    className="w-full"
+                    name="firstName"
+                    required
                 />
-            </div>
-
-            <div className="space-y-1 w-full">
                 <CustomInput
-                    label="Mobile Number"
-                    name="mobileNumber"
-                    type="tel"
-                    value={formData.firstName}
-                    onChange={(e) => setFormData({ ...formData, mobileNumber: e.target.value })}
+                    label="Last Name"
+                    className="w-full"
+                    name="lastName"
                 />
             </div>
 
-            <div className="space-y-1 w-full">
-                <label htmlFor="message" className="text-[13px] tracking-wide block">
-                    Message
-                </label>
-                <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                    }
-                    placeholder="Message (Optional)"
-                    className="w-full border h-16 placeholder:text-xs rounded-md px-3 py-2.5 text-[13px]"
-                />
-            </div>
+            <CustomInput
+                label="Email"
+                name="email"
+                type="email"
+                required
+            />
+
+            <CustomInput
+                label="Mobile Number"
+                name="mobileNumber"
+                type="tel"
+            />
+
+            <CustomTextarea
+                label="Message"
+                name="message"
+                required
+            />
 
             <Button className="tracking-wide cursor-pointer w-full">
                 Submit

@@ -24,7 +24,7 @@ export function AccordionItem({ className, children, ...props }: React.Component
 export function AccordionTrigger({ className, children, ...props }: React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>) {
     return (
         <AccordionPrimitive.Header>
-            <AccordionPrimitive.Trigger className={`group flex items-center justify-between py-4 px-2 w-full ${className ?? ""}`} {...props}>
+            <AccordionPrimitive.Trigger className={`group flex items-center justify-between w-full transition ${className ?? ""}`} {...props}>
                 {children}
                 <Plus className="h-5 w-5 transition-transform duration-200 ease-in group-data-[state=open]:rotate-45" />
             </AccordionPrimitive.Trigger>

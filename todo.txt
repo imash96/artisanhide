@@ -1,9 +1,6 @@
 Color
 - color customization with dark mode
 
-Region Modal
-- make region and currency code modal
-
 Homepage
 - hero image
 - category image
@@ -14,10 +11,6 @@ Homepage
 About-us
 - full image and layout optimize
 
-account
-- login page
-- order page
-
 category
 - full work pending
 
@@ -26,10 +19,6 @@ collection
 
 contact-us
 -connect to backend
-
-faqs
-- make faq accordion
-- optimize
 
 guide
 - make guide page
