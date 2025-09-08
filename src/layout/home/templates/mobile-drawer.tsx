@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
+import { div as Div } from "motion/react-client";
 import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import type { StoreProductCategory } from "@medusajs/types";
 import { useDrawer } from "@lib/context/drawer-context";
@@ -87,7 +88,7 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
                 {/* Content - Scrollable */}
                 <div className="flex-1 overflow-y-auto p-4">
                     <AnimatePresence mode="wait">
-                        <motion.div
+                        <Div
                             key={`${currentNav.level}-${currentNav.category?.id || "root"}`}
                             variants={contentVariants}
                             initial="hidden"
@@ -104,7 +105,7 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
 
                             <div className="space-y-2">
                                 {getCurrentCategories().map((cat, index) => (
-                                    <motion.div
+                                    <Div
                                         key={cat.id}
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
@@ -120,15 +121,15 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
                                                 {cat.name}
                                             </Link>
                                         )}
-                                    </motion.div>
+                                    </Div>
                                 ))}
                             </div>
-                        </motion.div>
+                        </Div>
                     </AnimatePresence>
 
                     {/* Additional Bottom Contact Section */}
                     {currentNav.breadcrumb.length === 0 && (
-                        <motion.div
+                        <Div
                             variants={contentVariants}
                             initial="hidden"
                             animate="visible"
@@ -137,7 +138,7 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
                             className="flex flex-col gap-y-1 mt-6"
                         >
                             <MobileDrawerContact />
-                        </motion.div>
+                        </Div>
                     )}
                 </div>
                 <div className="flex items-center justify-between px-4 py-3 border-t">

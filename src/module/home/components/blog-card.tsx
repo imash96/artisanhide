@@ -4,26 +4,7 @@ import Image from "next/image"
 import { Calendar, Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
-interface BlogPost {
-    id: string
-    title: string
-    excerpt: string
-    image: string
-    author: {
-        name: string
-        avatar: string
-    }
-    publishedAt: string
-    readTime: string
-    category: string
-    slug: string
-}
-
-interface BlogCardProps {
-    post: BlogPost
-}
-
-export default function BlogCard({ post }: BlogCardProps) {
+export default function BlogCard({ post }: { post: BlogPost }) {
     return (
         <Link
             href={`/blog/${post.slug}`}
@@ -32,7 +13,7 @@ export default function BlogCard({ post }: BlogCardProps) {
             {/* Image Container */}
             <div className="relative h-48 sm:h-56 overflow-hidden no-scrollbar">
                 <Image
-                    src={post.image || "/svg/placeholder.svg"}
+                    src={post.thumbnail || "/svg/placeholder.svg"}
                     alt={post.title}
                     width={350}
                     height={250}
@@ -63,8 +44,8 @@ export default function BlogCard({ post }: BlogCardProps) {
                 <div className="flex items-center gap-4 text-xs text-muted-foreground mb-2">
                     <div className="flex items-center gap-1">
                         <Calendar className="w-3.5 h-3.5" />
-                        <time dateTime={post.publishedAt}>
-                            {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                        <time dateTime={post.uploadDate}>
+                            {new Date(post.uploadDate).toLocaleDateString("en-US", {
                                 month: "short",
                                 day: "numeric",
                                 year: "numeric",

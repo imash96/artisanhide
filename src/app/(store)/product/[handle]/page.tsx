@@ -11,10 +11,9 @@ import RelatedProducts from "@module/product/templates/product-related"
 import ProductReview from "@module/product/templates/product-review"
 import { cookies } from "next/headers"
 import { notFound } from "next/navigation"
-import Script from "next/script"
 
-export default async function Page({ params }: { params: Promise<{ handle: string }> }) {
-    const { handle } = await params
+export default async function Page(props: PageProps<"/product/[handle]">) {
+    const { handle } = await props.params
     const countryCode = (await cookies()).get("__country_code")?.value || process.env.NEXT_PUBLIC_DEFAULT_REGION || "us"
 
     const region = await getRegion(countryCode)

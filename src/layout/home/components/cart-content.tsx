@@ -2,7 +2,7 @@
 
 import type { StoreCart } from "@medusajs/types";
 import { LoaderCircle, Minus, Plus, Trash } from "lucide-react";
-import { motion } from "motion/react"
+import { li as Li } from "motion/react-client"
 import Image from "next/image";
 import { convertToLocale } from "@lib/util/money";
 import CartFooter from "./cart-footer";
@@ -20,7 +20,7 @@ export default function CartContent({ cart }: { cart: StoreCart }) {
                         const adjustmentsSum = (item.adjustments || []).reduce((acc, adjustment) => adjustment.amount + acc, 0)
                         const currentPrice = item.total - adjustmentsSum
                         return (
-                            <motion.li
+                            <Li
                                 key={item.id}
                                 className="flex gap-2 py-2 text-foreground"
                                 initial={{ opacity: 0, x: -50 }}
@@ -69,7 +69,7 @@ export default function CartContent({ cart }: { cart: StoreCart }) {
                                         </QuntityButton>
                                     </div>
                                 </div>
-                            </motion.li>
+                            </Li>
                         )
                     })}
                 </ul>

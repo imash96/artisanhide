@@ -8,9 +8,9 @@ import PaginatedProducts from "@module/category/templates/paginated-products";
 import Breadcrumb from "@module/product/components/product-breadcrumb";
 import { StoreProductCategory } from "@medusajs/types";
 
-export default async function Page({ params, searchParams }: CategoryPageProps) {
-    const categorySegments = (await params).category;
-    const { sortBy, page } = await searchParams
+export default async function Page(props: PageProps<"/category/[...category]">) {
+    const categorySegments = (await props.params).category;
+    const { sortBy, page } = await props.searchParams as { sortBy?: SortOptions, page?: string }
 
     const countryCode = (await cookies()).get("__country_code")?.value || process.env.NEXT_PUBLIC_DEFAULT_REGION || "us"
 
@@ -21,7 +21,7 @@ export default async function Page({ params, searchParams }: CategoryPageProps) 
 
     if (!category || !countryCode) notFound();
     const crumbs = getCategoryBreadcrumbs(category);
-    
+
     return (
         <Container className="py-12 md:py-10 lg:py-16 max-w-7xl mx-auto px-4 md:px-8">
             <header className="text-center mb-10">
@@ -56,8 +56,8 @@ export default async function Page({ params, searchParams }: CategoryPageProps) 
 
 // }
 
-export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
-    const categorySegments = (await params).category;
+export async function generateMetadata(props: PageProps<"/category/[...category]">): Promise<Metadata> {
+    const categorySegments = (await props.params).category;
     try {
         const productCategory = await getCategoryByHandle(categorySegments)
 
@@ -84,11 +84,3 @@ function getCategoryBreadcrumbs(category: StoreProductCategory) {
         href: "/category/" + segments.slice(0, idx + 1).join("/"),
     }))
 }
-
-type CategoryPageProps = {
-    params: Promise<{ category: string[] }>;
-    searchParams: Promise<{
-        sortBy?: SortOptions;
-        page?: string
-    }>;
-};

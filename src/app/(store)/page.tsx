@@ -10,7 +10,7 @@ import { getRegion } from "@lib/action/region";
 import Testimonals from "@module/home/templates/testimonials";
 import Blog from "@module/home/templates/blog";
 import IconWithText from "@module/home/templates/icon-with-text";
-import { podData, uspData } from "@/JSON/icon-with-text";
+import { podData, uspData } from "@module/home/components/icon-with-text";
 import { cookies } from "next/headers";
 
 import "@/style/home.css"

@@ -4,7 +4,8 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { Minus, MoveLeft, MoveRight } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
+import { div as Div } from "motion/react-client";
 import RatingSystem from "@module/common/rating-system";
 import { testimonials } from "@/JSON/testimonials";
 import Autoplay from "embla-carousel-autoplay";
@@ -77,7 +78,7 @@ export default function Testimonials() {
             </div>
 
             <AnimatePresence mode="wait">
-                <motion.div
+                <Div
                     key={selectedIndex}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -96,7 +97,7 @@ export default function Testimonials() {
                             {testimonials[selectedIndex].name}
                         </div>
                     </div>
-                </motion.div>
+                </Div>
             </AnimatePresence>
         </div>
     );

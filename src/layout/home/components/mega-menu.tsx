@@ -4,8 +4,8 @@ import Link from "next/link";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import type { StoreProductCategory } from "@medusajs/types";
 import type { EnhancedCategoriesType } from "./header-wrapper";
-import type { MotionProps } from "motion/react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, type MotionProps } from "motion/react";
+import { div as Div } from "motion/react-client";
 import MenuPromotion from "./menu-promotion";
 import { useDrawer } from "@lib/context/drawer-context";
 import { categories } from "@/JSON/header";
@@ -27,7 +27,7 @@ export default function MegaMenu({ enhancedCategories }: MegaMenuProps) {
                     <AnimatePresence>
                         {activeCategory === category.id && <>
                             <div className="bg-overlay absolute top-full left-0 w-full h-screen" onClick={handleMouseLeave} />
-                            <motion.div
+                            <Div
                                 {...megaMenuMotion}
                                 onMouseLeave={handleMouseLeave}
                                 className="overflow-hidden no-scrollbar border-t absolute top-full left-0 w-full z-40">
@@ -60,7 +60,7 @@ export default function MegaMenu({ enhancedCategories }: MegaMenuProps) {
                                         <MenuPromotion name={category.name} isMegaMenu />
                                     </div>
                                 </div>
-                            </motion.div>
+                            </Div>
                         </>}
                     </AnimatePresence>
                 </div>

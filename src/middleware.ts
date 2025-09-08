@@ -2,7 +2,8 @@ import { type NextRequest, NextResponse } from "next/server"
 import { regions } from "./region"
 import { retrieveCustomer } from "@lib/action/customer"
 
-const COOKIE_MAX_AGE = 86400000 // 24 hours in seconds
+const REGION_CACHE_TTL = 1000 * 60 * 60 * 24 // 24 hours in mimisecngs
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 30 // 30 Days in seconds
 
 interface RegionCache {
     regionMap: Set<string>
@@ -18,14 +19,34 @@ const regionCache: RegionCache = {
 export async function middleware(request: NextRequest): Promise<NextResponse> {
     const { pathname } = request.nextUrl
 
-    if (pathname === "/account") {
-        const customer = await retrieveCustomer();
-        console.log(pathname, customer)
-        if (!customer) return NextResponse.redirect(new URL('/auth', request.url))
-    }
-
     if (pathname.startsWith("/_next/") || pathname.startsWith("/api/") || pathname.includes(".") || pathname === "/favicon.ico") {
         return NextResponse.next()
+    }
+
+    try {
+        // If user is requesting any account page, require authentication
+        if (pathname.startsWith("/account")) {
+            const customer = await retrieveCustomer();
+            if (!customer) {
+                return NextResponse.redirect(new URL("/auth", request.url));
+            }
+            // allow access if customer exists
+            return NextResponse.next();
+        }
+
+        if (pathname === "/auth" || pathname === "/auth/") {
+            const customer = await retrieveCustomer();
+            if (customer) {
+                return NextResponse.redirect(new URL("/account/profile", request.url));
+            }
+            return NextResponse.next();
+        }
+    } catch (err) {
+        // If auth check fails unexpectedly, do not break the whole site — log and continue.
+        // (You may choose to redirect to /auth on failure instead; keep behaviour safe for now.)
+        if (process.env.NODE_ENV === "development") {
+            console.error("middleware: auth check failed:", err);
+        }
     }
 
     const cacheId = request.cookies.get("__cache_id")?.value
@@ -54,7 +75,9 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
 
 // Load from local file
 function fetchRegionData(): Set<string> {
-    if (regionCache.regionMap.size > 0) return regionCache.regionMap
+    if (regionCache.regionMap.size > 0 && Date.now() - regionCache.lastUpdated < REGION_CACHE_TTL) {
+        return regionCache.regionMap;
+    }
     console.log("❌ regions not cache getting region",)
     regionCache.regionMap.clear()
 
@@ -72,26 +95,8 @@ function fetchRegionData(): Set<string> {
     return regionCache.regionMap
 }
 
-// function determineCountryCode(request: NextRequest, regionMap: Set<string>): string {
-//     try {
-//         const vercelCountryCode = request.headers.get("x-vercel-ip-country")?.toLowerCase()
-//         if (vercelCountryCode && regionMap.has(vercelCountryCode)) return vercelCountryCode
-
-//         const cfCountryCode = request.headers.get("cf-ipcountry")?.toLowerCase()
-//         if (cfCountryCode && cfCountryCode !== "xx" && regionMap.has(cfCountryCode)) {
-//             return cfCountryCode
-//         }
-
-//         if (regionMap.has(DEFAULT_REGION)) return DEFAULT_REGION
-
-//         return regionMap.values().next().value || DEFAULT_REGION
-//     } catch {
-//         return DEFAULT_REGION
-//     }
-// }
-
 export const config = {
     matcher: [
         "/((?!api|_next/static|_next/image|favicon.ico|images|fonts|assets|png|svg|jpg|jpeg|gif|avif|webp).*)",
     ],
-}
+};

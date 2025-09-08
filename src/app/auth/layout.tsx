@@ -2,43 +2,78 @@ import Facebook from "@/icon/icon-facebok";
 import Google from "@/icon/icon-google";
 import Logo from "@/icon/logo";
 import Button from "@module/common/custom-button";
-import CustomDivider from "@module/common/custom-divider";
-import { ArrowLeft } from "lucide-react";
+import { Home } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Layout({ children }: React.PropsWithChildren) {
     return (
-        <div className="flex min-h-screen">
-            {/* Left - Form Section */}
-            <div className="flex items-center justify-center px-6 py-12 lg:px-16 xl:px-24">
-                <div className="w-full max-w-md space-y-8">
-                    <Link href="/">
-                        <span className="flex mb-1">
-                            <ArrowLeft className="w-4" />
-                            Back
-                        </span>
+        <main className="flex min-h-screen">
+            {/* Left Banner (Desktop only) */}
+            <div className="relative hidden lg:flex lg:w-1/2 flex-col justify-between p-12">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/temp_img/mobileBanner.jpg"
+                        alt="Leather product promotional banner"
+                        fill
+                        quality={100}
+                        sizes="100vw"
+                        className="object-cover object-top"
+                        placeholder="empty"
+                    />
+                </div>
+                <Button
+                    href="/"
+                    variant="outline"
+                    color="secondary"
+                    className="relative z-10 w-fit gap-2"
+                >
+                    <Home className="w-4 h-4" />
+                    Home
+                </Button>
+                <div className="relative z-10 text-same-white">
+                    <h1 className="text-4xl font-extrabold leading-snug mb-4">
+                        Crafted Elegance,<br />
+                        Timeless Style
+                    </h1>
+                    <p className="max-w-md text-same-white/70">
+                        Discover premium leather essentials that combine rugged craftsmanship with refined detail.
+                    </p>
+                </div>
+            </div>
+
+            {/* Right Panel: Login Form */}
+            <div className="flex flex-col w-full lg:w-1/2 justify-center items-center overflow-auto no-scrollbar px-6 sm:px-12">
+                <div className="flex justify-center pt-6 lg:pt-10 xl:pt-20">
+                    <Link href="/" className="flex items-center gap-3">
+                        <Logo className="w-32" />
                     </Link>
-                    <Logo className="w-36" />
+                </div>
 
-                    {/* Children content (forms, etc.) */}
-                    {children}
+                <div className="flex flex-1 items-center justify-center md:p-8 md:pt-0 w-full">
+                    <div className="w-full max-w-md p-6 relative">
+                        {/* Login Form */}
+                        {children}
 
-                    {/* Divider and Social Login */}
-                    <div className="space-y-6">
-                        <CustomDivider text="or" />
-                        <div className="grid grid-cols-2 gap-4">
-                            <Button
-                                variant="outline"
-                                className="w-full flex items-center justify-center gap-2 rounded-md py-2"
-                            >
+                        {/* Divider */}
+                        <div className="relative my-6">
+                            <div className="absolute inset-0 flex items-center" aria-hidden>
+                                <div className="w-full h-px bg-border" />
+                            </div>
+                            <div className="relative flex justify-center">
+                                <span className="bg-background px-4 text-sm text-muted-foreground">
+                                    or sign in with
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Social Login */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <Button variant="outline" className="w-full gap-2 py-2">
                                 <Google className="h-5 w-5" />
                                 <span className="text-sm font-medium">Google</span>
                             </Button>
-                            <Button
-                                variant="outline"
-                                className="w-full flex items-center justify-center gap-2 rounded-md py-2"
-                            >
+                            <Button variant="outline" className="w-full gap-2 py-2">
                                 <Facebook className="h-5 w-5" />
                                 <span className="text-sm font-medium">Facebook</span>
                             </Button>
@@ -46,18 +81,6 @@ export default async function Layout({ children }: React.PropsWithChildren) {
                     </div>
                 </div>
             </div>
-
-            {/* Right - Background Image */}
-            <div className="relative hidden w-0 flex-1 lg:block">
-                <Image
-                    alt="Leather fashion background"
-                    src="/temp_img/desktopBanner.webp"
-                    className="absolute inset-0 h-full w-full object-cover"
-                    width={1908}
-                    height={1080}
-                    priority
-                />
-            </div>
-        </div>
+        </main>
     );
 }

@@ -15,19 +15,19 @@ export default function Page() {
     const safeAction = async (state: any, formData: FormData) => isSignIn ? login(state, formData) : signup(state, formData)
     const [message, formAction, isPending] = useActionState(safeAction, null);
     return (
-        <div className="w-full space-y-6">
+        <>
             {/* Headings */}
-            <div>
-                <h1 className="text-2xl font-bold tracking-tight">
+            <div className="mb-8 text-center">
+                <h1 className="text-2xl font-bold text-foreground">
                     {isSignIn ? "Welcome back" : "Become a Member"}
                 </h1>
-                <p className="mt-1 text-sm text-foreground-muted">
+                <p className="mt-2 text-muted-foreground">
                     {isSignIn ? "Sign in to access your account and enjoy personalized shopping." : "Create your account to enjoy a personalized and enhanced shopping experience."}
                 </p>
             </div>
 
             {/* Form */}
-            <form action={formAction} className="flex flex-col gap-y-4">
+            <form action={formAction} className="space-y-4">
                 {isSignIn ? <SIGNIN /> : <SIGNUP />}
 
                 {/* Action Button */}
@@ -44,14 +44,14 @@ export default function Page() {
             </form>
 
             {/* View Switcher */}
-            <p className="text-center text-sm font-light">
+            <p className="mt-6 text-center text-sm text-muted-foreground">
                 {isSignIn ? (
                     <>
-                        Don&apos;t have an account?{" "}
+                        Don’t have an account?{" "}
                         <button
                             type="button"
                             onClick={() => setView("SIGN_UP")}
-                            className="font-medium text-secondary hover:text-link transition-colors"
+                            className="font-medium text-primary hover:underline"
                         >
                             Sign up
                         </button>
@@ -62,7 +62,7 @@ export default function Page() {
                         <button
                             type="button"
                             onClick={() => setView("SIGN_IN")}
-                            className="font-medium text-secondary hover:text-link transition-colors"
+                            className="font-medium text-primary hover:underline"
                         >
                             Sign in
                         </button>
@@ -72,6 +72,6 @@ export default function Page() {
             {message && (
                 <p className="text-sm text-center text-destructive mt-2">{message}</p>
             )}
-        </div>
+        </>
     );
 }

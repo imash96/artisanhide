@@ -9,7 +9,8 @@ import { StoreCart } from "@medusajs/types";
 import Button from "@module/common/custom-button";
 import CustomInput from "@module/common/custom-input";
 import CustomSelect from "@module/common/custom-select";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
+import { div as Div } from "motion/react-client";
 import { useActionState, useEffect, useMemo } from "react";
 
 export default function AddressForm({ cart }: AddressFormProps) {
@@ -60,7 +61,7 @@ export default function AddressForm({ cart }: AddressFormProps) {
             </div>
             <AnimatePresence mode="wait">
                 {!sameAsBilling && (
-                    <motion.div
+                    <Div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
@@ -71,7 +72,7 @@ export default function AddressForm({ cart }: AddressFormProps) {
                             data={cart.billing_address}
                             countryOptions={countryOptions}
                         />
-                    </motion.div>
+                    </Div>
 
                 )}
             </AnimatePresence>
