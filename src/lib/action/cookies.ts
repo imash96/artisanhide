@@ -2,6 +2,8 @@ import "server-only"
 
 import { cookies as nextCookies } from "next/headers"
 
+const COOKIE_MAX_AGE = 60 * 60 * 24 // 1 Days in seconds
+
 export async function getAuthHeaders() {
     const token = (await nextCookies()).get("__jwt")?.value
     if (!token) return {}
@@ -24,7 +26,7 @@ export const getCacheOptions = async (tag: string) => {
 }
 
 export const setAuthToken = async (token: string) => (await nextCookies()).set("__jwt", token, {
-    maxAge: 60 * 60 * 24 * 7,
+    maxAge: COOKIE_MAX_AGE * 7,
     httpOnly: true,
     sameSite: "strict",
     secure: process.env.NODE_ENV === "production",
@@ -35,7 +37,7 @@ export const removeAuthToken = async () => (await nextCookies()).set("__jwt", ""
 export const getCartId = async () => (await nextCookies()).get("__cart_id")?.value
 
 export const setCartId = async (cartId: string) => (await nextCookies()).set("__cart_id", cartId, {
-    maxAge: 60 * 60 * 24 * 7,
+    maxAge: COOKIE_MAX_AGE * 7,
     httpOnly: true,
     sameSite: "strict",
     secure: process.env.NODE_ENV === "production",
@@ -46,7 +48,7 @@ export const removeCartId = async () => (await nextCookies()).set("__cart_id", "
 })
 
 export const setCountryCode = async (countryCode: string) => (await nextCookies()).set("__country_code", countryCode, {
-    maxAge: 60 * 60 * 24 * 7,
+    maxAge: COOKIE_MAX_AGE * 365,
     httpOnly: true,
     sameSite: "strict",
 })

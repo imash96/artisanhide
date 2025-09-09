@@ -13,7 +13,7 @@ import {
 } from "@module/common/custom-modal";
 import CustomSelect from "@module/common/custom-select";
 import { createElement, useMemo, useState, useTransition } from "react"
-import { regions } from "../../../region";
+import { regions } from "../../../JSON/region";
 import { X } from "lucide-react";
 import { updateRegion } from "@lib/action/cart";
 

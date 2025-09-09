@@ -1,9 +1,9 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { regions } from "./region"
+import { regions } from "./JSON/region"
 import { retrieveCustomer } from "@lib/action/customer"
 
-const REGION_CACHE_TTL = 1000 * 60 * 60 * 24 // 24 hours in mimisecngs
-const COOKIE_MAX_AGE = 60 * 60 * 24 * 30 // 30 Days in seconds
+const COOKIE_MAX_AGE = 60 * 60 * 24 // 1 Days in seconds
+const REGION_CACHE_TTL = 1000 * COOKIE_MAX_AGE // 24 hours in mimisecngs
 
 interface RegionCache {
     regionMap: Set<string>
@@ -58,7 +58,7 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
         const response = NextResponse.next()
 
         if (!cacheId) {
-            response.cookies.set("__cache_id", crypto.randomUUID(), { maxAge: COOKIE_MAX_AGE })
+            response.cookies.set("__cache_id", crypto.randomUUID(), { maxAge: COOKIE_MAX_AGE * 365 })
         }
 
         return response
@@ -67,7 +67,7 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
     const response = NextResponse.next()
 
     if (!cacheId) {
-        response.cookies.set("__cache_id", crypto.randomUUID(), { maxAge: COOKIE_MAX_AGE })
+        response.cookies.set("__cache_id", crypto.randomUUID(), { maxAge: COOKIE_MAX_AGE * 365 })
     }
 
     return response

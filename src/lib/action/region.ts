@@ -2,7 +2,7 @@ import { sdk } from "../sdk"
 import { getCacheOptions } from "./cookies"
 import medusaError from "../util/medusa-error";
 import type { StoreRegion } from "@medusajs/types";
-import { regions } from "../../region";
+import { regions } from "../../JSON/region";
 
 // export const listRegions = async () => {
 //     const nextOptions = await getCacheOptions("regions");

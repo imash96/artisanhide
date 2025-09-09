@@ -1,5 +1,7 @@
 "use client"
 
+import Facebook from "@/icon/icon-facebok";
+import Instagram from "@/icon/icon-instagram";
 import Container from "@module/common/create-section";
 import Button from "@module/common/custom-button";
 import CustomInput from "@module/common/custom-input";
@@ -12,7 +14,7 @@ export default function Page() {
     return (
         <Container className="py-6 md:py-10 lg:py-16 space-y-[4vw] lg:space-y-[2vw]">
             <div className="space-y-[2vw] lg:space-y-[1vw]">
-                <h1 className="text-center text-3xl text-templateBrown">Contact Us</h1>
+                <h1 className="text-center text-3xl">Contact Us</h1>
                 <p className="text-center lg:max-w-[45vw] mx-auto text-sm tracking-wide text-foreground-muted">
                     Got any questions? We invite you to get in touch with us. Our team is
                     here to help you. Our team will respond to your inquiry as soon as
@@ -25,7 +27,7 @@ export default function Page() {
                 </div>
                 <div className="w-full lg:w-[45%] space-y-[8vw] lg:space-y-[2.5vw] py-[2vw]">
                     <div className="space-y-[2vw] lg:space-y-[0.8vw]">
-                        <h3 className="text-[5.5vw]  md:text-[4vw] text-left lg:text-[1.5vw] leading-[1.1] text-templateBrown">
+                        <h3 className="text-[5.5vw]  md:text-[4vw] text-left lg:text-[1.5vw] leading-[1.1]">
                             Chat with us
                         </h3>
                         <p className="text-sm tracking-wide text-foreground-muted">
@@ -33,55 +35,42 @@ export default function Page() {
                         </p>
                         <a
                             className="flex items-center gap-2 text-sm tracking-wide text-foreground-muted "
-                            href=""
+                            href="mailto:contact@artisanhide.com"
                         >
                             <Mail size={15} className="mb-[1px]" strokeWidth={1.5} />
                             contact@artisanhide.com
                         </a>
-                        <a
+                        {/* <a
                             className="flex items-center gap-2 text-sm tracking-wide text-foreground-muted "
                             href=""
                         >
                             <Phone size={15} className="mb-[1px]" strokeWidth={1.5} />
                             +91 72088 20111
-                        </a>
+                        </a> */}
                     </div>
                     <div className="space-y-[2vw] lg:space-y-[0.8vw]">
-                        <h3 className="text-[5.5vw] md:text-[4vw] text-left lg:text-[1.5vw] leading-[1.1] text-templateBrown">
+                        <h3 className="text-[5.5vw] md:text-[4vw] text-left lg:text-[1.5vw] leading-[1.1]">
                             Connect with us
                         </h3>
                         <p className="text-sm tracking-wide text-foreground-muted">
                             We invite you to get in touch with us on social media.{" "}
                         </p>
-                        <a
-                            className="flex items-center gap-2 text-sm tracking-wide text-foreground-muted "
-                            href=""
+                        <a className="flex items-center gap-2 text-sm tracking-wide text-foreground-muted "
+                            href="https://instagram.com/ArtisanHideStore"
                         >
-                            <Image
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s"
-                                className="h-4 w-4 mb-[1px] rounded-xs"
-                                width={50}
-                                height={50}
-                                alt=""
-                            />
+                            <Instagram className="size-5" />
                             Instagram
                         </a>
                         <a
                             className="flex items-center gap-2 text-sm tracking-wide text-foreground-muted "
-                            href=""
+                            href="https://facebook.com/ArtisanHideStore"
                         >
-                            <Image
-                                src="https://static.vecteezy.com/system/resources/previews/021/495/985/non_2x/facebook-social-media-logo-icon-free-png.png"
-                                className="h-4 w-4 mb-[1px] rounded-xs"
-                                width={50}
-                                height={50}
-                                alt=""
-                            />
+                            <Facebook className="size-5" />
                             Facebook
                         </a>
                     </div>
                     <div className="space-y-[2vw] lg:space-y-[0.8vw]">
-                        <h3 className="text-[5.5vw] md:text-[4vw] text-left lg:text-[1.5vw] leading-[1.1] text-templateBrown">
+                        <h3 className="text-[5.5vw] md:text-[4vw] text-left lg:text-[1.5vw] leading-[1.1]">
                             Our Timing
                         </h3>
                         <p className="text-sm tracking-wide text-foreground-muted">

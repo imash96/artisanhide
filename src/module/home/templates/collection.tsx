@@ -5,12 +5,12 @@ import SectionHeader from "../components/section-header";
 import Button from "@module/common/custom-button";
 
 export default async function Collection() {
-    const product_collections = await listCollection({ limit: 6, fields: "+metadata,*products" })
+    const product_collections = await listCollection({ limit: 6, fields: "+metadata" })
     return (
         <SectionHeader title="Shop by Collection" desc="Explore our curated collections that cater to every style and occasion." sectionName="collecion">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 gap-y-5 lg:gap-y-6">
                 {product_collections.map(item => (
-                    <Link key={item.id} href={`category/${item.handle}`} className="block group space-y-2">
+                    <Link key={item.id} href={`collection/${item.handle}`} className="block group space-y-2">
                         <div className="aspect-[4/5.5] overflow-hidden no-scrollbar">
                             <Image
                                 src={item.metadata?.thumbnail as string}

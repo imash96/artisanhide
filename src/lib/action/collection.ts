@@ -1,16 +1,19 @@
 import { sdk } from "@lib/sdk"
-import type { FindParams, SelectParams, StoreProductCategoryListParams } from "@medusajs/types"
+import type { FindParams, SelectParams, StoreCollectionFilters } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
 
-export const listCollection = async (query?: FindParams & StoreProductCategoryListParams) => {
-    const next = await getCacheOptions("collection")
+export const listCollection = async (query?: FindParams & StoreCollectionFilters) => {
+    const nextOptions = await getCacheOptions("collection");
 
     const limit = query?.limit || 100
 
     return sdk.store.collection.list({
         ...query,
         limit,
-    }, { next }).then(({ collections }) => collections)
+    }, {
+        next: nextOptions,
+        caches: "force-cache"
+    }).then(({ collections }) => collections)
 }
 
 export const fetchCollection = async (id: string, query?: SelectParams, cacheTag?: string) => {

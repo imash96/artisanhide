@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { StoreProduct, StoreProductImage } from "@medusajs/types"
+import { StoreProduct } from "@medusajs/types"
 import RatingSystem from "./rating-system"
 import { getProductPrice } from "@lib/util/get-product-price"
 import ProductThumbnail from "@module/product/components/product-thumbnail"
