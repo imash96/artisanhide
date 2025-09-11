@@ -26,7 +26,7 @@ export default async function Collection() {
             </div>
             <div className="flex items-center justify-center">
                 <div className="relative overflow-hidden no-scrollbar">
-                    <Button href={`/collections`} variant="outline" className="transition-all duration-500 ease-in-out before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-primary before:to-primary before:transition-all before:duration-500 before:ease-in-out before:z-[-1] hover:text-same-white hover:before:left-0">
+                    <Button href={`/collection`} variant="outline" className="transition-all duration-500 ease-in-out before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-primary before:to-primary before:transition-all before:duration-500 before:ease-in-out before:z-[-1] hover:text-same-white hover:before:left-0">
                         View all Collection
                     </Button>
                 </div>

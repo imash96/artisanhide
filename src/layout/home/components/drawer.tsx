@@ -4,7 +4,7 @@ import { AnimatePresence, type MotionProps } from "motion/react"
 import { div as Div } from "motion/react-client"
 import { useEffect } from 'react'
 
-export default function Drawer({ state, onClose, direction = "left", type, children }: DrawerProps) {
+export default function Drawer({ state, onClose, direction = "left", isCart, children }: DrawerProps) {
 
     useEffect(() => {
         if (state) document.body.style.overflow = "hidden";
@@ -29,7 +29,7 @@ export default function Drawer({ state, onClose, direction = "left", type, child
             {state && <>
                 <Div
                     {...drawerBackdropMotion}
-                    className={`fixed inset-0 bg-overlay z-40 ${type != "cart" && "xm:hidden"}`}
+                    className={`fixed inset-0 bg-overlay z-40 ${isCart ? "" : "xm:hidden"}`}
                     onClick={onClose}
                 />
                 <Div
@@ -38,7 +38,7 @@ export default function Drawer({ state, onClose, direction = "left", type, child
                     animate="open"
                     exit="closed"
                     transition={{ type: "spring", damping: 25, stiffness: 200, duration: 0.3 }}
-                    className={`fixed flex h-full w-11/12 sm:w-5/6 max-w-md shadow-2xl z-50 ${type != "cart" && "xm:hidden"} ${direction === "left" ? "inset-0" : "top-0 right-0"}`}
+                    className={`fixed flex h-full w-11/12 sm:w-5/6 max-w-md shadow-2xl z-50 ${isCart ? "" : "xm:hidden"} ${direction === "left" ? "inset-0" : "top-0 right-0"}`}
                 >
                     {children}
                 </Div>
@@ -58,5 +58,5 @@ type DrawerProps = {
     state: boolean
     onClose: () => void
     direction: "left" | "right"
-    type?: "cart" | undefined
+    isCart?: boolean
 } & React.PropsWithChildren

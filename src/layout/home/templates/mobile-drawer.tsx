@@ -57,7 +57,7 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
             <div className="flex flex-col h-full w-full bg-background text-foreground"> {/* bg-modile-drawe bg-scroll */}
                 <div className="flex items-center px-4 py-3 border-b justify-between">
                     {currentNav.level > 0 && (
-                        <button onClick={handleBack} className="flex items-center text-sm hover:text-foreground-muted">
+                        <button onClick={handleBack} className="flex items-center text-sm hover:text-foreground-muted" aria-label="Back">
                             <ChevronLeft className="w-4 h-4 mr-1" />
                             Back
                         </button>
@@ -65,9 +65,8 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
                     <h2 className="text-base font-semibold truncate">
                         {currentNav.level === 0 ? "Menu" : currentNav.category?.name}
                     </h2>
-                    <button className="p-2 hover:bg-accent hover:text-accent-foreground rounded-full" onClick={handleClose}>
+                    <button className="p-2 hover:bg-accent hover:text-accent-foreground rounded-full" onClick={handleClose} aria-label="Close menu drawer">
                         <X className="h-5 w-5" />
-                        <span className="sr-only">Close menu</span>
                     </button>
                 </div>
 

@@ -8,7 +8,7 @@ export default function MenuPromotion({ name, isMegaMenu }: { name?: string; isM
     return (
         <div className="grid grid-cols-2 gap-x-4 col-span-2 py-4">
             {(features as FeaturesType)[name].map((item) => (
-                <Link key={item.id} href={`/collections/${item.handle}`} className={`group/promo relative overflow-clip rounded-md bg-secondary border border-divider ${isMegaMenu ? "aspect-[3/4] xl:aspect-[9/10]" : "aspect-square"}`}>
+                <Link key={item.id} href={`/collection/${item.handle}`} className={`group/promo relative overflow-clip rounded-md bg-secondary border border-divider ${isMegaMenu ? "aspect-[3/4] xl:aspect-[9/10]" : "aspect-square"}`}>
                     <Image
                         src={item.thumbnail}
                         alt={item.alt}

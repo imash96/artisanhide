@@ -7,7 +7,7 @@ import "@/style/accordion.css";
 
 export function Accordion({ className, children, ...props }: React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>) {
     return (
-        <AccordionPrimitive.Root className={`border-t ${className ?? ""}`} {...props} >
+        <AccordionPrimitive.Root className={`${className ?? ""} border-t`} {...props} >
             {children}
         </AccordionPrimitive.Root>
     )

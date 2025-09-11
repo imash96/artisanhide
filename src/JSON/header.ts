@@ -1,4 +1,4 @@
-export const MEGA_MENU = ["Apparel", "Bags & Luggage"]
+export const MEGA_MENU = ["Men", "Women"]
 
 export const categories = [
     {
@@ -20,7 +20,7 @@ export const categories = [
 ]
 
 export const features = {
-    "Apparel": [
+    "Men": [
         {
             id: 'men-co1-01',
             name: 'New Arrivals',
@@ -37,7 +37,7 @@ export const features = {
         }
     ],
 
-    "Bags & Luggage": [
+    "Women": [
         {
             id: 'women-col-01',
             name: 'New Arrivals',
