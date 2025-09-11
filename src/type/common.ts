@@ -59,14 +59,14 @@ export interface ProductCategory extends Omit<BaseProductCategory, "is_internal"
     category_children?: ProductCategory[];
 }
 
-// export type ProductCategory = {
-//     name: string;
-//     rank: number;
-//     handle: string;
-//     description: string;
-//     id: string;
-//     mpath: string;
-//     is_active: boolean
-//     metadata: Record<string, unknown>
-//     category_children?: ProductCategory[]
-// }
+export type ProductCollection = {
+    id: string;
+    handle: string;
+    title: string;
+    metadata: {
+        thumbnail: string;
+        alt: string;
+        description: string;
+        is_active: boolean;
+    };
+}

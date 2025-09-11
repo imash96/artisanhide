@@ -29,6 +29,10 @@ blog
 return
 - make return page
 
+account
+- remove wishlist
+- add to wishlist on product page
+
 search
 - make search component
 

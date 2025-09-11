@@ -27,7 +27,7 @@ export default async function Page() {
       <BannerSlider />
       <IconWithText data={uspData} />
       <Category />
-      <TrendingNow region_id={region.id} />
+      <TrendingNow region_id={region.id}  />
       <Collection />
       <NewArrival region_id={region.id} />
       <GalleryWall />

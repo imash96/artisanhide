@@ -4,6 +4,7 @@ import React, { createContext, useContext, useState, useMemo, useTransition, Rea
 import { StoreProduct, StoreProductVariant } from "@medusajs/types"
 import { addToCart } from "@lib/action/cart"
 import { getProductPrice } from "@lib/util/get-product-price"
+import { useDrawer } from "./drawer-context"
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined)
 
@@ -23,6 +24,8 @@ const areOptionsEqual = (options1: VariantOptions, options2: VariantOptions) => 
 export const ProductProvider = ({ product, countryCode, children, }: ProductProviderProps) => {
     const [options, setOptions] = useState<Record<string, string | undefined>>({})
     const [isPending, startTransition] = useTransition()
+
+    const { toggleCartDrawer } = useDrawer()
 
     const selectedVariant = useMemo(() => product.variants?.find((v) => areOptionsEqual(optionsAsKeymap(v.options), options)), [product.variants, options])
 
@@ -45,7 +48,8 @@ export const ProductProvider = ({ product, countryCode, children, }: ProductProv
             variantId: selectedVariant.id,
             quantity: 1,
             countryCode,
-        }))
+        }).then(() => toggleCartDrawer()))
+
     }
 
     const setOption = (id: string, value: string) => setOptions((prev) => ({ ...prev, [id]: value }))

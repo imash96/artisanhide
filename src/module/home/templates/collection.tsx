@@ -1,15 +1,18 @@
 import Image from "next/image";
 import Link from "next/link"
-import { listCollection } from "@lib/action/collection"
 import SectionHeader from "../components/section-header";
 import Button from "@module/common/custom-button";
+import { product_collections } from "@/JSON/collection";
+
+const collecion_to_show = ["Men's Apparel", "Travel Essentials", "Women's Apparel", "Celebrity Jackets", "Best Seller", "Men's Wallets"]
 
 export default async function Collection() {
-    const product_collections = await listCollection({ limit: 6, fields: "+metadata" })
+
+    const collections = product_collections.filter((col) => collecion_to_show.includes(col.title))
     return (
         <SectionHeader title="Shop by Collection" desc="Explore our curated collections that cater to every style and occasion." sectionName="collecion">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 gap-y-5 lg:gap-y-6">
-                {product_collections.map(item => (
+                {collections.map(item => (
                     <Link key={item.id} href={`collection/${item.handle}`} className="block group space-y-2">
                         <div className="aspect-[4/5.5] overflow-hidden no-scrollbar">
                             <Image

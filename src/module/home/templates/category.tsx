@@ -1,18 +1,14 @@
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import { listCategories } from "@lib/action/categories"
 import Link from "next/link";
 import SectionHeader from "../components/section-header";
+import { product_categories } from "@/JSON/category";
 
 export default async function Category() {
-    const product_categories = await listCategories({
-        limit: 6,
-        parent_category_id: "null",
-    })
     return (
         <SectionHeader title="Shop by Category" desc="Discover Your Style: Navigate by Category for Effortless Shopping!" sectionName="category">
             <div className="grid md:grid-cols-6 lg:grid-cols-4  gap-4">
-                {product_categories.map((category, xIndex) => (
+                {product_categories.slice(0, 6).map((category, xIndex) => (
                     <div key={category.id} className="tw-category-card relative overflow-hidden no-scrollbar max-h-72" data-index={xIndex}>
                         <Image
                             src={category.metadata?.thumbnail as string ?? ""}

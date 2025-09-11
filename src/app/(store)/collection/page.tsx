@@ -1,10 +1,9 @@
-import { listCollection } from "@lib/action/collection";
+import { product_collections } from "@/JSON/collection";
 import SectionHeader from "@module/home/components/section-header";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Page() {
-    const product_collections = await listCollection({ fields: "+metadata" })
     return (
         <SectionHeader title="Collections" desc="Explore our curated collections that cater to every style and occasion." sectionName="collecion" className="border-b mb-6 pb-4">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 gap-y-5 lg:gap-y-6">
