@@ -1,6 +1,6 @@
 
 
-export default function Layout({ children }: React.PropsWithChildren) {
+export default function Layout({ children }: LayoutProps<"/category/[...category]">) {
     return (
         <>{children}</>
     )

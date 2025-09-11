@@ -3,7 +3,7 @@ import CheckoutHeader from "@/layout/checkout/templates/header";
 import Container from "@module/common/create-section";
 import type { Metadata } from "next";
 
-export default function Layout({ children }: React.PropsWithChildren) {
+export default function Layout({ children }: LayoutProps<"/checkout">) {
     return (
         <>
             <CheckoutHeader />

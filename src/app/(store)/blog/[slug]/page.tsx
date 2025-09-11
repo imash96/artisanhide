@@ -135,5 +135,5 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
 
 
 export async function generateStaticParams() {
-    return blogData.map(p => ({ id: p.id.toString() }));
+    return blogData.map(p => ({ slug: p.slug }));
 }

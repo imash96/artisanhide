@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 import Container from "@module/common/create-section"
 import InteractiveLink from "@module/common/interactive-link"
 
-export default function DashLayout({ children }: React.PropsWithChildren) {
+export default function DashLayout({ children }: LayoutProps<"/policy">) {
   const pathname = usePathname()
   return (
     <Container width={7} className="py-6 md:py-10 lg:py-12">

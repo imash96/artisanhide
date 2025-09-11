@@ -7,7 +7,7 @@ import { UserRound } from "lucide-react";
 import { use } from "react";
 import DashNav from "@/layout/account/templates/dash-nav";
 
-export default function Layout({ children }: React.PropsWithChildren) {
+export default function Layout({ children }: LayoutProps<"/account">) {
     const customer = use(retrieveCustomer());
     if (!customer) return notFound()
     const fullName = `${customer.first_name || ''} ${customer.last_name || ''}`.trim() || 'Customer';

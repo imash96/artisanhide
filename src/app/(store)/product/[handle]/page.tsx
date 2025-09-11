@@ -52,7 +52,8 @@ export default async function Page(props: PageProps<"/product/[handle]">) {
 }
 
 export async function generateStaticParams() {
-    const products = await sdk.store.product.list({ fields: "id" }).then(({ products }) => products);
-
-    return products.map(p => ({ id: p.id.toString() }));
+    const products = await sdk.store.product.list({ fields: "handle" }).then(({ products }) => products);
+    const handles = products.map(p => ({ handle: p.handle }));
+    console.log(handles)
+    return handles
 }

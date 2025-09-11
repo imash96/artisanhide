@@ -102,3 +102,7 @@ export default function Page() {
         </div>
     )
 }
+
+export async function generateStaticParams() {
+    return []
+  }

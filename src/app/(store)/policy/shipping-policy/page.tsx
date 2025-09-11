@@ -1,3 +1,5 @@
+export const dynamic = 'force-static'
+
 import buildJsonLd from "@lib/util/jsonld"
 import ShippingPolicy from "@module/policy/templates/shipping-policy"
 import type { Metadata } from "next"

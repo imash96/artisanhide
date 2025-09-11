@@ -6,7 +6,7 @@ import { Home } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Layout({ children }: React.PropsWithChildren) {
+export default async function Layout({ children }: LayoutProps<"/auth">) {
     return (
         <main className="flex min-h-screen">
             {/* Left Banner (Desktop only) */}

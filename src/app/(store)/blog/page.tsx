@@ -99,3 +99,7 @@ export default async function Page(props: PageProps<"/blog">) {
         </SectionHeader >
     );
 };
+
+export async function generateStaticParams() {
+    return []
+}

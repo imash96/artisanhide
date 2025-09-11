@@ -7,7 +7,7 @@ import BottomTabs from "@/layout/home/templates/bottom-tabs";
 import { DrawerProvider } from "@lib/context/drawer-context";
 import Announcement from "@/layout/home/templates/announcement";
 
-export default function StoreLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function StoreLayout({ children }: LayoutProps<"/">) {
     return (
         <DrawerProvider>
             <Announcement />
