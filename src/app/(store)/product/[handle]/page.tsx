@@ -1,6 +1,7 @@
 import { listProducts } from "@lib/action/product"
 import { getRegion } from "@lib/action/region"
 import { ProductProvider } from "@lib/context/product-context"
+import { sdk } from "@lib/sdk"
 import Container from "@module/common/create-section"
 import ProductAccordion from "@module/product/components/product-accordion"
 import ProductActions from "@module/product/templates/product-action"
@@ -48,4 +49,10 @@ export default async function Page(props: PageProps<"/product/[handle]">) {
             <ProductReview />
         </Container >
     )
+}
+
+export async function generateStaticParams() {
+    const products = await sdk.store.product.list({ fields: "id" }).then(({ products }) => products);
+
+    return products.map(p => ({ id: p.id.toString() }));
 }

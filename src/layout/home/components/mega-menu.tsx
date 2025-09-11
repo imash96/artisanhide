@@ -2,15 +2,13 @@
 
 import Link from "next/link";
 import { ChevronDown, ArrowRight } from "lucide-react";
-import type { StoreProductCategory } from "@medusajs/types";
-import type { EnhancedCategoriesType } from "./header-wrapper";
 import { AnimatePresence, type MotionProps } from "motion/react";
 import { div as Div } from "motion/react-client";
 import MenuPromotion from "./menu-promotion";
 import { useDrawer } from "@lib/context/drawer-context";
-import { categories } from "@/JSON/header";
+import { ProductCategory } from "@/type/common";
 
-export default function MegaMenu({ enhancedCategories }: MegaMenuProps) {
+export default function MegaMenu({ enhancedCategories, otherCategories }: MegaMenuProps) {
     const { activeCategory, setActiveCategory } = useDrawer();
 
     const handleMouseLeave = () => setActiveCategory(null)
@@ -65,9 +63,9 @@ export default function MegaMenu({ enhancedCategories }: MegaMenuProps) {
                     </AnimatePresence>
                 </div>
             ))}
-            {categories.map((page, index) => (
+            {otherCategories?.map((page, index) => (
                 <li key={index} className={`flex mega-hover items-center gap-0.5 cursor-default`} onMouseEnter={handleMouseLeave}>
-                    <Link href={page.href}>
+                    <Link href={page.handle}>
                         {page.name}
                     </Link>
                 </li>
@@ -94,12 +92,15 @@ const megaMenuMotion: MotionProps = {
     transition: { duration: 0.3, ease: "easeInOut" },
 }
 
-type MegaMenuProps = {
-    enhancedCategories: EnhancedCategoriesType[]
-    categoryData?: {
-        style: StoreProductCategory[]
-        shop: StoreProductCategory[]
-    } & StoreProductCategory
+export type MegaMenuProps = {
+    enhancedCategories: {
+        shop: ProductCategory[];
+        style: ProductCategory[];
+        name: string,
+        id: string,
+        handle: string
+    }[],
+    otherCategories?: ProductCategory[]
 }
 
 type LinkMenuProps = {

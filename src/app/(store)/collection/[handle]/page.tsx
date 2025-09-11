@@ -18,7 +18,7 @@ export default async function Page(props: PageProps<"/collection/[handle]">) {
 
     return (
         <SectionHeader title={collection.title} desc={collection.metadata?.description as string} sectionName="collection">
-            <SortnFilter />
+            <SortnFilter totalProduct={products.length} />
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6 lg:gap-6">
                 {products?.map(product => <ProductCard key={product.id} product={product} />)}
             </div>

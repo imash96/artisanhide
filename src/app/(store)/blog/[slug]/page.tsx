@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { blogData } from "@/JSON/blog";
 
 import Button from "@module/common/custom-button";
@@ -133,3 +132,8 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
         </article>
     );
 };
+
+
+export async function generateStaticParams() {
+    return blogData.map(p => ({ id: p.id.toString() }));
+}

@@ -11,7 +11,7 @@ export const blogData: BlogPost[] = [
         "category": "Product Care",
         "tags": ["leather care", "jacket maintenance", "leather goods", "fashion tips", "artisanhide"],
         "excerpt": "Discover essential tips to keep your leather jacket looking pristine for years. From cleaning to storage, learn how to maintain its quality and style effortlessly.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/leather-jacket-care.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-jacket-care.jpg",
         "content": [
             {
                 "heading": "Why Proper Care Matters for Leather Jackets",
@@ -30,7 +30,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/cleaning-leather.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-001/cleaning-leather.jpg"
             },
             {
                 "heading": "Conditioning and Moisturizing",
@@ -58,7 +58,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/leather-storage.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-001/leather-storage.jpg"
             }
         ],
         "readTime": "6 min read",
@@ -70,7 +70,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/ultimate-guide-caring-leather-jacket-tips-longevity",
             "ogTitle": "Ultimate Leather Jacket Care Guide for Longevity",
             "ogDescription": "Essential maintenance tips to keep your leather jacket looking new. From Artisan Hide's experts.",
-            "ogImage": "https://artisanhide.com/images/og/leather-care-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/leather-care-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -86,7 +86,7 @@ export const blogData: BlogPost[] = [
         "category": "Trends",
         "tags": ["leather trends", "2025 fashion", "leather apparel", "style guide", "artisanhide"],
         "excerpt": "Explore the hottest leather trends for 2025, from bold colors to sustainable designs. Stay ahead in fashion with Artisan Hide's insights.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/leather-trends-2025.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-trends-2025.jpg",
         "content": [
             {
                 "heading": "Introduction to 2025 Leather Trends",
@@ -105,7 +105,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/bold-leather-colors.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-002/bold-leather-colors.jpg"
             },
             {
                 "heading": "Sustainable Leather Innovations",
@@ -133,7 +133,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/leather-accessories-2025.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-002/leather-accessories-2025.jpg"
             }
         ],
         "readTime": "5 min read",
@@ -145,7 +145,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/top-leather-fashion-trends-2025",
             "ogTitle": "Hottest Leather Trends for 2025",
             "ogDescription": "Stay stylish with the latest in leather fashion from Artisan Hide.",
-            "ogImage": "https://artisanhide.com/images/og/leather-trends-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/leather-trends-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -161,7 +161,7 @@ export const blogData: BlogPost[] = [
         "category": "Fashion Tips",
         "tags": ["leather pants styling", "outfit ideas", "leather fashion", "versatile looks", "artisanhide"],
         "excerpt": "Leather pants aren't just for evenings—learn how to style them for work, casual outings, and more with our expert tips.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/leather-pants-styling.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-pants-styling.jpg",
         "content": [
             {
                 "heading": "The Versatility of Leather Pants",
@@ -180,7 +180,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/casual-leather-pants.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-003/casual-leather-pants.jpg"
             },
             {
                 "heading": "Office-Ready Ensembles",
@@ -208,7 +208,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/evening-leather-pants.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-003/evening-leather-pants.jpg"
             }
         ],
         "readTime": "7 min read",
@@ -220,7 +220,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/style-leather-pants-any-occasion",
             "ogTitle": "Versatile Leather Pants Styling Guide",
             "ogDescription": "Outfit ideas for leather pants in any setting.",
-            "ogImage": "https://artisanhide.com/images/og/leather-pants-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/leather-pants-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -236,7 +236,7 @@ export const blogData: BlogPost[] = [
         "category": "History",
         "tags": ["leather history", "fashion evolution", "leather goods", "artisanhide insights"],
         "excerpt": "Journey through the centuries to see how leather has shaped fashion, from ancient times to modern runways.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/leather-history.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-history.jpg",
         "content": [
             {
                 "heading": "Ancient Origins of Leather Use",
@@ -255,7 +255,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/medieval-leather.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-004/medieval-leather.jpg"
             },
             {
                 "heading": "Industrial Revolution and Mass Production",
@@ -283,7 +283,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/modern-leather-fashion.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-004/modern-leather-fashion.jpg"
             }
         ],
         "readTime": "6 min read",
@@ -295,7 +295,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/history-leather-fashion",
             "ogTitle": "The Enduring History of Leather Fashion",
             "ogDescription": "A timeline of leather's role in style.",
-            "ogImage": "https://artisanhide.com/images/og/leather-history-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/leather-history-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -311,7 +311,7 @@ export const blogData: BlogPost[] = [
         "category": "Product Reviews",
         "tags": ["leather travel bags", "best bags 2025", "durable luggage", "artisanhide bags"],
         "excerpt": "Find the perfect leather bag for your next adventure—combining functionality, style, and longevity.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/leather-travel-bags.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-travel-bags.jpg",
         "content": [
             {
                 "heading": "Why Choose Leather for Travel Bags",
@@ -330,7 +330,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/duffel-bag.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-005/duffel-bag.jpg"
             },
             {
                 "heading": "Backpacks for Daily Commutes and Adventures",
@@ -358,7 +358,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/maintaining-bags.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-005/maintaining-bags.jpg"
             }
         ],
         "readTime": "5 min read",
@@ -370,7 +370,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/best-leather-bags-travel-durable-stylish",
             "ogTitle": "Durable Leather Bags for Your Travels",
             "ogDescription": "Stylish picks for adventurers from Artisan Hide.",
-            "ogImage": "https://artisanhide.com/images/og/travel-bags-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/travel-bags-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -386,7 +386,7 @@ export const blogData: BlogPost[] = [
         "category": "Buying Guides",
         "tags": ["leather wallets", "wallet guide", "accessories", "artisanhide wallets"],
         "excerpt": "Navigate the world of leather wallets with our comprehensive guide, covering styles, features, and top recommendations.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/leather-wallets-guide.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-wallets-guide.jpg",
         "content": [
             {
                 "heading": "Types of Leather Wallets",
@@ -405,7 +405,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/wallet-materials.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-006/wallet-materials.jpg"
             },
             {
                 "heading": "Features to Look For",
@@ -433,7 +433,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/wallet-maintenance.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-006/wallet-maintenance.jpg"
             }
         ],
         "readTime": "6 min read",
@@ -445,7 +445,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/choosing-perfect-leather-wallet-buyers-guide",
             "ogTitle": "Guide to Picking the Perfect Leather Wallet",
             "ogDescription": "Tips for style, quality, and functionality.",
-            "ogImage": "https://artisanhide.com/images/og/wallet-guide-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/wallet-guide-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -461,7 +461,7 @@ export const blogData: BlogPost[] = [
         "category": "Sustainability",
         "tags": ["sustainable leather", "eco fashion", "leather facts", "artisanhide sustainability"],
         "excerpt": "Debunk common myths about leather sustainability and learn how Artisan Hide commits to ethical practices.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/sustainable-leather.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/sustainable-leather.jpg",
         "content": [
             {
                 "heading": "Understanding Sustainable Leather",
@@ -480,7 +480,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/eco-leather.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-007/eco-leather.jpg"
             },
             {
                 "heading": "Myth: Faux Leather is Always Better",
@@ -508,7 +508,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/sustainable-shopping.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-007/sustainable-shopping.jpg"
             }
         ],
         "readTime": "7 min read",
@@ -520,7 +520,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/sustainable-leather-myths-facts",
             "ogTitle": "Debunking Myths on Sustainable Leather",
             "ogDescription": "Facts for conscious consumers.",
-            "ogImage": "https://artisanhide.com/images/og/sustainable-leather-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/sustainable-leather-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -536,7 +536,7 @@ export const blogData: BlogPost[] = [
         "category": "Comparisons",
         "tags": ["leather vs faux", "material comparison", "pros cons leather", "artisanhide"],
         "excerpt": "Compare genuine leather and faux alternatives to make an informed choice for your next purchase.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/leather-vs-faux.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-vs-faux.jpg",
         "content": [
             {
                 "heading": "What is Genuine Leather?",
@@ -555,7 +555,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/faux-leather.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-008/faux-leather.jpg"
             },
             {
                 "heading": "Durability and Longevity",
@@ -583,7 +583,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/leather-choice.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-008/leather-choice.jpg"
             }
         ],
         "readTime": "5 min read",
@@ -595,7 +595,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/leather-vs-faux-leather-comparison",
             "ogTitle": "Real Leather vs Faux: Which to Choose?",
             "ogDescription": "A balanced comparison for shoppers.",
-            "ogImage": "https://artisanhide.com/images/og/leather-vs-faux-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/leather-vs-faux-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -611,7 +611,7 @@ export const blogData: BlogPost[] = [
         "category": "Custom Fashion",
         "tags": ["custom leather suits", "tailored apparel", "leather tuxedos", "artisanhide custom"],
         "excerpt": "Everything you need to know about ordering a custom leather suit, from measurements to styling.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/custom-leather-suits.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/custom-leather-suits.jpg",
         "content": [
             {
                 "heading": "Benefits of Custom Leather Suits",
@@ -630,7 +630,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/measurements-suit.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-009/measurements-suit.jpg"
             },
             {
                 "heading": "Choosing Leather and Details",
@@ -658,7 +658,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/custom-suit-styling.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-009/custom-suit-styling.jpg"
             }
         ],
         "readTime": "6 min read",
@@ -670,7 +670,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/custom-tailored-leather-suits-guide",
             "ogTitle": "Your Guide to Custom Leather Suits",
             "ogDescription": "Personalized fashion at its best.",
-            "ogImage": "https://artisanhide.com/images/og/custom-suits-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/custom-suits-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -686,7 +686,7 @@ export const blogData: BlogPost[] = [
         "category": "Seasonal Fashion",
         "tags": ["winter leather coats", "cold weather fashion", "leather outerwear", "artisanhide winter"],
         "excerpt": "Stay cozy and fashionable this winter with our top leather coat recommendations.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/winter-leather-coats.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/winter-leather-coats.jpg",
         "content": [
             {
                 "heading": "Why Leather Coats for Winter",
@@ -705,7 +705,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/long-winter-coat.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-010/long-winter-coat.jpg"
             },
             {
                 "heading": "Trench Coats for Transitional Weather",
@@ -733,7 +733,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/winter-coat-picks.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-010/winter-coat-picks.jpg"
             }
         ],
         "readTime": "5 min read",
@@ -745,7 +745,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/best-winter-leather-coats-warmth-style",
             "ogTitle": "Warm Leather Coats for Winter",
             "ogDescription": "Stylish options for chilly days.",
-            "ogImage": "https://artisanhide.com/images/og/winter-coats-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/winter-coats-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -761,7 +761,7 @@ export const blogData: BlogPost[] = [
         "category": "Accessories",
         "tags": ["leather accessories", "professional style", "wallets", "belts", "artisanhide"],
         "excerpt": "Elevate your professional look with timeless leather accessories. From sleek wallets to durable belts, discover must-have items that blend functionality and sophistication.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/leather-accessories-professional.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-accessories-professional.jpg",
         "content": [
             {
                 "heading": "The Power of Leather in Professional Attire",
@@ -780,7 +780,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/professional-wallet.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-011/professional-wallet.jpg"
             },
             {
                 "heading": "Belts That Complete the Look",
@@ -808,7 +808,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/leather-maintenance-professional.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-011/leather-maintenance-professional.jpg"
             }
         ],
         "readTime": "5 min read",
@@ -820,7 +820,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/essential-leather-accessories-modern-professional",
             "ogTitle": "Essential Leather Accessories for Professionals",
             "ogDescription": "Upgrade your work wardrobe with durable, stylish leather pieces.",
-            "ogImage": "https://artisanhide.com/images/og/professional-accessories-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/professional-accessories-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -836,7 +836,7 @@ export const blogData: BlogPost[] = [
         "category": "Trends",
         "tags": ["leather footwear", "fall trends", "boots", "shoes", "artisanhide"],
         "excerpt": "Step into fall with the latest leather footwear trends. From rugged boots to elegant shoes, find inspiration for your seasonal wardrobe update.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/fall-leather-footwear.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/fall-leather-footwear.jpg",
         "content": [
             {
                 "heading": "Fall Footwear Forecast",
@@ -855,7 +855,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/fall-boots.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-012/fall-boots.jpg"
             },
             {
                 "heading": "Shoe Styles for the Season",
@@ -883,7 +883,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/footwear-care-fall.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-012/footwear-care-fall.jpg"
             }
         ],
         "readTime": "6 min read",
@@ -895,7 +895,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/leather-footwear-trends-boots-shoes-fall-2025",
             "ogTitle": "Leather Footwear Trends for Fall 2025",
             "ogDescription": "Step up your style with these fall leather trends.",
-            "ogImage": "https://artisanhide.com/images/og/fall-footwear-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/fall-footwear-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -911,7 +911,7 @@ export const blogData: BlogPost[] = [
         "category": "Home Decor",
         "tags": ["leather home decor", "pillow covers", "interior design", "artisanhide home"],
         "excerpt": "Transform your living space with luxurious leather home decor. Learn how to incorporate pillow covers and other items for a sophisticated touch.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/leather-home-decor.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-home-decor.jpg",
         "content": [
             {
                 "heading": "Leather in Home Design",
@@ -930,7 +930,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/leather-pillow-styling.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-013/leather-pillow-styling.jpg"
             },
             {
                 "heading": "Other Leather Decor Ideas",
@@ -958,7 +958,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/home-decor-inspiration.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-013/home-decor-inspiration.jpg"
             }
         ],
         "readTime": "5 min read",
@@ -970,7 +970,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/crafting-perfect-leather-home-decor-pillow-covers",
             "ogTitle": "Leather in Home Decor: From Pillows to Perfection",
             "ogDescription": "Elevate your interior with leather accents.",
-            "ogImage": "https://artisanhide.com/images/og/home-decor-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/home-decor-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -986,7 +986,7 @@ export const blogData: BlogPost[] = [
         "category": "Kids Fashion",
         "tags": ["kids leather", "childrens clothing", "durable kids wear", "artisanhide kids"],
         "excerpt": "Dress your children in stylish, long-lasting leather pieces. From jackets to shoes, explore kid-friendly options that withstand playtime.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/kids-leather-fashion.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/kids-leather-fashion.jpg",
         "content": [
             {
                 "heading": "Why Leather for Kids?",
@@ -1005,7 +1005,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/kids-leather-jacket.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-014/kids-leather-jacket.jpg"
             },
             {
                 "heading": "Footwear That Lasts",
@@ -1033,7 +1033,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/kids-leather-care.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-014/kids-leather-care.jpg"
             }
         ],
         "readTime": "5 min read",
@@ -1045,7 +1045,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/kids-leather-fashion-durable-styles",
             "ogTitle": "Stylish Leather for Kids: Built to Last",
             "ogDescription": "Fun, tough leather pieces for little adventurers.",
-            "ogImage": "https://artisanhide.com/images/og/kids-fashion-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/kids-fashion-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -1061,7 +1061,7 @@ export const blogData: BlogPost[] = [
         "category": "Behind the Scenes",
         "tags": ["leather crafting", "artisanhide workshop", "handmade process", "artisan techniques"],
         "excerpt": "Peek into our workshop where skilled artisans create your favorite leather goods. Learn about the meticulous process from hide to finished product.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/leather-crafting-behind-scenes.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-crafting-behind-scenes.jpg",
         "content": [
             {
                 "heading": "Our Artisan Workshop",
@@ -1080,7 +1080,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/selecting-hide.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-015/selecting-hide.jpg"
             },
             {
                 "heading": "The Cutting and Stitching Process",
@@ -1108,7 +1108,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/crafting-sustainability.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-015/crafting-sustainability.jpg"
             }
         ],
         "readTime": "6 min read",
@@ -1120,7 +1120,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/art-leather-crafting-behind-scenes-artisanhide",
             "ogTitle": "The Craft of Leather: Inside Artisan Hide",
             "ogDescription": "Witness the magic of handmade leather creation.",
-            "ogImage": "https://artisanhide.com/images/og/crafting-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/crafting-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -1136,7 +1136,7 @@ export const blogData: BlogPost[] = [
         "category": "Women's Fashion",
         "tags": ["womens leather", "2025 styles", "empowering fashion", "artisanhide women"],
         "excerpt": "Embrace bold, confident looks with women's leather apparel. From jackets to skirts, discover empowering pieces for the modern woman.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/womens-leather-fashion.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/womens-leather-fashion.jpg",
         "content": [
             {
                 "heading": "Leather as Empowerment",
@@ -1155,7 +1155,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/womens-leather-jacket.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-016/womens-leather-jacket.jpg"
             },
             {
                 "heading": "Bottoms with Edge",
@@ -1183,7 +1183,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/womens-leather-sustainable.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-016/womens-leather-sustainable.jpg"
             }
         ],
         "readTime": "6 min read",
@@ -1195,7 +1195,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/womens-leather-fashion-empowering-styles-2025",
             "ogTitle": "Empowering Women's Leather Fashion for 2025",
             "ogDescription": "Strong, stylish leather for modern women.",
-            "ogImage": "https://artisanhide.com/images/og/womens-fashion-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/womens-fashion-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -1211,7 +1211,7 @@ export const blogData: BlogPost[] = [
         "category": "Men's Fashion",
         "tags": ["mens leather", "timeless wardrobe", "essentials", "artisanhide men"],
         "excerpt": "Curate a wardrobe that lasts with key leather pieces for men. From coats to wallets, build style that endures trends.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/mens-leather-essentials.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/mens-leather-essentials.jpg",
         "content": [
             {
                 "heading": "The Foundation of Men's Style",
@@ -1230,7 +1230,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/mens-leather-coat.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-017/mens-leather-coat.jpg"
             },
             {
                 "heading": "Pants and Belts",
@@ -1258,7 +1258,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/mens-leather-maintenance.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-017/mens-leather-maintenance.jpg"
             }
         ],
         "readTime": "5 min read",
@@ -1270,7 +1270,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/mens-leather-essentials-timeless-wardrobe",
             "ogTitle": "Building a Timeless Men's Wardrobe with Leather",
             "ogDescription": "Essential pieces for enduring style.",
-            "ogImage": "https://artisanhide.com/images/og/mens-essentials-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/mens-essentials-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -1286,7 +1286,7 @@ export const blogData: BlogPost[] = [
         "category": "Sustainability",
         "tags": ["sustainable leather", "eco innovations", "green fashion", "artisanhide eco"],
         "excerpt": "Explore how leather is evolving in sustainable fashion. New technologies and practices make it an eco-friendly choice for conscious consumers.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/sustainable-leather-innovations.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/sustainable-leather-innovations.jpg",
         "content": [
             {
                 "heading": "The Evolution of Sustainable Leather",
@@ -1305,7 +1305,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/vegetable-tanning.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-018/vegetable-tanning.jpg"
             },
             {
                 "heading": "Recycled and Upcycled Leather",
@@ -1333,7 +1333,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/eco-leather-choices.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-018/eco-leather-choices.jpg"
             }
         ],
         "readTime": "7 min read",
@@ -1345,7 +1345,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/leather-sustainable-fashion-eco-innovations",
             "ogTitle": "Eco Innovations in Leather Fashion",
             "ogDescription": "Sustainable advancements for conscious style.",
-            "ogImage": "https://artisanhide.com/images/og/eco-innovations-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/eco-innovations-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -1361,7 +1361,7 @@ export const blogData: BlogPost[] = [
         "category": "Seasonal Fashion",
         "tags": ["summer leather", "lightweight styles", "warm weather fashion", "artisanhide summer"],
         "excerpt": "Leather isn't just for winter. Discover breathable, lightweight leather options perfect for summer wardrobes.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/summer-leather-styles.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/summer-leather-styles.jpg",
         "content": [
             {
                 "heading": "Leather in Summer? Yes!",
@@ -1380,7 +1380,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/summer-leather-bottoms.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-019/summer-leather-bottoms.jpg"
             },
             {
                 "heading": "Tops and Vests",
@@ -1408,7 +1408,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/summer-leather-care.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-019/summer-leather-care.jpg"
             }
         ],
         "readTime": "5 min read",
@@ -1420,7 +1420,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/summer-leather-lightweight-styles-warm-weather",
             "ogTitle": "Summer-Ready Leather Styles",
             "ogDescription": "Cool, comfortable leather for hot days.",
-            "ogImage": "https://artisanhide.com/images/og/summer-leather-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/summer-leather-og.jpg",
             "twitterCard": "summary_large_image"
         }
     },
@@ -1436,7 +1436,7 @@ export const blogData: BlogPost[] = [
         "category": "Customization",
         "tags": ["personalized leather", "monogramming", "custom goods", "artisanhide personal"],
         "excerpt": "Make your leather items uniquely yours. Explore personalization options like monogramming, engravings, and custom designs.",
-        "thumbnail": "https://artisanhide.com/images/thumbnails/personalized-leather-goods.jpg",
+        "thumbnail": "https://artisanhide.com/blog/thumbnails/personalized-leather-goods.jpg",
         "content": [
             {
                 "heading": "The Value of Personalization",
@@ -1455,7 +1455,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/images/content/monogramming-leather.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-020/monogramming-leather.jpg"
             },
             {
                 "heading": "Engraving Options",
@@ -1483,7 +1483,7 @@ export const blogData: BlogPost[] = [
                 ],
                 "type": "image-text",
                 "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/images/content/custom-leather-care.jpg"
+                "thumbanil": "https://artisanhide.com/blog/content/blog-020/custom-leather-care.jpg"
             }
         ],
         "readTime": "5 min read",
@@ -1495,7 +1495,7 @@ export const blogData: BlogPost[] = [
             "canonicalUrl": "https://artisanhide.com/blog/personalizing-leather-goods-monogramming-more",
             "ogTitle": "Make It Yours: Personalizing Leather",
             "ogDescription": "Custom touches for unique style.",
-            "ogImage": "https://artisanhide.com/images/og/personalized-og.jpg",
+            "ogImage": "https://artisanhide.com/blog/og/personalized-og.jpg",
             "twitterCard": "summary_large_image"
         }
     }

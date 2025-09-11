@@ -5,14 +5,15 @@ import { useState } from "react";
 import { AnimatePresence } from "motion/react";
 import { div as Div } from "motion/react-client";
 import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
-import type { StoreProductCategory } from "@medusajs/types";
 import { useDrawer } from "@lib/context/drawer-context";
 import Drawer from "../components/drawer";
 import MenuPromotion from "../components/menu-promotion";
 import MobileDrawerContact from "../components/mobile-drawer-contact";
 import { MEGA_MENU } from "@/JSON/header";
+import { product_categories } from "@/JSON/category";
+import { ProductCategory } from "@/type/common";
 
-export default function MobileDrawer({ parent_categories }: { parent_categories: StoreProductCategory[] }) {
+export default function MobileDrawer() {
     const { isMenuDrawerOpen, toggleMenuDrawer } = useDrawer();
 
     const [navigationStack, setNavigationStack] = useState<NavigationState[]>([
@@ -21,7 +22,7 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
 
     const currentNav = navigationStack[navigationStack.length - 1]
 
-    const handleCategoryClick = (category: StoreProductCategory) => {
+    const handleCategoryClick = (category: ProductCategory) => {
         if (category.category_children?.length) {
             setNavigationStack(prev => [
                 ...prev,
@@ -41,7 +42,7 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
         toggleMenuDrawer()
     }
 
-    const getCurrentCategories = () => currentNav.level === 0 ? parent_categories : currentNav.category?.category_children || []
+    const getCurrentCategories = () => currentNav.level === 0 ? product_categories : currentNav.category?.category_children || []
 
     // Show feature collections only for level 1 (parent > child, not deeper)
     const shouldShowFeatureCollections = () => currentNav.level === 1 && currentNav.category && MEGA_MENU.includes(currentNav.category.name)
@@ -153,6 +154,6 @@ export default function MobileDrawer({ parent_categories }: { parent_categories:
 
 type NavigationState = {
     level: number
-    category: StoreProductCategory | null
-    breadcrumb: StoreProductCategory[]
+    category: ProductCategory | null
+    breadcrumb: ProductCategory[]
 }

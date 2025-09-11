@@ -1,23 +1,4 @@
-export const MEGA_MENU = ["Men", "Women"]
-
-export const categories = [
-    {
-        name: "Kids",
-        href: "/category/kids"
-    },
-    {
-        name: "Home & Living",
-        href: "/category/home-living"
-    },
-    {
-        name: "Accessories",
-        href: "/category/accessories"
-    },
-    {
-        name: "Footwear",
-        href: "/category/footwear"
-    },
-]
+export const MEGA_MENU = ["Men", "Women",]
 
 export const features = {
     "Men": [
@@ -38,6 +19,23 @@ export const features = {
     ],
 
     "Women": [
+        {
+            id: 'women-col-01',
+            name: 'New Arrivals',
+            handle: 'new-arrivals-women',
+            thumbnail: '/images/col_thumb/col_trending.webp',
+            alt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
+        },
+        {
+            id: 'women-col-02',
+            name: 'Best Sellers',
+            handle: 'best-sellers-women',
+            thumbnail: '/images/col_thumb/col_winter.webp',
+            alt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
+        }
+    ],
+
+    "Footwear": [
         {
             id: 'women-col-01',
             name: 'New Arrivals',

@@ -1,3 +1,4 @@
+import { BaseProductCategory } from "@medusajs/types/dist/http/product-category/common";
 import React from "react";
 
 export type IconProp = React.ComponentPropsWithoutRef<'svg'>
@@ -51,3 +52,21 @@ export type BreadcrumbItem = {
     name: string;
     href: string;
 };
+
+
+export interface ProductCategory extends Omit<BaseProductCategory, "is_internal" | "products" | "parent_category" | "category_children" | "created_at" | "updated_at" | "parent_category_id" | "deleted_at"> {
+    mpath: string,
+    category_children?: ProductCategory[];
+}
+
+// export type ProductCategory = {
+//     name: string;
+//     rank: number;
+//     handle: string;
+//     description: string;
+//     id: string;
+//     mpath: string;
+//     is_active: boolean
+//     metadata: Record<string, unknown>
+//     category_children?: ProductCategory[]
+// }

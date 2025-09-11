@@ -1,4 +1,3 @@
-
 import BannerSlider from "@module/home/templates/banner";
 import Category from "@module/home/templates/category";
 import Collection from "@module/home/templates/collection";

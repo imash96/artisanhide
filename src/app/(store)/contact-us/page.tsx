@@ -6,9 +6,7 @@ import Container from "@module/common/create-section";
 import Button from "@module/common/custom-button";
 import CustomInput from "@module/common/custom-input";
 import CustomTextarea from "@module/common/custom-textarea";
-import { Mail, Phone } from "lucide-react";
-import Image from "next/image";
-import { useState } from "react";
+import { Mail } from "lucide-react";
 
 export default function Page() {
     return (
