@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
                 <h1 className="text-3xl uppercase tracking-tight">Privacy Policy</h1>
                 <p className="mt-2 text-sm text-foreground-muted">Effective Date: August 28, 2025</p>
             </header>
-            <section className="prose max-w-none prose-gray space-y-4">
+            <section className="max-w-none space-y-4">
                 <p className="text-sm tracking-wide font-light">
                     At ArtisanHide, your privacy is of utmost importance to us. This Privacy Policy outlines how we collect, use, disclose, and safeguard your personal information when you visit our website, make a purchase, or interact with our services. We are committed to complying with applicable Indian laws, including the Information Technology Act, 2000, the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011, and the Digital Personal Data Protection Act, 2023 (DPDP Act). By using our website, you consent to the practices described in this policy.
                 </p>

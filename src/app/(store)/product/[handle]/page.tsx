@@ -29,7 +29,7 @@ export default async function Page(props: PageProps<"/product/[handle]">) {
     if (!product || !product.id) notFound()
 
     const pages = product.categories?.map((c) => ({ name: c.name, href: `/category/${c.handle}` }))
-
+    console.log(product.categories)
     return (
         <Container className="py-8 md:py-10 lg:py-14">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
@@ -53,7 +53,5 @@ export default async function Page(props: PageProps<"/product/[handle]">) {
 
 export async function generateStaticParams() {
     const products = await sdk.store.product.list({ fields: "handle" }).then(({ products }) => products);
-    const handles = products.map(p => ({ handle: p.handle }));
-    console.log(handles)
-    return handles
+    return products.map(p => ({ handle: p.handle }));
 }

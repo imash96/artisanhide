@@ -5,7 +5,7 @@ export default function TermsOfSale() {
                 <h1 className="text-3xl uppercase tracking-tight">Terms and Conditions</h1>
                 <p className="mt-2 text-sm text-foreground-muted">Effective Date: August 28, 2025</p>
             </header>
-            <section className="prose max-w-none prose-gray space-y-4">
+            <section className="max-w-none space-y-4">
                 <p className="text-sm tracking-wide font-light">
                     Welcome to ArtisanHide. These Terms and Conditions ("Terms") govern your access to and use of our website ("Site"), products, and services. By accessing or using the Site, placing an order, or engaging with our services, you agree to be bound by these Terms, our Privacy Policy, Shipping Policy, and Return & Refund Policy. If you do not agree, please do not use our Site or services. ArtisanHide specializes in cross-border retail exports from India via our e-commerce platform, and these Terms are compliant with Indian laws including the Information Technology Act, 2000, Consumer Protection Act, 2019, and export regulations under the Foreign Trade (Development and Regulation) Act, 1992.
                 </p>

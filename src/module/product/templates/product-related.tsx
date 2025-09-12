@@ -8,6 +8,8 @@ export default async function RelatedProducts({ product, region }: RelatedProduc
     const queryParams: StoreProductListParams = {}
     queryParams.region_id = region.id
     queryParams.limit = 7
+
+    queryParams.fields = "id,handle,title,*images,*variants.calculated_price";
     if (product.collection_id) {
         queryParams.collection_id = [product.collection_id]
     }

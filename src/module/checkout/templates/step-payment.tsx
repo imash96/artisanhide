@@ -11,6 +11,7 @@ import PaymentContainer, { StripeCardContainer } from "../components/payment-con
 import { paymentInfoMap } from "../components/payment-map";
 import PaymentButton from "../components/payment-button";
 
+// TODO color
 export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
     const { currentStep, setCurrentStep } = useCheckout()
     const isOpen = currentStep === "payment"

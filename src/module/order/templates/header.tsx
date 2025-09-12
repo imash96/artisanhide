@@ -2,6 +2,7 @@ import CreditCard from "@/icon/checkout-creditcard";
 import { StoreOrder } from "@medusajs/types";
 import { Package, Truck } from "lucide-react";
 
+// TODO color
 export default function OrderHeader({ order }: { order: StoreOrder }) {
     const order_id = `${order.id.split("_")[1]}_${order.display_id}`
     return (

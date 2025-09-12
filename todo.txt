@@ -1,6 +1,3 @@
-Color
-- color customization with dark mode
-
 Homepage
 - hero image
 - category image
@@ -22,9 +19,6 @@ contact-us
 
 guide
 - make guide page
-
-blog
-- make blog page
 
 return
 - make return page

@@ -5,7 +5,7 @@ export default function PaymentPolicy() {
                 <h1 className="text-3xl uppercase text-templateBrown font-light tracking-tight">Payment Policy</h1>
                 <p className="mt-2 text-sm text-foreground-muted">Effective Date: August 28, 2025</p>
             </header>
-            <section className="prose max-w-none prose-gray space-y-4">
+            <section className="max-w-none space-y-4">
                 <p className="text-sm tracking-wide font-light">
                     At ArtisanHide, we offer secure and convenient payment options for our cross-border retail exports from India. This Payment Policy outlines the accepted methods, processing, security measures, and related procedures to ensure a smooth transaction experience. All payments are handled in compliance with Indian laws, including the Payment and Settlement Systems Act, 2007, and RBI guidelines for e-commerce exports.
                 </p>

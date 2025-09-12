@@ -1,5 +1,6 @@
 import CustomDivider from "@module/common/custom-divider";
 
+// TODO color
 export default function CheckoutExpress() {
     return (
         <>

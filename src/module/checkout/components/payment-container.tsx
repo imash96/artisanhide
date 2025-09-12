@@ -30,7 +30,10 @@ export default function PaymentContainer({
     return (
         <label
             htmlFor={paymentProviderId}
-            className={`flex flex-col gap-y-2 cursor-pointer p-4 border rounded-lg mb-3 transition ${isSelected ? "border-indigo-500 bg-indigo-50 shadow-md" : "border-gray-200 bg-white hover:border-indigo-300"}  ${disabled ? "opacity-50 pointer-events-none" : ""}`}
+            className={`flex flex-col gap-y-3 cursor-pointer p-5 rounded-xl border transition-all duration-200
+        ${isSelected ? "border-indigo-500 bg-indigo-50 shadow-md" : "border-gray-200 bg-white hover:border-indigo-300 hover:shadow-sm"}
+        ${disabled ? "opacity-50 pointer-events-none" : ""}
+      `}
         >
             {/* Hidden radio input */}
             <input
@@ -48,24 +51,23 @@ export default function PaymentContainer({
                 <div className="flex items-center gap-x-3">
                     {/* Custom radio indicator */}
                     <span
-                        className={`h-4 w-4 rounded-full border flex items-center justify-center ${isSelected ? "border-indigo-500" : "border-gray-400"
-                            }`}
+                        className={`h-5 w-5 rounded-full border flex items-center justify-center transition
+              ${isSelected ? "border-indigo-500" : "border-gray-400"}
+            `}
                     >
-                        {isSelected && (
-                            <span className="h-2 w-2 rounded-full bg-indigo-500" />
-                        )}
+                        {isSelected && <span className="h-2.5 w-2.5 rounded-full bg-indigo-500" />}
                     </span>
 
-                    <span className="text-base font-medium text-gray-900">
+                    <span className="text-base font-semibold text-gray-900">
                         {paymentInfoMap[paymentProviderId]?.title || paymentProviderId}
                     </span>
 
-                    {/* Test payment option only in dev */}
                     {isManual(paymentProviderId) && isDevelopment && (
                         <TestPayment className="hidden sm:block" />
                     )}
                 </div>
-                <span className="text-gray-600">
+
+                <span className="text-gray-500">
                     {paymentInfoMap[paymentProviderId]?.icon}
                 </span>
             </div>
@@ -95,24 +97,31 @@ export function StripeCardContainer({
     setCardComplete: (complete: boolean) => void
 }) {
     const stripeReady = useContext(StripeContext)
+    const isSelected = selectedPaymentOptionId === paymentProviderId
 
     const options: StripeCardElementOptions = useMemo(() => {
         return {
             style: {
                 base: {
-                    fontFamily: "Inter, sans-serif",
+                    fontFamily: "Inter, system-ui, sans-serif",
                     fontSize: "16px",
-                    color: "#1F2937", // gray-800
-                    "::placeholder": { color: "#9CA3AF" }, // gray-400
+                    fontSmoothing: "antialiased",
+                    color: "#111827", // gray-900
+                    "::placeholder": {
+                        color: "#9CA3AF", // gray-400
+                    },
+                    iconColor: "#6366F1", // indigo-500
+                },
+                invalid: {
+                    color: "#DC2626", // red-600
+                    iconColor: "#DC2626",
                 },
             },
             classes: {
-                base: "block w-full h-11 px-4 bg-gray-50 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all",
+                base: "StripeElement block w-full h-12 px-4 rounded-lg border border-gray-300 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition",
             },
         }
     }, [])
-
-    const isSelected = selectedPaymentOptionId === paymentProviderId
 
     return (
         <PaymentContainer
@@ -122,28 +131,27 @@ export function StripeCardContainer({
             disabled={disabled}
             onChange={onChange}
         >
-            {isSelected &&
-                (stripeReady && (
-                    <div className="mt-4">
-                        <span className="block text-sm font-medium text-gray-700 mb-2">
-                            Enter your card details:
-                        </span>
-                        <CardElement
-                            options={options}
-                            onChange={(e) => {
-                                setCardBrand(
-                                    e.brand
-                                        ? e.brand.charAt(0).toUpperCase() + e.brand.slice(1)
-                                        : ""
-                                )
-                                setError(e.error?.message || null)
-                                setCardComplete(e.complete)
-                            }}
-                        />
-                    </div>
-                )
-                    // : <SkeletonCardDetails />
-                )}
+            {isSelected && stripeReady && (
+                <div className="mt-3 space-y-2">
+                    <span className="block text-sm font-medium text-gray-700">
+                        Enter your card details
+                    </span>
+                    <CardElement
+                        options={options}
+                        onChange={(e) => {
+                            setCardBrand(
+                                e.brand ? e.brand.charAt(0).toUpperCase() + e.brand.slice(1) : ""
+                            )
+                            setError(e.error?.message || null)
+                            setCardComplete(e.complete)
+                        }}
+                    />
+                    {/* Error message space */}
+                    <p className="text-sm text-red-600 min-h-[1.25rem]">
+                        {/* error will be injected dynamically */}
+                    </p>
+                </div>
+            )}
         </PaymentContainer>
     )
 }

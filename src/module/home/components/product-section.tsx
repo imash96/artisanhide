@@ -3,7 +3,6 @@ import SectionHeader from "./section-header";
 import Button from "@module/common/custom-button";
 import ProductCard from "@module/common/product-card";
 
-
 export default function ProductSection({ products, title, desc, sectionName, ...props }: ProductSectionProps) {
     return (
         <SectionHeader title={title} desc={desc} sectionName={sectionName}>

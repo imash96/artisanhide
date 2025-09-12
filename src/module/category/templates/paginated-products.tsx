@@ -12,6 +12,7 @@ type PaginatedProductsParams = {
     category_id?: string[]
     id?: string[]
     order?: string
+    fields: string
 }
 
 type PaginatedProductsProps = {
@@ -26,6 +27,7 @@ type PaginatedProductsProps = {
 export default async function PaginatedProducts({ sortBy, page, collectionId, categoryId, productsIds, countryCode, }: PaginatedProductsProps) {
     const queryParams: PaginatedProductsParams = {
         limit: 24,
+        fields: "id,handle,title,*images,*variants.calculated_price",
     }
 
     if (collectionId) {

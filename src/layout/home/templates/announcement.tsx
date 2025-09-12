@@ -3,15 +3,10 @@
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
-import type { EmblaCarouselType, EmblaOptionsType } from "embla-carousel";
+import type { EmblaOptionsType } from "embla-carousel";
 import { ChevronLeft } from "lucide-react";
 import Container from '@module/common/create-section';
-
-const slides = [
-    "10% OFF ON YOUR FIRST PURCHASE.",
-    "FREE SHIPPING ON ORDERS OVER $150",
-    "New Year Sale is Live! Use Code: NY10",
-]
+import { announcements } from "@/JSON/announcement";
 
 const options: EmblaOptionsType = { loop: true }
 
@@ -60,7 +55,7 @@ export default function Announcement() {
                     </button>
                     <div className="overflow-hidden no-scrollbar text-xs font-title" ref={emblaRef}>
                         <div className="flex">
-                            {slides.map((text, index) => (
+                            {announcements.map((text, index) => (
                                 <span className="flex-[0_0_100%] size-full my-auto tracking-wide text-center" key={index}>
                                     {text}
                                 </span>

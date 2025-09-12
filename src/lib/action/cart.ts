@@ -9,8 +9,9 @@ import { sdk } from "@lib/sdk"
 import { ClientHeaders } from "@medusajs/js-sdk"
 import medusaError from "@lib/util/medusa-error"
 
-export async function retrieveCart(cartId?: string) {
+export async function retrieveCart(cartId?: string, fields?: string) {
     const id = cartId || (await getCartId())
+    fields ??= "*items, *region, *items.product, *items.variant, *items.thumbnail, *items.metadata, +items.total, *promotions, shipping_methods.name, shipping_methods.shipping_option.type.*"
 
     if (!id) return null
 
@@ -19,7 +20,7 @@ export async function retrieveCart(cartId?: string) {
     const nextOptions = await getCacheOptions("carts");
 
     return await sdk.store.cart.retrieve(id, {
-        fields: "*items, *region, *items.product, *items.variant, *items.thumbnail, *items.metadata, +items.total, *promotions, shipping_methods.name, shipping_methods.shipping_option.type.*",
+        fields,
     }, {
         ...headers,
         next: nextOptions ? nextOptions : null,
@@ -32,7 +33,7 @@ export async function getOrSetCart(countryCode: string) {
 
     if (!region) throw new Error(`Region not found for country code: ${countryCode}`);
 
-    let cart = await retrieveCart()
+    let cart = await retrieveCart(undefined, 'id,region_id')
 
     const headers = { ...(await getAuthHeaders()) as ClientHeaders };
 

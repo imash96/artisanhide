@@ -5,7 +5,7 @@ export default function ReturnRefundPolicy() {
                 <h1 className="text-3xl uppercase tracking-tight">Return & Refund Policy</h1>
                 <p className="mt-2 text-sm text-foreground-muted">Effective Date: August 28, 2025</p>
             </header>
-            <section className="prose max-w-none prose-gray space-y-4">
+            <section className="max-w-none space-y-4">
                 <p className="text-sm tracking-wide font-light">
                     At Artisan Hide, we take pride in our craftsmanship and are committed to ensuring your satisfaction. We want you to love your purchase. If something isn’t right, we’re here to help with an easy and transparent process. This policy covers returns and exchanges for orders shipped within India.
                 </p>

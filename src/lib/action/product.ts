@@ -1,13 +1,12 @@
 "use server"
 
-import { FindParams, StoreProduct, StoreProductParams, StoreRegion } from "@medusajs/types"
+import { FindParams, StoreProduct, StoreProductParams, StoreRegion, StoreProductListParams } from "@medusajs/types"
 import { getAuthHeaders, getCacheOptions } from "./cookies"
 import { sdk } from "@lib/sdk"
 import { SortOptions } from "@/type/common"
 import { getRegion, retrieveRegion } from "./region"
 import { ClientHeaders } from "@medusajs/js-sdk"
 import { sortProducts } from "@lib/util/sort-products"
-import type { StoreProductListParams } from "@medusajs/types"
 
 export const listProducts = async ({ pageParam = 1, queryParams, countryCode, regionId }: ListProductsProps): Promise<ListProductsResp> => {
     if (!countryCode && !regionId) throw new Error("Country code or region ID is required")
@@ -15,6 +14,7 @@ export const listProducts = async ({ pageParam = 1, queryParams, countryCode, re
     const limit = queryParams?.limit || 12
     const _pageParam = Math.max(pageParam, 1)
     const offset = (_pageParam === 1) ? 0 : (_pageParam - 1) * limit;
+    const fields = queryParams?.fields || "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags,*categories";
 
     let region: StoreRegion | undefined | null
 
@@ -39,7 +39,7 @@ export const listProducts = async ({ pageParam = 1, queryParams, countryCode, re
         limit,
         offset,
         region_id: region?.id,
-        fields: "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags,+categories.*",
+        fields,
         ...queryParams,
     }, {
         ...headers,
@@ -70,6 +70,7 @@ export const listProductsWithSort = async ({ page = 0, queryParams, sortBy = "cr
         pageParam: 0,
         queryParams: {
             ...queryParams,
+            fields: "id,handle,title,*images,*variants.calculated_price",
             limit: 100,
         },
         countryCode,
@@ -99,6 +100,7 @@ export const listProductsWithSortnFilter = async () => {
 
 export const fetchProductByCollection = async (query?: StoreProductListParams, cacheTag?: string) => {
     const nextOptions = await getCacheOptions(cacheTag ?? "prod_collection")
+
     return sdk.store.product.list(query, {
         next: nextOptions,
         cache: "force-cache",

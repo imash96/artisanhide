@@ -5,7 +5,7 @@ export default function ShippingPolicy() {
                 <h1 className="text-3xl uppercase tracking-tight">Shipping Policy</h1>
                 <p className="mt-2 text-sm text-foreground-muted">Effective Date: August 28, 2025</p>
             </header>
-            <section className="prose max-w-none prose-gray space-y-4">
+            <section className="max-w-none space-y-4">
                 <p className="text-sm tracking-wide font-light">
                     At ArtisanHide, we are dedicated to delivering your handcrafted leather goods safely, efficiently, and on time. This Shipping Policy outlines our shipping processes, timelines, costs, and procedures to ensure a seamless experience for our customers in India. For international inquiries, please reach out to us. We prioritize transparency to set clear expectations and build trust.
                 </p>

@@ -54,14 +54,14 @@ export default function Page() {
                             We invite you to get in touch with us on social media.{" "}
                         </p>
                         <a className="flex items-center gap-2 text-sm tracking-wide text-foreground-muted "
-                            href="https://instagram.com/ArtisanHideStore"
+                            href="https://instagram.com/ArtisanHideStore" target="_blank"
                         >
                             <Instagram className="size-5" />
                             Instagram
                         </a>
                         <a
                             className="flex items-center gap-2 text-sm tracking-wide text-foreground-muted "
-                            href="https://facebook.com/ArtisanHideStore"
+                            href="https://facebook.com/ArtisanHideStore" target="_blank"
                         >
                             <Facebook className="size-5" />
                             Facebook
