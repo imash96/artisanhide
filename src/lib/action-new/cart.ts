@@ -5,7 +5,7 @@ import { sdk } from "@lib/sdk";
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { StoreCart, StoreCartResponse, StoreCartShippingOption, StoreInitializePaymentSession, StoreUpdateCart } from "@medusajs/types";
-import { getAuthHeaders, getCacheOptions, getCacheTag, getCartId, removeCartId, setCartId, } from "./cookies";
+import { getAuthHeaders, getCacheOptions, getCacheTag, getCartId, removeCartId, setCartId, setCountryCode, } from "./cookies";
 import { getRegion } from "./region";
 
 
@@ -332,7 +332,7 @@ export async function placeOrder(cartId?: string) {
 /**
  * Update region for session & optionally cart, revalidate caches and redirect.
  */
-export async function updateRegion(countryCode: string, currentPath = "/") {
+export async function updateRegion(countryCode: string) {
     const cartId = await getCartId();
     const region = getRegion(countryCode);
 
@@ -340,21 +340,13 @@ export async function updateRegion(countryCode: string, currentPath = "/") {
 
     if (cartId) {
         await updateCart({ region_id: region.id });
-        const cartTag = await getCacheTag("carts");
-        if (cartTag) revalidateTag(cartTag);
+        revalidateTag(await getCacheTag("carts"));
     }
 
-    const regionTag = await getCacheTag("regions");
-    if (regionTag) revalidateTag(regionTag);
+    revalidateTag(await getCacheTag("regions"));
+    revalidateTag(await getCacheTag("products"));
 
-    const productsTag = await getCacheTag("products");
-    if (productsTag) revalidateTag(productsTag);
-
-    // store country selection in cookie (if you want server-readability later)
-    // Note: setCountryCode is not in this file; make sure it's available where you expect it.
-    // await setCountryCode(countryCode);
-
-    redirect(`/${countryCode}${currentPath}`);
+    await setCountryCode(countryCode);
 }
 
 /**
@@ -364,25 +356,24 @@ export async function listCartOptions() {
     const cartId = await getCartId();
     if (!cartId) throw new Error("No existing cart found");
 
-    const headers = {
-        ...(await getAuthHeaders()),
-    };
+    const headers = await getAuthHeaders();
     const nextOptions = await getCacheOptions("shippingOptions");
 
     try {
-        const resp = await sdk.client.fetch<{
-            shipping_options: StoreCartShippingOption[];
-        }>("/store/shipping-options", {
-            query: { cart_id: cartId },
-            headers,
-            ...(nextOptions ? { next: nextOptions } : {}),
+        const { shipping_options } = await sdk.store.fulfillment.listCartOptions({ cart_id: cartId }, {
+            ...headers,
+            next: nextOptions,
             cache: "force-cache",
-        });
-
-        return resp;
+        })
+        return shipping_options;
     } catch (err) {
         medusaError(err);
     }
+}
+
+export async function fetchCartItemCount() {
+    const cart = await retrieveCart()
+    return cart?.items?.reduce((total, item) => total + item.quantity, 0) || 0;
 }
 
 type AddToCartProps = {

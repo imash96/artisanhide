@@ -1,30 +1,27 @@
 "use client"
 
-import { Truck } from "lucide-react";
-import StepHeader from "../components/step-header";
-import { useCheckout } from "@lib/context/checkout-context";
-import Button from "@module/common/custom-button";
-import { StoreCart, StoreCartShippingOption } from "@medusajs/types";
-import { useActionState, useEffect, useLayoutEffect } from "react";
-import { handleSetShippingMethod } from "@lib/action/cart";
-import ShippingCardList from "../components/list-shipping-card";
-import ShippingCardShow from "../components/show-shipping-card";
+import { StoreCart, StoreCartShippingOption } from "@medusajs/types"
+import StepHeader from "../components/step-header"
+import { Truck } from "lucide-react"
+import { useCheckout } from "@lib/context/checkout-context"
+import { useActionState, useEffect, useLayoutEffect } from "react"
+import { setShippingMethod } from "@lib/action/cart"
+import ListShippingMethods from "../components/shipping-method-list"
+import ShippingCardShow from "../components/shipping-method-show"
 
-export default function ShippingStep({ cart, availableShippingMethods }: ShippingProps) {
+export default function ShippingStep({ cart, availableMethods }: ShippingProps) {
     const { currentStep, setCurrentStep } = useCheckout()
     const isOpen = currentStep === "delivery"
+
+    useLayoutEffect(() => {
+        if (!cart.shipping_address?.address_1 && currentStep === "delivery") setCurrentStep("address")
+    }, [isOpen]);
 
     const [formState, formAction, isPending] = useActionState(handleSetShippingMethod, {
         cartId: cart.id,
         success: false,
         error: null
     })
-
-    const handleEdit = () => setCurrentStep("delivery")
-
-    useLayoutEffect(() => {
-        if (!cart.shipping_address?.address_1 && currentStep === "delivery") setCurrentStep("address")
-    }, [currentStep, setCurrentStep, cart.shipping_address?.address_1]);
 
     useEffect(() => {
         const handleNext = () => setCurrentStep("payment")
@@ -36,45 +33,49 @@ export default function ShippingStep({ cart, availableShippingMethods }: Shippin
         }
     }, [formState, cart.id, setCurrentStep]);
 
-
     return (
         <div className="pb-4 border-b">
-            <StepHeader Icon={Truck} title="Shipping Method" subtitle="Choose your preferred delivery option">
-                {!isOpen &&
-                    <Button variant="outline" color="secondary" onClick={handleEdit}>
-                        Change
-                    </Button>
-                }
-            </StepHeader>
+            <StepHeader Icon={Truck} title="Shipping Method" subtitle="Choose your preferred delivery option" showEdit={(!isOpen && currentStep != "address")} name="delivery" />
             {isOpen ?
-                <form action={formAction} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4 w-fit">
-                    {availableShippingMethods.map((availableMethod, idx) => (
-                        <ShippingCardList key={availableMethod.id} availableMethod={availableMethod} currencyCode={cart.currency_code} selectedMethod={cart.shipping_methods?.[0]} />
+                <form action={formAction} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+                    {availableMethods.map((availableMethod) => (
+                        <ListShippingMethods
+                            key={availableMethod.id}
+                            availableMethod={availableMethod}
+                            currencyCode={cart.currency_code}
+                            selectedMethodId={cart.shipping_methods?.[0].shipping_option_id}
+                            isDisable={isPending}
+                        />
                     ))}
-                    {/* Footer */}
-                    <div>
-                        <Button isLoading={isPending} className="w-[100px] h-10" type="submit" disabled={isPending}>
-                            Save
-                        </Button>
-                        {formState.error && (
-                            <div className="text-destructive-foreground text-sm pt-2" role="alert" aria-live="polite">
-                                {formState.error}
-                            </div>
-                        )}
-                    </div>
-                </form>
-                : <>
+                </form> : <>
                     {cart.shipping_methods?.map((method) => (
                         <ShippingCardShow key={method.id} method={method} currencyCode={cart.currency_code} />
                     ))}
-
-                </>
-            }
+                </>}
         </div>
     )
 }
 
 type ShippingProps = {
     cart: StoreCart
-    availableShippingMethods: StoreCartShippingOption[]
+    availableMethods: StoreCartShippingOption[]
+}
+
+async function handleSetShippingMethod(_: Record<string, any>, formData: FormData) {
+    const selectedOption = String(formData.get("shippingMethod"))
+    if (!selectedOption) return {
+        cartId: _.cartId,
+        error: "selectedOption id not found",
+        success: false,
+    }
+    try {
+        await setShippingMethod({ cartId: _.cartId, shippingMethodId: selectedOption })
+        return { success: true, error: null }
+    } catch (e: any) {
+        return {
+            cartId: _.cartId,
+            error: e.message,
+            success: false,
+        }
+    }
 }

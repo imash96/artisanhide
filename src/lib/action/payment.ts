@@ -3,7 +3,7 @@
 import { getAuthHeaders, getCacheOptions, getCacheTag } from "./cookies"
 import { ClientHeaders } from "@medusajs/js-sdk"
 import { sdk } from "@lib/sdk"
-import { SelectParams, StoreCart, StoreInitializePaymentSession } from "@medusajs/types"
+import { SelectParams, StoreCart, StoreInitializePaymentSession, StorePaymentCollectionResponse } from "@medusajs/types"
 import { revalidateTag } from "next/cache"
 import medusaError from "@lib/util/medusa-error"
 
@@ -36,7 +36,7 @@ export async function initiatePaymentSession(cart: StoreCart, data: StoreInitial
 export async function initiatePaymentSessionCustom(cartId: string, paymentCollectionId: string | undefined, body: StoreInitializePaymentSession, query: SelectParams) {
     if (!paymentCollectionId) paymentCollectionId = await createPaymentCollection(cartId)
     const headers = { ...(await getAuthHeaders()) as ClientHeaders };
-    return sdk.client.fetch(`/store/payment-collections/${paymentCollectionId}/payment-sessions`, {
+    return sdk.client.fetch<StorePaymentCollectionResponse>(`/store/payment-collections/${paymentCollectionId}/payment-sessions`, {
         method: "POST",
         headers,
         body,

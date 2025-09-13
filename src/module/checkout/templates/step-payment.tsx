@@ -1,182 +1,91 @@
 "use client"
 
-import { CreditCard } from "lucide-react";
-import StepHeader from "../components/step-header";
 import { useCheckout } from "@lib/context/checkout-context";
-import { StoreCart, StorePaymentProvider } from "@medusajs/types";
+import type { StoreCart, StorePaymentProvider } from "@medusajs/types";
 import { isStripe as isStripeFunc } from "@lib/constant";
-import { useLayoutEffect, useState } from "react";
-import { initiatePaymentSessionCustom, initiatePaymentSession } from "@lib/action/payment";
-import PaymentContainer, { StripeCardContainer } from "../components/payment-container";
-import { paymentInfoMap } from "../components/payment-map";
-import PaymentButton from "../components/payment-button";
+import { useTransition, useLayoutEffect } from "react";
+import StepHeader from "../components/step-header";
+import { AppWindow, CheckCircle, Circle, CreditCard } from "lucide-react";
+import { initiatePaymentSessionCustom } from "@lib/action/payment";
+import { paymentInfoMap } from "../../../JSON/payment-info-map";
+import PaymentContainer from "../components/payment-container";
+import BrowserWireframe from "@/icon/browser-wireframe";
 
-// TODO color
-export default function PaymentStep({ cart, paymentMethods }: ShippingProps) {
+export default function PaymentStep({ cart, paymentMethods }: PaymentStepProps) {
     const { currentStep, setCurrentStep } = useCheckout()
     const isOpen = currentStep === "payment"
-    const activeSession = cart.payment_collection?.payment_sessions?.find(
-        (paymentSession: any) => paymentSession.status === "pending"
-    )
-    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(activeSession?.provider_id ?? "")
-    const [error, setError] = useState<string | null>(null)
-    const [cardBrand, setCardBrand] = useState<string | null>(null)
-    const [cardComplete, setCardComplete] = useState(false)
+    const activeSession = cart.payment_collection?.payment_sessions?.find((paymentSession) => paymentSession.status === "pending");
+    const selectedPaymentMethod = activeSession?.provider_id
 
-    const isStripe = isStripeFunc(selectedPaymentMethod)
-
-    const setPaymentMethod = async (method: string) => {
-        setSelectedPaymentMethod(method)
-        if (isStripeFunc(method)) {
-            await initiatePaymentSessionCustom(cart.id, cart.payment_collection?.id, {
-                provider_id: method,
-                data: { payment_description: "Men Leather Jacket" }
-            }, {})
-        }
-        await initiatePaymentSessionCustom(cart.id, cart.payment_collection?.id, {
-            provider_id: method
-        }, {})
-    }
-
-    const paymentReady = (activeSession && cart.shipping_methods?.length !== 0 && cart.shipping_address?.address_1)
+    const isStripe = isStripeFunc(selectedPaymentMethod);
 
     useLayoutEffect(() => {
-        if (!cart.shipping_methods?.length && currentStep === "payment") setCurrentStep("delivery")
-    }, [currentStep, cart.shipping_methods?.length, setCurrentStep]);
+        if (!cart.shipping_methods?.length && isOpen) setCurrentStep("delivery")
+    }, [isOpen]);
 
-    // useLayoutEffect(() => {
-    //     if (!paymentReady && currentStep === "payment") setCurrentStep("delivery")
-    //     console.log({ paymentReady, currentStep })
-    // }, [paymentReady, currentStep]);
+    const [isPending, startTransition] = useTransition()
 
-
-    const handleSubmit = async () => {
-        try {
-            const shouldInputCard = isStripeFunc(selectedPaymentMethod) && !activeSession
-            const checkActiveSession = activeSession?.provider_id === selectedPaymentMethod
-            console.log("Review", checkActiveSession, activeSession?.provider_id, selectedPaymentMethod)
-
-            if (!checkActiveSession) {
-                await initiatePaymentSession(cart, {
-                    provider_id: selectedPaymentMethod,
-                    data: { payment_description: "Men Leather Jacket" }
-                })
-            }
-
-        } catch (err: any) {
-            console.log(err.message)
-        }
+    function setPaymentMethod(cart_id: string, provider_id: string, collection_id?: string) {
+        if (provider_id == selectedPaymentMethod) return
+        startTransition(async () => {
+            await initiatePaymentSessionCustom(cart_id, collection_id, {
+                provider_id,
+                data: { payment_description: "Men Leather Jacket" },
+            }, {})
+        });
     }
 
     return (
         <div className="pb-4 border-b">
-            <StepHeader Icon={CreditCard} title="Payment" subtitle="Choose your preferred payment option" />
-            <div className={isOpen ? "block" : "hidden"}>
-                {/* Show payment methods */}
-                {paymentMethods?.length > 0 && (
-                    <fieldset className="grid grid-cols-1 gap-4 mt-6">
-                        {paymentMethods.map((paymentMethod, idx) => (
-                            <label
-                                key={paymentMethod.id}
-                                htmlFor={paymentMethod.id}
-                                className={`relative flex flex-col cursor-pointer rounded-lg border p-4 shadow-sm transition hover:border-indigo-400 hover:shadow-md ${selectedPaymentMethod === paymentMethod.id ? "border-indigo-500 bg-indigo-50" : "border-gray-200 bg-white"}`}
-                            >
-                                {/* Hidden radio input */}
-                                <input
-                                    type="radio"
-                                    id={paymentMethod.id}
-                                    name="payment-method"
-                                    value={paymentMethod.id}
-                                    checked={selectedPaymentMethod === paymentMethod.id}
-                                    onChange={() => setPaymentMethod(paymentMethod.id)}
-                                    className="peer sr-only"
-                                />
-
-                                <div className="flex flex-col flex-1">
-                                    <h3 className="font-semibold text-gray-900">{paymentMethod.id}</h3>
-                                    <p className="text-sm text-gray-600 mt-1">
-                                        {isStripeFunc(paymentMethod.id) ? "Pay securely with credit/debit card" : "Alternative payment option"}
+            <StepHeader Icon={CreditCard} title="Payment" subtitle="Choose your preferred payment option" name="payment" showEdit={false} />
+            <div className={isOpen ? `flex flex-col border divide-y-1` : "hidden"}>
+                {paymentMethods.map(paymentMethod => {
+                    const Icon = paymentInfoMap[paymentMethod.id].Icon
+                    return (
+                        <label
+                            key={paymentMethod.id}
+                            htmlFor={paymentMethod.id}
+                            className="py-3 cursor-pointer"
+                        >
+                            <input
+                                type="radio"
+                                id={paymentMethod.id}
+                                name="provider_id"
+                                value={paymentMethod.id}
+                                defaultChecked={selectedPaymentMethod === paymentMethod.id}
+                                onClick={() => setPaymentMethod(cart.id, paymentMethod.id, cart.payment_collection?.id)}
+                                className="peer sr-only"
+                            />
+                            <div className="flex items-center pr-4">
+                                <div className="p-2">
+                                    {selectedPaymentMethod === paymentMethod.id ? <CheckCircle className="w-8" /> : <Circle className="w-8" />}
+                                </div>
+                                <div className="space-y-1 flex-1">
+                                    <h3 className="font-semibold">{paymentInfoMap[paymentMethod.id].title}</h3>
+                                    <p className="text-sm text-foreground-muted mt-1">
+                                        {paymentInfoMap[paymentMethod.id].desc}
                                     </p>
                                 </div>
-
-                                {/* Custom payment forms */}
-                                <div className="mt-3 w-full">
-                                    {isStripeFunc(paymentMethod.id) ? (
-                                        <StripeCardContainer
-                                            paymentProviderId={paymentMethod.id}
-                                            selectedPaymentOptionId={selectedPaymentMethod}
-                                            paymentInfoMap={paymentInfoMap}
-                                            setCardBrand={setCardBrand}
-                                            setError={setError}
-                                            setCardComplete={setCardComplete}
-                                        />
-                                    ) : (
-                                        <PaymentContainer
-                                            paymentInfoMap={paymentInfoMap}
-                                            paymentProviderId={paymentMethod.id}
-                                            selectedPaymentOptionId={selectedPaymentMethod}
-                                            onChange={setPaymentMethod}
-                                        />
-                                    )}
-                                </div>
-
-                                {/* Highlight border on selection */}
-                                <span
-                                    aria-hidden="true"
-                                    className="pointer-events-none absolute -inset-px rounded-lg border-2 border-transparent peer-checked:border-indigo-500 peer-focus-visible:border-indigo-500"
-                                />
-                            </label>
-                        ))}
-                    </fieldset>
-                )}
-
-                {/* Error message */}
-                {/* <ErrorMessage error={error} data-testid="payment-method-error-message" /> */}
-
-                {/* Submit button */}
-                {/* <button
-                    onClick={handleSubmit}
-                    disabled={
-                        // isLoading ||
-                        (isStripe && !cardComplete) ||
-                        (!selectedPaymentMethod)
-                    }
-                    className="mt-6 px-6 py-3 w-full sm:w-auto rounded-md font-medium text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 flex items-center justify-center"
-                    data-testid="submit-payment-button"
-                >
-                    {isLoading && (
-                        <svg
-                            className="animate-spin h-5 w-5 mr-2 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                        >
-                            <circle
-                                className="opacity-25"
-                                cx="12"
-                                cy="12"
-                                r="10"
-                                stroke="currentColor"
-                                strokeWidth="4"
-                            ></circle>
-                            <path
-                                className="opacity-75"
-                                fill="currentColor"
-                                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                            ></path>
-                        </svg>
-                    )}
-                    {!activeSession && isStripeFunc(selectedPaymentMethod)
-                        ? "Enter card details"
-                        : "Continue to review"}
-                </button> */}
-                <PaymentButton cart={cart} />
+                                <Icon className="w-8" />
+                            </div>
+                        </label>
+                    )
+                })}
+                <div className="p-8 flex flex-col items-center justify-center gap-y-8 min-h-24">
+                    <BrowserWireframe className="w-72" />
+                    <div className="max-w-140 text-center text-sm">After clicking "Pay with PayPal", you will be redirected to PayPal to complete your purchase securely.</div>
+                </div>
             </div>
         </div>
     )
 }
 
-type ShippingProps = {
+type PaymentStepProps = {
     cart: StoreCart
     paymentMethods: StorePaymentProvider[]
+}
+
+type SetPaymentMethodProps = {
+    cart_id: string
+    collection_id?: string
 }
