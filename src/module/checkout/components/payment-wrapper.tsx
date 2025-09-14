@@ -35,7 +35,7 @@ export default function PaymentWrapper({ cart, children }: PaymentWrapperProps) 
                     currency: cart.currency_code.toUpperCase(),
                     intent: "capture",
                     dataPageType: "checkout",
-                    components: "buttons,card-fields",
+                    components: "buttons",
                 }}
             >
                 {children}

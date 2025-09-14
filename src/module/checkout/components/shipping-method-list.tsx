@@ -1,53 +1,60 @@
+import { setShippingMethod } from "@lib/action-new/cart"
+import { useCheckout } from "@lib/context/checkout-context"
 import { convertToLocale } from "@lib/util/money"
 import { StoreCartShippingOption } from "@medusajs/types"
 import { CheckCircle, Clock, Truck, TruckElectric } from "lucide-react"
+import { useTransition } from "react"
 
-export default function ListShippingMethods({ availableMethod, currencyCode, selectedMethodId, isDisable, onSelect }: ShippingCardProps) {
-    const isSelected = selectedMethodId === availableMethod.id
-    const isExpress = availableMethod.type?.code === "expedite"
+export default function ListShippingMethods({ availableMethods, cartId, currencyCode, selectedMethodId }: ShippingCardProps) {
+    const [isPending, startTransition] = useTransition()
+    const { setCurrentStep } = useCheckout()
+    function handleShippingMethod(optionId: string) {
+        if (isPending || optionId === selectedMethodId) return
+        startTransition(async () => {
+            const res = await setShippingMethod({ cartId, shippingMethodId: optionId })
+            console.log(selectedMethodId, res)
+            if (res?.success) setCurrentStep("payment")
+        })
+    }
     return (
-        <button
-            type="button"
-            disabled={isDisable}
-            onClick={() => onSelect(availableMethod.id)}
-            role="radio"
-            aria-checked={isSelected}
-            className={`relative flex w-full items-start rounded-xl border p-4 text-left shadow-sm transition ${isSelected ? "bg-accent/5 ring-2 ring-offset-0 ring-accent" : "border-border hover:border-accent"} ${isDisable ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
-        >
-            <input
-                type="radio"
-                name="shippingMethod"
-                id={availableMethod.id}
-                value={availableMethod.id}
-                defaultChecked={selectedMethodId === availableMethod.id}
-                className="peer sr-only"
-                onClick={(e) => e.currentTarget.form?.requestSubmit()}
-                disabled={isDisable}
-            />
-            <span className="flex-1 text-left">
-                <h3 className="flex items-center font-semibold">
-                    {isExpress ? <TruckElectric className="w-4 h-4 mr-1" /> : <Truck className="w-4 h-4 mr-1" />}
-                    {availableMethod.name}
-                </h3>
-                <p className="mt-1 flex items-center text-sm text-muted-foreground">
-                    <Clock className="w-4 h-4 mr-1 text-warning" />
-                    {availableMethod.type?.description}
-                </p>
-                <span className="mt-8 inline-block text-sm font-medium">
-                    {availableMethod.amount === 0
-                        ? "Free Shipping"
-                        : convertToLocale({ amount: availableMethod.amount, currency_code: currencyCode })}
-                </span>
-            </span>
-            {isSelected && <CheckCircle className="h-5 w-5 text-accent" aria-hidden="true" />}
-        </button>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2" role="radiogroup" aria-label="Shipping methods">
+            {availableMethods.map((method) => {
+                const isSelected = selectedMethodId === method.id
+                const isExpress = method.type?.code === "expedite"
+                return (
+                    <button
+                        key={method.id}
+                        type="button"
+                        disabled={isPending}
+                        onClick={() => handleShippingMethod(method.id)}
+                        role="radio"
+                        aria-checked={isSelected}
+                        className={`relative flex w-full items-start rounded-xl border p-4 text-left shadow-sm transition ${isSelected ? "bg-accent/5 ring-2 ring-offset-1 ring-accent" : "border-border hover:border-accent"}  ${isPending ? "opacity-50 cursor-wait" : "cursor-pointer"}`}
+                    >
+                        <span className="flex-1">
+                            <h3 className="flex items-center font-semibold">
+                                {isExpress ? <TruckElectric className="w-4 h-4 mr-1" /> : <Truck className="w-4 h-4 mr-1" />}
+                                {method.name}
+                            </h3>
+                            <p className="mt-1 flex items-center text-sm text-muted-foreground">
+                                <Clock className="w-4 h-4 mr-1 text-warning" />
+                                {method.type?.description}
+                            </p>
+                            <span className="mt-3 inline-block text-sm font-medium">
+                                {method.amount === 0 ? "Free Shipping" : convertToLocale({ amount: method.amount, currency_code: currencyCode })}
+                            </span>
+                        </span>
+                        {isSelected && <CheckCircle className="h-5 w-5 text-accent" aria-hidden="true" />}
+                    </button>
+                )
+            })}
+        </div>
     )
 }
 
 type ShippingCardProps = {
-    availableMethod: StoreCartShippingOption
-    selectedMethodId?: string
+    availableMethods: StoreCartShippingOption[]
+    cartId: string
     currencyCode: string
-    isDisable: boolean
-    onSelect: (id: string) => void
+    selectedMethodId?: string
 }

@@ -63,10 +63,7 @@ function StripePaymentButton({ cart, notReady, }: { cart: StoreCart, notReady: b
                     payment_method: {
                         card,
                         billing_details: {
-                            name:
-                                cart.billing_address?.first_name +
-                                " " +
-                                cart.billing_address?.last_name,
+                            name: `${cart.billing_address?.first_name} ${cart.billing_address?.last_name}`,
                             email: cart.email,
                             phone: cart.billing_address?.phone ?? undefined,
                             address: {
@@ -80,10 +77,7 @@ function StripePaymentButton({ cart, notReady, }: { cart: StoreCart, notReady: b
                         },
                     },
                     shipping: {
-                        name:
-                            cart.shipping_address?.first_name +
-                            " " +
-                            cart.shipping_address?.last_name,
+                        name: `${cart.shipping_address?.first_name} ${cart.shipping_address?.last_name}`,
                         phone: cart.shipping_address?.phone ?? undefined,
                         address: {
                             line1: cart.shipping_address?.address_1 ?? "",
@@ -97,14 +91,7 @@ function StripePaymentButton({ cart, notReady, }: { cart: StoreCart, notReady: b
                 }
             )
 
-            if (
-                (paymentIntent &&
-                    ["requires_capture", "succeeded"].includes(paymentIntent.status)) ||
-                (error?.payment_intent &&
-                    ["requires_capture", "succeeded"].includes(
-                        error.payment_intent.status
-                    ))
-            ) {
+            if ((paymentIntent && ["requires_capture", "succeeded"].includes(paymentIntent.status)) || (error?.payment_intent && ["requires_capture", "succeeded"].includes(error.payment_intent.status))) {
                 await placeOrder()
             } else if (error) {
                 setErrorMessage(error.message ?? "Payment failed")
@@ -157,10 +144,11 @@ function PayPalPaymentButton({ cart, notReady, }: { cart: StoreCart, notReady: b
     ) => {
         console.log(actions, _data)
         try {
-            const authorization = await actions.order?.capture()
+            const authorization = await actions.order?.get()
             console.log(authorization)
-            if (authorization?.status !== "COMPLETED") {
+            if (authorization?.status !== "APPROVED") {
                 setErrorMessage(`Payment error: ${authorization?.status}`)
+                console.error(errorMessage)
                 return
             }
             onPaymentCompleted()
@@ -176,50 +164,20 @@ function PayPalPaymentButton({ cart, notReady, }: { cart: StoreCart, notReady: b
 
     return (
         <>
-            <div className="space-y-4 mt-4">
-                <PayPalButtons
-                    style={{ layout: "horizontal" }}
-                    createOrder={async () => session?.data.id as string}
-                    onApprove={handlePayment}
-                    disabled={notReady || submitting || isPending}
-                />
-
-                <PayPalCardFieldsProvider
-                    createOrder={async () => session?.data.id as string}
-                    onApprove={() => onPaymentCompleted()}
-                    onError={(err) => setErrorMessage(err.message as string)}
-                >
-                    <div className="grid gap-2">
-                        <PayPalNameField />
-                        <PayPalNumberField />
-                        <div className="flex gap-2">
-                            <PayPalExpiryField className="flex-1" />
-                            <PayPalCVVField className="flex-1" />
-                        </div>
-                        <SubmitPayPalCard />
-                    </div>
-                </PayPalCardFieldsProvider>
-            </div>
+            <PayPalButtons
+                style={{
+                    shape: "rect",
+                    layout: "horizontal",
+                    color: "silver",
+                    label: "pay",
+                }}
+                createOrder={async () => session?.data.id as string}
+                onApprove={handlePayment}
+                disabled={notReady || submitting || isPending}
+                className="mt-4"
+            />
             <ErrorMessage error={errorMessage} />
         </>
-    )
-}
-
-const SubmitPayPalCard = () => {
-    const { cardFieldsForm } = usePayPalCardFields()
-
-    const handleClick = async () => {
-        if (!cardFieldsForm) return
-        const formState = await cardFieldsForm.getState()
-        if (!formState.isFormValid) return alert("Invalid PayPal card form")
-
-        cardFieldsForm.submit().catch(console.error)
-    }
-
-    return (
-        <Button className="w-full" onClick={handleClick}>
-            Pay with PayPal Card
-        </Button>
     )
 }
 

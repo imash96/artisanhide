@@ -2,16 +2,12 @@
 
 import { useCheckout } from "@lib/context/checkout-context"
 import type { StoreCart, StorePaymentProvider } from "@medusajs/types"
-import { isStripe as isStripeFunc } from "@lib/constant"
 import { useTransition, useLayoutEffect } from "react"
 import StepHeader from "../components/step-header"
 import { CheckCircle, Circle, CreditCard } from "lucide-react"
 import { initiatePaymentSessionCustom } from "@lib/action/payment"
 import { paymentInfoMap } from "../../../JSON/payment-info-map"
-import BrowserWireframe from "@/icon/browser-wireframe"
 import { AnimatePresence } from "motion/react"
-import { div as Div } from "motion/react-client"
-import FinalPaymentButton from "../components/payment-button-new"
 import PaymentButton from "../components/payment-button-1"
 
 export default function PaymentStep({ cart, paymentMethods }: PaymentStepProps) {
@@ -20,11 +16,10 @@ export default function PaymentStep({ cart, paymentMethods }: PaymentStepProps) 
     const activeSession = cart.payment_collection?.payment_sessions?.find((paymentSession) => paymentSession.status === "pending");
     const selectedPaymentMethod = activeSession?.provider_id
 
-    const isStripe = isStripeFunc(selectedPaymentMethod);
-
     useLayoutEffect(() => {
-        if (!cart.shipping_methods?.length && isOpen) setCurrentStep("delivery")
-    }, [isOpen]);
+        if (isOpen && !cart.shipping_methods?.length && currentStep !== "payment")
+            setCurrentStep("delivery")
+    }, [isOpen, cart.shipping_methods?.length, currentStep])
 
     const [isPending, startTransition] = useTransition()
 
@@ -45,7 +40,7 @@ export default function PaymentStep({ cart, paymentMethods }: PaymentStepProps) 
                 {paymentMethods.map((paymentMethod) => {
                     const isSelected = selectedPaymentMethod === paymentMethod.id
                     const Info = paymentInfoMap[paymentMethod.id]
-                    const { Icon } = Info
+                    const { Icon, Preview } = Info
                     return (
                         <div
                             key={paymentMethod.id}
@@ -62,30 +57,12 @@ export default function PaymentStep({ cart, paymentMethods }: PaymentStepProps) 
                                     <h3 className="font-semibold">{Info?.title ?? paymentMethod.id}</h3>
                                     <p className="text-sm text-muted-foreground">{Info?.desc}</p>
                                 </div>
-
-                                {Icon && <Icon className="w-7 h-7 text-foreground" />}
+                                <Icon className="w-7 h-7 text-foreground" />
                             </div>
 
                             {/* Extra info / Preview */}
-                            <AnimatePresence>
-                                {isSelected && (
-                                    <Div
-                                        key="extra-info"
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: "auto" }}
-                                        exit={{ opacity: 0, height: 0 }}
-                                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                                        className="border-t"
-                                    >
-                                        <div className="p-6 flex flex-col items-center justify-center gap-4 bg-muted/50 text-center">
-                                            <BrowserWireframe className="w-64" />
-                                            <p className="text-sm text-muted-foreground max-w-sm">
-                                                After clicking "Pay with PayPal", you will be redirected to PayPal to complete your
-                                                purchase securely.
-                                            </p>
-                                        </div>
-                                    </Div>
-                                )}
+                            <AnimatePresence mode="wait">
+                                {isSelected && <Preview />}
                             </AnimatePresence>
                         </div>
                     )

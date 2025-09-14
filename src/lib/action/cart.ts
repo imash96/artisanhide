@@ -273,21 +273,6 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     // redirect("/checkout?step=shipping")
 }
 
-export async function handleSetShippingMethod(_: Record<string, any>, formData: FormData) {
-    const selectedOption = String(formData.get("shippingMethod"))
-    try {
-        await setShippingMethod({ cartId: _.cartId, shippingMethodId: selectedOption })
-        return { success: true, error: null }
-    } catch (e: any) {
-        return {
-            cartId: _.cartId,
-            error: e.message,
-            success: false,
-        }
-    }
-    // redirect("/checkout?step=payment")
-}
-
 /**
  * Places an order for a cart. If no cart ID is provided, it will use the cart ID from the cookies.
  * @param cartId - optional - The ID of the cart to place an order for.

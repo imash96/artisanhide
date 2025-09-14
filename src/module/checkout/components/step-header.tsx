@@ -9,7 +9,7 @@ export default function StepHeader({ title, subtitle, Icon, showEdit, name }: St
     const handleEdit = () => setCurrentStep(name)
 
     return (
-        <div className="flex items-center justify-between mb-6 pb-3 border-b border-border">
+        <div className="flex items-center justify-between mb-4">
             {/* Left Side: Icon + Title + Subtitle */}
             <div className="space-y-1">
                 <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground">
