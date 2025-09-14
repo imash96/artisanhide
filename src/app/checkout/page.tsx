@@ -11,6 +11,7 @@ import { listCartPaymentMethods } from "@lib/action/payment";
 import ShippingStep from "@module/checkout/templates/step-shipping";
 import PaymentStep from "@module/checkout/templates/step-payment";
 import PaymentWrapper from "@module/checkout/components/payment-wrapper";
+import { StepType } from "@/type/common";
 
 export default async function Page() {
     const cart = await retrieveCart();
@@ -24,8 +25,10 @@ export default async function Page() {
 
     if (!shippingMethods || !paymentMethods) return null
 
+    let step: StepType = !cart?.shipping_address?.address_1 ? "address" : !cart?.shipping_methods?.length ? "delivery" : "payment";
+
     return (
-        <CheckoutProvider>
+        <CheckoutProvider step={step}>
             <div className="lg:col-span-6 space-y-6">
                 <CheckoutExpress />
                 <CheckoutProgress />

@@ -4,7 +4,7 @@ import { StoreCart, StoreCartShippingOption } from "@medusajs/types"
 import StepHeader from "../components/step-header"
 import { Truck } from "lucide-react"
 import { useCheckout } from "@lib/context/checkout-context"
-import { useActionState, useEffect, useLayoutEffect } from "react"
+import { useLayoutEffect, useTransition } from "react"
 import { setShippingMethod } from "@lib/action/cart"
 import ListShippingMethods from "../components/shipping-method-list"
 import ShippingCardShow from "../components/shipping-method-show"
@@ -17,41 +17,36 @@ export default function ShippingStep({ cart, availableMethods }: ShippingProps) 
         if (!cart.shipping_address?.address_1 && currentStep === "delivery") setCurrentStep("address")
     }, [isOpen]);
 
-    const [formState, formAction, isPending] = useActionState(handleSetShippingMethod, {
-        cartId: cart.id,
-        success: false,
-        error: null
-    })
+    const [isPending, startTransition] = useTransition()
 
-    useEffect(() => {
-        const handleNext = () => setCurrentStep("payment")
-        if (formState.success) {
-            handleNext()
-            formState.success = false;
-            formState.error = null;
-            formState.cartId = cart.id
-        }
-    }, [formState, cart.id, setCurrentStep]);
+    function handleShippingMethod(optionId: string) {
+        startTransition(async () => {
+            await setShippingMethod({ cartId: cart.id, shippingMethodId: optionId })
+            setCurrentStep("payment")
+        })
+    }
 
     return (
         <div className="pb-4 border-b">
-            <StepHeader Icon={Truck} title="Shipping Method" subtitle="Choose your preferred delivery option" showEdit={(!isOpen && currentStep != "address")} name="delivery" />
+            <StepHeader Icon={Truck} title="Shipping Method" subtitle="Choose your preferred delivery option" showEdit={!isOpen && currentStep !== "address"} name="delivery" />
             {isOpen ?
-                <form action={formAction} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
-                    {availableMethods.map((availableMethod) => (
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    {availableMethods.map((m) => (
                         <ListShippingMethods
-                            key={availableMethod.id}
-                            availableMethod={availableMethod}
+                            key={m.id}
+                            availableMethod={m}
                             currencyCode={cart.currency_code}
                             selectedMethodId={cart.shipping_methods?.[0].shipping_option_id}
                             isDisable={isPending}
+                            onSelect={handleShippingMethod}
                         />
                     ))}
-                </form> : <>
+                </div> :
+                <div className="space-y-4">
                     {cart.shipping_methods?.map((method) => (
                         <ShippingCardShow key={method.id} method={method} currencyCode={cart.currency_code} />
                     ))}
-                </>}
+                </div>}
         </div>
     )
 }

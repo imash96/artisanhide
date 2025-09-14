@@ -10,9 +10,9 @@ type CheckoutContextValue = {
 
 const CheckoutContext = createContext<CheckoutContextValue | null>(null)
 
-export function CheckoutProvider({ children }: React.PropsWithChildren) {
+export function CheckoutProvider({ children, step }: React.PropsWithChildren & { step: StepType }) {
 
-    const [currentStep, setCurrentStep] = useState<StepType>("address")
+    const [currentStep, setCurrentStep] = useState<StepType>(step)
 
     return (
         <CheckoutContext.Provider value={{ currentStep, setCurrentStep }}>

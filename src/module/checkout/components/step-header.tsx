@@ -1,3 +1,5 @@
+"use client"
+
 import { StepType } from "@/type/common"
 import { useCheckout } from "@lib/context/checkout-context"
 import { Edit } from "lucide-react"
@@ -5,24 +7,40 @@ import { Edit } from "lucide-react"
 export default function StepHeader({ title, subtitle, Icon, showEdit, name }: StepHeaderProps) {
     const { setCurrentStep } = useCheckout()
     const handleEdit = () => setCurrentStep(name)
+
     return (
-        <div className="flex items-center justify-between mb-4 pb-2 border-b">
+        <div className="flex items-center justify-between mb-6 pb-3 border-b border-border">
+            {/* Left Side: Icon + Title + Subtitle */}
             <div className="space-y-1">
-                <h2 className="flex items-center gap-2 text-xl font-semibold">
-                    <Icon className="w-6 h-6" />
+                <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground">
+                    <Icon className="w-5 h-5 text-accent" aria-hidden="true" />
                     {title}
                 </h2>
-                <p className="text-sm text-foreground-muted">{subtitle}</p>
+                {subtitle && (
+                    <p className="text-sm text-muted-foreground leading-snug">
+                        {subtitle}
+                    </p>
+                )}
             </div>
-            {showEdit && <Edit className="w-6 mr-2 cursor-pointer" onClick={handleEdit} />}
+
+            {/* Right Side: Edit Button */}
+            {showEdit && (
+                <button
+                    onClick={handleEdit}
+                    className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-sm font-medium text-accent hover:bg-accent/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition"
+                    aria-label={`Edit ${title}`}
+                >
+                    <Edit className="w-5" aria-hidden="true" />
+                </button>
+            )}
         </div>
     )
 }
 
 type StepHeaderProps = {
-    title: string,
-    subtitle: string,
+    title: string
+    subtitle?: string
     Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
-    showEdit?: boolean,
+    showEdit?: boolean
     name: StepType
 }

@@ -1,15 +1,18 @@
 "use client"
 
-import { useCheckout } from "@lib/context/checkout-context";
-import type { StoreCart, StorePaymentProvider } from "@medusajs/types";
-import { isStripe as isStripeFunc } from "@lib/constant";
-import { useTransition, useLayoutEffect } from "react";
-import StepHeader from "../components/step-header";
-import { AppWindow, CheckCircle, Circle, CreditCard } from "lucide-react";
-import { initiatePaymentSessionCustom } from "@lib/action/payment";
-import { paymentInfoMap } from "../../../JSON/payment-info-map";
-import PaymentContainer from "../components/payment-container";
-import BrowserWireframe from "@/icon/browser-wireframe";
+import { useCheckout } from "@lib/context/checkout-context"
+import type { StoreCart, StorePaymentProvider } from "@medusajs/types"
+import { isStripe as isStripeFunc } from "@lib/constant"
+import { useTransition, useLayoutEffect } from "react"
+import StepHeader from "../components/step-header"
+import { CheckCircle, Circle, CreditCard } from "lucide-react"
+import { initiatePaymentSessionCustom } from "@lib/action/payment"
+import { paymentInfoMap } from "../../../JSON/payment-info-map"
+import BrowserWireframe from "@/icon/browser-wireframe"
+import { AnimatePresence } from "motion/react"
+import { div as Div } from "motion/react-client"
+import FinalPaymentButton from "../components/payment-button-new"
+import PaymentButton from "../components/payment-button-1"
 
 export default function PaymentStep({ cart, paymentMethods }: PaymentStepProps) {
     const { currentStep, setCurrentStep } = useCheckout()
@@ -38,44 +41,57 @@ export default function PaymentStep({ cart, paymentMethods }: PaymentStepProps) 
     return (
         <div className="pb-4 border-b">
             <StepHeader Icon={CreditCard} title="Payment" subtitle="Choose your preferred payment option" name="payment" showEdit={false} />
-            <div className={isOpen ? `flex flex-col border divide-y-1` : "hidden"}>
-                {paymentMethods.map(paymentMethod => {
-                    const Icon = paymentInfoMap[paymentMethod.id].Icon
+            {isOpen && <div className="grid mt-6">
+                {paymentMethods.map((paymentMethod) => {
+                    const isSelected = selectedPaymentMethod === paymentMethod.id
+                    const Info = paymentInfoMap[paymentMethod.id]
+                    const { Icon } = Info
                     return (
-                        <label
+                        <div
                             key={paymentMethod.id}
-                            htmlFor={paymentMethod.id}
-                            className="py-3 cursor-pointer"
+                            onClick={() => !isPending && setPaymentMethod(cart.id, paymentMethod.id, cart.payment_collection?.id)}
+                            className={`relative flex flex-col border transition cursor-pointer ${isSelected ? "border-accent ring-1 ring-accent" : "border-border"}`}
                         >
-                            <input
-                                type="radio"
-                                id={paymentMethod.id}
-                                name="provider_id"
-                                value={paymentMethod.id}
-                                defaultChecked={selectedPaymentMethod === paymentMethod.id}
-                                onClick={() => setPaymentMethod(cart.id, paymentMethod.id, cart.payment_collection?.id)}
-                                className="peer sr-only"
-                            />
-                            <div className="flex items-center pr-4">
-                                <div className="p-2">
-                                    {selectedPaymentMethod === paymentMethod.id ? <CheckCircle className="w-8" /> : <Circle className="w-8" />}
+                            {/* Header row */}
+                            <div className="flex items-center gap-3 p-4">
+                                <div className="text-accent">
+                                    {isSelected ? <CheckCircle className="w-6 h-6" /> : <Circle className="w-6 h-6 text-muted-foreground" />}
                                 </div>
-                                <div className="space-y-1 flex-1">
-                                    <h3 className="font-semibold">{paymentInfoMap[paymentMethod.id].title}</h3>
-                                    <p className="text-sm text-foreground-muted mt-1">
-                                        {paymentInfoMap[paymentMethod.id].desc}
-                                    </p>
+
+                                <div className="flex-1 space-y-1">
+                                    <h3 className="font-semibold">{Info?.title ?? paymentMethod.id}</h3>
+                                    <p className="text-sm text-muted-foreground">{Info?.desc}</p>
                                 </div>
-                                <Icon className="w-8" />
+
+                                {Icon && <Icon className="w-7 h-7 text-foreground" />}
                             </div>
-                        </label>
+
+                            {/* Extra info / Preview */}
+                            <AnimatePresence>
+                                {isSelected && (
+                                    <Div
+                                        key="extra-info"
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                                        className="border-t"
+                                    >
+                                        <div className="p-6 flex flex-col items-center justify-center gap-4 bg-muted/50 text-center">
+                                            <BrowserWireframe className="w-64" />
+                                            <p className="text-sm text-muted-foreground max-w-sm">
+                                                After clicking "Pay with PayPal", you will be redirected to PayPal to complete your
+                                                purchase securely.
+                                            </p>
+                                        </div>
+                                    </Div>
+                                )}
+                            </AnimatePresence>
+                        </div>
                     )
                 })}
-                <div className="p-8 flex flex-col items-center justify-center gap-y-8 min-h-24">
-                    <BrowserWireframe className="w-72" />
-                    <div className="max-w-140 text-center text-sm">After clicking "Pay with PayPal", you will be redirected to PayPal to complete your purchase securely.</div>
-                </div>
-            </div>
+                <PaymentButton cart={cart} />
+            </div>}
         </div>
     )
 }
