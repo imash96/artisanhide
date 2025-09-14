@@ -38,7 +38,7 @@ export default function ShippingStep({ cart, availableMethods }: ShippingProps) 
                             key={m.id}
                             availableMethod={m}
                             currencyCode={cart.currency_code}
-                            selectedMethodId={cart.shipping_methods?.[0].shipping_option_id || ""}
+                            selectedMethodId={cart.shipping_methods?.length ? cart.shipping_methods?.[0].shipping_option_id : undefined}
                             isDisable={isPending}
                             onSelect={handleShippingMethod}
                         />
