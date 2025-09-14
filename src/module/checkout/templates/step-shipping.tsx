@@ -26,6 +26,8 @@ export default function ShippingStep({ cart, availableMethods }: ShippingProps) 
         })
     }
 
+    console.log(cart.shipping_methods)
+
     return (
         <div className="pb-4 border-b">
             <StepHeader Icon={Truck} title="Shipping Method" subtitle="Choose your preferred delivery option" showEdit={!isOpen && currentStep !== "address"} name="delivery" />
@@ -36,7 +38,7 @@ export default function ShippingStep({ cart, availableMethods }: ShippingProps) 
                             key={m.id}
                             availableMethod={m}
                             currencyCode={cart.currency_code}
-                            selectedMethodId={cart.shipping_methods?.[0].shipping_option_id}
+                            selectedMethodId={cart.shipping_methods?.[0].shipping_option_id || ""}
                             isDisable={isPending}
                             onSelect={handleShippingMethod}
                         />
