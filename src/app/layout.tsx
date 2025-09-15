@@ -16,7 +16,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" data-theme={theme ? theme : "light"}>
       <head>
-        {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_ID} />}
         {/* Trustpilot Script */}
         {process.env.NEXT_PUBLIC_TRUST_PILOT_ID &&
           <Script
