@@ -17,6 +17,7 @@ function DialogContent({ className = "", children, position = "default", rounded
         <DialogPortal>
             <DialogOverlay />
             <DialogContentPri
+                onCloseAutoFocus={(e) => e.preventDefault()}
                 aria-modal="true"
                 className={`fixed flex flex-col m-auto bg-background-elevated border-border ${position === "bottom" ? "bottom-0" : "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"} z-50 w-full sm:w-11/12 max-w-lg max-h-[85vh] border shadow-xl ${rounded && "rounded-lg sm:rounded-xl"} outline-none focus:outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95 ${className}`}
                 {...props}
