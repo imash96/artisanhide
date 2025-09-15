@@ -1,31 +1,31 @@
 "use client"
 
-import { loadStripe } from "@stripe/stripe-js"
 import { StoreCart } from "@medusajs/types"
 import { isPaypal, isStripe } from "@lib/constant"
-import StripeProvider from "@lib/context/stripe-context"
+// import { loadStripe } from "@stripe/stripe-js"
+// import StripeProvider from "@lib/context/stripe-context"
 import { PayPalScriptProvider, ReactPayPalScriptOptions } from "@paypal/react-paypal-js"
 
-const stripeKey = process.env.NEXT_PUBLIC_STRIPE_KEY
-const stripePromise = stripeKey ? loadStripe(stripeKey) : null
+// const stripeKey = process.env.NEXT_PUBLIC_STRIPE_KEY
+// const stripePromise = stripeKey ? loadStripe(stripeKey) : null
 
 export default function PaymentWrapper({ cart, children }: PaymentWrapperProps) {
     const paymentSession = cart.payment_collection?.payment_sessions?.find(s => s.status === "pending")
 
     // --- Stripe ---
-    if (paymentSession && stripePromise && isStripe(paymentSession.provider_id)) {
-        return (
-            <StripeProvider
-                paymentSession={paymentSession}
-                stripeKey={stripeKey}
-                stripePromise={stripePromise}
-                currency={cart.currency_code}
-                buyerCountry={cart.shipping_address?.country_code}
-            >
-                {children}
-            </StripeProvider>
-        )
-    }
+    // if (paymentSession && stripePromise && isStripe(paymentSession.provider_id)) {
+    //     return (
+    //         <StripeProvider
+    //             paymentSession={paymentSession}
+    //             stripeKey={stripeKey}
+    //             stripePromise={stripePromise}
+    //             currency={cart.currency_code}
+    //             buyerCountry={cart.shipping_address?.country_code}
+    //         >
+    //             {children}
+    //         </StripeProvider>
+    //     )
+    // }
 
     // --- PayPal ---
     const paypalClientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID as string
@@ -33,7 +33,6 @@ export default function PaymentWrapper({ cart, children }: PaymentWrapperProps) 
     const options: ReactPayPalScriptOptions = {
         clientId: paypalClientId,
         currency: cart.currency_code.toUpperCase(),
-        buyerCountry: cart.shipping_address?.country_code?.toUpperCase(),
         intent: "capture",
         dataPageType: "checkout",
         components: "buttons",

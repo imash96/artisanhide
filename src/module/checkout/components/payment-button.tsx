@@ -27,7 +27,7 @@ export default function PaymentButton({ cart }: { cart: StoreCart }) {
         )
     }
 
-    if (isStripe(provider)) return <StripePayment cart={cart} notReady={notReady} />
+    // if (isStripe(provider)) return <StripePayment cart={cart} notReady={notReady} />
     if (isPaypal(provider)) return <PayPalPayment cart={cart} notReady={notReady} />
     if (isManual(provider)) return <ManualPayment notReady={notReady} />
 
