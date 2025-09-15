@@ -4,26 +4,26 @@ import { IconProp } from "@/type/common";
 import ManualContainer from "@module/checkout/components/container-manual";
 import PayPalContainer from "@module/checkout/components/container-paypal";
 import StripeContainer from "@module/checkout/components/container-stripe";
-import { Bot } from "lucide-react";
+import { Clock } from "lucide-react";
 
 export const paymentInfoMap = {
     pp_stripe_stripe: {
         title: "Credit Card",
-        desc: "Pay securely with credit/debit card",
+        desc: "Pay securely with your credit or debit card.",
         Icon: CreditCard,
-        Preview: StripeContainer
+        Preview: StripeContainer,
     },
     pp_paypal_paypal: {
         title: "PayPal",
-        desc: "PayPal to complete your purchase securely.",
+        desc: "Complete your purchase quickly and securely with PayPal.",
         Icon: PayPal,
-        Preview: PayPalContainer
+        Preview: PayPalContainer,
     },
     pp_system_default: {
-        title: "Manual Payment",
-        desc: "For testing purposes",
-        Icon: Bot,
-        Preview: ManualContainer
+        title: "Pay Later",
+        desc: "Place your order now and pay later using your preferred method.",
+        Icon: Clock,
+        Preview: ManualContainer,
     },
 } as Record<string, PIM>
 

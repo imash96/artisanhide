@@ -6,7 +6,7 @@ import { isManual, isPaypal, isStripe } from "@lib/constant"
 import { StoreCart } from "@medusajs/types"
 import ErrorMessage from "@module/checkout/components/error-message"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
-import { AlertCircle, Loader } from "lucide-react"
+import { AlertCircle, Clock, Loader } from "lucide-react"
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
 import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
 import { ERROR_MESSAGES } from "@/JSON/payment"
@@ -218,8 +218,8 @@ function ManualPayment({ notReady }: { notReady: boolean }) {
 
     return (
         <div className="space-y-3">
-            <FinalPaymentButton onClick={handle} isLoading={submitting} disabled={notReady || submitting}>
-                {submitting ? "Processing order..." : "Place order (Manual)"}
+            <FinalPaymentButton onClick={handle} Icon={Clock} isLoading={submitting} disabled={notReady || submitting}>
+                {submitting ? "Processing order..." : "Place order"}
             </FinalPaymentButton>
 
             <ErrorMessage error={error} />
@@ -258,7 +258,7 @@ function useCommonHandlers() {
     }
 }
 
-function FinalPaymentButton({ isLoading = false, disabled = false, onClick, children }: FinalPaymentButtonProps) {
+function FinalPaymentButton({ isLoading = false, disabled = false, onClick, Icon, children }: FinalPaymentButtonProps) {
     return (
         <>
             <Button
@@ -267,7 +267,7 @@ function FinalPaymentButton({ isLoading = false, disabled = false, onClick, chil
                 ripple
                 isLoading={isLoading}
                 disabled={disabled}
-                Icon={CreditCard}
+                Icon={Icon}
                 iconClassName="w-5 h-5"
                 onClick={onClick}
                 className="w-full mt-4 h-11 text-base font-semibold tracking-wide"
@@ -285,6 +285,7 @@ type FinalPaymentButtonProps = {
     isLoading?: boolean
     disabled?: boolean
     onClick?: () => void
+    Icon?: React.ElementType;
 } & React.PropsWithChildren
 
 type PaymentComponentProps = {
