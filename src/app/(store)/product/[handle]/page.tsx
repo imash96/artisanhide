@@ -29,7 +29,6 @@ export default async function Page(props: PageProps<"/product/[handle]">) {
     if (!product || !product.id) notFound()
 
     const pages = product.categories?.map((c) => ({ name: c.name, href: `/category/${c.handle}` }))
-    console.log(product.categories)
     return (
         <Container className="py-8 md:py-10 lg:py-14">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">

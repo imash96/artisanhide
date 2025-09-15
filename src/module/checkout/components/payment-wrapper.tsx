@@ -2,9 +2,9 @@
 
 import { loadStripe } from "@stripe/stripe-js"
 import { StoreCart } from "@medusajs/types"
-import { isStripe } from "@lib/constant"
+import { isPaypal, isStripe } from "@lib/constant"
 import StripeProvider from "@lib/context/stripe-context"
-import { PayPalScriptProvider } from "@paypal/react-paypal-js"
+import { PayPalScriptProvider, ReactPayPalScriptOptions } from "@paypal/react-paypal-js"
 
 const stripeKey = process.env.NEXT_PUBLIC_STRIPE_KEY
 const stripePromise = stripeKey ? loadStripe(stripeKey) : null
@@ -12,34 +12,36 @@ const stripePromise = stripeKey ? loadStripe(stripeKey) : null
 export default function PaymentWrapper({ cart, children }: PaymentWrapperProps) {
     const paymentSession = cart.payment_collection?.payment_sessions?.find(s => s.status === "pending")
 
-    if (isStripe(paymentSession?.provider_id) && paymentSession && stripePromise) {
+    // --- Stripe ---
+    if (paymentSession && stripePromise && isStripe(paymentSession.provider_id)) {
         return (
-            <StripeProvider paymentSession={paymentSession} stripeKey={stripeKey} stripePromise={stripePromise}>
+            <StripeProvider
+                paymentSession={paymentSession}
+                stripeKey={stripeKey}
+                stripePromise={stripePromise}
+                currency={cart.currency_code}
+                buyerCountry={cart.shipping_address?.country_code}
+            >
                 {children}
             </StripeProvider>
         )
     }
 
-    const paypalClientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID
+    // --- PayPal ---
+    const paypalClientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID as string
 
-    if (
-        paymentSession?.provider_id === "pp_paypal_paypal" &&
-        paypalClientId !== undefined &&
-        cart
-    ) {
+    const options: ReactPayPalScriptOptions = {
+        clientId: paypalClientId,
+        currency: cart.currency_code.toUpperCase(),
+        buyerCountry: cart.shipping_address?.country_code?.toUpperCase(),
+        intent: "capture",
+        dataPageType: "checkout",
+        components: "buttons",
+    }
+
+    if (isPaypal(paymentSession?.provider_id) && paypalClientId) {
         return (
-            <PayPalScriptProvider
-                options={{
-                    clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "test",
-                    buyerCountry: cart.shipping_address?.country_code?.toUpperCase(),
-                    currency: cart.currency_code.toUpperCase(),
-                    intent: "capture",
-                    dataPageType: "checkout",
-                    components: "buttons",
-                }}
-            >
-                {children}
-            </PayPalScriptProvider>
+            <PayPalScriptProvider options={options} >{children}</PayPalScriptProvider>
         )
     }
 

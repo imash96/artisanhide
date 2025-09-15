@@ -1,6 +1,6 @@
 "use server"
 
-import { StoreUpdateCart } from "@medusajs/types"
+import { StoreCart, StoreUpdateCart } from "@medusajs/types"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { getAuthHeaders, getCacheOptions, getCacheTag, getCartId, removeCartId, setCartId, setCountryCode, } from "./cookies"
@@ -8,6 +8,7 @@ import { getRegion } from "./region"
 import { sdk } from "@lib/sdk"
 import { ClientHeaders } from "@medusajs/js-sdk"
 import medusaError from "@lib/util/medusa-error"
+import { buildQuery } from "@lib/util/build-query"
 
 export async function retrieveCart(cartId?: string, fields?: string) {
     const id = cartId || (await getCartId())
@@ -19,13 +20,33 @@ export async function retrieveCart(cartId?: string, fields?: string) {
 
     const nextOptions = await getCacheOptions("carts");
 
-    return await sdk.store.cart.retrieve(id, {
-        fields,
-    }, {
-        ...headers,
-        next: nextOptions ? nextOptions : null,
-        cache: "force-cache",
-    }).then(({ cart }) => cart).catch(() => null)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/carts/${id}/${buildQuery({
+        fields
+    })}`, {
+        headers: {
+            ...headers,
+            "x-publishable-api-key": process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || "",
+        },
+        next: {
+            ...nextOptions,
+            revalidate: 60 * 60 * 24, // 24 hours
+        },
+    })
+
+    if (!res.ok) {
+        throw new Error(`Failed to fetch products: ${res.status} ${res.statusText}`)
+    }
+
+    const { cart } = await res.json() as { cart: StoreCart }
+    return cart
+
+    // return await sdk.store.cart.retrieve(id, {
+    //     fields,
+    // }, {
+    //     ...headers,
+    //     next: nextOptions ? nextOptions : null,
+    //     cache: "force-cache",
+    // }).then(({ cart }) => cart).catch(() => null)
 }
 
 export async function getOrSetCart(countryCode: string) {

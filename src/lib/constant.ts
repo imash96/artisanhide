@@ -1,7 +1,7 @@
 // This only checks if it is native stripe for card payments, it ignores the other stripe-based providers
 export const isStripe = (providerId?: string) => providerId?.startsWith("pp_stripe_")
 
-export const isPaypal = (providerId?: string) => providerId?.startsWith("pp_paypal")
+export const isPaypal = (providerId?: string) => providerId?.startsWith("pp_paypal_")
 
 export const isManual = (providerId?: string) => providerId?.startsWith("pp_system_default")
 

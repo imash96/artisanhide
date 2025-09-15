@@ -8,7 +8,7 @@ import { CheckCircle, Circle, CreditCard } from "lucide-react"
 import { initiatePaymentSessionCustom } from "@lib/action/payment"
 import { paymentInfoMap } from "../../../JSON/payment-info-map"
 import { AnimatePresence } from "motion/react"
-import PaymentButton from "../components/payment-button-1"
+import PaymentButton from "../components/payment-button"
 
 export default function PaymentStep({ cart, paymentMethods }: PaymentStepProps) {
     const { currentStep, setCurrentStep } = useCheckout()
@@ -45,10 +45,10 @@ export default function PaymentStep({ cart, paymentMethods }: PaymentStepProps) 
                         <div
                             key={paymentMethod.id}
                             onClick={() => !isPending && setPaymentMethod(cart.id, paymentMethod.id, cart.payment_collection?.id)}
-                            className={`relative flex flex-col border transition cursor-pointer ${isSelected ? "border-accent ring-1 ring-accent" : "border-border"}`}
+                            className={`relative flex flex-col border transition ${isSelected ? "border-accent ring-1 ring-accent" : "border-border"}`}
                         >
                             {/* Header row */}
-                            <div className="flex items-center gap-3 p-4">
+                            <div className="flex items-center gap-3 p-4 cursor-pointer">
                                 <div className="text-accent">
                                     {isSelected ? <CheckCircle className="w-6 h-6" /> : <Circle className="w-6 h-6 text-muted-foreground" />}
                                 </div>

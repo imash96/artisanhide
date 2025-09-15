@@ -1,283 +1,295 @@
 "use client"
 
+import { useCallback, useState } from "react"
 import { placeOrder } from "@lib/action/cart"
 import { isManual, isPaypal, isStripe } from "@lib/constant"
 import { StoreCart } from "@medusajs/types"
-import Button from "@module/common/custom-button"
 import ErrorMessage from "@module/checkout/components/error-message"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
-import { useState } from "react"
-import { Loader } from "lucide-react"
+import { AlertCircle, Loader } from "lucide-react"
+import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
 import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
-import { PayPalButtons, PayPalCardFieldsProvider, PayPalCVVField, PayPalExpiryField, PayPalNameField, PayPalNumberField, usePayPalCardFields, usePayPalScriptReducer } from "@paypal/react-paypal-js"
+import { ERROR_MESSAGES } from "@/JSON/payment"
+import Button from "@module/common/custom-button"
+import CreditCard from "@/icon/checkout-creditcard"
 
-export default function PaymentButton({ cart }: PaymentButtonProps) {
+export default function PaymentButton({ cart }: { cart: StoreCart }) {
     const notReady = !cart || !cart.shipping_address || !cart.billing_address || !cart.email || (cart.shipping_methods?.length ?? 0) < 1
+    const session = cart.payment_collection?.payment_sessions?.find((s) => s.status === "pending")
+    const provider = session?.provider_id
 
-    const paymentSession = cart.payment_collection?.payment_sessions?.[0]
-
-    switch (true) {
-        case isStripe(paymentSession?.provider_id):
-            return (
-                <StripePaymentButton
-                    notReady={notReady}
-                    cart={cart}
-                />
-            )
-        case isManual(paymentSession?.provider_id):
-            return (
-                <ManualTestPaymentButton notReady={notReady} />
-            )
-        case isPaypal(paymentSession?.provider_id):
-            return (
-                <PayPalPaymentButton
-                    notReady={notReady}
-                    cart={cart}
-                />
-            )
-        default:
-            return <Button disabled>Select a payment method</Button>
+    if (!session) {
+        return (
+            <FinalPaymentButton disabled aria-busy={false}>
+                <AlertCircle className="w-4 h-4 mr-2" />
+                Select a payment method
+            </FinalPaymentButton>
+        )
     }
+
+    if (isStripe(provider)) return <StripePayment cart={cart} notReady={notReady} />
+    if (isPaypal(provider)) return <PayPalPayment cart={cart} notReady={notReady} />
+    if (isManual(provider)) return <ManualPayment notReady={notReady} />
+
+    return (
+        <FinalPaymentButton disabled>
+            <AlertCircle className="w-4 h-4 mr-2" />
+            Unsupported payment provider
+        </FinalPaymentButton>
+    )
 }
 
-function StripePaymentButton({ cart, notReady, }: { cart: StoreCart, notReady: boolean }) {
-    const [submitting, setSubmitting] = useState(false)
-    const [errorMessage, setErrorMessage] = useState<string | null>(null)
-
-    const onPaymentCompleted = async () => await placeOrder().catch((err) => {
-        setErrorMessage(err.message)
-    }).finally(() => {
-        setSubmitting(false)
-    })
-
+/* ---------------- Stripe Payment Component ---------------- */
+function StripePayment({ cart, notReady, }: PaymentComponentProps) {
+    const { submitting, setSubmitting, error, setError, handleError, handleSuccess } = useCommonHandlers()
     const stripe = useStripe()
     const elements = useElements()
-    const card = elements?.getElement("card")
 
-    const session = cart.payment_collection?.payment_sessions?.find(
-        (s) => s.status === "pending"
-    )
+    const session = cart.payment_collection?.payment_sessions?.find((s) => s.status === "pending")
+    const clientSecret = session?.data?.client_secret as string
 
-    const disabled = !stripe || !elements ? true : false
-
-    const handlePayment = async () => {
-        setSubmitting(true)
-
-        if (!stripe || !elements || !card || !cart) {
-            setSubmitting(false)
+    const disabled = !stripe || !elements || notReady
+    const finalize = useCallback(async (resultOk: boolean, message?: string) => {
+        if (!resultOk) {
+            handleError(message ?? ERROR_MESSAGES.DEFAULT_ERROR)
             return
         }
+        await handleSuccess()
+    }, [handleError, handleSuccess])
 
-        await stripe.confirmCardPayment(session?.data.client_secret as string, {
-            payment_method: {
-                card: card,
-                billing_details: {
-                    name: cart.billing_address?.first_name + " " + cart.billing_address?.last_name,
-                    address: {
-                        city: cart.billing_address?.city ?? undefined,
-                        country: cart.billing_address?.country_code ?? undefined,
-                        line1: cart.billing_address?.address_1 ?? undefined,
-                        line2: cart.billing_address?.address_2 ?? undefined,
-                        postal_code: cart.billing_address?.postal_code ?? undefined,
-                        state: cart.billing_address?.province ?? undefined,
+    const handleStripe = useCallback(async () => {
+        if (submitting) return
+        if (disabled) {
+            handleError(ERROR_MESSAGES.USER_NOT_READY)
+            return
+        }
+        setSubmitting(true)
+        setError(null)
+
+        try {
+            const { error: stripeError, paymentIntent } = await stripe.confirmPayment({
+                elements,
+                clientSecret,
+                confirmParams: {
+                    payment_method_data: {
+                        billing_details: {
+                            name: `${cart.billing_address?.first_name ?? ""} ${cart.billing_address?.last_name ?? ""}`.trim(),
+                            email: cart.email,
+                            phone: cart.billing_address?.phone ?? undefined,
+                            address: {
+                                line1: cart.billing_address?.address_1 ?? undefined,
+                                line2: cart.billing_address?.address_2 ?? undefined,
+                                city: cart.billing_address?.city ?? undefined,
+                                state: cart.billing_address?.province ?? undefined,
+                                postal_code: cart.billing_address?.postal_code ?? undefined,
+                                country: cart.billing_address?.country_code ?? undefined,
+                            },
+                        },
                     },
-                    email: cart.email,
-                    phone: cart.billing_address?.phone ?? undefined,
-                },
-            },
-            shipping: {
-                name: cart.shipping_address?.first_name + " " + cart.shipping_address?.last_name,
-                address: {
-                    city: cart.shipping_address?.city ?? undefined,
-                    country: cart.shipping_address?.country_code ?? undefined,
-                    line1: cart.shipping_address?.address_1 ?? "",
-                    line2: cart.shipping_address?.address_2 ?? undefined,
-                    postal_code: cart.shipping_address?.postal_code ?? undefined,
-                    state: cart.shipping_address?.province ?? undefined,
-                },
-                phone: cart.shipping_address?.phone ?? undefined
-            }
-        }).then(({ error, paymentIntent }) => {
-            if (error) {
-                const pi = error.payment_intent
+                    shipping: {
+                        name: `${cart.shipping_address?.first_name ?? ""} ${cart.shipping_address?.last_name ?? ""}`.trim(),
+                        phone: cart.billing_address?.phone ?? undefined,
+                        address: {
+                            line1: cart.shipping_address?.address_1 ?? "",
+                            line2: cart.shipping_address?.address_2 ?? undefined,
+                            city: cart.shipping_address?.city ?? undefined,
+                            state: cart.shipping_address?.province ?? undefined,
+                            postal_code: cart.shipping_address?.postal_code ?? undefined,
+                            country: cart.shipping_address?.country_code ?? undefined,
+                        },
+                    },
 
-                if ((pi && pi.status === "requires_capture") || (pi && pi.status === "succeeded"))
-                    onPaymentCompleted()
+                },
+                redirect: "if_required",
+            })
 
-                setErrorMessage(error.message || null)
+            if (stripeError) {
+                const pi = stripeError.payment_intent
+                if ((pi && pi.status === "requires_capture") || (pi && pi.status === "succeeded")) {
+                    finalize(true, stripeError.message)
+                }
+                finalize(false, stripeError.message)
                 return
             }
 
-            if ((paymentIntent && paymentIntent.status === "requires_capture") || paymentIntent.status === "succeeded")
-                return onPaymentCompleted()
-
+            // If no error, check result status
+            const success = !!(paymentIntent && ["requires_capture", "succeeded"].includes(paymentIntent.status))
+            await finalize(success, success ? undefined : ERROR_MESSAGES.DEFAULT_ERROR)
             return
-        })
-    }
+        } catch (err: any) {
+            handleError(err?.message || ERROR_MESSAGES.DEFAULT_ERROR)
+        }
+    }, [submitting, disabled, stripe, elements, clientSecret, cart, finalize, setSubmitting, setError, handleError,])
 
     return (
-        <>
-            <Button
-                disabled={disabled || notReady}
-                onClick={handlePayment}
+        <div className="space-y-3">
+            <FinalPaymentButton
+                disabled={disabled || submitting}
                 isLoading={submitting}
-                className="mt-4"
+                onClick={handleStripe}
             >
-                Place order
-            </Button>
-            <ErrorMessage error={errorMessage} />
-        </>
+                {submitting ? "Processing Payment..." : "Pay with Card"}
+            </FinalPaymentButton>
+            <ErrorMessage error={error} />
+        </div>
     )
 }
 
-const PayPalPaymentButton = ({ cart, notReady }: { cart: StoreCart; notReady: boolean }) => {
-    const [submitting, setSubmitting] = useState(false)
-    const [errorMessage, setErrorMessage] = useState<string | null>(null)
-
-    const onPaymentCompleted = async () => {
-        await placeOrder().catch(() => {
-            setErrorMessage("An error occurred, please try again.")
-            setSubmitting(false)
-        })
-    }
-
-    const session = cart.payment_collection?.payment_sessions?.find(
-        (s) => s.status === "pending"
-    )
-
-    const handlePayment = async (
-        _data: OnApproveData,
-        actions: OnApproveActions
-    ) => {
-        actions?.order
-            ?.authorize()
-            .then((authorization) => {
-                if (authorization.status !== "COMPLETED") {
-                    setErrorMessage(`An error occurred, status: ${authorization.status}`)
-                    return
-                }
-                onPaymentCompleted()
-            })
-            .catch(() => {
-                setErrorMessage(`An unknown error occurred, please try again.`)
-                setSubmitting(false)
-            })
-    }
-
+/* ---------------- PayPal ---------------- */
+function PayPalPayment({ cart, notReady }: { cart: StoreCart; notReady: boolean }) {
+    const { submitting, setSubmitting, error, setError, handleError, handleSuccess } = useCommonHandlers()
+    const session = cart.payment_collection?.payment_sessions?.find((s) => s.status === "pending")
     const [{ isPending, isResolved }] = usePayPalScriptReducer()
 
+    const disabled = notReady || submitting
+
+    const onApprove = useCallback(
+        async (_data: OnApproveData, actions: OnApproveActions) => {
+            if (submitting) return
+            setSubmitting(true)
+            setError(null)
+
+            try {
+                // After buyer approval, capture the order on client
+                // (use capture for intent=capture). actions.order.capture() returns capture details.
+                const capture = await actions.order!.capture()
+                if (!capture || !capture.status || (capture.status !== "COMPLETED" && capture.status !== "APPROVED")) {
+                    handleError("PayPal capture failed")
+                    return
+                }
+                await handleSuccess()
+            } catch (err: any) {
+                handleError(err?.message || "PayPal failed")
+            }
+        },
+        [submitting, setSubmitting, setError, handleError, handleSuccess]
+    )
+
     if (isPending) {
-        return <Loader />
+        return (
+            <div className="flex items-center justify-center py-6">
+                <Loader className="animate-spin w-6 h-6" />
+                <span className="ml-2 text-sm text-muted-foreground">Loading PayPal…</span>
+            </div>
+        )
     }
 
-    if (isResolved) {
-        return (
-            <>
-                <PayPalButtons
-                    style={{ layout: "horizontal", }}
+    if (!isResolved) {
+        return <div className="text-sm text-muted-foreground py-4 text-center">PayPal not available</div>
+    }
 
-                    createOrder={async () => session?.data.id as string}
-                    onApprove={handlePayment}
-                    disabled={notReady || submitting || isPending}
-                />
-                <PayPalCardFieldsProvider
-                    createOrder={async () => session?.data.id as string}
-                    onApprove={(onApprove) => { console.log(onApprove) }}
-                    onError={(err) => console.log(err)}
-                    style={{
-                        input: {
-                            "font-size": "16px",
-                            "font-family": "courier, monospace",
-                            "font-weight": "lighter",
-                            color: "#ccc",
-                        },
-                        ".invalid": { color: "purple" },
-                    }}
-                >
-                    <PayPalNameField
-                        style={{
-                            input: { color: "blue" },
-                            ".invalid": { color: "purple" },
-                        }}
-                    />
-                    <PayPalNumberField />
-                    <PayPalExpiryField />
-                    <PayPalCVVField />
+    return (
+        <div className="space-y-3">
+            <PayPalButtons
+                style={{ layout: "horizontal", shape: "rect", color: "blue", height: 44 }}
+                createOrder={async () => session?.data.id as string}
+                onApprove={onApprove}
+                onError={(err) => {
+                    handleError(`"PayPal payment failed. Please try again." ${err}`)
+                }}
+                disabled={disabled}
+                className="mt-6"
+            />
 
-                    {/* Custom client component to handle card fields submission */}
-                    <SubmitPayment />
-                </PayPalCardFieldsProvider>
-                <ErrorMessage
-                    error={errorMessage}
-                />
-            </>
-        )
+            <ErrorMessage error={error} />
+        </div>
+    )
+}
+
+/* ---------------- Manual Payment (testing) ---------------- */
+function ManualPayment({ notReady }: { notReady: boolean }) {
+    const { submitting, setSubmitting, error, setError, handleError, handleSuccess } = useCommonHandlers()
+
+    const handle = useCallback(async () => {
+        if (submitting) return
+        if (notReady) {
+            handleError(ERROR_MESSAGES.USER_NOT_READY)
+            return
+        }
+        setSubmitting(true)
+        setError(null)
+        try {
+            await placeOrder()
+            await handleSuccess()
+        } catch (err: any) {
+            handleError(err?.message || ERROR_MESSAGES.DEFAULT_ERROR)
+        }
+    }, [submitting, notReady, setSubmitting, setError, handleError, handleSuccess])
+
+    return (
+        <div className="space-y-3">
+            <FinalPaymentButton onClick={handle} isLoading={submitting} disabled={notReady || submitting}>
+                {submitting ? "Processing order..." : "Place order (Manual)"}
+            </FinalPaymentButton>
+
+            <ErrorMessage error={error} />
+        </div>
+    )
+}
+
+/* ---------------- Shared small helpers ---------------- */
+function useCommonHandlers() {
+    const [submitting, setSubmitting] = useState(false)
+    const [error, setError] = useState<string | null>(null)
+
+    const handleError = useCallback((msg?: string) => {
+        setError(msg ?? ERROR_MESSAGES.DEFAULT_ERROR)
+        setSubmitting(false)
+    }, [])
+
+    const handleSuccess = useCallback(async () => {
+        try {
+            await placeOrder()
+            setError(null)
+        } catch (err: any) {
+            setError(err?.message ?? ERROR_MESSAGES.DEFAULT_ERROR)
+        } finally {
+            setSubmitting(false)
+        }
+    }, [])
+
+    return {
+        submitting,
+        setSubmitting,
+        error,
+        setError,
+        handleError,
+        handleSuccess,
     }
 }
 
-const SubmitPayment = () => {
-    const { cardFieldsForm, fields } = usePayPalCardFields();
-
-    const handleClick = async () => {
-        if (!cardFieldsForm) {
-            const childErrorMessage =
-                "Unable to find any child components in the <PayPalCardFieldsProvider />";
-
-            throw new Error(childErrorMessage);
-        }
-        const formState = await cardFieldsForm.getState();
-
-        if (!formState.isFormValid) {
-            return alert("The payment form is invalid");
-        }
-
-        cardFieldsForm.submit().catch((err) => {
-            console.log(err)
-        });
-    };
-
-    return (
-        <Button
-            style={{ float: "right" }}
-            onClick={handleClick}
-        >
-            {"Pay"}
-        </Button>
-    );
-};
-
-const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
-    const [submitting, setSubmitting] = useState(false)
-    const [errorMessage, setErrorMessage] = useState<string | null>(null)
-
-    const onPaymentCompleted = async () => {
-        await placeOrder().catch((err) => {
-            setErrorMessage(err.message)
-        }).finally(() => {
-            setSubmitting(false)
-        })
-    }
-
-    const handlePayment = () => {
-        setSubmitting(true)
-
-        onPaymentCompleted()
-    }
-
+function FinalPaymentButton({ isLoading = false, disabled = false, onClick, children }: FinalPaymentButtonProps) {
     return (
         <>
             <Button
-                disabled={notReady}
-                isLoading={submitting}
-                onClick={handlePayment}
+                variant="solid"
+                color="primary"
+                ripple
+                isLoading={isLoading}
+                disabled={disabled}
+                Icon={CreditCard}
+                iconClassName="w-5 h-5"
+                onClick={onClick}
+                className="w-full mt-4 h-11 text-base font-semibold tracking-wide"
             >
-                Place order
+                {children ? children : (isLoading ? "Processing..." : `Pay`)}
             </Button>
-            <ErrorMessage error={errorMessage} />
+            <p className="text-xs text-center text-muted-foreground mt-2">
+                Transactions are secured and encrypted
+            </p>
         </>
     )
 }
 
-type PaymentButtonProps = {
+type FinalPaymentButtonProps = {
+    isLoading?: boolean
+    disabled?: boolean
+    onClick?: () => void
+} & React.PropsWithChildren
+
+type PaymentComponentProps = {
     cart: StoreCart
+    notReady: boolean
+    onSuccess?: () => void
+    onError?: (error: string) => void
 }

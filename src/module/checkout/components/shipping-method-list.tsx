@@ -12,7 +12,6 @@ export default function ListShippingMethods({ availableMethods, cartId, currency
         if (isPending || optionId === selectedMethodId) return
         startTransition(async () => {
             const res = await setShippingMethod({ cartId, shippingMethodId: optionId })
-            console.log(selectedMethodId, res)
             if (res?.success) setCurrentStep("payment")
         })
     }

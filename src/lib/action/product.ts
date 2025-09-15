@@ -7,6 +7,7 @@ import { SortOptions } from "@/type/common"
 import { getRegion, retrieveRegion } from "./region"
 import { ClientHeaders } from "@medusajs/js-sdk"
 import { sortProducts } from "@lib/util/sort-products"
+import { buildQuery } from "@lib/util/build-query"
 
 export const listProducts = async ({ pageParam = 1, queryParams, countryCode, regionId }: ListProductsProps): Promise<ListProductsResp> => {
     if (!countryCode && !regionId) throw new Error("Country code or region ID is required")
@@ -98,13 +99,32 @@ export const listProductsWithSortnFilter = async () => {
 
 }
 
-export const fetchProductByCollection = async (query?: StoreProductListParams, cacheTag?: string) => {
-    const nextOptions = await getCacheOptions(cacheTag ?? "prod_collection")
+// export const fetchProductByCollection = async (query?: StoreProductListParams, cacheTag?: string) => {
+//     const nextOptions = cacheTag || await getCacheOptions("prod_collection")
+//     console.log(nextOptions)
+//     return sdk.store.product.list(query, {
+//         next: nextOptions,
+//         cache: "force-cache",
+//     }).then(({ products }) => products)
+// }
 
-    return sdk.store.product.list(query, {
-        next: nextOptions,
-        cache: "force-cache",
-    }).then(({ products }) => products)
+export const fetchProductByCollection = async (query?: StoreProductListParams, cacheTag?: string) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/products${buildQuery(query)}`, {
+        headers: {
+            "x-publishable-api-key": process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || "",
+        },
+        next: {
+            tags: [cacheTag || "prod_collection"],
+            revalidate: 60 * 60 * 24, // 24 hours
+        },
+    })
+
+    if (!res.ok) {
+        throw new Error(`Failed to fetch products: ${res.status} ${res.statusText}`)
+    }
+
+    const { products } = await res.json()
+    return products
 }
 
 type ListProductsProps = {

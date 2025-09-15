@@ -9,9 +9,11 @@ export default function PaymentContainer({ children }: React.PropsWithChildren) 
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="border-t"
+            className="border-t bg-background-muted"
         >
-            {children}
+            <div className="p-6 flex flex-col items-center justify-center gap-4 text-center space-y-2">
+                {children}
+            </div>
         </Div>
 
     )

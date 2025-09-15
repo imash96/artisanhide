@@ -4,7 +4,13 @@ import { product_collections } from "@/JSON/collection";
 
 export default async function TrendingNow({ region_id, }: { region_id: string }) {
     const collection = product_collections[9]
-    const products = await fetchProductByCollection({ collection_id: collection.id, limit: 6, region_id, fields: "id,handle,title,*images,*variants.calculated_price" }, collection.title)
+    const products = await fetchProductByCollection({
+        collection_id: collection.id,
+        limit: 6,
+        region_id,
+        fields: "id,handle,title,*images,*variants.calculated_price"
+    }, `${collection.handle}-${region_id}`);
+
     return (
         <ProductSection
             title={collection.title}
