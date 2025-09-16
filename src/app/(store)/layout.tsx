@@ -8,47 +8,53 @@ import { DrawerProvider } from "@lib/context/drawer-context";
 import Announcement from "@/layout/home/templates/announcement";
 
 export default function StoreLayout({ children }: LayoutProps<"/">) {
-    return (
-        <DrawerProvider>
-            <Announcement />
-            <Header />
-            <MobileDrawer />
-            <CartDrawer />
-            {children}
-            <BottomTabs />
-            <Footer />
-        </DrawerProvider>
-    );
+  return (
+    <DrawerProvider>
+      <Announcement />
+      <Header />
+      <MobileDrawer />
+      <CartDrawer />
+      {children}
+      <BottomTabs />
+      <Footer />
+    </DrawerProvider>
+  );
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-    return {
-        title: "Shop Premium Leather Goods Online | Jackets, Wallets & Shoes at Artisan Hide",
-        description: "Discover high-quality leather goods from top brands at bmtraders.com. Explore our collection of stylish leather jackets, wallets, shoes, and more. Shop now for premium craftsmanship and timeless designs at Artisan Hide. Free shipping available!",
-        openGraph: {
-            siteName: "Artisan Hide Store",
-            title: "Shop Premium Leather Goods Online | Jackets, Wallets & Shoes at Artisan Hide",
-            description: "Discover high-quality leather goods from top brands at bmtraders.com. Explore our collection of stylish leather jackets, wallets, shoes, and more. Shop now for premium craftsmanship and timeless designs at Artisan Hide. Free shipping available!",
-            url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
-            type: "website",
-            images: [
-                {
-                    url: `${process.env.NEXT_PUBLIC_BASE_URL}/men2.jpg`,
-                    width: 1200,
-                    height: 630,
-                    alt: "Shop Premium Leather Goods Online | Jackets, Wallets & Shoes at Artisan Hide",
-                },
-            ],
+  return {
+    title:
+      "Shop Premium Leather Goods Online | Jackets, Wallets & Shoes at Artisan Hide",
+    description:
+      "Discover high-quality leather goods from top brands at bmtraders.com. Explore our collection of stylish leather jackets, wallets, shoes, and more. Shop now for premium craftsmanship and timeless designs at Artisan Hide. Free shipping available!",
+    openGraph: {
+      siteName: "Artisan Hide Store",
+      title:
+        "Shop Premium Leather Goods Online | Jackets, Wallets & Shoes at Artisan Hide",
+      description:
+        "Discover high-quality leather goods from top brands at bmtraders.com. Explore our collection of stylish leather jackets, wallets, shoes, and more. Shop now for premium craftsmanship and timeless designs at Artisan Hide. Free shipping available!",
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+      type: "website",
+      images: [
+        {
+          url: `${process.env.NEXT_PUBLIC_BASE_URL}/men2.jpg`,
+          width: 1200,
+          height: 630,
+          alt: "Shop Premium Leather Goods Online | Jackets, Wallets & Shoes at Artisan Hide",
         },
-        twitter: {
-            card: "summary_large_image",
-            title: "Shop Premium Leather Goods Online | Jackets, Wallets & Shoes at Artisan Hide",
-            description: "Discover high-quality leather goods from top brands at bmtraders.com. Explore our collection of stylish leather jackets, wallets, shoes, and more. Shop now for premium craftsmanship and timeless designs at Artisan Hide. Free shipping available!",
-            images: [`${process.env.NEXT_PUBLIC_BASE_URL}/men2.jpg`],
-        },
-        alternates: {
-            canonical: `${process.env.NEXT_PUBLIC_BASE_URL}`,
-        },
-        icons: '/favicon.ico',
-    }
-};
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "Shop Premium Leather Goods Online | Jackets, Wallets & Shoes at Artisan Hide",
+      description:
+        "Discover high-quality leather goods from top brands at bmtraders.com. Explore our collection of stylish leather jackets, wallets, shoes, and more. Shop now for premium craftsmanship and timeless designs at Artisan Hide. Free shipping available!",
+      images: [`${process.env.NEXT_PUBLIC_BASE_URL}/men2.jpg`],
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+    },
+    icons: "/favicon.ico",
+  };
+}
