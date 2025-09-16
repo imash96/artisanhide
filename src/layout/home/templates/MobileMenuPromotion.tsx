@@ -2,8 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { FeaturesType } from "@/type/common";
 import { features } from "@/JSON/header";
+import { ChevronLeft } from "lucide-react";
 
-export default function MenuPromotion({
+export default function MobileMenuPromotion({
   name,
   isMegaMenu,
 }: {
@@ -12,8 +13,21 @@ export default function MenuPromotion({
 }) {
   if (!name) return null;
   return (
-    <div className="grid grid-cols-2 gap-x-4 col-span-2 py-4">
-      {(features as FeaturesType)[name].map((item) => (
+    <div className="">
+      <div className="relative h-[240px]">
+        <Image
+          src={(features as FeaturesType)[name][0]?.thumbnail}
+          alt="submenu banner"
+          height={400}
+          width={600}
+          className="h-full w-full object-cover"
+        />
+      </div>
+      <div className="bg-[#4F3424] mb-2 text-sm w-[80%] text-white mx-auto px-2 py-2.5 text-center -mt-6 relative">
+        {name}
+      </div>
+
+      {/* {(features as FeaturesType)[name].map((item) => (
         <Link
           key={item.id}
           href={`/collection/${item.handle}`}
@@ -37,7 +51,7 @@ export default function MenuPromotion({
             </div>
           </div>
         </Link>
-      ))}
+      ))} */}
     </div>
   );
 }

@@ -12,6 +12,7 @@ import MobileDrawerContact from "../components/mobile-drawer-contact";
 import { MEGA_MENU } from "@/JSON/header";
 import { product_categories } from "@/JSON/category";
 import { ProductCategory } from "@/type/common";
+import MobileMenuPromotion from "./MobileMenuPromotion";
 
 export default function MobileDrawer() {
   const { isMenuDrawerOpen, toggleMenuDrawer } = useDrawer();
@@ -128,7 +129,7 @@ export default function MobileDrawer() {
                   {/* <h4 className="text-lg font-semibold mb-2">
                     Featured Collections
                   </h4> */}
-                  <MenuPromotion name={currentNav.category?.name} />
+                  <MobileMenuPromotion name={currentNav.category?.name} />
                 </div>
               )}
 
