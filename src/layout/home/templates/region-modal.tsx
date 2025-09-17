@@ -88,6 +88,7 @@ export default function RegionModal({ countryCode, className = "" }: RegionModal
                         name="code"
                         options={countryOptions}
                         defaultValue={selected.value}
+                        autoFocus
                         onChange={(e) => {
                             const selected = countryOptions.find(o => o.value === e.currentTarget.value)
                             if (selected) setSelected(selected)

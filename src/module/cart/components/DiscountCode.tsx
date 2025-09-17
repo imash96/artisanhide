@@ -67,6 +67,7 @@ export default function DiscountCode({ promotions }: { promotions: StoreCartProm
             type="text"
             name="code"
             label="Enter Discount code"
+            autoFocus
             disabled={isPending}
             helperText={state.error ?? undefined}
             state={state.error ? "error" : "default"}

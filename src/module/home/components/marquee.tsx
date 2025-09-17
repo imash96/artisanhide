@@ -16,7 +16,7 @@ export default function Marquee({ images, direction = "forward", duration = 20, 
                             width={240}
                             height={260}
                             className="shadow-md object-cover object-center hover:scale-105 hover:rotate-2 transition-transform ease-in-out duration-300 h-full w-full"
-                            sizes="240px"
+                            sizes="(min-width: 768px) 12rem, (min-width: 640px) 15rem, 16rem"
                             priority={index < 4} // Prioritize first few images
                         />
                     </div>
@@ -29,7 +29,7 @@ export default function Marquee({ images, direction = "forward", duration = 20, 
                             width={240}
                             height={260}
                             className="shadow-md object-cover object-center hover:scale-105 hover:rotate-2 transition-transform ease-in-out duration-300 h-full w-full"
-                            sizes="240px"
+                            sizes="(min-width: 768px) 12rem, (min-width: 640px) 15rem, 16rem"
                             priority={index < 4} // Prioritize first few images
                         />
                     </div>

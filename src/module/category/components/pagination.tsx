@@ -1,5 +1,6 @@
 "use client"
 
+import type { Route } from "next"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 export function Pagination({
@@ -23,7 +24,7 @@ export function Pagination({
     const handlePageChange = (newPage: number) => {
         const params = new URLSearchParams(searchParams)
         params.set("page", newPage.toString())
-        router.push(`${pathname}?${params.toString()}`)
+        router.push(`${pathname}?${params.toString()}` as Route)
     }
 
     // Function to render a page button

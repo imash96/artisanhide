@@ -97,6 +97,6 @@ function fetchRegionData(): Set<string> {
 
 export const config = {
     matcher: [
-        "/((?!api|_next/static|_next/image|favicon.ico|images|fonts|assets|png|svg|jpg|jpeg|gif|avif|webp).*)",
+        "/((?!api|__next_action|_next/static|_next/image|favicon.ico|images|fonts|assets|.*\\..*).*)",
     ],
 };

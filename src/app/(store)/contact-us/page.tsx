@@ -101,6 +101,7 @@ function ContactForm() {
                     label="First Name"
                     className="w-full"
                     name="firstName"
+                    autoFocus
                     required
                 />
                 <CustomInput

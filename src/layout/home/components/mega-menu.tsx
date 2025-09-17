@@ -65,7 +65,7 @@ export default function MegaMenu({ enhancedCategories, otherCategories }: MegaMe
             ))}
             {otherCategories?.map((page, index) => (
                 <li key={index} className={`flex mega-hover items-center gap-0.5 cursor-default`} onMouseEnter={handleMouseLeave}>
-                    <Link href={page.handle}>
+                    <Link href={`/category/${page.handle}`}>
                         {page.name}
                     </Link>
                 </li>

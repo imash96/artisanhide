@@ -1,7 +1,9 @@
 import { ArrowRight } from "lucide-react"
-import Link, { LinkProps } from "next/link"
+import { Route } from "next"
+import Link from "next/link"
 
-type InteractiveLinkProps = LinkProps & {
+type InteractiveLinkProps = {
+    href: Route | URL
     onClick?: () => void
 } & React.PropsWithChildren
 

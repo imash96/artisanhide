@@ -22,7 +22,7 @@ export default async function Page(props: PageProps<"/blog">) {
     const sortedBlogs = [...blogData].sort((a, b) => new Date(b.uploadDate).getTime() - new Date(a.uploadDate).getTime());
     const blogsToShow = sortedBlogs.slice(start, end);
     return (
-        <SectionHeader title="Our Blog" desc="Discover the latest trends, care tips, and style inspiration from the world of leather fashion at Artisan Hide." sectionName="blogs">
+        <SectionHeader title="Our Blog" desc="Discover the latest trends, care tips, and style inspiration from the world of leather fashion at Artisan Hide." sectionName="Blog posts">
             {/* Blog Grid */}
             {blogsToShow.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">

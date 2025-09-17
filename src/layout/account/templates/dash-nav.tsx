@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { StoreCustomer } from "@medusajs/types"
 import { UserRound, BookUser, Package, Heart, PencilRuler } from "lucide-react"
+import type { Route } from "next"
 
 export default function DashNav() {
     const pathname = usePathname()
@@ -14,7 +15,7 @@ export default function DashNav() {
                 return (
                     <Link
                         key={item.id}
-                        href={item.href}
+                        href={item.href as Route}
                         aria-current={isActive ? 'page' : undefined}
                         className={`flex items-center m-1 gap-3 border-b-4 lg:border-b-0 lg:border-l-4 px-4 py-2 lg:px-3 lg:py-2.5 rounded-lg transition-all duration-150 ${isActive ? 'bg-accent/20 border-accent' : 'hover:bg-background-muted lg:border-transparent hover:border-border-hover'} focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1`}
                     >

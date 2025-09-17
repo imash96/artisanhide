@@ -51,10 +51,7 @@ export default function MobileDrawer() {
       : currentNav.category?.category_children || [];
 
   // Show feature collections only for level 1 (parent > child, not deeper)
-  const shouldShowFeatureCollections = () =>
-    currentNav.level === 1 &&
-    currentNav.category &&
-    MEGA_MENU.includes(currentNav.category.name);
+  const shouldShowFeatureCollections = () => currentNav.level === 1 && currentNav.category && MEGA_MENU.includes(currentNav.category.name);
 
   const contentVariants = {
     hidden: { opacity: 0, x: 30 },
@@ -124,45 +121,38 @@ export default function MobileDrawer() {
               exit="exit"
               transition={{ duration: 0.25 }}
             >
-              {shouldShowFeatureCollections() && (
-                <div className="">
-                  {/* <h4 className="text-lg font-semibold mb-2">
+              {/* <h4 className="text-lg font-semibold mb-2">
                     Featured Collections
                   </h4> */}
-                  <MobileMenuPromotion name={currentNav.category?.name} />
-                </div>
-              )}
-
-              <div className="space-y-2 p-2">
-                {getCurrentCategories().map((cat, index) => (
-                  <Div
-                    key={cat.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.04 }}
-                  >
-                    {cat.category_children?.length ? (
-                      <button
-                        onClick={() => handleCategoryClick(cat)}
-                        className="w-full flex justify-between items-center text-left px-3 py-2 rounded hover:bg-accent hover:text-accent-foreground transition"
-                      >
-                        <span className="font-light text-[15px]">
-                          {cat.name}
-                        </span>
-                        <ChevronRight className="w-4 h-4" />
-                      </button>
-                    ) : (
-                      <Link
-                        href={`/category/${cat.handle}`}
-                        className="block px-3 py-2 rounded-lg hover:bg-accent hover:text-accent-foreground font-light text-[15px] transition"
-                        onClick={handleClose}
-                      >
+              {(currentNav.category && currentNav.level === 1) && <MobileMenuPromotion name={currentNav.category.name} thumbnail={currentNav.category.metadata?.thumbnail as string} />}
+              {getCurrentCategories().map((cat, index) => (
+                <Div
+                  key={cat.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.04 }}
+                >
+                  {cat.category_children?.length ? (
+                    <button
+                      onClick={() => handleCategoryClick(cat)}
+                      className="p-5 text-[15px] border-b flex items-center justify-between cursor-pointer w-full"
+                    >
+                      <span className="font-light text-[15px]">
                         {cat.name}
-                      </Link>
-                    )}
-                  </Div>
-                ))}
-              </div>
+                      </span>
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  ) : (
+                    <Link
+                      href={`/category/${cat.handle}`}
+                      className="p-5 text-[15px] border-b flex items-center justify-between cursor-pointer"
+                      onClick={handleClose}
+                    >
+                      {cat.name}
+                    </Link>
+                  )}
+                </Div>
+              ))}
             </Div>
           </AnimatePresence>
 

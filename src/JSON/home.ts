@@ -1,0 +1,1 @@
+export const collecionToShow = ["Men's Apparel", "Travel Essentials", "Women's Apparel", "Celebrity Jackets", "Best Seller", "Men's Wallets"]

@@ -3,6 +3,7 @@ import { StoreOrder } from "@medusajs/types";
 import Button from "@module/common/custom-button";
 import OrderLineitem from "./order-lineitem";
 import { CheckCircle } from "lucide-react";
+import type { Route } from "next";
 
 export default function OrderCard({ order }: { order: StoreOrder }) {
     const order_paced = new Date(order.created_at).toLocaleDateString()
@@ -37,7 +38,7 @@ export default function OrderCard({ order }: { order: StoreOrder }) {
                     </div>
                 </div>
                 <div className="flex flex-col gap-2 w-auto">
-                    <Button href={`/order/${order.id}`} variant="outline">
+                    <Button href={`/order/${order.id}` as Route} variant="outline">
                         <span>View Order</span>
                         <span className="sr-only"> {order_id}</span>
                     </Button>

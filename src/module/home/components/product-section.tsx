@@ -2,6 +2,7 @@ import { StoreProduct } from "@medusajs/types";
 import SectionHeader from "./section-header";
 import Button from "@module/common/custom-button";
 import ProductCard from "@module/common/product-card";
+import type { Route } from "next";
 
 export default function ProductSection({ products, title, desc, sectionName, ...props }: ProductSectionProps) {
     return (
@@ -12,7 +13,7 @@ export default function ProductSection({ products, title, desc, sectionName, ...
                 ))}
             </div>
             <div className="flex justify-center">
-                <Button href={props.buttonLink} variant="outline" color="primary">
+                <Button href={props.buttonLink as Route} variant="outline" color="primary">
                     {props.buttonText || "View all"}
                 </Button>
             </div>

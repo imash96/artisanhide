@@ -7,6 +7,7 @@ import Image from "next/image";
 import { IconProp } from "@/type/common";
 import { footer } from "@/JSON/footer";
 import RegionModal from "./region-modal";
+import type { Route } from "next";
 
 export default async function Footer() {
     const countryCode = (await cookies()).get('__country_code')?.value
@@ -45,7 +46,7 @@ const FooterTop = ({ title, data }: FooterTopProps) => {
             </li>
             {data.map((item) => (
                 <li key={item.name} className="listHoverAnimation list-none text-base">
-                    <Link key={item.name} href={item.href} className="flex items-center gap-x-2">
+                    <Link key={item.name} href={item.href as Route} className="flex items-center gap-x-2">
                         {item.icon && <item.icon className="w-5 h-5" />}
                         {item.name}
                     </Link>

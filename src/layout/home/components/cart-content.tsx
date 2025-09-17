@@ -32,7 +32,7 @@ export default function CartContent({ cart }: { cart: StoreCart }) {
                                     <Image
                                         src={item.thumbnail || "/svg/placeholder.svg"}
                                         alt={"product image"}
-                                        sizes="70px"
+                                        sizes="(min-width: 768px) 12rem, (min-width: 640px) 15rem, 16rem"
                                         className="h-full w-full object-contain object-center"
                                         height={65}
                                         width={55}

@@ -96,7 +96,7 @@ function AddressFields({ prefix, data, email, countryOptions }: AddressFieldsPro
     return (
         <div className="space-y-3">
             <div className="grid grid-cols-2 gap-3">
-                <CustomInput label="First name" name={`${prefix}.first_name`} defaultValue={data?.first_name || ""} required />
+                <CustomInput label="First name" name={`${prefix}.first_name`} defaultValue={data?.first_name || ""} required autoFocus />
                 <CustomInput label="Last name" name={`${prefix}.last_name`} defaultValue={data?.last_name || ""} required />
             </div>
             <CustomInput label="Company" name={`${prefix}.company`} defaultValue={data?.company || ""} />
@@ -121,9 +121,9 @@ function AddressFields({ prefix, data, email, countryOptions }: AddressFieldsPro
             </div>
 
             {email !== undefined && (
-                <CustomInput label="Email" name="email" defaultValue={email || ""} />
+                <CustomInput label="Email" name="email" defaultValue={email || ""} required />
             )}
-            <CustomInput label="Phone" name={`${prefix}.phone`} defaultValue={data?.phone || ""} />
+            <CustomInput label="Phone" name={`${prefix}.phone`} defaultValue={data?.phone || ""} required />
         </div>
     )
 }

@@ -17,7 +17,7 @@ export default async function Layout({ children }: LayoutProps<"/auth">) {
                         alt="Leather product promotional banner"
                         fill
                         quality={100}
-                        sizes="100vw"
+                        sizes="(min-width: 768px) 12rem, (min-width: 640px) 15rem, 16rem"
                         className="object-cover object-top"
                         placeholder="empty"
                     />

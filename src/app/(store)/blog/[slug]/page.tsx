@@ -1,13 +1,12 @@
 import Image from "next/image";
 import { blogData } from "@/JSON/blog";
-
 import Button from "@module/common/custom-button";
 import { ChevronLeft } from "lucide-react";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(props: PageProps<"/blog/[slug]">) {
     const { slug } = await props.params;
     const blog = blogData.find((b) => b.slug === slug);
-
     if (!blog) {
         return {
             title: "Blog Not Found | Your Brand",
@@ -46,20 +45,10 @@ export async function generateMetadata(props: PageProps<"/blog/[slug]">) {
 }
 
 export default async function Page(props: PageProps<"/blog/[slug]">) {
-    const { slug } = (await props.params);
+    const { slug } = await props.params;
     const blog = blogData.find((b) => b.slug === slug);
 
-    if (!blog) {
-        return (
-            <div className="max-w-4xl mx-auto px-4 py-12 md:py-16 lg:py-20 space-y-6 text-center">
-                <h1 className="text-3xl md:text-4xl font-bold text-destructive">Blog Not Found</h1>
-                <p className="text-lg text-foreground-muted">The blog you are looking for doesn’t exist.</p>
-                <Button href="/blog">
-                    Back to Blogs
-                </Button>
-            </div>
-        );
-    }
+    if (!blog) notFound()
 
     return (
         <article className="max-w-4xl mx-auto px-4 py-8 md:py-12 lg:py-16 space-y-10">
@@ -75,11 +64,12 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
                     <span>•</span>
                     <span>{blog.readTime}</span>
                 </div>
-                <div className="relative w-full h-64 md:h-96 rounded-xl overflow-hidden">
+                <div className="relative w-full h-64 md:h-96 overflow-hidden">
                     <Image
                         src={blog.thumbnail}
                         alt={blog.title}
                         fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 960px"
                         className="object-cover"
                         priority
                     />
@@ -91,35 +81,58 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
 
             {/* Blog Content */}
             <div className="space-y-8 md:space-y-10">
-                {blog.content?.map((section, index) => (
-                    <section
-                        key={index}
-                        className={`flex flex-col ${section.imageLeft ? 'md:flex-row-reverse' : 'md:flex-row'} gap-6 md:gap-8 items-start`}
-                    >
-                        {section.thumbanil && (
-                            <div className="w-full md:w-1/2 relative h-64 rounded-lg overflow-hidden shadow-md">
-                                <Image
-                                    src={section.thumbanil}
-                                    alt={section.heading || 'Blog image'}
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                        )}
-                        <div className={`${section.thumbanil ? 'w-full md:w-1/2' : 'w-full'} space-y-4`}>
-                            {section.heading && (
-                                <h2 className="text-2xl md:text-3xl font-semibold text-templateBrown">
-                                    {section.heading}
-                                </h2>
+                {blog.content?.map((section, index) => {
+                    if (section.type === "faq") {
+                        return (
+                            <section key={index} className="w-full space-y-4 border-t pt-6">
+                                {section.heading && (
+                                    <h2 className="text-2xl md:text-3xl font-semibold">
+                                        {section.heading}
+                                    </h2>
+                                )}
+                                <dl className="space-y-4">
+                                    {section.para.map((faq, faqIndex) => (
+                                        <div key={faqIndex} className="space-y-2">
+                                            <dt className="font-medium text-lg">{faq.Q}</dt>
+                                            <dd className="leading-relaxed text-foreground-muted">{faq.A}</dd>
+                                        </div>
+                                    ))}
+                                </dl>
+                            </section>
+                        );
+                    }
+
+                    return (
+                        <section
+                            key={index}
+                            className={`flex flex-col ${section.imageLeft ? 'md:flex-row-reverse' : 'md:flex-row'} gap-6 md:gap-8 items-center`}
+                        >
+                            {section.thumbnail && (
+                                <div className="w-full md:w-1/2 relative h-64 shadow-md">
+                                    <Image
+                                        src={section.thumbnail}
+                                        alt={section.heading || 'Blog image'}
+                                        fill
+                                        sizes="(min-width: 768px) 12rem, (min-width: 640px) 15rem, 16rem"
+                                        className="object-cover"
+                                    />
+                                </div>
                             )}
-                            {section.para.map((paragraph, pIndex) => (
-                                <p key={pIndex} className="leading-relaxed">
-                                    {paragraph}
-                                </p>
-                            ))}
-                        </div>
-                    </section>
-                ))}
+                            <div className={`${section.thumbnail ? 'w-full md:w-1/2' : 'w-full'} space-y-4`}>
+                                {section.heading && (
+                                    <h2 className="text-2xl md:text-3xl font-semibold">
+                                        {section.heading}
+                                    </h2>
+                                )}
+                                {section.para.map((paragraph, pIndex) => (
+                                    <p key={pIndex} className="leading-relaxed">
+                                        {paragraph}
+                                    </p>
+                                ))}
+                            </div>
+                        </section>
+                    );
+                })}
             </div>
 
             {/* Footer / Related or Back */}
@@ -131,8 +144,7 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
             </footer>
         </article>
     );
-};
-
+}
 
 export async function generateStaticParams() {
     return blogData.map(p => ({ slug: p.slug }));

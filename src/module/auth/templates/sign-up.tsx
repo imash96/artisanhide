@@ -10,6 +10,7 @@ export default function SIGNUP() {
                     required
                     autoComplete="given-name"
                     className="w-full"
+                    autoFocus
                 />
                 <Input
                     label="Last name"

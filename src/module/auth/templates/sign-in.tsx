@@ -10,6 +10,7 @@ export default function SIGNIN() {
                 type="email"
                 required
                 autoComplete="email"
+                autoFocus
             />
             <Input
                 label="Password"

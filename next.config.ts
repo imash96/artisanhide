@@ -4,7 +4,13 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
-  // typedRoutes: true,
+  typedRoutes: true,
+  experimental: {
+    // reactCompiler: true,
+    browserDebugInfoInTerminal: {
+      showSourceLocation: true
+    }
+  },
   images: {
     qualities: [25, 50, 80, 100],
     remotePatterns: [

@@ -9,7 +9,7 @@ export default function Container<T extends React.ElementType = "div">({ as, chi
     const Component = as || 'div'
     const w = width == 8 ? "max-w-8xl" : "max-w-7xl"
     return (
-        sectionName ? <section aria-labelledby={`${sectionName}-heading`}>
+        sectionName ? <section aria-label={sectionName}>
             <Component className={`mx-auto ${w} px-4 md:px-10 lg:px-14 ${className ?? ""}`} {...props}>
                 {children}
             </Component>

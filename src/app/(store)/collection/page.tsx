@@ -8,7 +8,7 @@ export default async function Page() {
         <SectionHeader title="Collections" desc="Explore our curated collections that cater to every style and occasion." sectionName="collecion" className="border-b mb-6 pb-4">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 gap-y-5 lg:gap-y-6">
                 {product_collections.map(item => (
-                    <Link key={item.id} href={`collection/${item.handle}`} className="block group space-y-2">
+                    <Link key={item.id} href={`/collection/${item.handle}`} className="block group space-y-2">
                         <div className="aspect-[4/5.5] overflow-hidden no-scrollbar">
                             <Image
                                 src={item.metadata?.thumbnail as string}

@@ -1,1502 +1,2378 @@
 export const blogData: BlogPost[] = [
     {
-        "id": "post-001",
-        "title": "Ultimate Guide to Caring for Your Leather Jacket: Tips for Longevity",
-        "slug": "ultimate-guide-caring-leather-jacket-tips-longevity",
-        "uploadDate": "2025-09-08",
-        "author": {
-            "name": "Emma Styles",
-            "avatar": "https://artisanhide.com/authors/emma-styles.jpg"
+        id: "blog-001",
+        title: "Ultimate Guide to Caring for Your Leather Jacket: Tips for Longevity",
+        slug: "ultimate-guide-caring-leather-jacket-tips-longevity",
+        uploadDate: "2025-09-08",
+        author: {
+            name: "Emma Johnson",
+            avatar: "/images/blog/authors/emma-johnson.png",
         },
-        "category": "Product Care",
-        "tags": ["leather care", "jacket maintenance", "leather goods", "fashion tips", "artisanhide"],
-        "excerpt": "Discover essential tips to keep your leather jacket looking pristine for years. From cleaning to storage, learn how to maintain its quality and style effortlessly.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-jacket-care.jpg",
-        "content": [
+        category: "Product Care",
+        tags: [
+            "leather care",
+            "jacket maintenance",
+            "leather goods",
+            "fashion tips",
+            "artisanhide",
+            "leather cleaning",
+            "leather conditioning",
+            "leather storage",
+            "leather jacket cleaning",
+            "long-lasting leather",
+        ],
+        excerpt: "Learn expert tips to maintain your leather jacket’s style and durability with Artisan Hide’s care guide.",
+        thumbnail: "/images/blog/blog-001/thumbnail.png",
+        content: [
             {
-                "heading": "Why Proper Care Matters for Leather Jackets",
-                "para": [
-                    "Leather jackets are timeless investments in your wardrobe, but without proper care, they can lose their luster and durability. At Artisan Hide, we craft our jackets from premium leather to ensure they stand the test of time, but daily wear and environmental factors can take a toll.",
-                    "Regular maintenance not only preserves the material's natural oils but also prevents cracks, fading, and odors. In this guide, we'll cover everything you need to know to keep your jacket in top shape."
+                type: "text",
+                heading: "Why Proper Care Matters for Leather Jackets",
+                para: [
+                    "Leather jackets are timeless investments, but neglect can dull their appeal. Artisan Hide crafts jackets from premium leather for lasting quality.",
+                    "Regular care prevents cracks, fading, and odors, preserving natural oils. This guide shares essential maintenance tips for longevity.",
+                    "Proper care enhances both aesthetics and functionality, ensuring your jacket remains a wardrobe staple."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Daily Cleaning Routines",
-                "para": [
-                    "Start with gentle dusting using a soft cloth to remove surface dirt. For spills, blot immediately with a clean, dry cloth—never rub, as it can spread the stain.",
-                    "Use a leather-specific cleaner once a month. Apply sparingly, massage in circular motions, and wipe off excess. Avoid harsh chemicals that can strip the leather's natural finish."
+                type: "image-text",
+                heading: "Daily Cleaning Routines",
+                para: [
+                    "Dust with a soft cloth to remove dirt. Blot spills immediately to avoid stains—rubbing spreads damage.",
+                    "Use a leather-specific cleaner monthly. Apply gently in circular motions and wipe clean to maintain finish.",
+                    "Artisan Hide recommends eco-friendly cleaners for safe, effective results."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-001/cleaning-leather.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-001/cleaning-leather.png",
             },
             {
-                "heading": "Conditioning and Moisturizing",
-                "para": [
-                    "Leather dries out over time, so conditioning is key. Apply a quality leather conditioner every 3-6 months to restore moisture and flexibility.",
-                    "Test on a small area first, then rub in evenly. Let it absorb overnight before wearing. This step enhances shine and prevents cracking, especially in dry climates."
+                type: "text",
+                heading: "Conditioning and Moisturizing",
+                para: [
+                    "Condition every 3-6 months to restore moisture. Dry leather cracks, so this step is crucial.",
+                    "Test conditioner on a hidden area, apply evenly, and let absorb overnight for best results.",
+                    "Beeswax-based conditioners add shine and protection, ideal for all climates."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Storage Best Practices",
-                "para": [
-                    "Hang your jacket on a wide, padded hanger to maintain shape. Store in a cool, dry place away from direct sunlight to prevent fading.",
-                    "Use a breathable dust bag for long-term storage. Avoid plastic, as it traps moisture and can lead to mold."
+                type: "image-text",
+                heading: "Protecting Against Weather",
+                para: [
+                    "Weatherproof sprays shield jackets from rain and snow. Apply sparingly to maintain breathability.",
+                    "If wet, air dry naturally away from heat sources to prevent shrinkage or warping.",
+                    "Recondition post-exposure to restore suppleness and prevent damage."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-001/leather-protection.png",
+                href: "/products/leather-care-kits"
             },
             {
-                "heading": "Common Mistakes to Avoid",
-                "para": [
-                    "Never machine wash leather—opt for professional cleaning if needed. Also, steer clear of heat sources like radiators, which can cause shrinkage.",
-                    "If your jacket gets wet, air dry naturally and condition afterward. Following these tips will ensure your Artisan Hide jacket remains a staple for seasons to come."
+                type: "text",
+                heading: "Storage Best Practices",
+                para: [
+                    "Use wide, padded hangers to maintain shape. Store in cool, dry areas away from sunlight.",
+                    "Breathable dust bags prevent moisture buildup, unlike plastic which promotes mold.",
+                    "Condition before long-term storage to keep leather hydrated and ready for wear."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-001/leather-storage.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Common Mistakes to Avoid",
+                para: [
+                    "Avoid machine washing—opt for professional cleaning for tough stains.",
+                    "Keep jackets away from radiators or direct heat to prevent cracking.",
+                    "Overusing sprays can clog leather pores, so use sparingly for best results."
+                ],
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-001/leather-storage.png",
+            },
+            {
+                type: "faq",
+                heading: "Frequently Asked Questions",
+                para: [
+                    { Q: "How often should I clean my leather jacket?", A: "Weekly dusting and monthly cleaning with leather-safe products." },
+                    { Q: "Can I use household cleaners on leather?", A: "No, they damage finishes. Use Artisan Hide’s recommended leather cleaners." },
+                    { Q: "What to do for tough stains?", A: "Blot immediately and consult a professional cleaner for stubborn marks." },
+                    { Q: "How do I store my jacket in summer?", A: "Use a breathable bag and condition beforehand to prevent drying." }
+                ],
             }
         ],
-        "readTime": "6 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "How to Care for Leather Jackets: Expert Tips from Artisan Hide",
-            "metaDescription": "Learn professional leather jacket care tips to extend lifespan, including cleaning, conditioning, and storage. Perfect for Artisan Hide customers.",
-            "metaKeywords": ["leather jacket care", "maintain leather goods", "leather maintenance tips", "artisanhide care guide"],
-            "canonicalUrl": "https://artisanhide.com/blog/ultimate-guide-caring-leather-jacket-tips-longevity",
-            "ogTitle": "Ultimate Leather Jacket Care Guide for Longevity",
-            "ogDescription": "Essential maintenance tips to keep your leather jacket looking new. From Artisan Hide's experts.",
-            "ogImage": "https://artisanhide.com/blog/og/leather-care-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Care for Leather Jackets: Artisan Hide’s Expert Tips",
+            metaDescription: "Extend your leather jacket’s life with cleaning, conditioning, and storage tips from Artisan Hide.",
+            metaKeywords: [
+                "leather jacket care",
+                "maintain leather goods",
+                "leather maintenance tips",
+                "artisanhide care guide",
+                "leather conditioner",
+                "storing leather jackets",
+                "leather cleaning tips",
+                "long-lasting leather jackets",
+                "eco-friendly leather care"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/ultimate-guide-caring-leather-jacket-tips-longevity",
+            ogTitle: "How to Care for Your Leather Jacket",
+            ogDescription: "Keep your leather jacket pristine with Artisan Hide’s expert care tips.",
+            ogImage: "/images/blog/blog-001/leather-care-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-002",
-        "title": "Top Leather Fashion Trends to Watch in 2025",
-        "slug": "top-leather-fashion-trends-2025",
-        "uploadDate": "2025-09-07",
-        "author": {
-            "name": "Alex Trendsetter",
-            "avatar": "https://artisanhide.com/authors/alex-trendsetter.jpg"
+        id: "blog-002",
+        title: "Top Leather Fashion Trends to Watch in 2025",
+        slug: "top-leather-fashion-trends-2025",
+        uploadDate: "2025-09-07",
+        author: {
+            name: "Alex Harper",
+            avatar: "/images/blog/authors/alex-harper.png",
         },
-        "category": "Trends",
-        "tags": ["leather trends", "2025 fashion", "leather apparel", "style guide", "artisanhide"],
-        "excerpt": "Explore the hottest leather trends for 2025, from bold colors to sustainable designs. Stay ahead in fashion with Artisan Hide's insights.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-trends-2025.jpg",
-        "content": [
+        category: "Trends",
+        tags: [
+            "leather trends",
+            "2025 fashion",
+            "leather apparel",
+            "style guide",
+            "artisanhide",
+            "sustainable leather",
+            "bold leather colors",
+            "eco-friendly fashion",
+            "leather textures",
+            "modern leather styles"
+        ],
+        excerpt: "Discover 2025’s hottest leather trends, from vibrant colors to eco-friendly designs with Artisan Hide.",
+        thumbnail: "/images/blog/blog-002/thumbnail.png",
+        content: [
             {
-                "heading": "Introduction to 2025 Leather Trends",
-                "para": [
-                    "As we step into 2025, leather remains a cornerstone of fashion, evolving with new textures, colors, and eco-friendly innovations. At Artisan Hide, we're excited about the blend of classic and contemporary styles.",
-                    "This year, expect to see more versatile pieces that transition from day to night, emphasizing sustainability and personalization."
+                type: "text",
+                heading: "Introduction to 2025 Leather Trends",
+                para: [
+                    "Leather remains a fashion staple in 2025, blending bold innovation with timeless appeal.",
+                    "Artisan Hide’s collection showcases vibrant colors, sustainable materials, and versatile designs.",
+                    "Expect pieces that transition from casual to formal, redefining leather’s role in modern wardrobes."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Bold Colors and Textures",
-                "para": [
-                    "Move beyond black and brown—vibrant hues like emerald green and deep burgundy are dominating. Textured leathers, such as embossed or perforated, add depth to jackets and bags.",
-                    "These trends allow for statement pieces that elevate any outfit, perfect for urban explorers."
+                type: "image-text",
+                heading: "Bold Colors and Textures",
+                para: [
+                    "Vibrant hues like emerald green and burgundy dominate. Textured leathers add visual depth.",
+                    "Embossed and perforated finishes elevate jackets and bags for urban style.",
+                    "Pair bold pieces with neutrals for balanced, eye-catching outfits."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-002/bold-leather-colors.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-002/bold-leather-colors.png",
             },
             {
-                "heading": "Sustainable Leather Innovations",
-                "para": [
-                    "Eco-conscious consumers will love plant-based leather alternatives and recycled materials. Artisan Hide is committed to ethical sourcing, ensuring our products are both stylish and responsible.",
-                    "Look for certifications like vegetable-tanned leather, which reduces environmental impact without compromising quality."
+                type: "text",
+                heading: "Sustainable Leather Innovations",
+                para: [
+                    "Eco-friendly tanning and recycled leather reduce environmental impact.",
+                    "Artisan Hide prioritizes vegetable-tanned leather for sustainability and quality.",
+                    "Look for certifications like Leather Working Group for ethical sourcing."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Oversized and Layered Styles",
-                "para": [
-                    "Oversized leather coats and jackets are in, offering comfort and edge. Layer them over hoodies or dresses for a modern look.",
-                    "This trend is ideal for fall and winter, providing warmth while making a fashion statement."
+                type: "image-text",
+                heading: "Oversized and Layered Styles",
+                para: [
+                    "Oversized coats and jackets offer comfort and bold silhouettes.",
+                    "Layer over hoodies or dresses for a contemporary, cozy look.",
+                    "Perfect for fall and winter, blending warmth with high fashion."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-002/oversized-leather.png",
+                href: "/products/oversized-leather-coats"
             },
             {
-                "heading": "Accessories Taking Center Stage",
-                "para": [
-                    "Leather bags and belts with unique hardware are must-haves. Mix and match for personalized ensembles.",
-                    "At Artisan Hide, our 2025 collection features these trends, ready to shop now."
+                type: "text",
+                heading: "Accessories Taking Center Stage",
+                para: [
+                    "Leather bags and belts with unique hardware steal the spotlight.",
+                    "Mix textures and colors for personalized, standout looks.",
+                    "Artisan Hide’s 2025 accessories collection is designed for versatility."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-002/leather-accessories-2025.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Mixing Leather with Other Fabrics",
+                para: [
+                    "Combine leather with denim or silk for dynamic textures.",
+                    "Hybrid designs like leather-trimmed cotton jackets are trending.",
+                    "Explore Artisan Hide’s curated collection for inspiration."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-002/leather-fabric-mix.png",
+                href: "/blog/womens-leather-fashion-empowering-styles-2025"
+            },
+            {
+                type: "faq",
+                heading: "Leather Trend FAQs",
+                para: [
+                    { Q: "What colors are trending for leather in 2025?", A: "Emerald green, burgundy, and classic neutrals like black and tan." },
+                    { Q: "Is sustainable leather durable?", A: "Yes, vegetable-tanned leather is both eco-friendly and long-lasting." },
+                    { Q: "How to style oversized leather jackets?", A: "Pair with slim-fit bottoms or dresses for balance." }
+                ],
             }
         ],
-        "readTime": "5 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "2025 Leather Fashion Trends: What's Hot from Artisan Hide",
-            "metaDescription": "Discover top leather trends for 2025, including colors, sustainability, and styles. Expert insights from Artisan Hide.",
-            "metaKeywords": ["leather trends 2025", "fashion trends leather", "sustainable leather", "artisanhide trends"],
-            "canonicalUrl": "https://artisanhide.com/blog/top-leather-fashion-trends-2025",
-            "ogTitle": "Hottest Leather Trends for 2025",
-            "ogDescription": "Stay stylish with the latest in leather fashion from Artisan Hide.",
-            "ogImage": "https://artisanhide.com/blog/og/leather-trends-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "7 min read",
+        status: "published",
+        seo: {
+            metaTitle: "2025 Leather Fashion Trends: Artisan Hide’s Top Picks",
+            metaDescription: "Stay ahead with 2025’s leather trends: bold colors, sustainable designs, and more from Artisan Hide.",
+            metaKeywords: [
+                "leather trends 2025",
+                "fashion trends leather",
+                "sustainable leather",
+                "bold leather colors",
+                "artisanhide trends",
+                "leather textures 2025",
+                "eco-friendly leather fashion"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/top-leather-fashion-trends-2025",
+            ogTitle: "2025’s Hottest Leather Fashion Trends",
+            ogDescription: "Bold, sustainable leather styles from Artisan Hide for 2025.",
+            ogImage: "/images/blog/blog-002/leather-trends-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-003",
-        "title": "How to Style Leather Pants for Any Occasion",
-        "slug": "style-leather-pants-any-occasion",
-        "uploadDate": "2025-09-06",
-        "author": {
-            "name": "Sophia Wardrobe",
-            "avatar": "https://artisanhide.com/authors/sophia-wardrobe.jpg"
+        id: "blog-003",
+        title: "How to Style Leather Pants for Any Occasion",
+        slug: "style-leather-pants-any-occasion",
+        uploadDate: "2025-09-06",
+        author: {
+            name: "Sophie Clark",
+            avatar: "/images/blog/authors/sophie-clark.png",
         },
-        "category": "Fashion Tips",
-        "tags": ["leather pants styling", "outfit ideas", "leather fashion", "versatile looks", "artisanhide"],
-        "excerpt": "Leather pants aren't just for evenings—learn how to style them for work, casual outings, and more with our expert tips.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-pants-styling.jpg",
-        "content": [
+        category: "Fashion Tips",
+        tags: [
+            "leather pants styling",
+            "outfit ideas",
+            "leather fashion",
+            "versatile looks",
+            "artisanhide",
+            "casual leather outfits",
+            "office fashion",
+            "party styling",
+            "leather pants trends",
+            "women’s leather fashion"
+        ],
+        excerpt: "Style leather pants for work, casual, or evening looks with Artisan Hide’s versatile fashion tips.",
+        thumbnail: "/images/blog/blog-003/thumbnail.png",
+        content: [
             {
-                "heading": "The Versatility of Leather Pants",
-                "para": [
-                    "Leather pants have evolved from rockstar staples to everyday essentials. At Artisan Hide, our collection offers slim-fit to wide-leg options in premium leather.",
-                    "Their durability and sleek appearance make them ideal for year-round wear, adapting to various styles."
+                type: "text",
+                heading: "The Versatility of Leather Pants",
+                para: [
+                    "Leather pants are no longer just for bold evenings—they’re everyday essentials.",
+                    "Artisan Hide’s collection includes slim-fit jeans and wide-leg trousers for all occasions.",
+                    "Their durability and sleek style make them perfect year-round."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Casual Daytime Looks",
-                "para": [
-                    "Pair black leather pants with a white tee and sneakers for a relaxed vibe. Add a denim jacket for texture contrast.",
-                    "For warmer days, opt for leather shorts styled similarly, keeping it effortless yet chic."
+                type: "image-text",
+                heading: "Casual Daytime Looks",
+                para: [
+                    "Pair black leather pants with a white tee and sneakers for effortless cool.",
+                    "Add a denim jacket or cardigan for texture and relaxed vibes.",
+                    "Leather shorts work great for warmer days with similar styling."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-003/casual-leather-pants.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-003/casual-leather-pants.png",
             },
             {
-                "heading": "Office-Ready Ensembles",
-                "para": [
-                    "Combine leather pants with a tailored blazer and loafers for professional polish. Choose neutral tones to maintain sophistication.",
-                    "Accessories like a leather belt can tie the look together seamlessly."
+                type: "text",
+                heading: "Office-Ready Ensembles",
+                para: [
+                    "Combine leather pants with a tailored blazer and loafers for professional polish.",
+                    "Neutral tones like black or charcoal maintain workplace sophistication.",
+                    "Add a leather belt for a cohesive, refined look."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Evening and Party Outfits",
-                "para": [
-                    "Elevate with a silk blouse and heels. Metallic accents on the pants add glamour for nights out.",
-                    "Experiment with colors—burgundy leather pants paired with gold jewelry make a bold statement."
+                type: "image-text",
+                heading: "Evening and Party Outfits",
+                para: [
+                    "Elevate with a silk blouse and heels for glamorous evenings.",
+                    "Burgundy or metallic leather pants add flair for nightlife.",
+                    "Gold jewelry complements bold leather for a statement look."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-003/evening-leather-pants.png",
             },
             {
-                "heading": "Seasonal Adaptations",
-                "para": [
-                    "In winter, layer with sweaters and boots; in summer, crop tops and sandals work wonders.",
-                    "Shop Artisan Hide's leather pants to create these looks today."
+                type: "text",
+                heading: "Seasonal Adaptations",
+                para: [
+                    "Winter calls for sweaters and boots; summer pairs well with crop tops and sandals.",
+                    "Layer strategically to adapt leather pants to any climate.",
+                    "Artisan Hide’s breathable leather ensures comfort year-round."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-003/evening-leather-pants.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Styling Tips for Every Body Type",
+                para: [
+                    "High-waisted leather pants elongate legs, ideal for petite frames.",
+                    "Relaxed fits offer comfort for curvier figures without sacrificing style.",
+                    "Pair with heels or flats to enhance your silhouette."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-003/body-type-styling.png",
+                href: "/products/womens-leather-pants"
+            },
+            {
+                type: "faq",
+                heading: "Leather Pants Styling FAQs",
+                para: [
+                    { Q: "Can leather pants be worn in summer?", A: "Yes, opt for lightweight or perforated leather with breathable tops." },
+                    { Q: "What shoes pair best with leather pants?", A: "Sneakers for casual, loafers for office, heels for evenings." },
+                    { Q: "How to care for leather pants?", A: "Clean with leather-safe products and condition every few months." }
+                ],
             }
         ],
-        "readTime": "7 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Styling Leather Pants: Ideas for Every Occasion | Artisan Hide",
-            "metaDescription": "From casual to formal, discover how to style leather pants versatilely. Tips and outfits from Artisan Hide.",
-            "metaKeywords": ["leather pants outfits", "styling leather pants", "fashion ideas leather", "artisanhide styling"],
-            "canonicalUrl": "https://artisanhide.com/blog/style-leather-pants-any-occasion",
-            "ogTitle": "Versatile Leather Pants Styling Guide",
-            "ogDescription": "Outfit ideas for leather pants in any setting.",
-            "ogImage": "https://artisanhide.com/blog/og/leather-pants-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Style Leather Pants for Any Occasion | Artisan Hide",
+            metaDescription: "Learn to style leather pants for casual, office, or party looks with Artisan Hide’s expert tips.",
+            metaKeywords: [
+                "leather pants outfits",
+                "styling leather pants",
+                "fashion ideas leather",
+                "artisanhide styling",
+                "leather pants for work",
+                "evening leather outfits",
+                "versatile leather fashion"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/style-leather-pants-any-occasion",
+            ogTitle: "How to Style Leather Pants for Every Event",
+            ogDescription: "Versatile outfit ideas for leather pants from Artisan Hide.",
+            ogImage: "/images/blog/blog-003/leather-pants-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-004",
-        "title": "The Rich History of Leather in Fashion",
-        "slug": "history-leather-fashion",
-        "uploadDate": "2025-09-05",
-        "author": {
-            "name": "History Buffington",
-            "avatar": "https://artisanhide.com/authors/history-buffington.jpg"
+        id: "blog-004",
+        title: "The Rich History of Leather in Fashion",
+        slug: "history-leather-fashion",
+        uploadDate: "2025-09-05",
+        author: {
+            name: "James Carter",
+            avatar: "/images/blog/authors/james-carter.png",
         },
-        "category": "History",
-        "tags": ["leather history", "fashion evolution", "leather goods", "artisanhide insights"],
-        "excerpt": "Journey through the centuries to see how leather has shaped fashion, from ancient times to modern runways.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-history.jpg",
-        "content": [
+        category: "History",
+        tags: [
+            "leather history",
+            "fashion evolution",
+            "leather goods",
+            "artisanhide insights",
+            "fashion timeline",
+            "leather craftsmanship",
+            "historical leather styles",
+            "leather in culture"
+        ],
+        excerpt: "Explore leather’s journey in fashion, from ancient armor to modern runways, with Artisan Hide.",
+        thumbnail: "/images/blog/blog-004/thumbnail.png",
+        content: [
             {
-                "heading": "Ancient Origins of Leather Use",
-                "para": [
-                    "Leather's fashion story begins in prehistoric times, where it was used for protection and clothing. Ancient Egyptians crafted intricate leather garments for royalty.",
-                    "By the Roman era, leather was essential for armor and sandals, blending utility with style."
+                type: "text",
+                heading: "Ancient Origins of Leather Use",
+                para: [
+                    "Leather’s fashion legacy began in prehistoric times for protection and warmth.",
+                    "Ancient Egyptians crafted ornate leather garments for royalty and ceremonies.",
+                    "By Roman times, leather was key for durable sandals and military armor."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Medieval and Renaissance Influences",
-                "para": [
-                    "In medieval Europe, leather symbolized status, with nobles wearing embroidered pieces. The Renaissance brought finer tanning techniques, leading to luxurious gloves and boots.",
-                    "Artisan guilds perfected craftsmanship, much like our methods at Artisan Hide today."
+                type: "image-text",
+                heading: "Medieval and Renaissance Influences",
+                para: [
+                    "Medieval Europe saw leather as a status symbol, with nobles wearing detailed pieces.",
+                    "Renaissance tanning advancements led to luxurious gloves and boots.",
+                    "Artisan guilds, like Artisan Hide today, perfected craftsmanship."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-004/medieval-leather.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-004/medieval-leather.png",
             },
             {
-                "heading": "Industrial Revolution and Mass Production",
-                "para": [
-                    "The 19th century saw mechanized tanning, making leather accessible. Icons like the cowboy jacket emerged in America.",
-                    "Fashion houses began incorporating leather into high-end designs, setting the stage for 20th-century trends."
+                type: "text",
+                heading: "Industrial Revolution and Mass Production",
+                para: [
+                    "The 19th century brought mechanized tanning, making leather widely accessible.",
+                    "Iconic cowboy jackets emerged, blending utility with rugged style.",
+                    "Mass production set the stage for leather’s modern fashion dominance."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "20th Century Icons",
-                "para": [
-                    "From aviator jackets in WWII to punk rock in the 70s, leather became synonymous with rebellion and glamour.",
-                    "Designers like Yves Saint Laurent popularized leather in couture, influencing modern apparel."
+                type: "image-text",
+                heading: "20th Century Icons",
+                para: [
+                    "WWII aviator jackets and 1970s punk styles made leather synonymous with rebellion.",
+                    "Designers like Yves Saint Laurent elevated leather into couture.",
+                    "Leather became a symbol of both glamour and counterculture."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-004/20th-century-leather.png",
             },
             {
-                "heading": "Leather in Contemporary Fashion",
-                "para": [
-                    "Today, sustainable practices dominate, with Artisan Hide leading in ethical leather goods.",
-                    "The future holds innovative blends, ensuring leather's enduring appeal."
+                type: "text",
+                heading: "Leather in Contemporary Fashion",
+                para: [
+                    "Sustainable practices shape today’s leather industry, with Artisan Hide leading.",
+                    "Modern designs blend tradition with eco-conscious innovation.",
+                    "Leather remains versatile, from streetwear to high fashion."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-004/modern-leather-fashion.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Cultural Impact of Leather",
+                para: [
+                    "Leather reflects cultural heritage, from Native American designs to global runways.",
+                    "It symbolizes durability, luxury, and artistic expression across eras.",
+                    "Artisan Hide honors this legacy with handcrafted excellence."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-004/leather-culture.png",
+                href: "/blog/sustainable-leather-myths-facts"
+            },
+            {
+                type: "text",
+                heading: "Future of Leather in Fashion",
+                para: [
+                    "Innovations like bio-based leathers promise a sustainable future.",
+                    "Leather’s adaptability ensures its place in evolving fashion trends.",
+                    "Explore Artisan Hide’s collection to embrace this timeless material."
+                ],
+                imageLeft: false,
             }
         ],
-        "readTime": "6 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "History of Leather in Fashion: From Ancient to Modern",
-            "metaDescription": "Explore leather's evolution in fashion through the ages. Insights from Artisan Hide.",
-            "metaKeywords": ["leather fashion history", "evolution of leather", "artisanhide history"],
-            "canonicalUrl": "https://artisanhide.com/blog/history-leather-fashion",
-            "ogTitle": "The Enduring History of Leather Fashion",
-            "ogDescription": "A timeline of leather's role in style.",
-            "ogImage": "https://artisanhide.com/blog/og/leather-history-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "History of Leather in Fashion: Artisan Hide’s Insights",
+            metaDescription: "Trace leather’s fashion evolution from ancient times to 2025 trends with Artisan Hide.",
+            metaKeywords: [
+                "leather fashion history",
+                "evolution of leather",
+                "artisanhide history",
+                "fashion timeline",
+                "leather craftsmanship",
+                "historical leather fashion",
+                "leather cultural impact"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/history-leather-fashion",
+            ogTitle: "Leather’s Fashion Journey Through Time",
+            ogDescription: "From ancient armor to modern style, leather’s rich history.",
+            ogImage: "/images/blog/blog-004/leather-history-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-005",
-        "title": "Best Leather Bags for Travel: Durable and Stylish Picks",
-        "slug": "best-leather-bags-travel-durable-stylish",
-        "uploadDate": "2025-09-04",
-        "author": {
-            "name": "Travel Guru",
-            "avatar": "https://artisanhide.com/authors/travel-guru.jpg"
+        id: "blog-005",
+        title: "Best Leather Bags for Travel: Durable and Stylish Picks",
+        slug: "best-leather-bags-travel-durable-stylish",
+        uploadDate: "2025-09-04",
+        author: {
+            name: "Sarah Brooks",
+            avatar: "/images/blog/authors/sarah-brooks.png",
         },
-        "category": "Product Reviews",
-        "tags": ["leather travel bags", "best bags 2025", "durable luggage", "artisanhide bags"],
-        "excerpt": "Find the perfect leather bag for your next adventure—combining functionality, style, and longevity.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-travel-bags.jpg",
-        "content": [
+        category: "Product Reviews",
+        tags: [
+            "leather travel bags",
+            "best bags 2025",
+            "durable luggage",
+            "artisanhide bags",
+            "travel essentials",
+            "functional leather bags",
+            "stylish travel gear",
+            "leather backpack travel"
+        ],
+        excerpt: "Find durable, stylish leather travel bags for your adventures with Artisan Hide’s top picks.",
+        thumbnail: "/images/blog/blog-005/thumbnail.png",
+        content: [
             {
-                "heading": "Why Choose Leather for Travel Bags",
-                "para": [
-                    "Leather bags offer unmatched durability against wear and tear, aging gracefully with patina. At Artisan Hide, our bags are handcrafted for reliability.",
-                    "They provide ample space, security features, and timeless aesthetics for any trip."
+                type: "text",
+                heading: "Why Choose Leather for Travel Bags",
+                para: [
+                    "Leather bags withstand travel wear, developing a rich patina over time.",
+                    "Artisan Hide’s bags offer durability, style, and practical compartments.",
+                    "Perfect for frequent travelers seeking reliability and elegance."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Top Duffel Bags for Weekend Getaways",
-                "para": [
-                    "Our oversized duffel features multiple compartments and sturdy straps. Ideal for short trips, it fits overhead bins easily.",
-                    "Made from full-grain leather, it resists scratches and looks better over time."
+                type: "image-text",
+                heading: "Top Duffel Bags for Weekend Getaways",
+                para: [
+                    "Oversized duffels with sturdy straps fit overhead bins with ease.",
+                    "Full-grain leather resists scratches, aging gracefully with use.",
+                    "Multiple compartments keep essentials organized on short trips."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-005/duffel-bag.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-005/duffel-bag.png",
             },
             {
-                "heading": "Backpacks for Daily Commutes and Adventures",
-                "para": [
-                    "Ergonomic designs with padded straps ensure comfort. Laptop sleeves and hidden pockets add practicality.",
-                    "Choose from classic black or adventurous tan for versatile use."
+                type: "text",
+                heading: "Backpacks for Daily Commutes and Adventures",
+                para: [
+                    "Ergonomic backpacks with padded straps ensure all-day comfort.",
+                    "Laptop sleeves and hidden pockets add practicality for urban travel.",
+                    "Classic tan or black options suit both professional and casual settings."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Messenger Bags for Urban Explorers",
-                "para": [
-                    "Slim profiles with adjustable straps make them perfect for city travel. Quick-access flaps keep essentials handy.",
-                    "Water-resistant treatments protect against unexpected showers."
+                type: "image-text",
+                heading: "Messenger Bags for Urban Explorers",
+                para: [
+                    "Slim messenger bags with adjustable straps keep essentials accessible.",
+                    "Water-resistant treatments protect against rain during city adventures.",
+                    "Quick-access flaps make them ideal for fast-paced environments."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-005/messenger-bag.png",
             },
             {
-                "heading": "Tips for Maintaining Travel Bags",
-                "para": [
-                    "Clean after each trip and condition regularly. Store stuffed to retain shape.",
-                    "Shop Artisan Hide's travel collection for these must-haves."
+                type: "text",
+                heading: "Tips for Maintaining Travel Bags",
+                para: [
+                    "Clean after trips with a damp cloth and condition regularly.",
+                    "Store stuffed with tissue to maintain shape during off-seasons.",
+                    "Use Artisan Hide’s care products for optimal leather longevity."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-005/maintaining-bags.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Choosing the Right Size and Style",
+                para: [
+                    "Match bag size to trip length—duffels for weekends, backpacks for daily use.",
+                    "Consider hardware durability and strap comfort for heavy loads.",
+                    "Artisan Hide’s travel bags blend function with timeless aesthetics."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-005/travel-bag-sizing.png",
+                href: "/products/leather-travel-bags"
+            },
+            {
+                type: "faq",
+                heading: "Travel Bag FAQs",
+                para: [
+                    { Q: "Are leather bags heavy for travel?", A: "Full-grain leather is durable but lightweight options exist for ease." },
+                    { Q: "How to clean a leather travel bag?", A: "Wipe with a damp cloth and use leather cleaner monthly." },
+                    { Q: "Do leather bags fit airline carry-on rules?", A: "Most Artisan Hide duffels and backpacks meet standard carry-on sizes." }
+                ],
             }
         ],
-        "readTime": "5 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Best Leather Travel Bags 2025: Reviews from Artisan Hide",
-            "metaDescription": "Discover durable and stylish leather bags for travel. Top picks and tips.",
-            "metaKeywords": ["leather travel bags", "best duffel bags", "artisanhide luggage"],
-            "canonicalUrl": "https://artisanhide.com/blog/best-leather-bags-travel-durable-stylish",
-            "ogTitle": "Durable Leather Bags for Your Travels",
-            "ogDescription": "Stylish picks for adventurers from Artisan Hide.",
-            "ogImage": "https://artisanhide.com/blog/og/travel-bags-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "7 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Best Leather Travel Bags 2025: Artisan Hide Reviews",
+            metaDescription: "Discover stylish, durable leather travel bags for 2025 with Artisan Hide’s expert picks.",
+            metaKeywords: [
+                "leather travel bags",
+                "best duffel bags",
+                "durable luggage",
+                "artisanhide bags",
+                "travel accessories",
+                "stylish leather backpacks",
+                "functional travel gear"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/best-leather-bags-travel-durable-stylish",
+            ogTitle: "Top Leather Bags for Stylish Travel",
+            ogDescription: "Durable, elegant leather bags for your adventures.",
+            ogImage: "/images/blog/blog-005/travel-bags-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-006",
-        "title": "Choosing the Perfect Leather Wallet: A Buyer's Guide",
-        "slug": "choosing-perfect-leather-wallet-buyers-guide",
-        "uploadDate": "2025-09-03",
-        "author": {
-            "name": "Wallet Expert",
-            "avatar": "https://artisanhide.com/authors/wallet-expert.jpg"
+        id: "blog-006",
+        title: "Choosing the Perfect Leather Wallet: A Buyer’s Guide",
+        slug: "choosing-perfect-leather-wallet-buyers-guide",
+        uploadDate: "2025-09-03",
+        author: {
+            name: "Daniel Lee",
+            avatar: "/images/blog/authors/daniel-lee.png",
         },
-        "category": "Buying Guides",
-        "tags": ["leather wallets", "wallet guide", "accessories", "artisanhide wallets"],
-        "excerpt": "Navigate the world of leather wallets with our comprehensive guide, covering styles, features, and top recommendations.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-wallets-guide.jpg",
-        "content": [
+        category: "Buying Guides",
+        tags: [
+            "leather wallets",
+            "wallet guide",
+            "accessories",
+            "artisanhide wallets",
+            "wallet styles",
+            "men's wallets",
+            "women's wallets",
+            "wallet maintenance",
+            "RFID wallets",
+            "custom wallets"
+        ],
+        excerpt: "Find the perfect leather wallet with Artisan Hide’s guide to styles, features, and quality.",
+        thumbnail: "/images/blog/blog-006/thumbnail.png",
+        content: [
             {
-                "heading": "Types of Leather Wallets",
-                "para": [
-                    "From bifolds to trifolds, each style suits different needs. Bifolds are slim for minimalists, while trifolds offer more storage.",
-                    "At Artisan Hide, we use RFID-blocking technology in all our wallets for security."
+                type: "text",
+                heading: "Types of Leather Wallets",
+                para: [
+                    "Bifolds offer slim designs for minimalists, while trifolds provide extra storage.",
+                    "Artisan Hide’s wallets include RFID-blocking for security.",
+                    "Cardholders and money clips suit those prioritizing compactness."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Material and Quality Considerations",
-                "para": [
-                    "Opt for full-grain leather for longevity. Check stitching and hardware for craftsmanship.",
-                    "Our wallets are tanned naturally, ensuring softness and durability."
+                type: "image-text",
+                heading: "Material and Quality Considerations",
+                para: [
+                    "Full-grain leather ensures longevity; check stitching for craftsmanship.",
+                    "Natural tanning processes enhance softness and durability.",
+                    "Choose cowhide for sturdiness or lambskin for a luxurious feel."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-006/wallet-materials.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-006/wallet-materials.png",
             },
             {
-                "heading": "Features to Look For",
-                "para": [
-                    "Coin pockets, card slots, and ID windows enhance functionality. Consider size for pocket fit.",
-                    "Personalization options like monogramming add a unique touch."
+                type: "text",
+                heading: "Features to Look For",
+                para: [
+                    "Coin pockets and ID windows add functionality; size matters for pocket fit.",
+                    "Monogramming options personalize your wallet for gifting or style.",
+                    "RFID protection is essential for modern security needs."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Men's vs. Women's Wallets",
-                "para": [
-                    "Men's tend to be compact, women's often larger with zippers. Both can be unisex in design.",
-                    "Explore our range for options that suit all preferences."
+                type: "image-text",
+                heading: "Men’s vs. Women’s Wallets",
+                para: [
+                    "Men’s wallets prioritize compactness; women’s often include zippers or extra compartments.",
+                    "Unisex designs bridge preferences with versatile aesthetics.",
+                    "Choose colors that align with your wardrobe for cohesive style."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-006/wallet-gender-styles.png",
             },
             {
-                "heading": "Maintenance and Longevity",
-                "para": [
-                    "Condition regularly and avoid overstuffing. With care, a good wallet lasts decades.",
-                    "Choose Artisan Hide for quality that endures."
+                type: "text",
+                heading: "Maintenance and Longevity",
+                para: [
+                    "Condition every 6 months and avoid overstuffing to preserve shape.",
+                    "Store in dry areas to prevent fading or mold.",
+                    "Artisan Hide’s wallets are built to last with proper care."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-006/wallet-maintenance.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Personalization Options",
+                para: [
+                    "Add initials or logos for a unique touch. Perfect for gifts.",
+                    "Engraving enhances sentimental value without compromising quality.",
+                    "Explore Artisan Hide’s customization services for bespoke wallets."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-006/wallet-personalization.png",
+                href: "/blog/personalizing-leather-goods-monogramming-more"
+            },
+            {
+                type: "text",
+                heading: "Wallet Shopping Tips",
+                para: [
+                    "Read reviews and check warranty for confidence in purchase.",
+                    "Prioritize brands with ethical sourcing, like Artisan Hide.",
+                    "Balance style and function to suit your daily needs."
+                ],
+                imageLeft: false,
             }
         ],
-        "readTime": "6 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Leather Wallet Buyer's Guide: Choose the Best from Artisan Hide",
-            "metaDescription": "Expert advice on selecting leather wallets, including types and features.",
-            "metaKeywords": ["best leather wallets", "wallet buying guide", "artisanhide accessories"],
-            "canonicalUrl": "https://artisanhide.com/blog/choosing-perfect-leather-wallet-buyers-guide",
-            "ogTitle": "Guide to Picking the Perfect Leather Wallet",
-            "ogDescription": "Tips for style, quality, and functionality.",
-            "ogImage": "https://artisanhide.com/blog/og/wallet-guide-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Leather Wallet Buyer’s Guide: Artisan Hide’s Top Tips",
+            metaDescription: "Choose the best leather wallet with Artisan Hide’s guide to styles, features, and care.",
+            metaKeywords: [
+                "best leather wallets",
+                "wallet buying guide",
+                "artisanhide accessories",
+                "leather wallet care",
+                "men's leather wallets",
+                "women's wallets",
+                "RFID leather wallets",
+                "custom leather wallets"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/choosing-perfect-leather-wallet-buyers-guide",
+            ogTitle: "Pick the Perfect Leather Wallet",
+            ogDescription: "Style, quality, and function in Artisan Hide’s wallet guide.",
+            ogImage: "/images/blog/blog-006/wallet-guide-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-007",
-        "title": "Sustainable Leather: Myths, Facts, and What to Know",
-        "slug": "sustainable-leather-myths-facts",
-        "uploadDate": "2025-09-02",
-        "author": {
-            "name": "Eco Fashionist",
-            "avatar": "https://artisanhide.com/authors/eco-fashionist.jpg"
+        id: "blog-007",
+        title: "Sustainable Leather: Myths, Facts, and What to Know",
+        slug: "sustainable-leather-myths-facts",
+        uploadDate: "2025-09-02",
+        author: {
+            name: "Lily Evans",
+            avatar: "/images/blog/authors/lily-evans.png",
         },
-        "category": "Sustainability",
-        "tags": ["sustainable leather", "eco fashion", "leather facts", "artisanhide sustainability"],
-        "excerpt": "Debunk common myths about leather sustainability and learn how Artisan Hide commits to ethical practices.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/sustainable-leather.jpg",
-        "content": [
+        category: "Sustainability",
+        tags: [
+            "sustainable leather",
+            "eco fashion",
+            "leather facts",
+            "artisanhide sustainability",
+            "ethical leather",
+            "eco-friendly fashion",
+            "vegetable-tanned leather",
+            "recycled leather"
+        ],
+        excerpt: "Uncover truths about sustainable leather and Artisan Hide’s eco-friendly practices.",
+        thumbnail: "/images/blog/blog-007/thumbnail.png",
+        content: [
             {
-                "heading": "Understanding Sustainable Leather",
-                "para": [
-                    "Sustainable leather involves ethical sourcing, minimal environmental impact, and fair labor. It's a byproduct of the meat industry, reducing waste.",
-                    "At Artisan Hide, we prioritize vegetable tanning and traceable supply chains."
+                type: "text",
+                heading: "Understanding Sustainable Leather",
+                para: [
+                    "Sustainable leather focuses on ethical sourcing and minimal environmental impact.",
+                    "Artisan Hide uses vegetable tanning and traceable supply chains for responsibility.",
+                    "It’s often a byproduct, reducing waste from the meat industry."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Myth: All Leather is Bad for the Environment",
-                "para": [
-                    "Fact: Chrome-tanned leather uses harmful chemicals, but alternatives like veg-tan are eco-friendly. Proper production minimizes pollution.",
-                    "Our processes adhere to strict standards for low impact."
+                type: "image-text",
+                heading: "Myth: All Leather is Bad for the Environment",
+                para: [
+                    "Fact: Vegetable-tanned leather is eco-friendly compared to chrome tanning.",
+                    "Low-impact processes minimize pollution and chemical use.",
+                    "Artisan Hide’s sustainable methods support greener fashion."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-007/eco-leather.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-007/eco-leather.png",
             },
             {
-                "heading": "Myth: Faux Leather is Always Better",
-                "para": [
-                    "Fact: Synthetic alternatives often derive from petroleum and don't biodegrade. Real leather lasts longer, reducing consumption.",
-                    "Choose quality over quantity for true sustainability."
+                type: "text",
+                heading: "Myth: Faux Leather is Always Better",
+                para: [
+                    "Fact: Faux leather, often petroleum-based, doesn’t biodegrade.",
+                    "Real leather lasts longer, reducing replacement frequency.",
+                    "Choose sustainable real leather for lower long-term impact."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Facts on Ethical Sourcing",
-                "para": [
-                    "Look for certifications like Leather Working Group. We ensure animal welfare and worker rights.",
-                    "Transparency in the supply chain builds trust."
+                type: "image-text",
+                heading: "Facts on Ethical Sourcing",
+                para: [
+                    "Certifications like Leather Working Group ensure animal welfare and fair labor.",
+                    "Transparency builds trust; Artisan Hide audits suppliers regularly.",
+                    "Ethical leather supports responsible farming and production."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-007/ethical-sourcing.png",
             },
             {
-                "heading": "How to Shop Sustainably",
-                "para": [
-                    "Invest in timeless pieces from brands like Artisan Hide. Care properly to extend life.",
-                    "Support innovation in recycled and upcycled leather."
+                type: "text",
+                heading: "How to Shop Sustainably",
+                para: [
+                    "Choose timeless pieces from eco-conscious brands like Artisan Hide.",
+                    "Proper care extends product life, reducing environmental footprint.",
+                    "Look for recycled or upcycled leather options."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-007/sustainable-shopping.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Innovations in Green Leather",
+                para: [
+                    "Bio-based leathers, like mushroom or apple, reduce reliance on animal hides.",
+                    "Artisan Hide explores these alternatives for sustainable collections.",
+                    "Future fashion blends tradition with cutting-edge eco-tech."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-007/green-leather-innovations.png",
+                href: "/blog/leather-sustainable-fashion-eco-innovations"
+            },
+            {
+                type: "faq",
+                heading: "Sustainability FAQs",
+                para: [
+                    { Q: "What makes leather sustainable?", A: "Ethical sourcing, eco-tanning, and durability." },
+                    { Q: "Is recycled leather durable?", A: "Yes, when crafted well, it matches traditional leather’s longevity." },
+                    { Q: "How to care for eco-leather?", A: "Use eco-friendly cleaners and conditioners regularly." },
+                    { Q: "Are bio-based leathers available?", A: "Artisan Hide offers select bio-based options." }
+                ],
             }
         ],
-        "readTime": "7 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Sustainable Leather Guide: Myths and Facts | Artisan Hide",
-            "metaDescription": "Learn the truth about leather sustainability and ethical practices.",
-            "metaKeywords": ["sustainable leather facts", "eco-friendly leather", "artisanhide sustainability"],
-            "canonicalUrl": "https://artisanhide.com/blog/sustainable-leather-myths-facts",
-            "ogTitle": "Debunking Myths on Sustainable Leather",
-            "ogDescription": "Facts for conscious consumers.",
-            "ogImage": "https://artisanhide.com/blog/og/sustainable-leather-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Sustainable Leather: Myths & Facts | Artisan Hide",
+            metaDescription: "Debunk myths about leather sustainability with Artisan Hide’s eco-friendly insights.",
+            metaKeywords: [
+                "sustainable leather facts",
+                "eco-friendly leather",
+                "artisanhide sustainability",
+                "ethical leather sourcing",
+                "vegetable-tanned leather",
+                "recycled leather",
+                "green fashion trends"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/sustainable-leather-myths-facts",
+            ogTitle: "Sustainable Leather: Truths Uncovered",
+            ogDescription: "Learn eco-friendly leather facts from Artisan Hide.",
+            ogImage: "/images/blog/blog-007/sustainable-leather-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-008",
-        "title": "Leather vs. Faux Leather: Which is Right for You?",
-        "slug": "leather-vs-faux-leather-comparison",
-        "uploadDate": "2025-09-01",
-        "author": {
-            "name": "Material Maven",
-            "avatar": "https://artisanhide.com/authors/material-maven.jpg"
+        id: "blog-008",
+        title: "Leather vs. Faux Leather: Which is Right for You?",
+        slug: "leather-vs-faux-leather-comparison",
+        uploadDate: "2025-09-01",
+        author: {
+            name: "Claire Morgan",
+            avatar: "/images/blog/authors/claire-morgan.png",
         },
-        "category": "Comparisons",
-        "tags": ["leather vs faux", "material comparison", "pros cons leather", "artisanhide"],
-        "excerpt": "Compare genuine leather and faux alternatives to make an informed choice for your next purchase.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-vs-faux.jpg",
-        "content": [
+        category: "Comparisons",
+        tags: [
+            "leather vs faux",
+            "material comparison",
+            "pros cons leather",
+            "artisanhide",
+            "genuine leather",
+            "vegan leather",
+            "leather durability",
+            "faux leather care"
+        ],
+        excerpt: "Genuine vs. faux leather: Compare pros, cons, and choose with Artisan Hide’s guide.",
+        thumbnail: "/images/blog/blog-008/thumbnail.png",
+        content: [
             {
-                "heading": "What is Genuine Leather?",
-                "para": [
-                    "Genuine leather comes from animal hides, processed for softness and strength. It develops a unique patina over time.",
-                    "Pros: Durable, breathable, ages well. Cons: Higher cost, requires maintenance."
+                type: "text",
+                heading: "What is Genuine Leather?",
+                para: [
+                    "Genuine leather, sourced from animal hides, offers durability and a unique patina.",
+                    "Pros: Long-lasting, breathable, ages beautifully. Cons: Requires maintenance, higher cost.",
+                    "Artisan Hide’s premium leather ensures quality and longevity."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Understanding Faux Leather",
-                "para": [
-                    "Faux leather, or PU/vegan leather, is synthetic, mimicking real leather's look. It's made from plastic bases.",
-                    "Pros: Affordable, animal-free, easy care. Cons: Less durable, non-breathable, environmental concerns."
+                type: "image-text",
+                heading: "Understanding Faux Leather",
+                para: [
+                    "Faux leather, made from synthetics, mimics real leather at a lower price.",
+                    "Pros: Affordable, vegan-friendly, low maintenance. Cons: Less durable, non-breathable.",
+                    "Ideal for budget-conscious or ethical shoppers, but longevity varies."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-008/faux-leather.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-008/faux-leather.png",
             },
             {
-                "heading": "Durability and Longevity",
-                "para": [
-                    "Real leather lasts decades with care; faux may crack after a few years.",
-                    "For investment pieces, choose genuine from Artisan Hide."
+                type: "text",
+                heading: "Durability and Longevity",
+                para: [
+                    "Real leather lasts decades with care; faux leather may crack within years.",
+                    "Genuine leather’s investment value outweighs initial cost over time.",
+                    "Conditioning enhances real leather’s lifespan significantly."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Environmental and Ethical Aspects",
-                "para": [
-                    "Sustainable real leather reduces waste; faux's production involves chemicals.",
-                    "Vegan options appeal to ethics, but biodegradability varies."
+                type: "image-text",
+                heading: "Environmental and Ethical Aspects",
+                para: [
+                    "Sustainable real leather reduces waste; faux uses non-biodegradable plastics.",
+                    "Ethical sourcing, like Artisan Hide’s, ensures responsible production.",
+                    "Vegan leather appeals to animal-free values but varies in eco-impact."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-008/leather-ethics.png",
+                href: "/blog/sustainable-leather-myths-facts"
             },
             {
-                "heading": "Making Your Choice",
-                "para": [
-                    "Consider lifestyle, budget, and values. Artisan Hide offers premium genuine leather for those seeking quality.",
-                    "Try both to see what fits your needs."
+                type: "text",
+                heading: "Making Your Choice",
+                para: [
+                    "Balance lifestyle, budget, and ethics when choosing materials.",
+                    "Artisan Hide offers both genuine and sustainable options for versatility.",
+                    "Test both to find the best fit for your needs."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-008/leather-choice.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Care and Maintenance Comparison",
+                para: [
+                    "Genuine leather needs conditioning; faux leather wipes clean easily.",
+                    "Real leather develops character; faux may peel under heavy use.",
+                    "Choose based on your willingness to maintain your items."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-008/leather-care-comparison.png",
+            },
+            {
+                type: "faq",
+                heading: "Leather vs. Faux FAQs",
+                para: [
+                    { Q: "Is faux leather waterproof?", A: "Often, yes, but it’s less breathable than real leather." },
+                    { Q: "How long does genuine leather last?", A: "Decades with proper care and conditioning." },
+                    { Q: "Is faux leather eco-friendly?", A: "Not always; petroleum-based options don’t biodegrade." }
+                ],
             }
         ],
-        "readTime": "5 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Leather vs Faux Leather: Pros, Cons, and Comparison",
-            "metaDescription": "Detailed breakdown of genuine vs synthetic leather for apparel and accessories.",
-            "metaKeywords": ["leather vs faux", "genuine leather pros", "artisanhide comparison"],
-            "canonicalUrl": "https://artisanhide.com/blog/leather-vs-faux-leather-comparison",
-            "ogTitle": "Real Leather vs Faux: Which to Choose?",
-            "ogDescription": "A balanced comparison for shoppers.",
-            "ogImage": "https://artisanhide.com/blog/og/leather-vs-faux-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Leather vs. Faux Leather: Artisan Hide’s Comparison",
+            metaDescription: "Compare genuine and faux leather for durability, ethics, and style with Artisan Hide.",
+            metaKeywords: [
+                "leather vs faux",
+                "genuine leather pros",
+                "artisanhide comparison",
+                "faux leather cons",
+                "vegan leather",
+                "leather durability",
+                "eco-friendly leather options"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/leather-vs-faux-leather-comparison",
+            ogTitle: "Genuine vs. Faux Leather: Which is Best?",
+            ogDescription: "Compare materials to find your perfect fit with Artisan Hide.",
+            ogImage: "/images/blog/blog-008/leather-vs-faux-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-009",
-        "title": "Guide to Custom Tailored Leather Suits",
-        "slug": "custom-tailored-leather-suits-guide",
-        "uploadDate": "2025-08-31",
-        "author": {
-            "name": "Tailor Master",
-            "avatar": "https://artisanhide.com/authors/tailor-master.jpg"
+        id: "blog-009",
+        title: "Guide to Custom Tailored Leather Suits",
+        slug: "custom-tailored-leather-suits-guide",
+        uploadDate: "2025-08-31",
+        author: {
+            name: "Thomas Reed",
+            avatar: "/images/blog/authors/thomas-reed.png",
         },
-        "category": "Custom Fashion",
-        "tags": ["custom leather suits", "tailored apparel", "leather tuxedos", "artisanhide custom"],
-        "excerpt": "Everything you need to know about ordering a custom leather suit, from measurements to styling.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/custom-leather-suits.jpg",
-        "content": [
+        category: "Custom Fashion",
+        tags: [
+            "custom leather suits",
+            "tailored apparel",
+            "leather tuxedos",
+            "artisanhide custom",
+            "bespoke leather",
+            "custom suit styling",
+            "leather suit care"
+        ],
+        excerpt: "Order a custom leather suit with Artisan Hide’s guide to measurements, styles, and care.",
+        thumbnail: "/images/blog/blog-009/thumbnail.png",
+        content: [
             {
-                "heading": "Benefits of Custom Leather Suits",
-                "para": [
-                    "Custom suits offer perfect fit and personalization. Leather adds luxury and durability for formal events.",
-                    "At Artisan Hide, we handcraft each piece to your specifications."
+                type: "text",
+                heading: "Benefits of Custom Leather Suits",
+                para: [
+                    "Custom suits ensure perfect fit and unique style for formal events.",
+                    "Leather adds luxury and durability, ideal for standout occasions.",
+                    "Artisan Hide crafts bespoke suits tailored to your vision."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Taking Accurate Measurements",
-                "para": [
-                    "Measure chest, waist, hips, and inseam precisely. Use our online guide or visit a professional.",
-                    "Consider posture and preferred fit—slim or relaxed."
+                type: "image-text",
+                heading: "Taking Accurate Measurements",
+                para: [
+                    "Measure chest, waist, hips, and inseam with precision for flawless fit.",
+                    "Use Artisan Hide’s online guide or consult a professional tailor.",
+                    "Consider posture and desired fit—slim or relaxed—for comfort."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-009/measurements-suit.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-009/measurements-suit.png",
             },
             {
-                "heading": "Choosing Leather and Details",
-                "para": [
-                    "Select from lambskin for softness or cowhide for sturdiness. Add linings, buttons, and pockets.",
-                    "Colors range from classic black to custom dyes."
+                type: "text",
+                heading: "Choosing Leather and Details",
+                para: [
+                    "Select lambskin for softness or cowhide for structure.",
+                    "Customize linings, buttons, and pockets for personal flair.",
+                    "Colors range from classic black to bespoke dyes for uniqueness."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "The Tailoring Process",
-                "para": [
-                    "From pattern cutting to final stitching, it takes 4-6 weeks. Fittings ensure perfection.",
-                    "We provide updates throughout for transparency."
+                type: "image-text",
+                heading: "The Tailoring Process",
+                para: [
+                    "From pattern cutting to stitching, expect 4-6 weeks for completion.",
+                    "Multiple fittings ensure perfection; updates keep you informed.",
+                    "Personal consultations make your suit a true reflection of style."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-009/tailoring-process.png",
             },
             {
-                "heading": "Styling Your Custom Suit",
-                "para": [
-                    "Pair with shirts and ties for occasions. Maintain with professional cleaning.",
-                    "Start your custom journey with Artisan Hide today."
+                type: "text",
+                heading: "Styling Your Custom Suit",
+                para: [
+                    "Pair with crisp shirts and ties for formal events or casual tees for edge.",
+                    "Maintain with professional cleaning to preserve leather quality.",
+                    "Accessorize with leather shoes and belts for a polished look."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-009/custom-suit-styling.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Care for Custom Leather Suits",
+                para: [
+                    "Condition regularly to maintain suppleness and shine.",
+                    "Store on padded hangers in breathable bags to protect shape.",
+                    "Avoid moisture and heat to ensure longevity of your bespoke suit."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-009/custom-suit-care.png",
+                href: "/products/custom-leather-suits"
+            },
+            {
+                type: "faq",
+                heading: "Custom Suit FAQs",
+                para: [
+                    { Q: "How long does tailoring take?", A: "Typically 4-6 weeks, including fittings." },
+                    { Q: "Can I customize colors?", A: "Yes, choose from standard or bespoke dye options." },
+                    { Q: "How to care for a leather suit?", A: "Professional cleaning and regular conditioning." }
+                ],
             }
         ],
-        "readTime": "6 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Custom Leather Suits Guide: Tailoring Tips from Artisan Hide",
-            "metaDescription": "How to order and style custom tailored leather suits and tuxedos.",
-            "metaKeywords": ["custom leather suits", "tailored leather guide", "artisanhide custom"],
-            "canonicalUrl": "https://artisanhide.com/blog/custom-tailored-leather-suits-guide",
-            "ogTitle": "Your Guide to Custom Leather Suits",
-            "ogDescription": "Personalized fashion at its best.",
-            "ogImage": "https://artisanhide.com/blog/og/custom-suits-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Custom Leather Suits: Artisan Hide’s Tailoring Guide",
+            metaDescription: "Learn how to order and care for custom leather suits with Artisan Hide’s expert advice.",
+            metaKeywords: [
+                "custom leather suits",
+                "tailored leather guide",
+                "artisanhide custom",
+                "bespoke suits",
+                "leather tuxedos",
+                "custom suit styling",
+                "leather suit maintenance"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/custom-tailored-leather-suits-guide",
+            ogTitle: "Guide to Custom Leather Suits",
+            ogDescription: "Craft your perfect leather suit with Artisan Hide.",
+            ogImage: "/images/blog/blog-009/custom-suits-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-010",
-        "title": "Best Winter Leather Coats: Warmth Meets Style",
-        "slug": "best-winter-leather-coats-warmth-style",
-        "uploadDate": "2025-08-30",
-        "author": {
-            "name": "Winter Wardrobe",
-            "avatar": "https://artisanhide.com/authors/winter-wardrobe.jpg"
+        id: "blog-010",
+        title: "Best Winter Leather Coats: Warmth Meets Style",
+        slug: "best-winter-leather-coats-warmth-style",
+        uploadDate: "2025-08-30",
+        author: {
+            name: "Olivia Bennett",
+            avatar: "/images/blog/authors/olivia-bennett.png",
         },
-        "category": "Seasonal Fashion",
-        "tags": ["winter leather coats", "cold weather fashion", "leather outerwear", "artisanhide winter"],
-        "excerpt": "Stay cozy and fashionable this winter with our top leather coat recommendations.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/winter-leather-coats.jpg",
-        "content": [
+        category: "Seasonal Fashion",
+        tags: [
+            "winter leather coats",
+            "cold weather fashion",
+            "leather outerwear",
+            "artisanhide winter",
+            "warm leather coats",
+            "winter coat styling",
+            "leather coat care"
+        ],
+        excerpt: "Stay warm and stylish with Artisan Hide’s top winter leather coats for 2025.",
+        thumbnail: "/images/blog/blog-010/thumbnail.png",
+        content: [
             {
-                "heading": "Why Leather Coats for Winter",
-                "para": [
-                    "Leather provides natural insulation and wind resistance. Lined with shearling or fur, they offer superior warmth.",
-                    "Artisan Hide's coats combine functionality with elegant designs."
+                type: "text",
+                heading: "Why Leather Coats for Winter",
+                para: [
+                    "Leather offers natural insulation and wind resistance for cold weather.",
+                    "Lined with shearling or fur, Artisan Hide’s coats provide superior warmth.",
+                    "Durable designs withstand harsh winter conditions with style."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Top Long Coats for Maximum Coverage",
-                "para": [
-                    "Knee-length styles with belts cinch the waist for shape. Ideal for commuting in snow.",
-                    "Features like detachable hoods add versatility."
+                type: "image-text",
+                heading: "Top Long Coats for Maximum Coverage",
+                para: [
+                    "Knee-length coats with belts define the waist for a tailored look.",
+                    "Detachable hoods add versatility for snow or wind.",
+                    "Perfect for commuting or outdoor winter adventures."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-010/long-winter-coat.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-010/long-winter-coat.png",
             },
             {
-                "heading": "Trench Coats for Transitional Weather",
-                "para": [
-                    "Water-repellent leather trenches bridge fall and winter. Layer underneath for extra warmth.",
-                    "Classic silhouettes never go out of style."
+                type: "text",
+                heading: "Trench Coats for Transitional Weather",
+                para: [
+                    "Water-repellent leather trenches suit fluctuating fall-to-winter conditions.",
+                    "Layer with sweaters for extra warmth without bulk.",
+                    "Timeless silhouettes ensure year-round wearability."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Styling Tips for Winter Looks",
-                "para": [
-                    "Pair with scarves and boots. Opt for darker shades to hide slush stains.",
-                    "Maintenance: Salt removal and conditioning keep them pristine."
+                type: "image-text",
+                heading: "Styling Tips for Winter Looks",
+                para: [
+                    "Pair with scarves and boots; darker shades hide slush stains.",
+                    "Add colorful accessories for personality in dreary weather.",
+                    "Maintain with salt removal and conditioning for pristine condition."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-010/winter-coat-styling.png",
             },
             {
-                "heading": "Our Top Picks",
-                "para": [
-                    "From bomber-lined jackets to full-length overcoats, shop Artisan Hide's winter collection.",
-                    "Prepare for the season with these essentials."
+                type: "text",
+                heading: "Our Top Picks",
+                para: [
+                    "Explore bomber-lined jackets to full-length overcoats in Artisan Hide’s collection.",
+                    "Choose versatile pieces for both warmth and fashion.",
+                    "Invest in quality for coats that last multiple winters."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-010/winter-coat-picks.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Caring for Your Winter Leather Coat",
+                para: [
+                    "Condition monthly to combat dry, cold air.",
+                    "Remove salt stains promptly to protect leather finish.",
+                    "Store in breathable bags post-season to maintain shape."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-010/winter-coat-care.png",
+                href: "/products/winter-leather-coats"
+            },
+            {
+                type: "faq",
+                heading: "Winter Coat FAQs",
+                para: [
+                    { Q: "Are leather coats warm enough for winter?", A: "Yes, especially with shearling or fur linings." },
+                    { Q: "How to remove snow stains?", A: "Wipe with a damp cloth and condition afterward." },
+                    { Q: "Can I wear leather coats in rain?", A: "Use waterproof sprays for protection." }
+                ],
             }
         ],
-        "readTime": "5 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Best Winter Leather Coats 2025: Style and Warmth",
-            "metaDescription": "Top recommendations for leather coats to beat the cold.",
-            "metaKeywords": ["winter leather coats", "cold weather leather", "artisanhide winter fashion"],
-            "canonicalUrl": "https://artisanhide.com/blog/best-winter-leather-coats-warmth-style",
-            "ogTitle": "Warm Leather Coats for Winter",
-            "ogDescription": "Stylish options for chilly days.",
-            "ogImage": "https://artisanhide.com/blog/og/winter-coats-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Best Winter Leather Coats 2025: Artisan Hide Picks",
+            metaDescription: "Top leather coats for warmth and style in winter 2025 from Artisan Hide.",
+            metaKeywords: [
+                "winter leather coats",
+                "cold weather leather",
+                "artisanhide winter fashion",
+                "warm leather coats",
+                "leather coat styling",
+                "winter coat maintenance"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/best-winter-leather-coats-warmth-style",
+            ogTitle: "Winter Leather Coats: Warmth and Style",
+            ogDescription: "Stay cozy with Artisan Hide’s top leather coats.",
+            ogImage: "/images/blog/blog-010/winter-coats-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-011",
-        "title": "Essential Leather Accessories for the Modern Professional",
-        "slug": "essential-leather-accessories-modern-professional",
-        "uploadDate": "2025-09-07",
-        "author": {
-            "name": "Laura Benson",
-            "avatar": "https://artisanhide.com/authors/laura-benson.jpg"
+        id: "blog-011",
+        title: "Essential Leather Accessories for the Modern Professional",
+        slug: "essential-leather-accessories-modern-professional",
+        uploadDate: "2025-09-07",
+        author: {
+            name: "Laura Benson",
+            avatar: "/images/blog/authors/laura-benson.png",
         },
-        "category": "Accessories",
-        "tags": ["leather accessories", "professional style", "wallets", "belts", "artisanhide"],
-        "excerpt": "Elevate your professional look with timeless leather accessories. From sleek wallets to durable belts, discover must-have items that blend functionality and sophistication.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-accessories-professional.jpg",
-        "content": [
+        category: "Accessories",
+        tags: [
+            "leather accessories",
+            "professional style",
+            "wallets",
+            "belts",
+            "artisanhide",
+            "office fashion",
+            "timeless style",
+            "leather maintenance",
+            "professional leather bags",
+            "RFID accessories"
+        ],
+        excerpt: "Elevate your work style with Artisan Hide’s leather wallets, belts, and bags for professionals.",
+        thumbnail: "/images/blog/blog-011/thumbnail.png",
+        content: [
             {
-                "heading": "The Power of Leather in Professional Attire",
-                "para": [
-                    "In the corporate world, details matter. Leather accessories add a touch of elegance and reliability to your ensemble, signaling attention to quality.",
-                    "At Artisan Hide, our pieces are designed for the discerning professional who values both form and function."
+                type: "text",
+                heading: "The Power of Leather in Professional Attire",
+                para: [
+                    "Leather accessories add sophistication to corporate looks, signaling quality.",
+                    "Artisan Hide’s pieces are crafted for durability and professional appeal.",
+                    "From meetings to networking, leather elevates your presence."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Must-Have Wallets for the Office",
-                "para": [
-                    "Slim bifold wallets keep essentials organized without bulk. Choose RFID-protected options for added security.",
-                    "Our leather wallets age gracefully, developing a patina that reflects your career journey."
+                type: "image-text",
+                heading: "Must-Have Wallets for the Office",
+                para: [
+                    "Slim bifold wallets with RFID protection keep essentials secure.",
+                    "Aging gracefully, they develop a patina reflecting your career.",
+                    "Choose minimalist designs for sleek, professional functionality."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-011/professional-wallet.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-011/professional-wallet.png",
             },
             {
-                "heading": "Belts That Complete the Look",
-                "para": [
-                    "A well-crafted leather belt ties your outfit together. Opt for reversible designs for versatility.",
-                    "Match with shoes for a polished appearance in meetings or client interactions."
+                type: "text",
+                heading: "Belts That Complete the Look",
+                para: [
+                    "Reversible leather belts offer versatility for daily wear.",
+                    "Match with shoes for polished, cohesive outfits.",
+                    "Classic black or brown ensures timeless pairing options."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Briefcases and Laptop Bags",
-                "para": [
-                    "Protect your tech with style. Leather briefcases offer compartments for organization and a professional edge.",
-                    "These items transition seamlessly from office to after-work events."
+                type: "image-text",
+                heading: "Briefcases and Laptop Bags",
+                para: [
+                    "Leather briefcases with compartments protect tech with style.",
+                    "Ergonomic designs ensure comfort during commutes or travel.",
+                    "Transition seamlessly from office to evening events."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-011/leather-briefcase.png",
+                href: "/products/leather-briefcases"
             },
             {
-                "heading": "Maintenance for Lasting Impressions",
-                "para": [
-                    "Regular conditioning keeps accessories looking sharp. Invest in quality to make a lasting professional statement.",
-                    "Browse Artisan Hide's collection for your next upgrade."
+                type: "text",
+                heading: "Maintenance for Lasting Impressions",
+                para: [
+                    "Condition regularly to maintain a sharp, professional appearance.",
+                    "Store in dust bags to protect from scratches and dust.",
+                    "Artisan Hide’s accessories are built for enduring style."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-011/leather-maintenance-professional.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Personalizing Professional Accessories",
+                para: [
+                    "Monogramming adds a personal touch to wallets or bags.",
+                    "Custom details enhance gifting or personal branding.",
+                    "Explore Artisan Hide’s customization for unique pieces."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-011/personalized-accessories.png",
+                href: "/blog/personalizing-leather-goods-monogramming-more"
+            },
+            {
+                type: "faq",
+                heading: "Professional Accessory FAQs",
+                para: [
+                    { Q: "Why choose leather for work accessories?", A: "Leather offers durability and professional elegance." },
+                    { Q: "Are RFID wallets necessary?", A: "Yes, for protecting cards from electronic theft." },
+                    { Q: "How to maintain leather accessories?", A: "Clean and condition every 3-6 months." }
+                ],
             }
         ],
-        "readTime": "5 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Leather Accessories for Professionals: Essentials from Artisan Hide",
-            "metaDescription": "Discover must-have leather wallets, belts, and bags for the modern professional. Timeless style meets practical function.",
-            "metaKeywords": ["professional leather accessories", "office style leather", "artisanhide professionals"],
-            "canonicalUrl": "https://artisanhide.com/blog/essential-leather-accessories-modern-professional",
-            "ogTitle": "Essential Leather Accessories for Professionals",
-            "ogDescription": "Upgrade your work wardrobe with durable, stylish leather pieces.",
-            "ogImage": "https://artisanhide.com/blog/og/professional-accessories-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "7 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Leather Accessories for Professionals | Artisan Hide",
+            metaDescription: "Must-have leather wallets, belts, and bags for modern professionals from Artisan Hide.",
+            metaKeywords: [
+                "professional leather accessories",
+                "office style leather",
+                "artisanhide professionals",
+                "leather wallets",
+                "leather belts",
+                "leather briefcases",
+                "RFID leather accessories"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/essential-leather-accessories-modern-professional",
+            ogTitle: "Leather Accessories for the Modern Professional",
+            ogDescription: "Elevate your work style with Artisan Hide’s leather essentials.",
+            ogImage: "/images/blog/blog-011/professional-accessories-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-012",
-        "title": "Leather Footwear Trends: Boots and Shoes for Fall 2025",
-        "slug": "leather-footwear-trends-boots-shoes-fall-2025",
-        "uploadDate": "2025-09-06",
-        "author": {
-            "name": "Michael Foot",
-            "avatar": "https://artisanhide.com/authors/michael-foot.jpg"
+        id: "blog-012",
+        title: "Leather Footwear Trends: Boots and Shoes for Fall 2025",
+        slug: "leather-footwear-trends-boots-shoes-fall-2025",
+        uploadDate: "2025-09-06",
+        author: {
+            name: "Michael Foster",
+            avatar: "/images/blog/authors/michael-foster.png",
         },
-        "category": "Trends",
-        "tags": ["leather footwear", "fall trends", "boots", "shoes", "artisanhide"],
-        "excerpt": "Step into fall with the latest leather footwear trends. From rugged boots to elegant shoes, find inspiration for your seasonal wardrobe update.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/fall-leather-footwear.jpg",
-        "content": [
+        category: "Trends",
+        tags: [
+            "leather footwear",
+            "fall trends",
+            "boots",
+            "shoes",
+            "artisanhide",
+            "fall fashion",
+            "boot styles",
+            "leather shoes",
+            "sustainable footwear",
+            "fall shoe trends"
+        ],
+        excerpt: "Step into fall 2025 with Artisan Hide’s trendy leather boots and shoes for all styles.",
+        thumbnail: "/images/blog/blog-012/thumbnail.png",
+        content: [
             {
-                "heading": "Fall Footwear Forecast",
-                "para": [
-                    "As leaves change, so does footwear fashion. Leather remains king for its durability and style in cooler weather.",
-                    "Artisan Hide's 2025 fall collection blends classic designs with modern twists."
+                type: "text",
+                heading: "Fall Footwear Forecast",
+                para: [
+                    "Leather footwear dominates fall 2025 with durable, stylish designs.",
+                    "Artisan Hide blends classic boots and shoes with modern trends.",
+                    "From rugged to refined, find pieces for every occasion."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Boot Trends to Watch",
-                "para": [
-                    "Combat boots with lug soles for urban adventures. Chelsea boots in rich cognac for versatile looks.",
-                    "Knee-high styles pair perfectly with skirts or jeans."
+                type: "image-text",
+                heading: "Boot Trends to Watch",
+                para: [
+                    "Combat boots with lug soles suit urban adventures; Chelsea boots in cognac are versatile.",
+                    "Knee-high styles pair with jeans or skirts for chic looks.",
+                    "Vintage finishes add retro flair to modern wardrobes."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-012/fall-boots.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-012/fall-boots.png",
             },
             {
-                "heading": "Shoe Styles for the Season",
-                "para": [
-                    "Loafers in supple leather for office-to-evening transitions. Oxfords with brogue details add character.",
-                    "Sneakers in leather offer comfort with elevated style."
+                type: "text",
+                heading: "Shoe Styles for the Season",
+                para: [
+                    "Leather loafers transition from office to evening effortlessly.",
+                    "Oxfords with brogue details add character to formal wear.",
+                    "Suede sneakers offer comfort with elevated fall aesthetics."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Color and Texture Innovations",
-                "para": [
-                    "Earth tones dominate, with pops of deep red. Textured leathers like pebbled or suede add interest.",
-                    "Sustainable options include vegetable-tanned varieties."
+                type: "image-text",
+                heading: "Color and Texture Innovations",
+                para: [
+                    "Earth tones like olive and rust dominate, with pops of deep red.",
+                    "Pebbled and suede leathers add tactile interest to footwear.",
+                    "Sustainable vegetable-tanned options align with eco-trends."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-012/footwear-textures.png",
             },
             {
-                "heading": "Care Tips for Fall Weather",
-                "para": [
-                    "Waterproof your leather footwear. Condition regularly to combat dry air.",
-                    "Shop Artisan Hide for trend-setting fall pieces."
+                type: "text",
+                heading: "Care Tips for Fall Weather",
+                para: [
+                    "Waterproof sprays protect against rain and snow damage.",
+                    "Condition regularly to combat dry air and maintain suppleness.",
+                    "Use shoe trees to preserve shape during storage."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-012/footwear-care-fall.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Styling Footwear for Fall",
+                para: [
+                    "Pair boots with rolled jeans to highlight details.",
+                    "Combine loafers with tailored trousers for polished looks.",
+                    "Artisan Hide’s footwear collection elevates fall outfits."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-012/footwear-styling.png",
+                href: "/products/leather-footwear"
+            },
+            {
+                type: "faq",
+                heading: "Fall Footwear FAQs",
+                para: [
+                    { Q: "Are leather boots good for rain?", A: "With waterproofing, they’re excellent for wet weather." },
+                    { Q: "How to clean suede shoes?", A: "Use a suede brush and cleaner for gentle maintenance." },
+                    { Q: "What’s trending for fall 2025?", A: "Combat boots, suede loafers, and rich earth tones." }
+                ],
             }
         ],
-        "readTime": "6 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Fall 2025 Leather Footwear Trends: Boots & Shoes Guide",
-            "metaDescription": "Explore the latest in leather boots and shoes for fall 2025. Trends, styles, and care tips from Artisan Hide.",
-            "metaKeywords": ["fall leather footwear", "boot trends 2025", "artisanhide shoes"],
-            "canonicalUrl": "https://artisanhide.com/blog/leather-footwear-trends-boots-shoes-fall-2025",
-            "ogTitle": "Leather Footwear Trends for Fall 2025",
-            "ogDescription": "Step up your style with these fall leather trends.",
-            "ogImage": "https://artisanhide.com/blog/og/fall-footwear-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "7 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Fall 2025 Leather Footwear Trends | Artisan Hide",
+            metaDescription: "Discover leather boots and shoes for fall 2025 with Artisan Hide’s style and care guide.",
+            metaKeywords: [
+                "fall leather footwear",
+                "boot trends 2025",
+                "artisanhide shoes",
+                "leather boots",
+                "leather shoes",
+                "fall fashion trends",
+                "sustainable leather footwear"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/leather-footwear-trends-boots-shoes-fall-2025",
+            ogTitle: "Fall 2025 Leather Footwear Trends",
+            ogDescription: "Stylish leather boots and shoes for the season.",
+            ogImage: "/images/blog/blog-012/fall-footwear-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-013",
-        "title": "Crafting the Perfect Leather Home Decor: Pillow Covers and More",
-        "slug": "crafting-perfect-leather-home-decor-pillow-covers",
-        "uploadDate": "2025-09-05",
-        "author": {
-            "name": "Interior Inspirer",
-            "avatar": "https://artisanhide.com/authors/interior-inspirer.jpg"
+        id: "blog-013",
+        title: "Crafting the Perfect Leather Home Decor: Pillow Covers and More",
+        slug: "crafting-perfect-leather-home-decor-pillow-covers",
+        uploadDate: "2025-09-05",
+        author: {
+            name: "Isabella Hayes",
+            avatar: "/images/blog/authors/isabella-hayes.png",
         },
-        "category": "Home Decor",
-        "tags": ["leather home decor", "pillow covers", "interior design", "artisanhide home"],
-        "excerpt": "Transform your living space with luxurious leather home decor. Learn how to incorporate pillow covers and other items for a sophisticated touch.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-home-decor.jpg",
-        "content": [
+        category: "Home Decor",
+        tags: [
+            "leather home decor",
+            "pillow covers",
+            "interior design",
+            "artisanhide home",
+            "luxury interiors",
+            "leather textures",
+            "home styling",
+            "leather decor care"
+        ],
+        excerpt: "Elevate your home with Artisan Hide’s leather pillow covers and decor for luxury and style.",
+        thumbnail: "/images/blog/blog-013/thumbnail.png",
+        content: [
             {
-                "heading": "Leather in Home Design",
-                "para": [
-                    "Leather adds warmth and texture to interiors. Beyond furniture, accessories like pillow covers bring luxury to everyday spaces.",
-                    "Artisan Hide offers handcrafted pieces that blend seamlessly with various decor styles."
+                type: "text",
+                heading: "Leather in Home Design",
+                para: [
+                    "Leather adds warmth and texture to interiors, beyond just furniture.",
+                    "Artisan Hide’s pillow covers and accents suit minimalist or bold styles.",
+                    "Durable and elegant, leather creates inviting living spaces."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Styling Leather Pillow Covers",
-                "para": [
-                    "Mix with fabric pillows for contrast. Neutral leathers suit minimalist rooms, while bold colors make statements.",
-                    "Place on sofas, beds, or accent chairs for instant elegance."
+                type: "image-text",
+                heading: "Styling Leather Pillow Covers",
+                para: [
+                    "Mix leather pillows with fabric ones for visual contrast.",
+                    "Neutral tones suit minimalist rooms; bold colors make statements.",
+                    "Place on sofas or beds for instant luxury and comfort."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-013/leather-pillow-styling.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-013/leather-pillow-styling.png",
             },
             {
-                "heading": "Other Leather Decor Ideas",
-                "para": [
-                    "Wall hangings, trays, and coasters in leather add cohesion. Combine with wood or metal for balanced looks.",
-                    "Custom pieces allow for personalized home aesthetics."
+                type: "text",
+                heading: "Other Leather Decor Ideas",
+                para: [
+                    "Leather wall hangings, trays, and coasters add cohesive elegance.",
+                    "Combine with wood or metal for balanced, modern interiors.",
+                    "Custom pieces allow personalized touches for unique spaces."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Care for Leather Home Items",
-                "para": [
-                    "Dust regularly and condition sparingly. Avoid direct sunlight to prevent fading.",
-                    "These items are durable and easy to maintain."
+                type: "image-text",
+                heading: "Care for Leather Home Items",
+                para: [
+                    "Dust weekly and condition sparingly to maintain finish.",
+                    "Avoid direct sunlight to prevent fading or drying.",
+                    "Use leather-safe cleaners for easy, effective maintenance."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-013/leather-decor-care.png",
             },
             {
-                "heading": "Inspiration Gallery",
-                "para": [
-                    "See how leather elevates rooms. Shop Artisan Hide for your home transformation.",
-                    "Create inviting spaces with quality materials."
+                type: "text",
+                heading: "Inspiration Gallery",
+                para: [
+                    "Leather elevates rooms with texture and sophistication.",
+                    "Shop Artisan Hide’s decor for a transformative home upgrade.",
+                    "Curated collections blend style with practicality."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-013/home-decor-inspiration.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Mixing Leather with Other Materials",
+                para: [
+                    "Pair leather with wood, cotton, or metal for harmonious designs.",
+                    "Balance bold leather with soft fabrics for warmth.",
+                    "Explore Artisan Hide’s decor for versatile styling options."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-013/leather-material-mix.png",
+                href: "/products/leather-home-decor"
+            },
+            {
+                type: "faq",
+                heading: "Leather Decor FAQs",
+                para: [
+                    { Q: "Is leather decor durable?", A: "Yes, with proper care, it lasts years." },
+                    { Q: "How to clean leather pillows?", A: "Wipe with a damp cloth and use leather cleaner." },
+                    { Q: "Can leather decor suit small spaces?", A: "Absolutely, small accents add elegance without overwhelming." }
+                ],
             }
         ],
-        "readTime": "5 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Leather Home Decor: Pillow Covers & Ideas | Artisan Hide",
-            "metaDescription": "Incorporate leather into your home with pillow covers and more. Styling tips and care guide.",
-            "metaKeywords": ["leather pillow covers", "home decor leather", "artisanhide interiors"],
-            "canonicalUrl": "https://artisanhide.com/blog/crafting-perfect-leather-home-decor-pillow-covers",
-            "ogTitle": "Leather in Home Decor: From Pillows to Perfection",
-            "ogDescription": "Elevate your interior with leather accents.",
-            "ogImage": "https://artisanhide.com/blog/og/home-decor-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "7 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Leather Home Decor: Pillow Covers Guide | Artisan Hide",
+            metaDescription: "Transform your home with leather pillow covers and decor from Artisan Hide’s style guide.",
+            metaKeywords: [
+                "leather pillow covers",
+                "home decor leather",
+                "artisanhide interiors",
+                "luxury leather decor",
+                "leather home styling",
+                "leather decor maintenance"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/crafting-perfect-leather-home-decor-pillow-covers",
+            ogTitle: "Leather Home Decor: Pillows and Beyond",
+            ogDescription: "Add luxury with Artisan Hide’s leather decor.",
+            ogImage: "/images/blog/blog-013/home-decor-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-014",
-        "title": "Kids' Leather Fashion: Durable Styles for Little Ones",
-        "slug": "kids-leather-fashion-durable-styles",
-        "uploadDate": "2025-09-04",
-        "author": {
-            "name": "Family Stylist",
-            "avatar": "https://artisanhide.com/authors/family-stylist.jpg"
+        id: "blog-014",
+        title: "Kids’ Leather Fashion: Durable Styles for Little Ones",
+        slug: "kids-leather-fashion-durable-styles",
+        uploadDate: "2025-09-04",
+        author: {
+            name: "William Hayes",
+            avatar: "/images/blog/authors/william-hayes.png",
         },
-        "category": "Kids Fashion",
-        "tags": ["kids leather", "childrens clothing", "durable kids wear", "artisanhide kids"],
-        "excerpt": "Dress your children in stylish, long-lasting leather pieces. From jackets to shoes, explore kid-friendly options that withstand playtime.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/kids-leather-fashion.jpg",
-        "content": [
+        category: "Kids Fashion",
+        tags: [
+            "kids leather",
+            "childrens clothing",
+            "durable kids wear",
+            "artisanhide kids",
+            "leather jackets for kids",
+            "kids shoes",
+            "childrens fashion",
+            "kids leather care"
+        ],
+        excerpt: "Dress kids in durable, stylish leather jackets and shoes from Artisan Hide’s collection.",
+        thumbnail: "/images/blog/blog-014/thumbnail.png",
+        content: [
             {
-                "heading": "Why Leather for Kids?",
-                "para": [
-                    "Leather's durability makes it ideal for active children. It resists wear while looking adorable.",
-                    "Artisan Hide's kids line uses soft, safe leathers for comfort."
+                type: "text",
+                heading: "Why Leather for Kids?",
+                para: [
+                    "Leather’s durability suits active kids, resisting wear from playtime.",
+                    "Artisan Hide uses soft, safe leathers for comfort and style.",
+                    "Long-lasting pieces grow with kids, offering value."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Jackets for Play and Style",
-                "para": [
-                    "Mini biker jackets or vests add edge to outfits. Easy to clean after adventures.",
-                    "Layer over tees for versatile looks."
+                type: "image-text",
+                heading: "Jackets for Play and Style",
+                para: [
+                    "Mini biker jackets or vests add fun, edgy style to kids’ outfits.",
+                    "Easy-to-clean leather withstands spills and rough play.",
+                    "Layer over tees or hoodies for versatile, cool looks."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-014/kids-leather-jacket.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-014/kids-leather-jacket.png",
             },
             {
-                "heading": "Footwear That Lasts",
-                "para": [
-                    "Boots and shoes in leather handle rough play. Waterproof options for all weather.",
-                    "Comfortable fits grow with them."
+                type: "text",
+                heading: "Footwear That Lasts",
+                para: [
+                    "Leather boots and shoes handle rough play with ease.",
+                    "Waterproof options protect against puddles and rain.",
+                    "Comfortable fits support growing feet without sacrificing style."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Accessories for Fun",
-                "para": [
-                    "Belts and bags teach responsibility. Cute designs encourage use.",
-                    "Personalize for special gifts."
+                type: "image-text",
+                heading: "Accessories for Fun",
+                para: [
+                    "Leather belts and bags teach kids responsibility with style.",
+                    "Personalized options make great gifts for young trendsetters.",
+                    "Durable designs ensure longevity through active use."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-014/kids-leather-accessories.png",
             },
             {
-                "heading": "Care Tips for Parents",
-                "para": [
-                    "Wipe clean and condition lightly. Store properly to maintain shape.",
-                    "Shop Artisan Hide for quality kids' leather."
+                type: "text",
+                heading: "Care Tips for Parents",
+                para: [
+                    "Wipe clean with a damp cloth; condition lightly every 6 months.",
+                    "Store in breathable bags to maintain shape and quality.",
+                    "Rotate pieces to extend wear and keep wardrobes fresh."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-014/kids-leather-care.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Styling Kids’ Leather Fashion",
+                para: [
+                    "Pair jackets with jeans or dresses for playful, stylish outfits.",
+                    "Choose neutral colors for easy mix-and-match versatility.",
+                    "Artisan Hide’s kids’ collection balances fun and durability."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-014/kids-leather-styling.png",
+                href: "/products/kids-leather-clothing"
+            },
+            {
+                type: "faq",
+                heading: "Kids’ Leather FAQs",
+                para: [
+                    { Q: "Is leather safe for kids?", A: "Yes, Artisan Hide uses non-toxic, soft leathers." },
+                    { Q: "How to clean kids’ leather jackets?", A: "Wipe with a damp cloth and use leather cleaner." },
+                    { Q: "Are leather shoes good for play?", A: "Yes, they’re durable and protect during active play." }
+                ],
             }
         ],
-        "readTime": "5 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Kids' Leather Fashion: Durable & Stylish Options",
-            "metaDescription": "Explore leather jackets, shoes, and accessories for children. Practical and cute from Artisan Hide.",
-            "metaKeywords": ["kids leather clothing", "durable kids fashion", "artisanhide children"],
-            "canonicalUrl": "https://artisanhide.com/blog/kids-leather-fashion-durable-styles",
-            "ogTitle": "Stylish Leather for Kids: Built to Last",
-            "ogDescription": "Fun, tough leather pieces for little adventurers.",
-            "ogImage": "https://artisanhide.com/blog/og/kids-fashion-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "7 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Kids’ Leather Fashion: Durable Styles | Artisan Hide",
+            metaDescription: "Stylish, durable leather jackets and shoes for kids from Artisan Hide’s collection.",
+            metaKeywords: [
+                "kids leather clothing",
+                "durable kids fashion",
+                "artisanhide children",
+                "kids leather jackets",
+                "children’s shoes",
+                "kids leather styling",
+                "leather care for kids"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/kids-leather-fashion-durable-styles",
+            ogTitle: "Durable Leather Fashion for Kids",
+            ogDescription: "Stylish, tough leather for young adventurers.",
+            ogImage: "/images/blog/blog-014/kids-fashion-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-015",
-        "title": "The Art of Leather Crafting: Behind the Scenes at Artisan Hide",
-        "slug": "art-leather-crafting-behind-scenes-artisanhide",
-        "uploadDate": "2025-09-03",
-        "author": {
-            "name": "Craft Master",
-            "avatar": "https://artisanhide.com/authors/craft-master.jpg"
+        id: "blog-015",
+        title: "The Art of Leather Crafting: Behind the Scenes at Artisan Hide",
+        slug: "art-leather-crafting-behind-scenes-artisanhide",
+        uploadDate: "2025-09-03",
+        author: {
+            name: "William Hayes",
+            avatar: "/images/blog/authors/william-hayes.png",
         },
-        "category": "Behind the Scenes",
-        "tags": ["leather crafting", "artisanhide workshop", "handmade process", "artisan techniques"],
-        "excerpt": "Peek into our workshop where skilled artisans create your favorite leather goods. Learn about the meticulous process from hide to finished product.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/leather-crafting-behind-scenes.jpg",
-        "content": [
+        category: "Behind the Scenes",
+        tags: [
+            "leather crafting",
+            "artisanhide workshop",
+            "handmade process",
+            "artisan techniques",
+            "craftsmanship",
+            "leather production",
+            "sustainable crafting"
+        ],
+        excerpt: "Discover Artisan Hide’s leather crafting process, from hide selection to finished goods.",
+        thumbnail: "/images/blog/blog-015/thumbnail.png",
+        content: [
             {
-                "heading": "Our Artisan Workshop",
-                "para": [
-                    "At Artisan Hide, every piece is handcrafted with care. Our workshop buzzes with tradition and innovation.",
-                    "Skilled makers bring decades of experience to each item."
+                type: "text",
+                heading: "Our Artisan Workshop",
+                para: [
+                    "Artisan Hide’s workshop combines tradition with modern craftsmanship.",
+                    "Skilled artisans bring decades of expertise to every piece.",
+                    "Each item reflects our commitment to quality and detail."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Selecting the Perfect Hide",
-                "para": [
-                    "We source premium leathers, inspecting for quality. Each hide tells a story.",
-                    "Cuts are planned to minimize waste and maximize beauty."
+                type: "image-text",
+                heading: "Selecting the Perfect Hide",
+                para: [
+                    "We source premium hides, inspected for quality and consistency.",
+                    "Cuts minimize waste, ensuring sustainable use of materials.",
+                    "Each hide’s unique grain shapes the final product’s character."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-015/selecting-hide.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-015/selecting-hide.png",
             },
             {
-                "heading": "The Cutting and Stitching Process",
-                "para": [
-                    "Precision cutting ensures perfect fit. Hand-stitching adds strength and character.",
-                    "Tools passed down generations create timeless pieces."
+                type: "text",
+                heading: "The Cutting and Stitching Process",
+                para: [
+                    "Precision cutting ensures perfect fit and minimal waste.",
+                    "Hand-stitching adds durability and artisanal charm.",
+                    "Traditional tools meet modern techniques for flawless results."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Finishing Touches",
-                "para": [
-                    "Polishing and conditioning bring out the leather's natural glow. Quality checks guarantee perfection.",
-                    "Personalization options make each item unique."
+                type: "image-text",
+                heading: "Finishing Touches",
+                para: [
+                    "Polishing and conditioning enhance leather’s natural beauty.",
+                    "Quality checks ensure every piece meets Artisan Hide’s standards.",
+                    "Personalization options like engraving add unique flair."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-015/leather-finishing.png",
             },
             {
-                "heading": "Sustainability in Crafting",
-                "para": [
-                    "Eco-friendly practices guide our work. From vegetable tanning to zero-waste goals.",
-                    "Join us in appreciating handmade excellence at Artisan Hide."
+                type: "text",
+                heading: "Sustainability in Crafting",
+                para: [
+                    "Vegetable tanning and zero-waste goals guide our process.",
+                    "Eco-friendly practices reduce environmental impact.",
+                    "Artisan Hide commits to sustainable, ethical production."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-015/crafting-sustainability.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Meet the Artisans",
+                para: [
+                    "Our team blends heritage skills with innovative techniques.",
+                    "Passion for leather crafting drives every creation.",
+                    "Explore Artisan Hide’s collections to see their work."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-015/artisan-team.png",
+                href: "/about/our-artisans"
+            },
+            {
+                type: "faq",
+                heading: "Crafting FAQs",
+                para: [
+                    { Q: "What makes Artisan Hide’s leather unique?", A: "Premium hides and handcrafted techniques ensure quality." },
+                    { Q: "Is your crafting sustainable?", A: "Yes, we use vegetable tanning and minimize waste." },
+                    { Q: "How long does crafting take?", A: "Varies by item, typically 2-4 weeks for custom pieces." }
+                ],
             }
         ],
-        "readTime": "6 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Behind the Scenes: Leather Crafting at Artisan Hide",
-            "metaDescription": "Discover the artisan process of creating leather goods. From selection to finishing.",
-            "metaKeywords": ["leather crafting process", "handmade leather", "artisanhide workshop"],
-            "canonicalUrl": "https://artisanhide.com/blog/art-leather-crafting-behind-scenes-artisanhide",
-            "ogTitle": "The Craft of Leather: Inside Artisan Hide",
-            "ogDescription": "Witness the magic of handmade leather creation.",
-            "ogImage": "https://artisanhide.com/blog/og/crafting-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Leather Crafting: Behind Artisan Hide’s Workshop",
+            metaDescription: "Explore Artisan Hide’s leather crafting process, from hide to handcrafted goods.",
+            metaKeywords: [
+                "leather crafting process",
+                "handmade leather",
+                "artisanhide workshop",
+                "artisan techniques",
+                "craftsmanship",
+                "sustainable leather crafting",
+                "leather production process"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/art-leather-crafting-behind-scenes-artisanhide",
+            ogTitle: "Inside Artisan Hide’s Leather Crafting",
+            ogDescription: "Discover the art of handmade leather goods.",
+            ogImage: "/images/blog/blog-015/crafting-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-016",
-        "title": "Women's Leather Fashion: Empowering Styles for 2025",
-        "slug": "womens-leather-fashion-empowering-styles-2025",
-        "uploadDate": "2025-09-02",
-        "author": {
-            "name": "Empower Style",
-            "avatar": "https://artisanhide.com/authors/empower-style.jpg"
+        id: "blog-016",
+        title: "Women’s Leather Fashion: Empowering Styles for 2025",
+        slug: "womens-leather-fashion-empowering-styles-2025",
+        uploadDate: "2025-09-02",
+        author: {
+            name: "Israel Perez",
+            avatar: "/images/blog/authors/israel-perez.png",
         },
-        "category": "Women's Fashion",
-        "tags": ["womens leather", "2025 styles", "empowering fashion", "artisanhide women"],
-        "excerpt": "Embrace bold, confident looks with women's leather apparel. From jackets to skirts, discover empowering pieces for the modern woman.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/womens-leather-fashion.jpg",
-        "content": [
+        category: "Women’s Fashion",
+        tags: [
+            "womens leather",
+            "2025 styles",
+            "empowering fashion",
+            "artisanhide women",
+            "leather jackets",
+            "women’s fashion trends",
+            "sustainable women’s fashion",
+            "leather skirts"
+        ],
+        excerpt: "Discover bold women’s leather styles for 2025 with Artisan Hide’s empowering fashion guide.",
+        thumbnail: "/images/blog/blog-016/thumbnail.png",
+        content: [
             {
-                "heading": "Leather as Empowerment",
-                "para": [
-                    "Leather exudes strength and confidence. In 2025, women's fashion embraces this for empowering silhouettes.",
-                    "Artisan Hide designs for women who lead with style."
+                type: "text",
+                heading: "Leather as Empowerment",
+                para: [
+                    "Leather symbolizes strength and confidence in women’s 2025 fashion.",
+                    "Artisan Hide designs for bold, inclusive, and expressive women.",
+                    "From jackets to skirts, leather elevates every wardrobe."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Jackets That Command Attention",
-                "para": [
-                    "Tailored blazers or edgy motos make statements. Versatile for work or play.",
-                    "Layer for seasonal adaptability."
+                type: "image-text",
+                heading: "Jackets That Command Attention",
+                para: [
+                    "Tailored blazers or moto jackets make powerful statements.",
+                    "Layer for work or casual settings with versatile designs.",
+                    "Cropped or oversized fits cater to diverse style preferences."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-016/womens-leather-jacket.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-016/womens-leather-jacket.png",
             },
             {
-                "heading": "Bottoms with Edge",
-                "para": [
-                    "Pants and skirts in leather offer sleek lines. Pair with blouses for balance.",
-                    "Comfort-focused designs for all-day wear."
+                type: "text",
+                heading: "Bottoms with Edge",
+                para: [
+                    "Leather pants and skirts offer sleek, confident lines.",
+                    "Pair with soft blouses or knits for balanced elegance.",
+                    "Wide-leg trousers and pencil skirts lead 2025 trends."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Accessories to Complete",
-                "para": [
-                    "Handbags and belts accentuate outfits. Choose pieces that reflect personal power.",
-                    "Mix textures for depth."
+                type: "image-text",
+                heading: "Accessories to Complete",
+                para: [
+                    "Leather handbags and belts accentuate outfits with flair.",
+                    "Bold textures or subtle finishes personalize your look.",
+                    "Statement boots elevate any ensemble with confidence."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-016/womens-leather-accessories.png",
             },
             {
-                "heading": "Sustainable Choices for Conscious Women",
-                "para": [
-                    "Ethical leather aligns with values. Care tips ensure longevity.",
-                    "Explore Artisan Hide's women's collection."
+                type: "text",
+                heading: "Sustainable Choices for Conscious Women",
+                para: [
+                    "Choose vegetable-tanned or recycled leather for eco-friendly style.",
+                    "Proper care extends life, aligning with sustainable values.",
+                    "Artisan Hide’s women’s collection blends ethics with fashion."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-016/womens-leather-sustainable.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Styling for Confidence",
+                para: [
+                    "Mix leather with vibrant colors or prints for bold expression.",
+                    "Tailored fits enhance silhouettes for all body types.",
+                    "Explore Artisan Hide’s empowering 2025 collection."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-016/womens-leather-styling.png",
+                href: "/products/womens-leather-collection"
+            },
+            {
+                type: "faq",
+                heading: "Women’s Leather Fashion FAQs",
+                para: [
+                    { Q: "What leather pieces are trending for women in 2025?", A: "Cropped jackets, pencil skirts, and bold-colored accessories." },
+                    { Q: "How to care for women’s leather clothing?", A: "Clean with leather-safe products and condition every 3-6 months." },
+                    { Q: "Can leather be worn in warm weather?", A: "Yes, lightweight and perforated leather is ideal for summer." }
+                ],
             }
         ],
-        "readTime": "6 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Women's Leather Fashion 2025: Empowering Styles",
-            "metaDescription": "Bold leather pieces for confident women. Jackets, bottoms, and accessories from Artisan Hide.",
-            "metaKeywords": ["womens leather styles", "empowering fashion 2025", "artisanhide women"],
-            "canonicalUrl": "https://artisanhide.com/blog/womens-leather-fashion-empowering-styles-2025",
-            "ogTitle": "Empowering Women's Leather Fashion for 2025",
-            "ogDescription": "Strong, stylish leather for modern women.",
-            "ogImage": "https://artisanhide.com/blog/og/womens-fashion-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Women’s Leather Fashion 2025: Artisan Hide’s Styles",
+            metaDescription: "Explore bold, empowering women’s leather fashion for 2025 with Artisan Hide’s style guide.",
+            metaKeywords: [
+                "women’s leather fashion",
+                "2025 leather trends",
+                "artisanhide women’s collection",
+                "leather jackets for women",
+                "sustainable leather fashion",
+                "women’s leather skirts",
+                "empowering leather styles"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/womens-leather-fashion-empowering-styles-2025",
+            ogTitle: "2025 Women’s Leather Fashion Trends",
+            ogDescription: "Bold, sustainable leather styles for confident women.",
+            ogImage: "/images/blog/blog-016/womens-fashion-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-017",
-        "title": "Men's Leather Essentials: Building a Timeless Wardrobe",
-        "slug": "mens-leather-essentials-timeless-wardrobe",
-        "uploadDate": "2025-09-01",
-        "author": {
-            "name": "Gent Style",
-            "avatar": "https://artisanhide.com/authors/gent-style.jpg"
+        id: "blog-017",
+        title: "Men's Leather Essentials: Building a Timeless Wardrobe",
+        slug: "mens-leather-essentials-timeless-wardrobe",
+        uploadDate: "2025-09-01",
+        author: {
+            name: "Olivia Bennett",
+            avatar: "/images/blog/authors/olivia-bennett.png",
         },
-        "category": "Men's Fashion",
-        "tags": ["mens leather", "timeless wardrobe", "essentials", "artisanhide men"],
-        "excerpt": "Curate a wardrobe that lasts with key leather pieces for men. From coats to wallets, build style that endures trends.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/mens-leather-essentials.jpg",
-        "content": [
+        category: "Men's Fashion",
+        tags: [
+            "mens leather",
+            "timeless wardrobe",
+            "leather essentials",
+            "artisanhide men",
+            "leather coats",
+            "men’s style",
+            "classic leather",
+            "leather wallets",
+            "men’s leather accessories",
+            "sustainable men’s fashion"
+        ],
+        excerpt: "Build a lasting wardrobe with men’s leather essentials from Artisan Hide’s timeless collection.",
+        thumbnail: "/images/blog/blog-017/thumbnail.png",
+        content: [
             {
-                "heading": "The Foundation of Men's Style",
-                "para": [
-                    "Leather pieces form the backbone of a timeless wardrobe. Invest in quality for lifelong use.",
-                    "Artisan Hide offers essentials that blend classic and contemporary."
+                type: "text",
+                heading: "The Foundation of Men's Style",
+                para: [
+                    "Leather pieces anchor a wardrobe with durability and elegance.",
+                    "Artisan Hide offers timeless designs blending classic and modern aesthetics.",
+                    "Invest in quality essentials for versatility across seasons and trends."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Coats and Jackets",
-                "para": [
-                    "A leather jacket is indispensable. Choose versatile styles like bombers or trenches.",
-                    "Build around neutral colors for mix-and-match ease."
+                type: "image-text",
+                heading: "Coats and Jackets",
+                para: [
+                    "A leather jacket, like a bomber or trench, is a must-have for versatility.",
+                    "Neutral tones like black or brown pair effortlessly with any outfit.",
+                    "Layer with knits or scarves for warmth and refined style."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-017/mens-leather-coat.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-017/mens-leather-coat.png",
             },
             {
-                "heading": "Pants and Belts",
-                "para": [
-                    "Leather pants for bold looks, belts for everyday polish.",
-                    "Match hardware for cohesive outfits."
+                type: "text",
+                heading: "Pants and Belts",
+                para: [
+                    "Leather pants add bold flair; belts provide everyday sophistication.",
+                    "Match belt hardware with shoes for a polished, cohesive look.",
+                    "Classic colors ensure longevity and easy coordination."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Wallets and Bags",
-                "para": [
-                    "Functional yet stylish. Slim wallets and messenger bags complete the ensemble.",
-                    "Prioritize organization and durability."
+                type: "image-text",
+                heading: "Wallets and Bags",
+                para: [
+                    "Slim wallets and messenger bags combine function with style.",
+                    "RFID-protected wallets offer security for modern professionals.",
+                    "Choose full-grain leather for durability and a rich patina."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-017/mens-leather-accessories.png",
             },
             {
-                "heading": "Maintenance for Timelessness",
-                "para": [
-                    "Proper care extends life. Condition and store correctly.",
-                    "Start building with Artisan Hide's men's essentials."
+                type: "text",
+                heading: "Maintenance for Timelessness",
+                para: [
+                    "Condition leather every 3-6 months to preserve its finish.",
+                    "Store in breathable bags to avoid moisture damage.",
+                    "Regular cleaning keeps Artisan Hide pieces looking pristine."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-017/mens-leather-maintenance.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Styling Tips for Versatility",
+                para: [
+                    "Pair leather jackets with denim for casual looks or suits for formal flair.",
+                    "Mix textures like leather and wool for dynamic outfits.",
+                    "Explore Artisan Hide’s men’s collection for cohesive wardrobe ideas."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-017/mens-leather-styling.png",
+                href: "/products/mens-leather-collection"
+            },
+            {
+                type: "faq",
+                heading: "Men’s Leather Essentials FAQs",
+                para: [
+                    { Q: "What’s the most versatile leather piece for men?", A: "A black or brown leather jacket suits most occasions." },
+                    { Q: "How to care for leather belts?", A: "Clean with a damp cloth and condition sparingly." },
+                    { Q: "Are leather wallets durable?", A: "Yes, full-grain leather wallets last years with proper care." }
+                ],
             }
         ],
-        "readTime": "5 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Men's Leather Essentials: Timeless Wardrobe Building",
-            "metaDescription": "Key leather pieces for men's timeless style. Coats, pants, accessories from Artisan Hide.",
-            "metaKeywords": ["mens leather essentials", "timeless mens fashion", "artisanhide men"],
-            "canonicalUrl": "https://artisanhide.com/blog/mens-leather-essentials-timeless-wardrobe",
-            "ogTitle": "Building a Timeless Men's Wardrobe with Leather",
-            "ogDescription": "Essential pieces for enduring style.",
-            "ogImage": "https://artisanhide.com/blog/og/mens-essentials-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Men’s Leather Essentials: Artisan Hide’s Wardrobe Guide",
+            metaDescription: "Curate a timeless men’s wardrobe with leather coats, wallets, and more from Artisan Hide.",
+            metaKeywords: [
+                "men’s leather essentials",
+                "timeless men’s fashion",
+                "artisanhide men’s collection",
+                "leather jackets men",
+                "men’s leather wallets",
+                "classic leather styles",
+                "sustainable men’s leather"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/mens-leather-essentials-timeless-wardrobe",
+            ogTitle: "Timeless Men’s Leather Wardrobe Essentials",
+            ogDescription: "Build lasting style with Artisan Hide’s leather pieces.",
+            ogImage: "/images/blog/blog-017/mens-essentials-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-018",
-        "title": "Leather in Sustainable Fashion: Eco-Friendly Innovations",
-        "slug": "leather-sustainable-fashion-eco-innovations",
-        "uploadDate": "2025-08-31",
-        "author": {
-            "name": "Green Trend",
-            "avatar": "https://artisanhide.com/authors/green-trend.jpg"
+        id: "blog-018",
+        title: "Leather in Sustainable Fashion: Eco-Friendly Innovations",
+        slug: "leather-sustainable-fashion-eco-innovations",
+        uploadDate: "2025-08-31",
+        author: {
+            name: "Israel Perez",
+            avatar: "/images/blog/authors/israel-perez.png",
         },
-        "category": "Sustainability",
-        "tags": ["sustainable leather", "eco innovations", "green fashion", "artisanhide eco"],
-        "excerpt": "Explore how leather is evolving in sustainable fashion. New technologies and practices make it an eco-friendly choice for conscious consumers.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/sustainable-leather-innovations.jpg",
-        "content": [
+        category: "Sustainability",
+        tags: [
+            "sustainable leather",
+            "eco-friendly fashion",
+            "green fashion",
+            "artisanhide eco",
+            "vegetable-tanned leather",
+            "recycled leather",
+            "bio-based leather",
+            "ethical fashion",
+            "sustainable style"
+        ],
+        excerpt: "Learn how sustainable leather innovations make eco-friendly fashion possible with Artisan Hide.",
+        thumbnail: "/images/blog/blog-018/thumbnail.png",
+        content: [
             {
-                "heading": "The Evolution of Sustainable Leather",
-                "para": [
-                    "Traditional leather gets a green makeover. Innovations reduce environmental impact while maintaining quality.",
-                    "Artisan Hide leads with eco-conscious methods."
+                type: "text",
+                heading: "The Evolution of Sustainable Leather",
+                para: [
+                    "Leather adapts to eco-conscious demands with innovative practices.",
+                    "Artisan Hide champions sustainability through ethical sourcing and green methods.",
+                    "Modern tanning reduces environmental impact while preserving quality."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Vegetable Tanning Techniques",
-                "para": [
-                    "Plant-based tannins replace chemicals. Results in biodegradable leather with unique character.",
-                    "Safer for workers and the planet."
+                type: "image-text",
+                heading: "Vegetable Tanning Techniques",
+                para: [
+                    "Plant-based tanning replaces harmful chemicals, creating biodegradable leather.",
+                    "This method enhances leather’s natural beauty and longevity.",
+                    "Artisan Hide’s veg-tanned products are eco-friendly and durable."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-018/vegetable-tanning.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-018/vegetable-tanning.png",
             },
             {
-                "heading": "Recycled and Upcycled Leather",
-                "para": [
-                    "Repurposing scraps creates new products. Reduces waste in the industry.",
-                    "Innovative blends with other materials."
+                type: "text",
+                heading: "Recycled and Upcycled Leather",
+                para: [
+                    "Repurposing leather scraps minimizes waste and supports a circular economy.",
+                    "Blends with recycled materials create unique, sustainable products.",
+                    "Artisan Hide’s upcycled designs reduce environmental footprint."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Bio-Based Alternatives",
-                "para": [
-                    "Mushroom and apple-based 'leathers' emerge. Mimic traditional feel with lower footprint.",
-                    "Future of animal-free options."
+                type: "image-text",
+                heading: "Bio-Based Alternatives",
+                para: [
+                    "Mushroom, apple, and cactus-based leathers offer animal-free options.",
+                    "These materials mimic traditional leather with lower environmental impact.",
+                    "Artisan Hide explores bio-based innovations for future collections."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-018/bio-based-leather.png",
             },
             {
-                "heading": "Choosing Sustainable Pieces",
-                "para": [
-                    "Look for certifications. Care extends life, reducing consumption.",
-                    "Shop Artisan Hide for green leather goods."
+                type: "text",
+                heading: "Choosing Sustainable Pieces",
+                para: [
+                    "Look for certifications like Leather Working Group for ethical assurance.",
+                    "Invest in durable, timeless pieces to reduce consumption.",
+                    "Artisan Hide’s sustainable collection blends style and responsibility."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-018/eco-leather-choices.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Consumer Role in Sustainability",
+                para: [
+                    "Choose brands with transparent, ethical practices like Artisan Hide.",
+                    "Proper care extends leather’s life, reducing environmental impact.",
+                    "Support innovations that prioritize eco-friendly fashion solutions."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-018/sustainable-consumer.png",
+                href: "/blog/sustainable-leather-myths-facts"
+            },
+            {
+                type: "faq",
+                heading: "Sustainable Leather FAQs",
+                para: [
+                    { Q: "What is vegetable-tanned leather?", A: "Leather tanned with plant-based materials, eco-friendly and durable." },
+                    { Q: "Are bio-based leathers durable?", A: "Yes, when crafted well, they rival traditional leather’s longevity." },
+                    { Q: "How to identify sustainable leather?", A: "Look for certifications and transparent sourcing from brands like Artisan Hide." }
+                ],
             }
         ],
-        "readTime": "7 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Sustainable Leather Innovations in Fashion",
-            "metaDescription": "Eco-friendly leather practices and technologies. Making sustainable choices with Artisan Hide.",
-            "metaKeywords": ["eco leather innovations", "sustainable fashion leather", "artisanhide green"],
-            "canonicalUrl": "https://artisanhide.com/blog/leather-sustainable-fashion-eco-innovations",
-            "ogTitle": "Eco Innovations in Leather Fashion",
-            "ogDescription": "Sustainable advancements for conscious style.",
-            "ogImage": "https://artisanhide.com/blog/og/eco-innovations-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Sustainable Leather: Eco-Friendly Fashion | Artisan Hide",
+            metaDescription: "Explore eco-friendly leather innovations for sustainable fashion with Artisan Hide.",
+            metaKeywords: [
+                "sustainable leather fashion",
+                "eco-friendly leather",
+                "artisanhide green fashion",
+                "vegetable-tanned leather",
+                "recycled leather products",
+                "bio-based leather",
+                "ethical leather fashion"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/leather-sustainable-fashion-eco-innovations",
+            ogTitle: "Eco-Friendly Leather Fashion Innovations",
+            ogDescription: "Sustainable leather solutions from Artisan Hide.",
+            ogImage: "/images/blog/blog-018/eco-innovations-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "post-019",
-        "title": "Summer Leather: Lightweight Styles for Warm Weather",
-        "slug": "summer-leather-lightweight-styles-warm-weather",
-        "uploadDate": "2025-08-30",
-        "author": {
-            "name": "Seasonal Style",
-            "avatar": "https://artisanhide.com/authors/seasonal-style.jpg"
+        id: "blog-019",
+        title: "Summer Leather: Lightweight Styles for Warm Weather",
+        slug: "summer-leather-lightweight-styles-warm-weather",
+        uploadDate: "2025-08-30",
+        author: {
+            name: "Laura Benson",
+            avatar: "/images/blog/authors/laura-benson.png",
         },
-        "category": "Seasonal Fashion",
-        "tags": ["summer leather", "lightweight styles", "warm weather fashion", "artisanhide summer"],
-        "excerpt": "Leather isn't just for winter. Discover breathable, lightweight leather options perfect for summer wardrobes.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/summer-leather-styles.jpg",
-        "content": [
+        category: "Seasonal Fashion",
+        tags: [
+            "summer leather",
+            "lightweight leather",
+            "warm weather fashion",
+            "artisanhide summer",
+            "breathable leather",
+            "summer leather outfits",
+            "leather shorts",
+            "leather accessories"
+        ],
+        excerpt: "Stay cool and stylish with Artisan Hide’s lightweight leather styles for summer 2025.",
+        thumbnail: "/images/blog/blog-019/thumbnail.png",
+        content: [
             {
-                "heading": "Leather in Summer? Yes!",
-                "para": [
-                    "Perforated and lightweight leathers stay cool. Versatile for summer outfits.",
-                    "Artisan Hide's summer collection focuses on comfort."
+                type: "text",
+                heading: "Leather in Summer? Yes!",
+                para: [
+                    "Lightweight and perforated leathers keep you cool in warm weather.",
+                    "Artisan Hide’s summer collection prioritizes breathability and style.",
+                    "Perfect for adding edge to summer wardrobes without overheating."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Shorts and Skirts",
-                "para": [
-                    "Leather shorts pair with tees for casual vibes. Skirts flow for feminine looks.",
-                    "Breathable linings prevent discomfort."
+                type: "image-text",
+                heading: "Shorts and Skirts",
+                para: [
+                    "Leather shorts pair with tees for casual summer looks.",
+                    "Flowy leather skirts add feminine flair with breathable linings.",
+                    "Light colors like tan or white reflect heat for comfort."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-019/summer-leather-bottoms.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-019/summer-leather-bottoms.png",
             },
             {
-                "heading": "Tops and Vests",
-                "para": [
-                    "Sleeveless vests layer lightly. T-shirts in soft leather for edge.",
-                    "Neutral colors reflect heat."
+                type: "text",
+                heading: "Tops and Vests",
+                para: [
+                    "Sleeveless leather vests layer lightly over cotton tops.",
+                    "Soft leather t-shirts add edge without heavy weight.",
+                    "Neutral tones ensure versatility for summer styling."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Accessories for Sun",
-                "para": [
-                    "Bags and belts in light leathers. Hats or sandals add flair.",
-                    "UV protection treatments available."
+                type: "image-text",
+                heading: "Accessories for Sun",
+                para: [
+                    "Light leather bags, belts, and sandals complete summer outfits.",
+                    "UV-treated leathers resist sun damage for lasting beauty.",
+                    "Choose soft grips and natural finishes for all-day comfort."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-019/summer-leather-accessories.png",
             },
             {
-                "heading": "Care in Heat",
-                "para": [
-                    "Moisturize to prevent drying. Store in cool places.",
-                    "Enjoy summer with Artisan Hide's lightweight leather."
+                type: "text",
+                heading: "Care in Heat",
+                para: [
+                    "Condition leather to prevent drying in hot climates.",
+                    "Store in cool, dry places to avoid sun exposure damage.",
+                    "Use Artisan Hide’s care products for optimal maintenance."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-019/summer-leather-care.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Summer Styling Tips",
+                para: [
+                    "Mix leather with linen or cotton for breathable, stylish looks.",
+                    "Opt for loose fits to enhance airflow in warm weather.",
+                    "Explore Artisan Hide’s summer collection for versatile pieces."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-019/summer-leather-styling.png",
+                href: "/products/summer-leather-collection"
+            },
+            {
+                type: "faq",
+                heading: "Summer Leather FAQs",
+                para: [
+                    { Q: "Is leather practical for summer?", A: "Yes, perforated and lightweight leathers are breathable." },
+                    { Q: "How to care for leather in heat?", A: "Condition regularly and avoid prolonged sun exposure." },
+                    { Q: "What colors work best for summer leather?", A: "Light tones like tan or white reflect heat." }
+                ],
             }
         ],
-        "readTime": "5 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Lightweight Leather Styles for Summer 2025",
-            "metaDescription": "Breathable leather for warm weather. Shorts, tops, accessories from Artisan Hide.",
-            "metaKeywords": ["summer leather fashion", "lightweight leather", "artisanhide summer"],
-            "canonicalUrl": "https://artisanhide.com/blog/summer-leather-lightweight-styles-warm-weather",
-            "ogTitle": "Summer-Ready Leather Styles",
-            "ogDescription": "Cool, comfortable leather for hot days.",
-            "ogImage": "https://artisanhide.com/blog/og/summer-leather-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
+        readTime: "7 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Summer Leather Styles 2025: Artisan Hide’s Guide",
+            metaDescription: "Lightweight, breathable leather shorts, tops, and accessories for summer from Artisan Hide.",
+            metaKeywords: [
+                "summer leather fashion",
+                "lightweight leather styles",
+                "artisanhide summer collection",
+                "breathable leather outfits",
+                "leather shorts summer",
+                "summer leather accessories"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/summer-leather-lightweight-styles-warm-weather",
+            ogTitle: "Lightweight Leather for Summer 2025",
+            ogDescription: "Cool, stylish leather pieces for warm weather.",
+            ogImage: "/images/blog/blog-019/summer-leather-og.png",
+            twitterCard: "summary_large_image",
+        },
     },
     {
-        "id": "blog-020",
-        "title": "Personalizing Your Leather Goods: Monogramming and More",
-        "slug": "personalizing-leather-goods-monogramming-more",
-        "uploadDate": "2025-08-29",
-        "author": {
-            "name": "Custom Creator",
-            "avatar": "https://artisanhide.com/authors/custom-creator.jpg"
+        id: "blog-020",
+        title: "Personalizing Your Leather Goods: Monogramming and More",
+        slug: "personalizing-leather-goods-monogramming-more",
+        uploadDate: "2025-08-29",
+        author: {
+            name: "Isabella Hayes",
+            avatar: "/images/blog/authors/isabella-hayes.png",
         },
-        "category": "Customization",
-        "tags": ["personalized leather", "monogramming", "custom goods", "artisanhide personal"],
-        "excerpt": "Make your leather items uniquely yours. Explore personalization options like monogramming, engravings, and custom designs.",
-        "thumbnail": "https://artisanhide.com/blog/thumbnails/personalized-leather-goods.jpg",
-        "content": [
+        category: "Customization",
+        tags: [
+            "personalized leather",
+            "monogramming leather",
+            "custom leather goods",
+            "artisanhide custom",
+            "leather engraving",
+            "custom leather designs",
+            "bespoke leather"
+        ],
+        excerpt: "Customize your leather goods with monogramming, engravings, and more from Artisan Hide.",
+        thumbnail: "/images/blog/blog-020/thumbnail.png",
+        content: [
             {
-                "heading": "The Value of Personalization",
-                "para": [
-                    "Custom touches make items special. From initials to full designs, express yourself.",
-                    "Artisan Hide offers expert personalization services."
+                type: "text",
+                heading: "The Value of Personalization",
+                para: [
+                    "Personalized leather goods reflect individuality and make thoughtful gifts.",
+                    "Artisan Hide offers expert customization for unique, lasting pieces.",
+                    "From wallets to bags, add a personal touch to elevate style."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Monogramming Basics",
-                "para": [
-                    "Add initials to wallets or bags. Choose fonts and placements for subtle elegance.",
-                    "Perfect for gifts or personal use."
+                type: "image-text",
+                heading: "Monogramming Basics",
+                para: [
+                    "Add initials to wallets, bags, or belts for subtle elegance.",
+                    "Choose from classic or modern fonts to match your style.",
+                    "Perfect for gifting or creating signature accessories."
                 ],
-                "type": "image-text",
-                "imageLeft": true,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-020/monogramming-leather.jpg"
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-020/monogramming-leather.png",
             },
             {
-                "heading": "Engraving Options",
-                "para": [
-                    "Deeper imprints for lasting messages. Ideal for belts or larger items.",
-                    "Add dates or quotes for sentiment."
+                type: "text",
+                heading: "Engraving Options",
+                para: [
+                    "Deep engravings add lasting messages, ideal for larger items.",
+                    "Incorporate dates, quotes, or logos for sentimental value.",
+                    "Artisan Hide ensures precision for durable, beautiful results."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
             },
             {
-                "heading": "Custom Designs and Colors",
-                "para": [
-                    "Beyond text, add patterns or dyes. Create one-of-a-kind pieces.",
-                    "Collaborate with our artisans."
+                type: "image-text",
+                heading: "Custom Designs and Colors",
+                para: [
+                    "Create one-of-a-kind pieces with unique patterns or bespoke dyes.",
+                    "Collaborate with Artisan Hide’s artisans for tailored designs.",
+                    "Seasonal color options add vibrancy to personalized goods."
                 ],
-                "type": "text",
-                "imageLeft": false
+                imageLeft: false,
+                thumbnail: "/images/blog/blog-020/custom-leather-designs.png",
             },
             {
-                "heading": "Care for Personalized Items",
-                "para": [
-                    "Gentle cleaning preserves custom work. Enjoy your unique Artisan Hide creation.",
-                    "Start personalizing today."
+                type: "text",
+                heading: "Care for Personalized Items",
+                para: [
+                    "Use gentle cleaners to preserve custom engravings and finishes.",
+                    "Condition sparingly to maintain leather’s beauty and integrity.",
+                    "Store in breathable bags to protect personalized details."
                 ],
-                "type": "image-text",
-                "imageLeft": false,
-                "thumbanil": "https://artisanhide.com/blog/content/blog-020/custom-leather-care.jpg"
+                imageLeft: false,
+            },
+            {
+                type: "image-text",
+                heading: "Why Personalization Matters",
+                para: [
+                    "Custom leather adds sentimental and aesthetic value.",
+                    "Reflect your personality through bespoke designs and details.",
+                    "Artisan Hide’s personalization services create unforgettable pieces."
+                ],
+                imageLeft: true,
+                thumbnail: "/images/blog/blog-020/personalized-leather-value.png",
+                href: "/products/custom-leather-goods"
+            },
+            {
+                type: "faq",
+                heading: "Personalization FAQs",
+                para: [
+                    { Q: "What items can be monogrammed?", A: "Wallets, bags, belts, and more from Artisan Hide." },
+                    { Q: "How durable are engravings?", A: "Deep engravings last with proper leather care." },
+                    { Q: "Can I choose custom colors?", A: "Yes, bespoke dyes are available for unique designs." }
+                ],
             }
         ],
-        "readTime": "5 min read",
-        "status": "published",
-        "seo": {
-            "metaTitle": "Personalizing Leather Goods: Monogramming Guide",
-            "metaDescription": "Customize your leather items with monograms and more. Options from Artisan Hide.",
-            "metaKeywords": ["personalized leather", "monogramming leather", "artisanhide custom"],
-            "canonicalUrl": "https://artisanhide.com/blog/personalizing-leather-goods-monogramming-more",
-            "ogTitle": "Make It Yours: Personalizing Leather",
-            "ogDescription": "Custom touches for unique style.",
-            "ogImage": "https://artisanhide.com/blog/og/personalized-og.jpg",
-            "twitterCard": "summary_large_image"
-        }
-    }
-]
+        readTime: "8 min read",
+        status: "published",
+        seo: {
+            metaTitle: "Personalize Leather Goods: Monogramming Guide | Artisan Hide",
+            metaDescription: "Customize leather with monogramming, engravings, and unique designs from Artisan Hide.",
+            metaKeywords: [
+                "personalized leather goods",
+                "leather monogramming",
+                "artisanhide customization",
+                "custom leather designs",
+                "engraved leather accessories",
+                "bespoke leather products"
+            ],
+            canonicalUrl: "https://artisanhide.com/blog/personalizing-leather-goods-monogramming-more",
+            ogTitle: "Personalize Your Leather Goods",
+            ogDescription: "Unique monogramming and custom designs by Artisan Hide.",
+            ogImage: "/images/blog/blog-020/personalized-og.png",
+            twitterCard: "summary_large_image",
+        },
+    },
+];

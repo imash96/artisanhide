@@ -15,7 +15,7 @@ export default function ProductDesc() {
                         <Image
                             src={item.image}
                             alt={item.heading}
-                            sizes="100vw"
+                            sizes="(min-width: 768px) 8rem, (min-width: 640px) 7rem, 5.5rem"
                             height={400}
                             width={800}
                             className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"

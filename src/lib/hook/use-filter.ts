@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import type { Route } from "next";
 
 interface FilterState {
     filters: Record<string, Set<string>>;
@@ -58,7 +59,7 @@ export const useFilter = () => {
             Promise.resolve().then(() => {
                 try {
                     const href = qs ? `?${qs}` : window.location.pathname;
-                    router.replace(href, { scroll: false });
+                    router.replace(href as Route, { scroll: false });
                 } catch (e) {
                     // swallow (safety) — in practice router.replace should work in client hooks
                     // console.warn("router.replace failed", e);

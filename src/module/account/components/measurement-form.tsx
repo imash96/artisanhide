@@ -58,6 +58,7 @@ export default function MeasurementForm({ measurement, onClose }: MeasurementFor
                         type="text"
                         defaultValue={measurement.name}
                         label="Measurement name"
+                        autoFocus
                         required
                     />
                     <CustomSelect

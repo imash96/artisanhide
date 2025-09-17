@@ -38,6 +38,7 @@ export default function Page() {
                     className="mt-6 relative max-w-xl mx-auto"
                     type="text"
                     value={query}
+                    autoFocus
                     onChange={e => setQuery(e.target.value)}
                     label="Search for questions..."
                 />

@@ -17,6 +17,7 @@ export default function ProfilePersonal({ customer }: { customer: StoreCustomer 
                     name="first_name"
                     label="First Name"
                     autoComplete="given-name"
+                    autoFocus
                     defaultValue={customer.first_name ?? ""}
                 />
                 <Input

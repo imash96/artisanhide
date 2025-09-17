@@ -79,7 +79,7 @@ export default function ProductGallery({ images, title }: ProductGalleryProps) {
                             <Image
                                 src={image.url || "/svg/placeholder.svg"}
                                 alt={`${title} - Image ${index + 1}`}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 45vw"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 70vw"
                                 width={3}
                                 height={4}
                                 className="object-contain h-full w-full object-center text-transparent p-0.5"

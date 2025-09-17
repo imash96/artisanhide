@@ -7,16 +7,18 @@ import { ChevronLeft } from "lucide-react";
 export default function MobileMenuPromotion({
   name,
   isMegaMenu,
+  thumbnail
 }: {
   name?: string;
   isMegaMenu?: boolean;
+  thumbnail?: string
 }) {
   if (!name) return null;
   return (
     <div className="">
       <div className="relative h-[240px]">
         <Image
-          src={(features as FeaturesType)[name][0]?.thumbnail}
+          src={thumbnail || '/svg/placeholder.svg'}
           alt="submenu banner"
           height={400}
           width={600}

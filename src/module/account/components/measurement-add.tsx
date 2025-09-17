@@ -53,6 +53,7 @@ export default function MeasurementAdd() {
                         name="name"
                         maxLength={50}
                         required
+                        autoFocus
                         autoComplete="name"
                         state={state.error?.includes('name') ? 'error' : 'default'}
                         helperText={state.error?.includes('name') ? 'Please enter a valid name' : undefined}

@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import Container from "@module/common/create-section"
 import InteractiveLink from "@module/common/interactive-link"
+import type { Route } from "next"
 
 export default function DashLayout({ children }: LayoutProps<"/policy">) {
   const pathname = usePathname()
@@ -15,12 +16,9 @@ export default function DashLayout({ children }: LayoutProps<"/policy">) {
         <aside className="lg:mx-4 lg:sticky top-20 h-fit space-y-4 border-b lg:border-b-0 lg:pr-0">
           <nav aria-label="policy navigation" className="p-2 flex lg:flex-col gap-2 overflow-x-auto no-scrollbar">
             {navigationItems.map((item) => {
-              const isActive = pathname === item.href
+              const isActive = pathname === item.slug
               return (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  aria-current={isActive ? "page" : undefined}
+                <Link key={item.id} href={`/policy/${item.slug}` as Route} aria-current={isActive ? "page" : undefined}
                   className={`flex items-center m-1 gap-3 border-b-4 lg:border-b-0 lg:border-l-4 px-4 py-2 lg:px-3 lg:py-2.5 rounded-lg transition-all duration-150 ${isActive ? "bg-accent/20 border-accent" : "hover:bg-background-muted lg:border-transparent hover:border-border-hover"} focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1`}
                 >
                   <div className="flex w-full flex-col lg:flex-row items-center justify-center lg:justify-start gap-1 lg:gap-3">
@@ -73,35 +71,35 @@ const navigationItems = [
     id: "privacy",
     label: "Privacy Policy",
     icon: ShieldCheck,
-    href: "/policy/privacy-policy",
+    slug: "privacy-policy",
     description: "How we protect your data",
   },
   {
     id: "return",
     label: "Return & Refund",
     icon: RotateCcw,
-    href: "/policy/return-and-refund-policy",
+    slug: "return-and-refund-policy",
     description: "Easy returns & refunds",
   },
   {
     id: "shipping",
     label: "Shipping Policy",
     icon: Truck,
-    href: "/policy/shipping-policy",
+    slug: "shipping-policy",
     description: "Delivery details",
   },
   {
     id: "payment",
     label: "Payment Policy",
     icon: CreditCard,
-    href: "/policy/payment-policy",
+    slug: "payment-policy",
     description: "Secure payments",
   },
   {
     id: "terms",
     label: "Terms of Sale",
     icon: FileText,
-    href: "/policy/terms-of-sale",
+    slug: "terms-of-sale",
     description: "Purchase terms",
   },
 ]
