@@ -1,46 +1,53 @@
+"use client";
+
+import * as React from "react";
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
+import { BreadcrumbItem } from "@/type/common";
 import type { Route } from "next";
-import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@module/ui/breadcrumb";
-import { BreadcrumbItem as Crumb } from "@/type/common";
+import { cn } from "@lib/utils";
 
 type BreadcrumbProps = {
-  crumbs: Crumb[];
+  crumbs: BreadcrumbItem[];
   className?: string;
 };
 
-export default function BreadcrumbComp({
-  crumbs,
-  className = "",
-}: BreadcrumbProps) {
+export function Breadcrumb({ crumbs, className }: BreadcrumbProps) {
   return (
-    <Breadcrumb className={className}>
-      <BreadcrumbList>
-        {crumbs.map((item, index) => {
-          const isLast = index === crumbs.length - 1;
+    <nav
+      aria-label="breadcrumb"
+      className={cn("w-full overflow-x-auto whitespace-nowrap", className)}
+    >
+      <ol className="flex items-center text-sm text-muted-foreground">
+        {crumbs.map((item, idx) => {
+          const isLast = idx === crumbs.length - 1;
 
           return (
-            <BreadcrumbItem key={item.href}>
-              {isLast ? (
-                <BreadcrumbPage>{item.name}</BreadcrumbPage>
+            <li
+              key={item.href}
+              className="flex items-center"
+              aria-current={isLast ? "page" : undefined}
+            >
+              {!isLast ? (
+                <Link
+                  href={item.href as Route}
+                  className="hover:text-foreground transition-colors"
+                >
+                  {item.name}
+                </Link>
               ) : (
-                <>
-                  <BreadcrumbLink href={item.href as Route}>
-                    {item.name}
-                  </BreadcrumbLink>
-                  <BreadcrumbSeparator />
-                </>
+                <span className="font-medium text-foreground">{item.name}</span>
               )}
-            </BreadcrumbItem>
+              {!isLast && (
+                <ChevronRight
+                  className="mx-2 h-4 w-4 text-muted-foreground"
+                  aria-hidden="true"
+                />
+              )}
+            </li>
           );
         })}
-      </BreadcrumbList>
-    </Breadcrumb>
+      </ol>
+    </nav>
   );
 }

@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import Container from "@module/common/create-section";
 import PaginatedProducts from "@module/category/templates/paginated-products";
-import Breadcrumb from "@module/product/components/product-breadcrumb";
 import { StoreProductCategory } from "@medusajs/types";
+import { Breadcrumb } from "@module/product/components/product-breadcrumb";
 
 export default async function Page(
   props: PageProps<"/category/[...category]">
