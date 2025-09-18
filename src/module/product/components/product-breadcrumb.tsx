@@ -31,8 +31,8 @@ export default function BreadcrumbComp({
                 <BreadcrumbPage>{item.name}</BreadcrumbPage>
               ) : (
                 <>
-                  <BreadcrumbLink asChild>
-                    <Link href={item.href as Route}>{item.name}</Link>
+                  <BreadcrumbLink href={item.href as Route}>
+                    {item.name}
                   </BreadcrumbLink>
                   <BreadcrumbSeparator />
                 </>
