@@ -19,6 +19,7 @@
     "@stripe/react-stripe-js": "^4.0.0",
     "@stripe/stripe-js": "^7.9.0",
     "canvas-confetti": "^1.9.3",
+    "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "holy-loader": "^2.3.0",
@@ -28,7 +29,8 @@
     "react": "~19.1.0",
     "react-country-flag": "^3.1.0",
     "react-dom": "~19.1.0",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",

@@ -1,28 +1,46 @@
-import { BreadcrumbItem } from "@/type/common";
-import { ChevronRight } from "lucide-react";
-import type { Route } from "next";
 import Link from "next/link";
+import type { Route } from "next";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@module/ui/breadcrumb";
+import { BreadcrumbItem as Crumb } from "@/type/common";
 
 type BreadcrumbProps = {
-    crumbs: BreadcrumbItem[];
-    className?: string;
+  crumbs: Crumb[];
+  className?: string;
 };
 
-export default function Breadcrumb({ crumbs, className = "" }: BreadcrumbProps) {
-    return (
-        <nav aria-label="Breadcrumb" className={`flex flex-wrap text-sm font-medium ${className}`}>
-            <ol role="list" className="flex items-center text-foreground-muted">
-                {crumbs.map((item, idx) => (
-                    <li key={item.href} className={`flex items-center ${idx === crumbs.length - 1 ? "font-semibold" : ""}`} aria-current={idx === crumbs.length - 1 ? "page" : undefined}>
-                        <Link href={item.href as Route} className="" >
-                            {item.name}
-                        </Link>
-                        {/* {idx < crumbs.length - 1 && */}
-                        <ChevronRight className="h-4 w-4 text-foreground-muted mx-1" aria-hidden="true" />
-                        {/* } */}
-                    </li>
-                ))}
-            </ol>
-        </nav>
-    );
+export default function BreadcrumbComp({
+  crumbs,
+  className = "",
+}: BreadcrumbProps) {
+  return (
+    <Breadcrumb className={className}>
+      <BreadcrumbList>
+        {crumbs.map((item, index) => {
+          const isLast = index === crumbs.length - 1;
+
+          return (
+            <BreadcrumbItem key={item.href}>
+              {isLast ? (
+                <BreadcrumbPage>{item.name}</BreadcrumbPage>
+              ) : (
+                <>
+                  <BreadcrumbLink asChild>
+                    <Link href={item.href as Route}>{item.name}</Link>
+                  </BreadcrumbLink>
+                  <BreadcrumbSeparator />
+                </>
+              )}
+            </BreadcrumbItem>
+          );
+        })}
+      </BreadcrumbList>
+    </Breadcrumb>
+  );
 }
