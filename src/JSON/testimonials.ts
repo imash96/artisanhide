@@ -1,74 +1,72 @@
 export const testimonials = [
     {
         id: 1,
-        star: 3,
-        name: "Emily Carter",
-        review:
-            "I absolutely love the 'Midnight Bloom' perfume! It's the perfect blend of floral and musky notes. Lasts all day and gets me so many compliments!",
-        image:
-            "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+        star: 5,
+        name: "Israel Perez-siam",
+        review: "The loafers are comfortable and sharp—genuine leather that polishes up beautifully. Perfect for office or weekends. Artisan Hide's sizing was spot-on; will buy again soon!",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60",
     },
     {
         id: 2,
         star: 4,
-        name: "Michael Johnson",
-        review:
-            "The 'Ocean Breeze' cologne is my new favorite. It's fresh, light, and perfect for everyday wear. Highly recommend it to anyone looking for a versatile scent.",
-        image:
-            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+        name: "David Ramirez",
+        review: "Bought the leather messenger bag for work, and it's perfect. Spacious, stylish, and holds up great after daily use. The stitching is top-notch—Artisan Hide nailed it!",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60",
     },
     {
         id: 3,
         star: 5,
-        name: "Sophia Lee",
-        review:
-            "I've been using 'Vanilla Whisper' for months now, and it's my go-to fragrance. It's warm, sweet, and not overpowering. Perfect for any occasion!",
-        image:
-            "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+        name: "Aisha Patel",
+        review: "My new leather wallet from Artisan Hide is sleek and functional. Love the RFID protection and how the leather feels premium. It's already my everyday essential—highly recommend!",
+        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&auto=format&fit=crop&q=60",
     },
     {
         id: 4,
-        star: 3,
-        name: "Daniel Brown",
-        review:
-            "The 'Sandalwood Serenity' is incredible! It's rich, woody, and has a calming effect. I wear it to work and even on dates. Always a hit!",
-        image:
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+        star: 5,
+        name: "Marcus Johnson",
+        review: "These Chelsea boots are incredible! Comfortable right out of the box, and the leather quality shines through. Artisan Hide delivers on style and longevity—my go-to for fall.",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60",
     },
     {
         id: 5,
         star: 4,
-        name: "Olivia Martinez",
-        review:
-            "I bought 'Citrus Splash' for summer, and it's amazing! So refreshing and energizing. It's like a burst of sunshine in a bottle.",
-        image:
-            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+        name: "Elena Vasquez",
+        review: "The trench coat exceeded my expectations. Elegant fit, weather-resistant, and the leather has that beautiful patina starting to show. Artisan Hide is my new favorite brand!",
+        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60",
     },
     {
         id: 6,
         star: 5,
-        name: "James Wilson",
-        review:
-            "The 'Leather & Spice' cologne is bold and unique. It's perfect for evenings out and always gets noticed. Definitely worth the purchase!",
-        image:
-            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+        name: "Liam O'Connor",
+        review: "Picked up leather pants and they're fantastic—stretchy yet structured, perfect for casual outings. The craftsmanship from Artisan Hide is evident; feels like an investment piece.",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=60",
     },
     {
         id: 7,
         star: 5,
-        name: "Ava Taylor",
-        review:
-            "I'm obsessed with 'Rose Elegance'! It's such a classic, sophisticated scent. I wear it to weddings and formal events, and it never disappoints.",
-        image:
-            "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+        name: "Jasmine Lee",
+        review: "This leather belt transformed my outfits! Adjustable, high-quality buckle, and the leather molds perfectly over time. Artisan Hide's attention to detail is unmatched—love it!",
+        image: "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?w=500&auto=format&fit=crop&q=60",
     },
     {
         id: 8,
         star: 4,
-        name: "William Clark",
-        review:
-            "The 'Pine Forest' fragrance is so unique and earthy. It reminds me of hiking in the mountains. Great for nature lovers!",
-        image:
-            "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+        name: "Carlos Mendoza",
+        review: "The driving gloves are a solid buy—supple leather, great grip, and stylish for road trips. They run a tad snug at first, but break in nicely. Thanks, Artisan Hide!",
+        image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=60",
+    },
+    {
+        id: 9,
+        star: 5,
+        name: "Mia Thompson",
+        review: "Obsessed with my new leather vest! Adds edge to any look, and the quality is outstanding—soft, ethical leather that feels luxurious. Artisan Hide has won me over completely.",
+        image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=60",
+    },
+    {
+        id: 10,
+        star: 5,
+        name: "Sarah Mitchell",
+        review: "The Artisan Hide biker jacket is a game-changer! The genuine leather is so soft yet durable, and it fits like a glove. I've gotten compliments everywhere—worth every penny for the quality.",
+        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60",
     },
 ];

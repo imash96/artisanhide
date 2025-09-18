@@ -21,11 +21,16 @@ interface BlogPost {
  * Discriminated union for content blocks
  */
 type BlogContent = {
-    type: "text" | "image-text"
+    type: "text"
+    heading?: string
+    para: string[]
+    href?: string
+} | {
+    type: "image-text"
     heading?: string
     para: string[]
     imageLeft: boolean
-    thumbnail?: string
+    thumbnail: string
     href?: string
 } | {
     type: "faq"

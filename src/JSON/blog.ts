@@ -32,7 +32,6 @@ export const blogData: BlogPost[] = [
                     "Regular care prevents cracks, fading, and odors, preserving natural oils. This guide shares essential maintenance tips for longevity.",
                     "Proper care enhances both aesthetics and functionality, ensuring your jacket remains a wardrobe staple."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -53,7 +52,6 @@ export const blogData: BlogPost[] = [
                     "Test conditioner on a hidden area, apply evenly, and let absorb overnight for best results.",
                     "Beeswax-based conditioners add shine and protection, ideal for all climates."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -75,7 +73,6 @@ export const blogData: BlogPost[] = [
                     "Breathable dust bags prevent moisture buildup, unlike plastic which promotes mold.",
                     "Condition before long-term storage to keep leather hydrated and ready for wear."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -85,7 +82,7 @@ export const blogData: BlogPost[] = [
                     "Keep jackets away from radiators or direct heat to prevent cracking.",
                     "Overusing sprays can clog leather pores, so use sparingly for best results."
                 ],
-                imageLeft: false,
+                imageLeft: true,
                 thumbnail: "/images/blog/blog-001/leather-storage.png",
             },
             {
@@ -155,7 +152,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide’s collection showcases vibrant colors, sustainable materials, and versatile designs.",
                     "Expect pieces that transition from casual to formal, redefining leather’s role in modern wardrobes."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -176,7 +172,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide prioritizes vegetable-tanned leather for sustainability and quality.",
                     "Look for certifications like Leather Working Group for ethical sourcing."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -198,7 +193,6 @@ export const blogData: BlogPost[] = [
                     "Mix textures and colors for personalized, standout looks.",
                     "Artisan Hide’s 2025 accessories collection is designed for versatility."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -276,7 +270,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide’s collection includes slim-fit jeans and wide-leg trousers for all occasions.",
                     "Their durability and sleek style make them perfect year-round."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -297,7 +290,6 @@ export const blogData: BlogPost[] = [
                     "Neutral tones like black or charcoal maintain workplace sophistication.",
                     "Add a leather belt for a cohesive, refined look."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -318,7 +310,6 @@ export const blogData: BlogPost[] = [
                     "Layer strategically to adapt leather pants to any climate.",
                     "Artisan Hide’s breathable leather ensures comfort year-round."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -394,7 +385,6 @@ export const blogData: BlogPost[] = [
                     "Ancient Egyptians crafted ornate leather garments for royalty and ceremonies.",
                     "By Roman times, leather was key for durable sandals and military armor."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -415,7 +405,6 @@ export const blogData: BlogPost[] = [
                     "Iconic cowboy jackets emerged, blending utility with rugged style.",
                     "Mass production set the stage for leather’s modern fashion dominance."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -436,7 +425,6 @@ export const blogData: BlogPost[] = [
                     "Modern designs blend tradition with eco-conscious innovation.",
                     "Leather remains versatile, from streetwear to high fashion."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -458,7 +446,6 @@ export const blogData: BlogPost[] = [
                     "Leather’s adaptability ensures its place in evolving fashion trends.",
                     "Explore Artisan Hide’s collection to embrace this timeless material."
                 ],
-                imageLeft: false,
             }
         ],
         readTime: "8 min read",
@@ -513,7 +500,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide’s bags offer durability, style, and practical compartments.",
                     "Perfect for frequent travelers seeking reliability and elegance."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -534,7 +520,6 @@ export const blogData: BlogPost[] = [
                     "Laptop sleeves and hidden pockets add practicality for urban travel.",
                     "Classic tan or black options suit both professional and casual settings."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -555,7 +540,6 @@ export const blogData: BlogPost[] = [
                     "Store stuffed with tissue to maintain shape during off-seasons.",
                     "Use Artisan Hide’s care products for optimal leather longevity."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -633,7 +617,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide’s wallets include RFID-blocking for security.",
                     "Cardholders and money clips suit those prioritizing compactness."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -654,7 +637,6 @@ export const blogData: BlogPost[] = [
                     "Monogramming options personalize your wallet for gifting or style.",
                     "RFID protection is essential for modern security needs."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -675,7 +657,6 @@ export const blogData: BlogPost[] = [
                     "Store in dry areas to prevent fading or mold.",
                     "Artisan Hide’s wallets are built to last with proper care."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -697,7 +678,6 @@ export const blogData: BlogPost[] = [
                     "Prioritize brands with ethical sourcing, like Artisan Hide.",
                     "Balance style and function to suit your daily needs."
                 ],
-                imageLeft: false,
             }
         ],
         readTime: "8 min read",
@@ -753,7 +733,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide uses vegetable tanning and traceable supply chains for responsibility.",
                     "It’s often a byproduct, reducing waste from the meat industry."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -774,7 +753,6 @@ export const blogData: BlogPost[] = [
                     "Real leather lasts longer, reducing replacement frequency.",
                     "Choose sustainable real leather for lower long-term impact."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -795,7 +773,6 @@ export const blogData: BlogPost[] = [
                     "Proper care extends product life, reducing environmental footprint.",
                     "Look for recycled or upcycled leather options."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -872,7 +849,6 @@ export const blogData: BlogPost[] = [
                     "Pros: Long-lasting, breathable, ages beautifully. Cons: Requires maintenance, higher cost.",
                     "Artisan Hide’s premium leather ensures quality and longevity."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -893,7 +869,6 @@ export const blogData: BlogPost[] = [
                     "Genuine leather’s investment value outweighs initial cost over time.",
                     "Conditioning enhances real leather’s lifespan significantly."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -915,7 +890,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide offers both genuine and sustainable options for versatility.",
                     "Test both to find the best fit for your needs."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -989,7 +963,6 @@ export const blogData: BlogPost[] = [
                     "Leather adds luxury and durability, ideal for standout occasions.",
                     "Artisan Hide crafts bespoke suits tailored to your vision."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1010,7 +983,6 @@ export const blogData: BlogPost[] = [
                     "Customize linings, buttons, and pockets for personal flair.",
                     "Colors range from classic black to bespoke dyes for uniqueness."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1031,7 +1003,6 @@ export const blogData: BlogPost[] = [
                     "Maintain with professional cleaning to preserve leather quality.",
                     "Accessorize with leather shoes and belts for a polished look."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1106,7 +1077,6 @@ export const blogData: BlogPost[] = [
                     "Lined with shearling or fur, Artisan Hide’s coats provide superior warmth.",
                     "Durable designs withstand harsh winter conditions with style."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1127,7 +1097,6 @@ export const blogData: BlogPost[] = [
                     "Layer with sweaters for extra warmth without bulk.",
                     "Timeless silhouettes ensure year-round wearability."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1148,7 +1117,6 @@ export const blogData: BlogPost[] = [
                     "Choose versatile pieces for both warmth and fashion.",
                     "Invest in quality for coats that last multiple winters."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1225,7 +1193,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide’s pieces are crafted for durability and professional appeal.",
                     "From meetings to networking, leather elevates your presence."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1246,7 +1213,6 @@ export const blogData: BlogPost[] = [
                     "Match with shoes for polished, cohesive outfits.",
                     "Classic black or brown ensures timeless pairing options."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1268,7 +1234,6 @@ export const blogData: BlogPost[] = [
                     "Store in dust bags to protect from scratches and dust.",
                     "Artisan Hide’s accessories are built for enduring style."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1346,7 +1311,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide blends classic boots and shoes with modern trends.",
                     "From rugged to refined, find pieces for every occasion."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1367,7 +1331,6 @@ export const blogData: BlogPost[] = [
                     "Oxfords with brogue details add character to formal wear.",
                     "Suede sneakers offer comfort with elevated fall aesthetics."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1388,7 +1351,6 @@ export const blogData: BlogPost[] = [
                     "Condition regularly to combat dry air and maintain suppleness.",
                     "Use shoe trees to preserve shape during storage."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1464,7 +1426,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide’s pillow covers and accents suit minimalist or bold styles.",
                     "Durable and elegant, leather creates inviting living spaces."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1485,7 +1446,6 @@ export const blogData: BlogPost[] = [
                     "Combine with wood or metal for balanced, modern interiors.",
                     "Custom pieces allow personalized touches for unique spaces."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1506,7 +1466,6 @@ export const blogData: BlogPost[] = [
                     "Shop Artisan Hide’s decor for a transformative home upgrade.",
                     "Curated collections blend style with practicality."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1581,7 +1540,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide uses soft, safe leathers for comfort and style.",
                     "Long-lasting pieces grow with kids, offering value."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1602,7 +1560,6 @@ export const blogData: BlogPost[] = [
                     "Waterproof options protect against puddles and rain.",
                     "Comfortable fits support growing feet without sacrificing style."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1623,7 +1580,6 @@ export const blogData: BlogPost[] = [
                     "Store in breathable bags to maintain shape and quality.",
                     "Rotate pieces to extend wear and keep wardrobes fresh."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1698,7 +1654,6 @@ export const blogData: BlogPost[] = [
                     "Skilled artisans bring decades of expertise to every piece.",
                     "Each item reflects our commitment to quality and detail."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1719,7 +1674,6 @@ export const blogData: BlogPost[] = [
                     "Hand-stitching adds durability and artisanal charm.",
                     "Traditional tools meet modern techniques for flawless results."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1740,7 +1694,6 @@ export const blogData: BlogPost[] = [
                     "Eco-friendly practices reduce environmental impact.",
                     "Artisan Hide commits to sustainable, ethical production."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1816,7 +1769,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide designs for bold, inclusive, and expressive women.",
                     "From jackets to skirts, leather elevates every wardrobe."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1837,7 +1789,6 @@ export const blogData: BlogPost[] = [
                     "Pair with soft blouses or knits for balanced elegance.",
                     "Wide-leg trousers and pencil skirts lead 2025 trends."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1858,7 +1809,6 @@ export const blogData: BlogPost[] = [
                     "Proper care extends life, aligning with sustainable values.",
                     "Artisan Hide’s women’s collection blends ethics with fashion."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1936,7 +1886,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide offers timeless designs blending classic and modern aesthetics.",
                     "Invest in quality essentials for versatility across seasons and trends."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1957,7 +1906,6 @@ export const blogData: BlogPost[] = [
                     "Match belt hardware with shoes for a polished, cohesive look.",
                     "Classic colors ensure longevity and easy coordination."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -1978,7 +1926,6 @@ export const blogData: BlogPost[] = [
                     "Store in breathable bags to avoid moisture damage.",
                     "Regular cleaning keeps Artisan Hide pieces looking pristine."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -2055,7 +2002,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide champions sustainability through ethical sourcing and green methods.",
                     "Modern tanning reduces environmental impact while preserving quality."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -2076,7 +2022,6 @@ export const blogData: BlogPost[] = [
                     "Blends with recycled materials create unique, sustainable products.",
                     "Artisan Hide’s upcycled designs reduce environmental footprint."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -2097,7 +2042,6 @@ export const blogData: BlogPost[] = [
                     "Invest in durable, timeless pieces to reduce consumption.",
                     "Artisan Hide’s sustainable collection blends style and responsibility."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -2173,7 +2117,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide’s summer collection prioritizes breathability and style.",
                     "Perfect for adding edge to summer wardrobes without overheating."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -2194,7 +2137,6 @@ export const blogData: BlogPost[] = [
                     "Soft leather t-shirts add edge without heavy weight.",
                     "Neutral tones ensure versatility for summer styling."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -2215,7 +2157,6 @@ export const blogData: BlogPost[] = [
                     "Store in cool, dry places to avoid sun exposure damage.",
                     "Use Artisan Hide’s care products for optimal maintenance."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -2289,7 +2230,6 @@ export const blogData: BlogPost[] = [
                     "Artisan Hide offers expert customization for unique, lasting pieces.",
                     "From wallets to bags, add a personal touch to elevate style."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -2310,7 +2250,6 @@ export const blogData: BlogPost[] = [
                     "Incorporate dates, quotes, or logos for sentimental value.",
                     "Artisan Hide ensures precision for durable, beautiful results."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",
@@ -2331,7 +2270,6 @@ export const blogData: BlogPost[] = [
                     "Condition sparingly to maintain leather’s beauty and integrity.",
                     "Store in breathable bags to protect personalized details."
                 ],
-                imageLeft: false,
             },
             {
                 type: "image-text",

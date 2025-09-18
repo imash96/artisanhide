@@ -15,13 +15,14 @@ export async function generateMetadata(props: PageProps<"/blog/[slug]">) {
     }
 
     return {
+        metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
         title: blog.seo?.metaTitle || blog.title,
         description: blog.seo?.metaDescription || blog.excerpt,
         openGraph: {
-            siteName: "Artisan Hide",
+            siteName: "Artisan Hide Blogs",
             title: blog.seo?.ogTitle || blog.title,
             description: blog.seo?.ogDescription || blog.excerpt,
-            url: `${process.env.FRONTEND_URL}/blog/${blog.slug}`,
+            url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${blog.slug}`,
             type: "article",
             images: [
                 {
@@ -39,7 +40,7 @@ export async function generateMetadata(props: PageProps<"/blog/[slug]">) {
             images: [blog.thumbnail],
         },
         alternates: {
-            canonical: `${process.env.FRONTEND_URL}/blog/${blog.slug}`,
+            canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${blog.slug}`,
         },
     };
 }
@@ -57,8 +58,8 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                     {blog.title}
                 </h1>
-                <div className="flex flex-wrap items-center gap-4 text-sm text-foreground-muted">
-                    <span>Published on {new Date(blog.uploadDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                <div className="flex flex-wrap items-center gap-2 text-sm text-foreground-muted">
+                    <span>Published on {new Date(blog.uploadDate).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: 'numeric' })}</span>
                     <span>•</span>
                     <span>By {blog.author.name}</span>
                     <span>•</span>
@@ -102,36 +103,56 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
                         );
                     }
 
-                    return (
-                        <section
-                            key={index}
-                            className={`flex flex-col ${section.imageLeft ? 'md:flex-row-reverse' : 'md:flex-row'} gap-6 md:gap-8 items-center`}
-                        >
-                            {section.thumbnail && (
+                    if (section.type === "text") {
+                        return (
+                            <section key={index} className={`flex flex-col md:flex-row gap-6 md:gap-8 items-center`} >
+
+                                <div className={`w-full space-y-4`}>
+                                    {section.heading && (
+                                        <h2 className="text-2xl md:text-3xl font-semibold">
+                                            {section.heading}
+                                        </h2>
+                                    )}
+                                    {section.para.map((paragraph, pIndex) => (
+                                        <p key={pIndex} className="leading-relaxed">
+                                            {paragraph}
+                                        </p>
+                                    ))}
+                                </div>
+                            </section>
+                        );
+                    }
+
+                    if (section.type === "image-text") {
+                        return (
+                            <section
+                                key={index}
+                                className={`flex flex-col ${section.imageLeft ? 'md:flex-row-reverse' : 'md:flex-row'} gap-6 md:gap-8 items-center`}
+                            >
                                 <div className="w-full md:w-1/2 relative h-64 shadow-md">
                                     <Image
                                         src={section.thumbnail}
                                         alt={section.heading || 'Blog image'}
                                         fill
-                                        sizes="(min-width: 768px) 12rem, (min-width: 640px) 15rem, 16rem"
+                                        sizes="(max-width: 768px) 70vw, 30vw"
                                         className="object-cover"
                                     />
                                 </div>
-                            )}
-                            <div className={`${section.thumbnail ? 'w-full md:w-1/2' : 'w-full'} space-y-4`}>
-                                {section.heading && (
-                                    <h2 className="text-2xl md:text-3xl font-semibold">
-                                        {section.heading}
-                                    </h2>
-                                )}
-                                {section.para.map((paragraph, pIndex) => (
-                                    <p key={pIndex} className="leading-relaxed">
-                                        {paragraph}
-                                    </p>
-                                ))}
-                            </div>
-                        </section>
-                    );
+                                <div className={`w-full md:w-1/2 space-y-4`}>
+                                    {section.heading && (
+                                        <h2 className="text-2xl md:text-3xl font-semibold">
+                                            {section.heading}
+                                        </h2>
+                                    )}
+                                    {section.para.map((paragraph, pIndex) => (
+                                        <p key={pIndex} className="leading-relaxed">
+                                            {paragraph}
+                                        </p>
+                                    ))}
+                                </div>
+                            </section>
+                        );
+                    }
                 })}
             </div>
 

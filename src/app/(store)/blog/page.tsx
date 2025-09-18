@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Our Blogs",
     description: "Discover the latest trends, care tips, and style inspiration from the world of leather fashion at Artisan Hide.",
     alternates: {
-        canonical: `${process.env.FRONTEND_URL}/blog`,
+        canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blog`,
     },
 };
 
